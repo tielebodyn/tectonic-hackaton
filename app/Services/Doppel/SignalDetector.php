@@ -31,6 +31,7 @@ class SignalDetector
             new Rules\AddressChangesRule,
             new Rules\WinterEnergyBillRule,
             new Rules\HomeInsuranceRule,
+            new Rules\StormInsuranceRule,
             new Rules\VatShortfallRule,
             new Rules\UnpaidClientRule,
             new Rules\SubscriptionCleanupRule,
