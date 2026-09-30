@@ -13,7 +13,8 @@ The app is in Dutch, like KBC Mobile for Flemish customers. The main parts:
 | In the app | What it does |
 |---|---|
 | **Mijn dagboek** | Timeline of upcoming moments, each with a date and a confidence level. |
-| **Acties** | Per moment: a KBC offer, a partner offer, or a card with **no sales pitch at all** ("Geen verkoop"). |
+| **Action cards** | Per moment: a KBC offer, a partner offer, or a card with **no sales pitch at all** ("Geen verkoop"). |
+| **Push preview** | The most urgent diary moment, shown as the push notification the customer would get. Push and app come from the same diary. |
 | **Wat Doppel zag** | Every card shows the transactions and signals that led to it. |
 | **Zo ben ik niet** | The customer corrects their double. The card disappears and Doppel stops using that rule. |
 | **Wat als ik…** | Replay the month with one change (€100 a month savings, or a fixed energy contract). |
@@ -71,7 +72,7 @@ ddev npm install
 ddev npm run build
 ```
 
-Open https://tectonic-hackaton.ddev.site. In demo mode you land in Karim's app. Use the demo bar at the top to switch persona, **Simuleer transactie** to trigger Karim's live event, and the reset button to start over.
+Open https://tectonic-hackaton.ddev.site. In demo mode you land on the welcome screen: pick a persona (or open `/?as=karim`). In the app, use the demo bar at the top to switch persona, **Simuleer transactie** to trigger Karim's live event, and the reset button to start over.
 
 ## What is unfinished
 
