@@ -8,6 +8,7 @@ import DiaryTimeline from '@/components/doppel/DiaryTimeline';
 import Doppel from '@/components/doppel/Doppel';
 import ForkView from '@/components/doppel/ForkView';
 import ProfileTab from '@/components/doppel/ProfileTab';
+import PushPreview from '@/components/doppel/PushPreview';
 import SpeechBubble from '@/components/doppel/SpeechBubble';
 import TabBar, { type Tab } from '@/components/doppel/TabBar';
 import WhyDrawer from '@/components/doppel/WhyDrawer';
@@ -60,6 +61,13 @@ export default function DoppelShow(props: ShowProps) {
     const visibleCards = cards.filter(
         (c) => c.id === null || !hidden.includes(c.id),
     );
+    // Pushmelding uit hetzelfde dagboek: het dringendste moment bovenaan.
+    const pushCard = visibleCards[0] ?? null;
+    const pushText = pushCard
+        ? customer.mood === 'paused'
+            ? `${pushCard.title}. Dit is groter dan een tip, wil je dat iemand van KBC meekijkt?`
+            : `${shortDate(pushCard.expected_on)}: ${pushCard.title}. Wil je zien wat ik zag?`
+        : null;
     const impact = cards.reduce(
         (sum, c) => sum + Math.min(0, c.impact_cents ?? 0),
         0,
@@ -165,6 +173,21 @@ export default function DoppelShow(props: ShowProps) {
 
                 {tab === 'home' && (
                     <>
+                        {pushCard && pushText && phase === 'idle' && (
+                            <div className="relative z-10 px-5 pt-5">
+                                <p className="mb-1.5 text-[11px] font-semibold tracking-[0.16em] text-ink/40 uppercase">
+                                    Zo kreeg je het als pushmelding
+                                </p>
+                                <PushPreview
+                                    className="w-full"
+                                    text={pushText}
+                                    mood={mood}
+                                    variant={customer.mascot_variant}
+                                    onClick={() => openWhy(pushCard)}
+                                />
+                            </div>
+                        )}
+
                         <header className="relative z-10 flex items-center gap-3 px-5 pt-6">
                             <div
                                 className={`grid size-12 shrink-0 place-items-center overflow-hidden rounded-full bg-kbc/10 ${nod ? 'animate-doppel-nod' : ''}`}
