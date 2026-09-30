@@ -31,10 +31,10 @@ Everything runs inside the container. Never call `php`, `composer`, `npm` or `ar
 on the host.
 
 - `ddev artisan ...`, `ddev composer ...`, `ddev php ...`, `ddev npm ...`.
-- `ddev npm run dev` serves Vite on https://tectonic-hackaton.ddev.site:5173, `ddev npm run
-  build` builds.
-- `ddev npm run check` formats and lints the frontend, `ddev npm run check:fix` fixes it, `ddev
-  npm run types:check` is tsc. The tool is vite-plus (`vp`), not eslint or prettier.
+- `ddev npm run dev` serves Vite on https://tectonic-hackaton.ddev.site:5173,
+  `ddev npm run build` builds.
+- `ddev npm run check` formats and lints the frontend, `ddev npm run check:fix` fixes it,
+  `ddev npm run types:check` is tsc. The tool is vite-plus (`vp`), not eslint or prettier.
 - `ddev composer lint` is Pint for PHP.
 - Node is pinned by `.nvmrc`, which is what `nodejs_version: auto` in the ddev config reads.
 
@@ -63,8 +63,8 @@ passkeys and the settings pages already exist and need no work.
 
 ## Data
 
-- MySQL 8.0 in ddev, not SQLite. Migrate with `ddev artisan migrate`, reset with `ddev artisan
-  migrate:fresh --seed`.
+- MySQL 8.0 in ddev, not SQLite. Migrate with `ddev artisan migrate`, reset with
+  `ddev artisan migrate:fresh --seed`.
 - Demo data lives in seeders, generated with Faker's `nl_BE` locale for Belgian names and
   `iban('BE')`.
 - Never use or ask for real customer data.
