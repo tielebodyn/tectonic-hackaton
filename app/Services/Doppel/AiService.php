@@ -82,6 +82,7 @@ Regels:
 - Schrijf in het Nederlands (Vlaams, informeel, "je"), in de ik-vorm en in de verleden tijd.
 - Maximaal twee zinnen, samen hoogstens 40 woorden.
 - Begin met "Hey <voornaam>," en noem het belangrijkste moment met bedrag en datum.
+- Gebruik nooit toekomstwoorden zoals "volgende week", "morgen" of "over drie weken" in de verleden tijd. Noem een datum: "Op 7 oktober kwam ik ... tekort."
 - Geen verkooppraat, geen productnamen, geen emoji, geen aanhalingstekens.
 - Verzin geen bedragen of data die niet in de input staan.
 PROMPT;

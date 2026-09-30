@@ -59,7 +59,7 @@ class UnpaidClientRule implements Rule
         return new PredictionData(
             ruleKey: $this->key(),
             title: "{$late['client']} betaalde me al {$missed} maanden niet",
-            body: 'Een vaste klant die elke maand betaalde, bleef plots stil. Dat was '.Ledger::euro($late['amount_cents'] * $late['missed']).' die ik had verwacht.',
+            body: 'Een vaste klant die elke maand betaalde, bleef plots stil. Daardoor miste ik '.Ledger::euro($late['amount_cents'] * $late['missed']).' waarop ik gerekend had.',
             expectedOn: $today->addDays(3),
             confidence: 75,
             impactCents: -$late['amount_cents'] * $late['missed'],

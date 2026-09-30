@@ -46,7 +46,7 @@ class NoBufferRule implements Rule
         return new PredictionData(
             ruleKey: $this->key(),
             title: 'Op het eind van de maand stond mijn rekening bijna op nul',
-            body: 'Ik had geen spaarbuffer. Eén onverwachte rekening, zoals een kapotte laptop, en ik kwam krap te zitten.',
+            body: 'Ik had geen spaarbuffer. Eén onverwachte rekening, zoals een kapotte laptop, en ik had krap gezeten.',
             expectedOn: $today->addMonthNoOverflow()->endOfMonth()->startOfDay(),
             confidence: 75,
             impactCents: null,

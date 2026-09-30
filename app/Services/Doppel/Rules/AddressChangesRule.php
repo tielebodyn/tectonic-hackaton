@@ -39,8 +39,8 @@ class AddressChangesRule implements Rule
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: "Deze maand moest ik bij {$count} instanties mijn adres wijzigen",
-            body: "Na de verhuis moest ik mijn nieuwe adres doorgeven aan {$list}. Wie ik vergat, stuurde de post nog naar het oude huis.",
+            title: "Ik moest bij {$count} instanties mijn adres wijzigen",
+            body: "Na de verhuis moest ik mijn nieuwe adres doorgeven aan {$list}. Wie ik vergat, stuurde mijn post nog naar het oude adres.",
             expectedOn: $today->addDays(14),
             confidence: 90,
             impactCents: null,

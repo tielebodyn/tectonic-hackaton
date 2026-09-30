@@ -49,7 +49,7 @@ class WinterEnergyBillRule implements Rule
         if (Ledger::mentions($last, [Ledger::FIXED_TARIFF_MARKER])) {
             return new PredictionData(
                 ruleKey: $this->key(),
-                title: 'Mijn energievoorschot bleef deze winter gewoon gelijk',
+                title: 'Mijn energievoorschot bleef de hele winter gelijk',
                 body: "Met een vast tarief bij {$supplier} betaalde ik ook in de koude maanden hetzelfde voorschot.",
                 expectedOn: $today->addDays(30),
                 confidence: 80,

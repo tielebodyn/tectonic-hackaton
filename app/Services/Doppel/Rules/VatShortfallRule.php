@@ -52,8 +52,8 @@ class VatShortfallRule implements Rule
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: 'Over '.self::weeks($today, $deadline).' kwam ik '.Ledger::euro($shortfall).' tekort voor mijn btw',
-            body: 'Op '.Ledger::date($deadline).' moest mijn btw voor dit kwartaal betaald zijn. Na mijn vaste kosten stond er niet genoeg meer op de rekening.',
+            title: 'Op '.Ledger::date($deadline).' kwam ik '.Ledger::euro($shortfall).' tekort voor mijn btw',
+            body: 'Toen moest mijn btw voor dit kwartaal betaald zijn, maar na mijn vaste kosten stond er niet genoeg meer op de rekening.',
             expectedOn: $deadline,
             confidence: 85,
             impactCents: $shortfall,
@@ -84,18 +84,5 @@ class VatShortfallRule implements Rule
         }
 
         return $candidate;
-    }
-
-    private static function weeks(CarbonImmutable $from, CarbonImmutable $to): string
-    {
-        $weeks = max(1, (int) round($from->diffInDays($to) / 7));
-
-        return match ($weeks) {
-            1 => 'een week',
-            2 => 'twee weken',
-            3 => 'drie weken',
-            4 => 'vier weken',
-            default => "{$weeks} weken",
-        };
     }
 }

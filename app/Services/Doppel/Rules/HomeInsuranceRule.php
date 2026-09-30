@@ -35,7 +35,7 @@ class HomeInsuranceRule implements Rule
         return new PredictionData(
             ruleKey: $this->key(),
             title: 'Ik woonde in mijn nieuwe huis zonder brandverzekering',
-            body: 'Bij de verhuis liep er geen brandverzekering mee. Een lek of een kortsluiting had ik helemaal zelf moeten betalen.',
+            body: 'Na de verhuis was mijn nieuwe huis nergens verzekerd. Een lek of een kortsluiting had ik helemaal zelf moeten betalen.',
             expectedOn: $today->addDays(14),
             confidence: 80,
             impactCents: null,

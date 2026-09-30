@@ -22,7 +22,7 @@ const groups: { kind: ActionKind; title: string; blurb: string }[] = [
     {
         kind: 'kbc',
         title: 'Bij KBC',
-        blurb: 'Als je het wil, nooit als je moet.',
+        blurb: 'Alleen als jij het wil.',
     },
     {
         kind: 'partner',

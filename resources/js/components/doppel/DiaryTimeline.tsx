@@ -28,7 +28,7 @@ export default function DiaryTimeline({
                 Mijn dagboek
             </h2>
             <p className="mt-0.5 text-[13px] text-ink/55">
-                Zo leefde ik je komende maand, en dit zag ik al aankomen.
+                Zo heb ik je komende maand beleefd, dag na dag.
             </p>
 
             <ol className="relative mt-5 flex flex-col gap-4 pl-7">

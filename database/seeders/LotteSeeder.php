@@ -50,7 +50,7 @@ class LotteSeeder extends PersonaSeeder
             'city' => 'Gent',
             'life_stage' => LifeStage::Starter,
             'persona_summary' => 'Lotte (24) woont in Gent en heeft net haar eerste job bij Accenture. Ze huurt een studio van €650, heeft nog studentenabonnementen en nog geen spaarbuffer.',
-            'diary_opener' => 'Hey Lotte, ik heb je komende maand al geleefd. Volgende week verloor ik mijn studentenkorting.',
+            'diary_opener' => 'Hey Lotte, ik heb je komende maand al geleefd. Op 7 oktober verloor ik mijn studentenkorting.',
         ], 900.00);
     }
 }
