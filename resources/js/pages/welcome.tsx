@@ -15,7 +15,7 @@ export default function Welcome({ personas }: { personas: Persona[] }) {
     return (
         <div className="doppel min-h-dvh bg-[#eef1f6] text-ink sm:px-4 sm:py-6">
             <Head title="Doppel" />
-            <main className="relative mx-auto flex min-h-dvh w-full max-w-[390px] flex-col overflow-hidden bg-white sm:min-h-[844px] sm:rounded-[40px] sm:border sm:border-ink/6 sm:shadow-[0_30px_80px_rgba(11,31,58,0.18)]">
+            <main className="relative mx-auto flex min-h-dvh w-full max-w-[390px] flex-col overflow-clip bg-white sm:min-h-[844px] sm:rounded-[40px] sm:border sm:border-ink/6 sm:shadow-[0_30px_80px_rgba(11,31,58,0.18)]">
                 <div
                     aria-hidden
                     className="pointer-events-none absolute inset-x-0 top-0 h-[460px] opacity-70 blur-3xl"
@@ -56,45 +56,32 @@ export default function Welcome({ personas }: { personas: Persona[] }) {
                 <section className="relative px-5 pt-6 pb-8">
                     {personas.length > 0 ? (
                         <>
-                            <p className="mb-2 text-[11px] font-semibold tracking-[0.16em] text-ink/45 uppercase">
-                                Verbind met KBC als
-                            </p>
-                            <div className="flex flex-col gap-2">
-                                {personas.map((persona, i) => (
+                            {/* Demo: "Verbind met KBC" logt meteen in als de eerste persona. */}
+                            <Form {...demoLogin.form(personas[0].persona_key)}>
+                                {({ processing }) => (
+                                    <button
+                                        type="submit"
+                                        disabled={processing}
+                                        className="flex w-full items-center justify-center gap-2 rounded-full bg-ink py-4 text-[16px] font-bold text-white transition-transform active:scale-[0.98] disabled:opacity-60"
+                                    >
+                                        Verbind met KBC
+                                        <ChevronRight className="size-4" />
+                                    </button>
+                                )}
+                            </Form>
+                            <div className="mt-4 flex items-center justify-center gap-1.5 text-[12px] text-ink/45">
+                                <span>Of bekijk als</span>
+                                {personas.map((persona) => (
                                     <Form
                                         key={persona.persona_key}
                                         {...demoLogin.form(persona.persona_key)}
                                     >
-                                        {({ processing }) => (
-                                            <button
-                                                type="submit"
-                                                disabled={processing}
-                                                className="flex w-full animate-doppel-rise items-center gap-3 rounded-[22px] bg-[#f4f6fa] p-3 text-left transition-transform active:scale-[0.98] disabled:opacity-60"
-                                                style={{
-                                                    animationDelay: `${200 + i * 60}ms`,
-                                                }}
-                                            >
-                                                <span className="grid size-12 shrink-0 place-items-center overflow-hidden rounded-2xl bg-white">
-                                                    <Doppel
-                                                        mood="relaxed"
-                                                        variant={
-                                                            persona.mascot_variant
-                                                        }
-                                                        size={40}
-                                                    />
-                                                </span>
-                                                <span className="min-w-0 flex-1">
-                                                    <span className="block text-[15px] font-bold">
-                                                        {persona.display_name}
-                                                    </span>
-                                                    <span className="block truncate text-[12px] text-ink/50">
-                                                        {persona.age} jaar,{' '}
-                                                        {persona.city}
-                                                    </span>
-                                                </span>
-                                                <ChevronRight className="size-5 text-ink/40" />
-                                            </button>
-                                        )}
+                                        <button
+                                            type="submit"
+                                            className="rounded-full bg-[#f4f6fa] px-3 py-1 font-semibold text-ink/70 transition-colors hover:bg-ink/8"
+                                        >
+                                            {persona.display_name.split(' ')[0]}
+                                        </button>
                                     </Form>
                                 ))}
                             </div>

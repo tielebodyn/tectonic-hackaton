@@ -123,7 +123,7 @@ export default function DoppelShow(props: ShowProps) {
 
             {/* Telefoonframe: full-bleed op mobiel, 390px gecentreerd op groter scherm. */}
             <main
-                className="relative mx-auto flex min-h-dvh w-full max-w-[390px] flex-col overflow-hidden bg-white sm:min-h-[844px] sm:rounded-[40px] sm:border sm:border-ink/6 sm:shadow-[0_30px_80px_rgba(11,31,58,0.18)]"
+                className="relative mx-auto flex min-h-dvh w-full max-w-[390px] flex-col overflow-clip bg-white sm:min-h-[844px] sm:rounded-[40px] sm:border sm:border-ink/6 sm:shadow-[0_30px_80px_rgba(11,31,58,0.18)]"
                 style={{ '--mood': moodColor[mood] } as React.CSSProperties}
             >
                 {/* zachte pastelvlekken bovenaan */}

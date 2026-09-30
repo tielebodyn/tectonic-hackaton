@@ -48,20 +48,20 @@ export default function ActionCard({ action }: { action: CardAction }) {
                 <Icon className="size-5" />
             </span>
             <span className="min-w-0 flex-1">
-                <span className="block truncate text-[14px] leading-tight font-semibold text-ink">
+                <span className="line-clamp-2 text-[14px] leading-tight font-semibold text-ink">
                     {action.title}
                 </span>
-                <span className="block truncate text-[12px] text-ink/50">
-                    {action.partner_name
-                        ? `Via ${action.partner_name}`
-                        : s.label}
-                    {action.body ? ` · ${action.body}` : ''}
+                <span className="mt-0.5 block text-[12px] font-bold text-kbc">
+                    {action.cta_label}
+                    {action.partner_name ? (
+                        <span className="font-medium text-ink/45">
+                            {' '}
+                            · via {action.partner_name}
+                        </span>
+                    ) : null}
                 </span>
             </span>
-            <span className="flex shrink-0 items-center gap-0.5 text-[12px] font-bold text-kbc">
-                {action.cta_label}
-                <ChevronRight className="size-3.5" />
-            </span>
+            <ChevronRight className="size-4 shrink-0 text-ink/35" />
         </button>
     );
 }
