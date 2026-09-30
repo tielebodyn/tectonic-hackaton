@@ -8,18 +8,18 @@ import { cn } from '@/lib/utils';
 type Props = {
     mood: Mood;
     variant: MascotVariant;
-    /** Breedte in px; hoogte is gelijk. */
+    /** Width in px; height is the same. */
     size?: number;
-    /** Waar Doppel naar kijkt (vork-weergave: naar elkaar). */
+    /** Where Doppel looks (fork view: at each other). */
     look?: 'center' | 'left' | 'right';
-    /** Korte knik, bv. na "Zo ben ik niet". */
+    /** Short nod, e.g. after "That's not me". */
     nod?: boolean;
-    /** Zwaait met de rechterarm (welkomstscherm). */
+    /** Waves the right arm (welcome screen). */
     wave?: boolean;
     className?: string;
 };
 
-// Vachtkleuren: licht KBC-blauw pluis met witte highlight.
+// Fur colours: light KBC-blue fluff with a white highlight.
 const FUR_LIGHT = '#ffffff';
 const FUR_MID = '#d2e4fa';
 const FUR_DARK = '#5a89c9';
@@ -59,7 +59,7 @@ const lookShift: Record<NonNullable<Props['look']>, string> = {
     left: ' translateX(-5px)',
     right: ' translateX(5px)',
 };
-// Houding van het hele lijf.
+// Posture of the whole body.
 const posture: Record<Mood, string> = {
     relaxed: 'none',
     thinking: 'rotate(-4deg)',
@@ -198,7 +198,7 @@ export default function Doppel({
                         opacity: paused ? 0.8 : 1,
                     }}
                 >
-                    {/* grondschaduw */}
+                    {/* ground shadow */}
                     <ellipse
                         cx="120"
                         cy="246"
@@ -217,7 +217,7 @@ export default function Doppel({
                                 transform: posture[mood],
                             }}
                         >
-                            {/* attribuut achter het lijf */}
+                            {/* prop behind the body */}
                             {variant === 'backpack' && (
                                 <g>
                                     <rect
@@ -240,7 +240,7 @@ export default function Doppel({
                                 </g>
                             )}
 
-                            {/* armen en voeten */}
+                            {/* arms and feet */}
                             <g fill={body} filter={`url(#${id}-fur)`}>
                                 <ellipse
                                     cx="34"
@@ -262,7 +262,7 @@ export default function Doppel({
                                 <ellipse cx="148" cy="236" rx="20" ry="11" />
                             </g>
 
-                            {/* pluis-halo, vachtrand, glad volume */}
+                            {/* fluff halo, fur edge, smooth volume */}
                             <path
                                 d={BODY}
                                 fill={body}
@@ -289,7 +289,7 @@ export default function Doppel({
                                     transform: 'scale(0.965)',
                                 }}
                             />
-                            {/* buikschaduw */}
+                            {/* belly shadow */}
                             <ellipse
                                 cx="120"
                                 cy="212"
@@ -300,7 +300,7 @@ export default function Doppel({
                                 filter={`url(#${id}-halo)`}
                             />
 
-                            {/* gezicht */}
+                            {/* face */}
                             <g
                                 className={cn(nod && 'animate-doppel-nod')}
                                 style={{
@@ -308,7 +308,7 @@ export default function Doppel({
                                     transformOrigin: '50% 100%',
                                 }}
                             >
-                                {/* blos */}
+                                {/* blush */}
                                 <g
                                     fill="#ffb3c6"
                                     opacity="0.45"
@@ -318,7 +318,7 @@ export default function Doppel({
                                     <ellipse cx="162" cy="154" rx="11" ry="6" />
                                 </g>
 
-                                {/* ogen */}
+                                {/* eyes */}
                                 <g
                                     className="animate-doppel-blink"
                                     style={fillBox}
@@ -371,7 +371,7 @@ export default function Doppel({
                                     </g>
                                 </g>
 
-                                {/* wenkbrauwen, in donkerder pluis */}
+                                {/* eyebrows, in darker fluff */}
                                 <g
                                     fill="none"
                                     stroke={FUR_LINE}
@@ -396,7 +396,7 @@ export default function Doppel({
                                     />
                                 </g>
 
-                                {/* mond */}
+                                {/* mouth */}
                                 <path
                                     className="doppel-mouth"
                                     d="M 109 158 Q 120 169 131 158"
@@ -411,7 +411,7 @@ export default function Doppel({
                                 />
                             </g>
 
-                            {/* zwaaiende arm, vóór het lijf */}
+                            {/* waving arm, in front of the body */}
                             {wave && (
                                 <ellipse
                                     className="animate-doppel-wave"
@@ -428,7 +428,7 @@ export default function Doppel({
                                 />
                             )}
 
-                            {/* attribuut voor het lijf */}
+                            {/* prop in front of the body */}
                             {variant === 'box' && (
                                 <g>
                                     <rect
@@ -486,7 +486,7 @@ export default function Doppel({
                                         fill={`url(#${id}-kbc)`}
                                         opacity="0.9"
                                     />
-                                    {/* koffie */}
+                                    {/* coffee */}
                                     <rect
                                         x="204"
                                         y="206"

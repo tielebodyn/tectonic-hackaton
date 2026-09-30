@@ -11,7 +11,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
 /**
- * Scale demo: 10.000 anonymous customers with a few transactions each.
+ * Scale demo: 10,000 anonymous customers with a few transactions each.
  * Not called by DatabaseSeeder. Run: ddev artisan db:seed --class=BatchCustomerSeeder
  */
 class BatchCustomerSeeder extends Seeder
@@ -36,7 +36,7 @@ class BatchCustomerSeeder extends Seeder
             foreach (Customer::query()->where('id', '>', $lastId)->pluck('id') as $customerId) {
                 $transactions[] = $this->row($customerId, $today->copy()->subDays(90), $faker->numberBetween(50_000, 500_000), 'Beginsaldo', TransactionCategory::Other, $now);
                 $transactions[] = $this->row($customerId, $today->copy()->subDays($faker->numberBetween(0, 30)), $faker->numberBetween(150_000, 400_000), $faker->company(), TransactionCategory::Income, $now);
-                $transactions[] = $this->row($customerId, $today->copy()->subDays($faker->numberBetween(0, 30)), -$faker->numberBetween(50_000, 120_000), 'Huur', TransactionCategory::Rent, $now);
+                $transactions[] = $this->row($customerId, $today->copy()->subDays($faker->numberBetween(0, 30)), -$faker->numberBetween(50_000, 120_000), 'Rent', TransactionCategory::Rent, $now);
                 foreach (range(1, $faker->numberBetween(1, 4)) as $ignored) {
                     $transactions[] = $this->row($customerId, $today->copy()->subDays($faker->numberBetween(0, 90)), -$faker->numberBetween(1_000, 15_000), $faker->randomElement(['Colruyt', 'Delhaize', 'Aldi', 'Lidl', 'Carrefour']), TransactionCategory::Groceries, $now);
                 }

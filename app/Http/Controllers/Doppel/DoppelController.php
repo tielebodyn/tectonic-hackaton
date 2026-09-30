@@ -28,7 +28,7 @@ class DoppelController extends Controller
         $customer = self::findCustomerFor($request);
 
         if ($customer === null) {
-            return redirect()->route('home')->with('status', 'Deze gebruiker heeft nog geen Doppel. Kies hieronder een persona.');
+            return redirect()->route('home')->with('status', 'This user has no Doppel yet. Pick a persona below.');
         }
         $scenario = Scenario::tryFrom((string) $request->query('scenario')) ?? Scenario::Base;
 
@@ -100,7 +100,7 @@ class DoppelController extends Controller
     {
         $customer = self::findCustomerFor($request);
 
-        abort_if($customer === null, 403, 'Deze gebruiker heeft geen Doppel.');
+        abort_if($customer === null, 403, 'This user has no Doppel.');
 
         return $customer;
     }

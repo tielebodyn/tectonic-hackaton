@@ -20,7 +20,7 @@ type Props = {
     onSimulate: () => void;
 };
 
-/** Alleen in demo-modus. Zit buiten het telefoonframe. */
+/** Demo mode only. Sits outside the phone frame. */
 export default function DemoBar({
     personaKey,
     personas = [],
@@ -70,7 +70,7 @@ export default function DemoBar({
                         >
                             {activeOther
                                 ? activeOther.label.split(' ')[0]
-                                : 'Meer'}
+                                : 'More'}
                             <ChevronDown
                                 className={cn(
                                     'size-3.5 transition-transform',
@@ -82,7 +82,7 @@ export default function DemoBar({
                             <>
                                 <button
                                     type="button"
-                                    aria-label="Sluiten"
+                                    aria-label="Close"
                                     onClick={() => setMoreOpen(false)}
                                     className="fixed inset-0 z-40 cursor-default"
                                 />
@@ -119,19 +119,20 @@ export default function DemoBar({
                     type="button"
                     onClick={onSimulate}
                     disabled={simulating}
-                    title="Simuleer transactie"
+                    title="Simulate transaction"
                     className="flex items-center gap-1 rounded-full bg-kbc px-2 py-1 text-xs font-semibold whitespace-nowrap text-white transition-colors hover:bg-kbc/80 disabled:opacity-50 sm:px-3"
                 >
                     <Zap className="size-3.5" />
                     <span className="sr-only sm:not-sr-only">
-                        Simuleer transactie
+                        Simulate transaction
                     </span>
                 </button>
             )}
             <Form {...reset.form()} options={{ preserveScroll: true }}>
                 <button
                     type="submit"
-                    title="Demo terugzetten"
+                    title="Reset demo"
+                    aria-label="Reset demo"
                     className="grid size-7 place-items-center rounded-full border border-white/15 text-white/70 hover:text-white"
                 >
                     <RotateCcw className="size-3.5" />

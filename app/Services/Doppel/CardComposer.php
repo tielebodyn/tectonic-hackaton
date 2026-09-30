@@ -122,29 +122,29 @@ class CardComposer
     {
         return new PredictionData(
             ruleKey: self::HANDOVER_RULE,
-            title: 'Dit is groter dan een tip. Ik geef mijn dagboek door aan iemand van KBC als je dat wil.',
-            body: 'Ik zag dat het krap werd. Dan is een app niet genoeg: een adviseur kijkt samen met jou, zonder iets te verkopen.',
+            title: 'This is bigger than a tip. I\'ll hand my diary to someone at KBC if you want.',
+            body: 'I saw money getting tight. An app is not enough then: an adviser looks at it with you, without selling you anything.',
             expectedOn: Ledger::today(),
             confidence: 100,
             impactCents: null,
             urgency: 100,
             signals: [
-                ['label' => 'Saldo daalt', 'detail' => 'Je saldo is lager dan 30 dagen geleden'],
-                ['label' => 'Achteraf betalen', 'detail' => 'Een recente aankoop met uitgestelde betaling'],
-                ['label' => 'Tekort op komst', 'detail' => 'Ik kwam geld tekort voor een vaste betaling'],
+                ['label' => 'Balance dropping', 'detail' => 'Your balance is lower than 30 days ago'],
+                ['label' => 'Buy now, pay later', 'detail' => 'A recent purchase paid in instalments'],
+                ['label' => 'Shortfall ahead', 'detail' => 'I was short of money for a fixed payment'],
             ],
             actions: [
                 new ActionData(
                     kind: ActionKind::Human,
-                    title: 'Laat een KBC-adviseur je bellen',
-                    body: 'Je deelt alleen wat je zelf wil. Je kan altijd weigeren.',
-                    ctaLabel: 'Ja, geef mijn dagboek door',
+                    title: 'Have a KBC adviser call you',
+                    body: 'You only share what you want to. You can always say no.',
+                    ctaLabel: 'Yes, share my diary',
                 ),
                 new ActionData(
                     kind: ActionKind::NoSale,
-                    title: 'Nu niet',
-                    body: 'Ik blijf gewoon meekijken.',
-                    ctaLabel: 'Nee, bedankt',
+                    title: 'Not now',
+                    body: 'I will just keep watching.',
+                    ctaLabel: 'No thanks',
                 ),
             ],
         );
@@ -154,19 +154,19 @@ class CardComposer
     {
         return new PredictionData(
             ruleKey: 'all_good',
-            title: 'Voor de rest verliep mijn maand rustig',
-            body: 'Ik zag niets anders waar je iets mee moet doen.',
+            title: 'The rest of my month was calm',
+            body: 'I saw nothing else you need to act on.',
             expectedOn: Ledger::today()->addDays(30),
             confidence: 70,
             impactCents: null,
             urgency: 0,
-            signals: [['label' => 'Geen verrassingen', 'detail' => 'Je vaste kosten en inkomsten liepen zoals gewoonlijk']],
+            signals: [['label' => 'No surprises', 'detail' => 'Your fixed costs and income ran as usual']],
             actions: [
                 new ActionData(
                     kind: ActionKind::NoSale,
-                    title: 'Alles in orde 👍',
-                    body: 'Geen actie nodig.',
-                    ctaLabel: 'Top',
+                    title: 'All good',
+                    body: 'Nothing to do.',
+                    ctaLabel: 'Great',
                 ),
             ],
         );

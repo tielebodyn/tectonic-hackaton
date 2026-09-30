@@ -5,8 +5,8 @@
     "age": 81,
     "city": "Kortrijk",
     "life_stage": "moving",
-    "persona_summary": "Georgette (81) woont in Kortrijk en leeft van haar pensioen. De voorbije 48 uur gingen twee ongewone betalingen naar een onbekende rekening, een derde hield Doppel tegen.",
-    "diary_opener": "Dag Georgette, ik heb je komende maand al geleefd. Ik hield één betaling tegen, zodat je geld veilig blijft tot we samen even gepraat hebben.",
+    "persona_summary": "Georgette (81) lives in Kortrijk on her pension. In the past 48 hours two unusual payments went to an unknown account, and Doppel stopped a third.",
+    "diary_opener": "Hello Georgette, I've already lived your next month. I held back one payment, so your money stays safe until we've had a chat together.",
     "mood": "paused",
     "balance_cents": 318000,
     "monthly": {
@@ -17,16 +17,16 @@
         {
             "days_ago": 0,
             "amount_cents": -180000,
-            "counterparty": "Overschrijving naar BE•• •••• 7719, \"voor Jonas gsm + huur\"",
+            "counterparty": "Transfer to BE•• •••• 7719, \"for Jonas phone + rent\"",
             "category": "other",
-            "description": "nieuwe rekening, ongewoon"
+            "description": "new account, unusual"
         },
         {
             "days_ago": 1,
             "amount_cents": -95000,
-            "counterparty": "Overschrijving naar BE•• •••• 7719, \"nieuwe gsm\"",
+            "counterparty": "Transfer to BE•• •••• 7719, \"new phone\"",
             "category": "other",
-            "description": "nieuwe rekening"
+            "description": "new account"
         },
         {
             "days_ago": 3,
@@ -52,21 +52,21 @@
         {
             "days_ago": 8,
             "amount_cents": -11800,
-            "counterparty": "Luminus, voorschot energie",
+            "counterparty": "Luminus, energy advance",
             "category": "utilities",
             "description": null
         },
         {
             "days_ago": 10,
             "amount_cents": -3600,
-            "counterparty": "Wit-Gele Kruis, thuisverpleging",
+            "counterparty": "Wit-Gele Kruis, home nursing",
             "category": "other",
             "description": null
         },
         {
             "days_ago": 12,
             "amount_cents": -4200,
-            "counterparty": "Proximus, vaste lijn & tv",
+            "counterparty": "Proximus, landline & TV",
             "category": "subscription",
             "description": null
         },
@@ -80,7 +80,7 @@
         {
             "days_ago": 29,
             "amount_cents": 189000,
-            "counterparty": "Federale Pensioendienst, pensioen",
+            "counterparty": "Federal Pension Service, pension",
             "category": "income",
             "description": null
         }
@@ -88,127 +88,127 @@
     "cards": [
         {
             "rule_key": "scam",
-            "title": "Iemand deed alsof hij familie was, maar dat was hij niet",
-            "body": "Ik kreeg een berichtje van een 'nieuw nummer' en stuurde €950 en €1.800. Dat is een bekende truc, en het is niet jouw schuld: die mensen zijn heel overtuigend.",
+            "title": "Someone pretended to be family, but he wasn't",
+            "body": "I got a message from a 'new number' and sent €950 and €1,800. It's a well-known trick, and it's not your fault: these people are very convincing.",
             "days_ahead": 0,
             "confidence": 91,
             "impact_cents": -275000,
             "urgency": 85,
             "signals": [
                 {
-                    "label": "Een nieuwe rekening",
-                    "detail": "Gisteren en vandaag ging er geld naar een rekening die je nog nooit had betaald"
+                    "label": "A new account",
+                    "detail": "Yesterday and today money went to an account you had never paid before"
                 },
                 {
-                    "label": "Grotere bedragen dan normaal",
-                    "detail": "Je grootste betaling in 5 jaar was €640. Deze waren €950 en €1.800"
+                    "label": "Bigger amounts than usual",
+                    "detail": "Your biggest payment in 5 years was €640. These were €950 and €1,800"
                 },
                 {
-                    "label": "Berichtjes over een 'nieuw nummer'",
-                    "detail": "Safeonweb en Febelfin waarschuwen voor WhatsApp-berichtjes van iemand die zegt dat hij je kind of kleinkind is, met een nieuw nummer"
+                    "label": "Messages about a 'new number'",
+                    "detail": "Safeonweb and Febelfin warn about WhatsApp messages from someone who says they are your child or grandchild, with a new number"
                 },
                 {
-                    "label": "Je wilde je kleinzoon helpen",
-                    "detail": "Vorige maand belde je ons kantoor in Kortrijk met de vraag hoe je snel geld naar je kleinzoon stuurt"
+                    "label": "You wanted to help your grandson",
+                    "detail": "Last month you called our Kortrijk branch to ask how to send money to your grandson quickly"
                 }
             ],
             "actions": [
                 {
                     "kind": "human",
-                    "title": "Praat met Ann, je eigen adviseur",
-                    "body": "Ann Desmet van KBC Kortrijk kent je. Ze belt je graag op, of je loopt gewoon eens binnen.",
-                    "cta_label": "Laat Ann me bellen",
+                    "title": "Talk to Ann, your own adviser",
+                    "body": "Ann Desmet from KBC Kortrijk knows you. She's happy to call you, or you can just drop in.",
+                    "cta_label": "Have Ann call me",
                     "partner_name": null
                 },
                 {
                     "kind": "no_sale",
-                    "title": "Zo herken je een 'nieuw nummer'-berichtje",
-                    "body": "Drie eenvoudige checks: bel naar het oude nummer, vraag iets wat alleen zij weten, en betaal nooit in haast. Ook op papier, als je wil.",
-                    "cta_label": "Toon de 3 checks",
+                    "title": "How to spot a 'new number' message",
+                    "body": "Three simple checks: call the old number, ask something only they would know, and never pay in a hurry. On paper too, if you like.",
+                    "cta_label": "Show the 3 checks",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "third",
-            "title": "Vandaag hield ik je betaling van €2.400 tegen",
-            "body": "Ik heb die derde betaling niet verstuurd. Het geld staat veilig op je rekening tot we samen even gepraat hebben.",
+            "title": "Today I held back your payment of €2,400",
+            "body": "I didn't send that third payment. The money is safe in your account until we've had a chat together.",
             "days_ahead": 0,
             "confidence": 86,
             "impact_cents": -240000,
             "urgency": 95,
             "signals": [
                 {
-                    "label": "Een derde betaling stond klaar",
-                    "detail": "Je had €2.400 klaargezet voor dezelfde rekening. Die blijft staan tot we met je gepraat hebben"
+                    "label": "A third payment was ready to go",
+                    "detail": "You had set up €2,400 for the same account. It stays on hold until we've talked with you"
                 },
                 {
-                    "label": "Laat in de nacht",
-                    "detail": "Je logde in om 01:40, terwijl je de app normaal 's morgens gebruikt"
+                    "label": "Late at night",
+                    "detail": "You logged in at 01:40, while you normally use the app in the morning"
                 },
                 {
-                    "label": "Een nieuwe rekening",
-                    "detail": "Gisteren en vandaag ging er geld naar een rekening die je nog nooit had betaald"
+                    "label": "A new account",
+                    "detail": "Yesterday and today money went to an account you had never paid before"
                 }
             ],
             "actions": [
                 {
                     "kind": "human",
-                    "title": "We hielden een betaling tegen. Was jij dat echt?",
-                    "body": "Je betaling van €2.400 staat stil, er gaat dus niets van je rekening. Iemand van KBC belt je vandaag om rustig samen te kijken.",
-                    "cta_label": "Bel me nu",
+                    "title": "We held back a payment. Was that really you?",
+                    "body": "Your payment of €2,400 is on hold, so nothing leaves your account. Someone from KBC will call you today to look at it calmly together.",
+                    "cta_label": "Call me now",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "pension",
-            "title": "Mijn pensioen kwam gewoon binnen",
-            "body": "Op 1 oktober stond mijn pensioen van €1.890 op de rekening, zoals elke maand. Daar veranderde niets aan.",
+            "title": "The next day my pension came in as usual",
+            "body": "On 1 October my pension of €1,890 was in the account, like every month. Nothing changed there.",
             "days_ahead": 1,
             "confidence": 95,
             "impact_cents": 189000,
             "urgency": 60,
             "signals": [
                 {
-                    "label": "Je vaste betalingen blijven hetzelfde",
-                    "detail": "Colruyt, de apotheek, de thuiszorg, de energie: al sinds 2019 hetzelfde rustige ritme"
+                    "label": "Your regular payments stay the same",
+                    "detail": "Colruyt, the pharmacy, home care, energy: the same calm rhythm since 2019"
                 }
             ],
             "actions": [
                 {
                     "kind": "no_sale",
-                    "title": "Je pensioen komt morgen, zoals altijd",
-                    "body": "Je €1.890 komt op 1 oktober binnen. Je energie en thuiszorg worden gewoon betaald, zoals altijd.",
-                    "cta_label": "Bekijk mijn maand",
+                    "title": "Your pension comes tomorrow, as always",
+                    "body": "Your €1,890 comes in on 1 October. Your energy and home care get paid as usual.",
+                    "cta_label": "View my month",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "trusted",
-            "title": "Mijn dochter Annick keek mee",
-            "body": "Ik koos Annick. Zij krijgt een berichtje als er iets vreemds gebeurt op mijn rekening. Betalen kan ze niet, ze kijkt alleen mee.",
+            "title": "Two weeks in, my daughter Annick was keeping an eye out",
+            "body": "I chose Annick. She gets a message if something strange happens on my account. She can't pay, she can only look.",
             "days_ahead": 14,
             "confidence": 70,
             "impact_cents": null,
             "urgency": 65,
             "signals": [
                 {
-                    "label": "Je vaste betalingen blijven hetzelfde",
-                    "detail": "Colruyt, de apotheek, de thuiszorg, de energie: al sinds 2019 hetzelfde rustige ritme"
+                    "label": "Your regular payments stay the same",
+                    "detail": "Colruyt, the pharmacy, home care, energy: the same calm rhythm since 2019"
                 },
                 {
-                    "label": "Je wilde je kleinzoon helpen",
-                    "detail": "Vorige maand belde je ons kantoor in Kortrijk met de vraag hoe je snel geld naar je kleinzoon stuurt"
+                    "label": "You wanted to help your grandson",
+                    "detail": "Last month you called our Kortrijk branch to ask how to send money to your grandson quickly"
                 }
             ],
             "actions": [
                 {
                     "kind": "human",
-                    "title": "Kies iemand die je vertrouwt",
-                    "body": "Kies één persoon, zoals je dochter Annick, die een berichtje krijgt als er iets vreemds gebeurt. Ze kan alleen kijken, nooit betalen.",
-                    "cta_label": "Kies een vertrouwenspersoon",
+                    "title": "Pick someone you trust",
+                    "body": "Pick one person, like your daughter Annick, who gets a message if something strange happens. She can only look, never pay.",
+                    "cta_label": "Pick a trusted person",
                     "partner_name": null
                 }
             ]

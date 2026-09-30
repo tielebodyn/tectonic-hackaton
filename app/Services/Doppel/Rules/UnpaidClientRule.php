@@ -54,26 +54,26 @@ class UnpaidClientRule implements Rule
             return null;
         }
 
-        $missed = $late['missed'] === 2 ? 'twee' : $late['missed'];
+        $missed = $late['missed'] === 2 ? 'two' : $late['missed'];
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: "{$late['client']} betaalde me al {$missed} maanden niet",
-            body: 'Een vaste klant die elke maand betaalde, bleef plots stil. Daardoor miste ik '.Ledger::euro($late['amount_cents'] * $late['missed']).' waarop ik gerekend had.',
+            title: "{$late['client']} hadn't paid me for {$missed} months",
+            body: 'A regular client who paid every month suddenly went quiet. That left me '.Ledger::euro($late['amount_cents'] * $late['missed']).' short that I had counted on.',
             expectedOn: $today->addDays(3),
             confidence: 75,
             impactCents: -$late['amount_cents'] * $late['missed'],
             urgency: 70,
             signals: [
-                ['label' => 'Vaste klant', 'detail' => "{$late['client']} betaalde {$late['count']}× ongeveer ".Ledger::euro($late['amount_cents'])],
-                ['label' => 'Laatste betaling', 'detail' => Ledger::date($late['last']->booked_on).", {$late['days_since']} dagen geleden"],
+                ['label' => 'Regular client', 'detail' => "{$late['client']} paid {$late['count']}× about ".Ledger::euro($late['amount_cents'])],
+                ['label' => 'Last payment', 'detail' => Ledger::date($late['last']->booked_on).", {$late['days_since']} days ago"],
             ],
             actions: [
                 new ActionData(
                     kind: ActionKind::NoSale,
-                    title: 'Stuur een betalingsherinnering',
-                    body: "Een vriendelijke herinnering aan {$late['client']} lost het vaak al op.",
-                    ctaLabel: 'Maak een herinnering',
+                    title: 'Send a payment reminder',
+                    body: "A friendly reminder to {$late['client']} often sorts it out.",
+                    ctaLabel: 'Write a reminder',
                 ),
             ],
         );

@@ -3,15 +3,15 @@ import type { FaceMood, MascotVariant } from '@/components/doppel/types';
 
 type Props = {
     className?: string;
-    /** Pushtekst; zonder tekst toont het de statische welkomstmelding. */
+    /** Push text; without it, the static welcome notification shows. */
     text?: string;
     mood?: FaceMood;
     variant?: MascotVariant;
-    /** Tik op de melding, bv. om de kaart te openen waar ze uit komt. */
+    /** Tap on the notification, e.g. to open the card it came from. */
     onClick?: () => void;
 };
 
-/** Notificatie-mockup: zo komt Doppel bij de klant binnen, uit hetzelfde dagboek als de app. */
+/** Notification mockup: how Doppel reaches the customer, from the same diary as the app. */
 export default function PushPreview({
     className,
     text,
@@ -35,11 +35,11 @@ export default function PushPreview({
                     <span className="text-[13px] font-bold text-ink">
                         Doppel
                     </span>
-                    <span className="text-[11px] text-ink/45">nu</span>
+                    <span className="text-[11px] text-ink/45">now</span>
                 </span>
                 <span className="block text-[13px] leading-snug text-ink/75">
                     {text ??
-                        'Ik heb je komende maand al geleefd. Wil je zien wat ik zag?'}
+                        "I've already lived your next month. Want to see what I saw?"}
                 </span>
             </span>
         </Tag>

@@ -25,11 +25,11 @@ const moodColor: Record<FaceMood, string> = {
 };
 
 const moodLabel: Record<FaceMood, string> = {
-    relaxed: 'Alles rustig',
-    thinking: 'Aan het nadenken',
-    worried: 'Maakt zich zorgen',
-    relieved: 'Opgelucht',
-    paused: 'Geeft door aan een mens',
+    relaxed: 'All calm',
+    thinking: 'Thinking',
+    worried: 'Worried',
+    relieved: 'Relieved',
+    paused: 'Paused',
 };
 
 export default function DoppelShow(props: ShowProps) {
@@ -61,19 +61,19 @@ export default function DoppelShow(props: ShowProps) {
     const visibleCards = cards.filter(
         (c) => c.id === null || !hidden.includes(c.id),
     );
-    // Pushmelding uit hetzelfde dagboek: het dringendste moment bovenaan.
+    // Push notification from the same diary: the most urgent moment on top.
     const pushCard = visibleCards[0] ?? null;
     const pushText = pushCard
         ? customer.mood === 'paused'
-            ? `${pushCard.title}. Dit is groter dan een tip, wil je dat iemand van KBC meekijkt?`
-            : `${shortDate(pushCard.expected_on)}: ${pushCard.title}. Wil je zien wat ik zag?`
+            ? `${pushCard.title}. This is bigger than a tip. Want someone from KBC to look at it with you?`
+            : `${shortDate(pushCard.expected_on)}: ${pushCard.title}. Want to see what I saw?`
         : null;
     const impact = cards.reduce(
         (sum, c) => sum + Math.min(0, c.impact_cents ?? 0),
         0,
     );
 
-    // Demomoment: banner binnen, Doppel denkt, dan de nieuwe staat via de backend.
+    // Demo moment: banner slides in, Doppel thinks, then the new state from the backend.
     function simulateTransaction() {
         setPhase('banner');
         window.setTimeout(() => setPhase('thinking'), 500);
@@ -97,7 +97,7 @@ export default function DoppelShow(props: ShowProps) {
         setWhyOpen(true);
     }
 
-    // "Zo ben ik niet": kaart schrompelt, Doppel knikt, één regel, dan de post.
+    // "That's not me": card shrinks, Doppel nods, one line, then the post.
     function dismiss(card: Card) {
         if (card.id === null) return;
         const id = card.id;
@@ -108,7 +108,7 @@ export default function DoppelShow(props: ShowProps) {
             setLeaving(null);
             setHidden((h) => [...h, id]);
             setNod(false);
-            setNote('Oké, geschrapt.');
+            setNote('Okay, crossed out.');
             router.post(
                 feedback.url(),
                 { prediction_id: id },
@@ -123,7 +123,7 @@ export default function DoppelShow(props: ShowProps) {
 
     return (
         <div className="doppel min-h-dvh bg-[#eef1f6] text-ink sm:flex sm:h-dvh sm:flex-col sm:px-4 sm:py-4">
-            <Head title="Mijn Doppel" />
+            <Head title="My Doppel" />
 
             {demo.enabled && (
                 <DemoBar
@@ -138,13 +138,13 @@ export default function DoppelShow(props: ShowProps) {
                 />
             )}
 
-            {/* Telefoonframe: full-bleed op mobiel, 390px gecentreerd op groter scherm. */}
+            {/* Phone frame: full-bleed on mobile, 390px centred on larger screens. */}
             <main
                 ref={frame}
                 className="relative mx-auto flex min-h-dvh w-full max-w-[390px] [scrollbar-width:none] flex-col overflow-clip bg-white sm:min-h-0 sm:flex-1 sm:overflow-y-auto sm:rounded-[40px] sm:border sm:border-ink/6 sm:shadow-[0_30px_80px_rgba(11,31,58,0.18)]"
                 style={{ '--mood': moodColor[mood] } as React.CSSProperties}
             >
-                {/* zachte pastelvlekken bovenaan */}
+                {/* soft pastel blobs at the top */}
                 <div
                     aria-hidden
                     className="pointer-events-none absolute inset-x-0 top-0 h-72 opacity-60 blur-3xl transition-[background] duration-700"
@@ -154,7 +154,7 @@ export default function DoppelShow(props: ShowProps) {
                     }}
                 />
 
-                {/* transactiebanner */}
+                {/* transaction banner */}
                 {phase !== 'idle' && (
                     <div className="absolute inset-x-5 top-4 z-30 flex animate-doppel-banner items-center gap-3 rounded-2xl bg-ink p-3 text-white shadow-lg">
                         <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-emerald-400/20 text-emerald-300">
@@ -162,10 +162,10 @@ export default function DoppelShow(props: ShowProps) {
                         </span>
                         <span className="min-w-0">
                             <span className="block text-[14px] font-bold">
-                                €3.200 ontvangen
+                                €3,200 received
                             </span>
                             <span className="block truncate text-[12px] text-white/60">
-                                van Studio Noord · Factuur betaald
+                                from Studio Noord · Invoice paid
                             </span>
                         </span>
                     </div>
@@ -176,7 +176,7 @@ export default function DoppelShow(props: ShowProps) {
                         {pushCard && pushText && phase === 'idle' && (
                             <div className="relative z-10 px-5 pt-5">
                                 <p className="mb-1.5 text-[11px] font-semibold tracking-[0.16em] text-ink/40 uppercase">
-                                    Zo kreeg je het als pushmelding
+                                    How you got it as a push notification
                                 </p>
                                 <PushPreview
                                     className="w-full"
@@ -204,7 +204,7 @@ export default function DoppelShow(props: ShowProps) {
                                 </h1>
                                 <p className="truncate text-[13px] text-ink/50">
                                     {note ??
-                                        `${customer.age}, ${customer.city} · Welkom bij Doppel`}
+                                        `${customer.age}, ${customer.city} · Welcome to Doppel`}
                                 </p>
                             </div>
                             <span className="flex shrink-0 items-center gap-1.5 rounded-full bg-[#f4f6fa] px-3 py-1.5 text-[11px] font-semibold whitespace-nowrap">
@@ -216,7 +216,7 @@ export default function DoppelShow(props: ShowProps) {
                             </span>
                         </header>
 
-                        {/* dagboekkaart met Doppel */}
+                        {/* diary card with Doppel */}
                         <section className="relative z-10 px-5 pt-5">
                             <div className="relative overflow-hidden rounded-[28px] bg-[linear-gradient(135deg,#0b1f3a,#163a6b)] p-5 text-white">
                                 <div
@@ -225,7 +225,7 @@ export default function DoppelShow(props: ShowProps) {
                                     style={{ background: 'var(--mood)' }}
                                 />
                                 <p className="text-[11px] font-semibold tracking-[0.16em] text-white/55 uppercase">
-                                    Mijn dagboek · {shortDate(today)}
+                                    My diary · {shortDate(today)}
                                 </p>
                                 <div className="mt-3 flex items-end gap-2">
                                     <SpeechBubble
@@ -247,14 +247,14 @@ export default function DoppelShow(props: ShowProps) {
                             </div>
                         </section>
 
-                        {/* cijfers */}
+                        {/* numbers */}
                         <section className="relative z-10 grid grid-cols-2 gap-3 px-5 pt-4">
                             <div className="rounded-[22px] bg-[#f4f6fa] p-4">
                                 <p className="text-[22px] font-bold tracking-tight">
                                     {euro(balance_cents)}
                                 </p>
                                 <p className="text-[12px] text-ink/50">
-                                    Saldo vandaag
+                                    Balance today
                                 </p>
                             </div>
                             <div className="rounded-[22px] bg-[#f4f6fa] p-4">
@@ -265,23 +265,23 @@ export default function DoppelShow(props: ShowProps) {
                                 </p>
                                 <p className="text-[12px] text-ink/50">
                                     {impact < 0
-                                        ? 'Wat het je kost'
-                                        : 'Momenten in mijn dagboek'}
+                                        ? 'What it costs you'
+                                        : 'Moments in my diary'}
                                 </p>
                             </div>
                         </section>
 
                         <ForkView scenario={scenario} />
 
-                        {/* eerste kaarten, de rest in het dagboek */}
+                        {/* first cards, the rest in the diary */}
                         <section className="relative z-10 px-5 pt-7 pb-6">
                             <div className="flex items-end justify-between">
                                 <div>
                                     <h2 className="text-[18px] font-bold">
-                                        Wat ik meemaakte
+                                        What I went through
                                     </h2>
                                     <p className="mt-0.5 text-[13px] text-ink/55">
-                                        Het belangrijkste eerst.
+                                        Most important first.
                                     </p>
                                 </div>
                                 <button
@@ -289,15 +289,15 @@ export default function DoppelShow(props: ShowProps) {
                                     onClick={() => switchTab('diary')}
                                     className="flex items-center gap-0.5 text-[13px] font-semibold text-kbc"
                                 >
-                                    Alles
+                                    All
                                     <ChevronRight className="size-4" />
                                 </button>
                             </div>
                             {visibleCards.length === 0 ? (
                                 <div className="mt-4 rounded-[24px] bg-emerald-50 p-6 text-center">
                                     <p className="text-[20px] leading-snug font-bold">
-                                        Ik heb je maand al geleefd. Er gebeurde
-                                        niets om je zorgen over te maken.
+                                        I've already lived your month. Nothing
+                                        to worry about.
                                     </p>
                                 </div>
                             ) : (
@@ -324,8 +324,8 @@ export default function DoppelShow(props: ShowProps) {
                                             onClick={() => switchTab('diary')}
                                             className="rounded-full bg-[#f4f6fa] py-3 text-[14px] font-semibold text-ink"
                                         >
-                                            Nog {visibleCards.length - 2} in
-                                            mijn dagboek
+                                            {visibleCards.length - 2} more in my
+                                            diary
                                         </button>
                                     )}
                                 </div>

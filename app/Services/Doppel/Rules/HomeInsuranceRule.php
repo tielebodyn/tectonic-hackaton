@@ -34,21 +34,21 @@ class HomeInsuranceRule implements Rule
         }
 
         $signals = [
-            ['label' => 'Verhuisd', 'detail' => 'Verhuiskosten bij '.$moving->pluck('counterparty')->unique()->join(', ')],
-            ['label' => 'Geen verzekering', 'detail' => 'Geen betalingen aan een verzekeraar gevonden'],
+            ['label' => 'Moved house', 'detail' => 'Moving costs at '.$moving->pluck('counterparty')->unique()->join(', ')],
+            ['label' => 'No insurance', 'detail' => 'No payments to an insurer found'],
         ];
         $storm = WeatherForecast::severeFor($customer->city, $today, 14);
 
         if ($storm !== null) {
             $signals[] = [
-                'label' => 'Weerbericht',
-                'detail' => 'KMI-waarschuwing code '.$storm['code'].' voor '.$customer->city.' op '.Ledger::date($storm['date']).': '.$storm['detail'],
+                'label' => 'Weather forecast',
+                'detail' => 'KMI code '.$storm['code'].' warning for '.$customer->city.' on '.Ledger::date($storm['date']).': '.$storm['detail'],
             ];
 
             return new PredictionData(
                 ruleKey: $this->key(),
-                title: 'Het stormde, en mijn nieuwe huis was nog nergens verzekerd',
-                body: 'Een paar dagen na de verhuis waaiden er dakpannen van mijn dak en regende het binnen in de kinderkamer. Die schade betaalde ik helemaal zelf.',
+                title: 'A storm hit, and my new home was not insured yet',
+                body: 'A few days after the move, roof tiles blew off my roof and it rained into the nursery. I paid for that damage in full myself.',
                 expectedOn: $storm['date'],
                 confidence: 75,
                 impactCents: null,
@@ -57,15 +57,15 @@ class HomeInsuranceRule implements Rule
                 actions: [
                     new ActionData(
                         kind: ActionKind::Kbc,
-                        title: 'KBC Brandverzekering',
-                        body: 'Brand, waterschade en storm gedekt. Vandaag geregeld, dus verzekerd voor de storm er is.',
-                        ctaLabel: 'Bereken je premie',
+                        title: 'KBC Home Insurance',
+                        body: 'Fire, water damage and storms covered. Arrange it today and you are covered before the storm arrives.',
+                        ctaLabel: 'Calculate your premium',
                     ),
                     new ActionData(
                         kind: ActionKind::NoSale,
-                        title: 'Maak je klaar voor de storm',
-                        body: 'Zet losse spullen en verhuisdozen binnen, sluit je ramen en parkeer niet onder bomen.',
-                        ctaLabel: 'Bekijk de KMI-waarschuwing',
+                        title: 'Get ready for the storm',
+                        body: 'Bring loose items and moving boxes inside, close your windows and do not park under trees.',
+                        ctaLabel: 'See the KMI warning',
                     ),
                 ],
             );
@@ -73,8 +73,8 @@ class HomeInsuranceRule implements Rule
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: 'Ik woonde in mijn nieuwe huis zonder brandverzekering',
-            body: 'Na de verhuis was mijn nieuwe huis nergens verzekerd. Een lek of een kortsluiting had ik helemaal zelf moeten betalen.',
+            title: 'I lived in my new home without home insurance',
+            body: 'After the move my new home was not insured anywhere. A leak or a short circuit would have been mine to pay in full.',
             expectedOn: $today->addDays(14),
             confidence: 80,
             impactCents: null,
@@ -83,9 +83,9 @@ class HomeInsuranceRule implements Rule
             actions: [
                 new ActionData(
                     kind: ActionKind::Kbc,
-                    title: 'KBC Brandverzekering',
-                    body: 'Brand, waterschade en storm gedekt vanaf de dag dat je de sleutels krijgt.',
-                    ctaLabel: 'Bereken je premie',
+                    title: 'KBC Home Insurance',
+                    body: 'Fire, water damage and storms covered from the day you get the keys.',
+                    ctaLabel: 'Calculate your premium',
                 ),
             ],
         );

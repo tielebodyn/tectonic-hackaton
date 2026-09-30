@@ -53,7 +53,7 @@ class ScriptedPersonaSeeder extends Seeder
                 'amount_cents' => (int) $script['balance_cents'] - $rows->sum('amount_cents'),
                 'counterparty' => 'Beginsaldo',
                 'category' => TransactionCategory::Other,
-                'description' => 'Saldo bij start van de periode',
+                'description' => 'Balance at the start of the period',
                 'is_simulated' => false,
             ]);
             $customer->transactions()->createMany($rows->all());

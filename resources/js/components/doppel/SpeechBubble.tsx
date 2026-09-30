@@ -2,14 +2,14 @@ import { cn } from '@/lib/utils';
 
 type Props = {
     text: string;
-    /** Toont drie stipjes in plaats van de tekst. */
+    /** Shows three dots instead of the text. */
     thinking?: boolean;
-    /** Op de donkere dagboekkaart */
+    /** On the dark diary card */
     onDark?: boolean;
     className?: string;
 };
 
-/** Spraakbubbel met staartje rechtsonder, richting Doppel. */
+/** Speech bubble with a tail bottom right, pointing at Doppel. */
 export default function SpeechBubble({
     text,
     thinking = false,
@@ -36,7 +36,7 @@ export default function SpeechBubble({
                 {thinking ? (
                     <div
                         className="flex h-10 items-center gap-1.5"
-                        aria-label="Doppel denkt na"
+                        aria-label="Doppel is thinking"
                     >
                         {[0, 1, 2].map((i) => (
                             <span

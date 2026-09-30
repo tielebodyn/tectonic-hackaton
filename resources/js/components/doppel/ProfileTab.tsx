@@ -18,8 +18,8 @@ import { cn } from '@/lib/utils';
 
 const lifeStage: Record<string, string> = {
     starter: 'Starter',
-    moving: 'Verhuizer',
-    self_employed: 'Zelfstandige',
+    moving: 'Mover',
+    self_employed: 'Self-employed',
 };
 
 type Consent = {
@@ -34,29 +34,29 @@ const initialConsents: Consent[] = [
     {
         key: 'tx',
         icon: Wallet,
-        title: 'Transacties lezen',
-        body: 'Alleen je eigen KBC-rekeningen, nooit die van anderen.',
+        title: 'Read transactions',
+        body: "Only your own KBC accounts, never anyone else's.",
         on: true,
     },
     {
         key: 'pattern',
         icon: Eye,
-        title: 'Patronen herkennen',
-        body: 'Vaste kosten, abonnementen en terugkerende inkomsten.',
+        title: 'Recognise patterns',
+        body: 'Fixed costs, subscriptions and recurring income.',
         on: true,
     },
     {
         key: 'app',
         icon: Smartphone,
-        title: 'App-gedrag',
-        body: 'Wat je opent en zoekt in de app, niet daarbuiten.',
+        title: 'App behaviour',
+        body: 'What you open and search in the app, nothing outside it.',
         on: false,
     },
     {
         key: 'share',
         icon: ShieldCheck,
-        title: 'Dagboek delen met een adviseur',
-        body: 'Enkel na jouw uitdrukkelijke ja, per keer.',
+        title: 'Share diary with an adviser',
+        body: 'Only after your explicit yes, each time.',
         on: false,
     },
 ];
@@ -89,7 +89,7 @@ function Toggle({
     );
 }
 
-/** Profiel: wie Doppel dubbelt, wat hij mag zien, en de rem. */
+/** Profile: who Doppel is doubling, what he may see, and the brake. */
 export default function ProfileTab({
     customer,
     mood,
@@ -119,18 +119,18 @@ export default function ProfileTab({
                         {customer.display_name}
                     </h2>
                     <p className="text-[13px] text-ink/55">
-                        {customer.age} jaar · {customer.city} ·{' '}
+                        {customer.age} years · {customer.city} ·{' '}
                         {lifeStage[customer.life_stage] ?? customer.life_stage}
                     </p>
                     <p className="mt-1 text-[13px] font-semibold text-ink">
-                        Saldo {euro(balanceCents)}
+                        Balance {euro(balanceCents)}
                     </p>
                 </div>
             </div>
 
-            <h3 className="mt-7 text-[15px] font-bold">Wat Doppel mag zien</h3>
+            <h3 className="mt-7 text-[15px] font-bold">What Doppel can see</h3>
             <p className="text-[12px] text-ink/50">
-                Jij beslist. Uitzetten werkt meteen.
+                You decide. Switching off works instantly.
             </p>
             <ul className="mt-3 flex flex-col gap-2">
                 {consents.map((c) => {
@@ -175,10 +175,10 @@ export default function ProfileTab({
                     </span>
                     <span className="min-w-0 flex-1">
                         <span className="block text-[14px] font-semibold">
-                            Doppel pauzeren
+                            Pause Doppel
                         </span>
                         <span className="block text-[12px] text-ink/55">
-                            Hij kijkt niet mee tot jij hem terug wakker maakt.
+                            He stops watching until you wake him up.
                         </span>
                     </span>
                     <Toggle on={pausedLocal} onChange={setPausedLocal} />
@@ -187,20 +187,20 @@ export default function ProfileTab({
 
             <div className="mt-6 rounded-[24px] bg-ink p-4 text-white">
                 <p className="text-[11px] font-semibold tracking-[0.14em] text-white/55 uppercase">
-                    Wat we beloven
+                    Promises
                 </p>
                 <ul className="mt-2 flex flex-col gap-1.5 text-[13px] leading-snug text-white/85">
                     <li>
-                        Je gegevens blijven bij KBC. Niets gaat naar derden
-                        zonder jouw uitdrukkelijke ja.
+                        Your data stays at KBC. Nothing is shared without your
+                        explicit yes.
                     </li>
                     <li>
-                        Elke voorspelling toont waarom. Zeg "zo ben ik niet" en
-                        hij leert.
+                        Every prediction shows why. Say "that's not me" and he
+                        learns.
                     </li>
                     <li>
-                        Wordt het krap, dan verkoopt Doppel niets en vraagt hij
-                        of een adviseur je mag bellen.
+                        If money gets tight, Doppel sells nothing and asks if an
+                        adviser may call you.
                     </li>
                 </ul>
             </div>
@@ -213,7 +213,7 @@ export default function ProfileTab({
                             className="flex w-full items-center justify-center gap-2 rounded-full border border-ink/12 py-3 text-[14px] font-semibold"
                         >
                             <RotateCcw className="size-4" />
-                            Demo terugzetten
+                            Reset demo
                         </button>
                     </Form>
                 )}
@@ -223,7 +223,7 @@ export default function ProfileTab({
                         className="flex w-full items-center justify-center gap-2 rounded-full py-3 text-[14px] font-semibold text-ink/55"
                     >
                         <LogOut className="size-4" />
-                        Afmelden
+                        Log out
                     </button>
                 </Form>
             </div>

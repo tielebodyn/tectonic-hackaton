@@ -5,7 +5,7 @@ type Props = {
     onDark?: boolean;
 };
 
-/** Zekerheid als een boog die vult, met het percentage erin. */
+/** Confidence as an arc that fills, with the percentage inside. */
 export default function ConfidenceArc({
     value,
     size = 44,
@@ -19,7 +19,7 @@ export default function ConfidenceArc({
         <div
             className="relative shrink-0"
             style={{ width: size, height: size }}
-            aria-label={`${pct}% zeker`}
+            aria-label={`${pct}% sure`}
         >
             <svg
                 viewBox="0 0 44 44"

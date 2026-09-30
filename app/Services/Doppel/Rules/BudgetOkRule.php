@@ -38,22 +38,22 @@ class BudgetOkRule implements Rule
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: 'Na de huur en de vaste kosten hield ik '.Ledger::euro($left).' over',
-            body: 'Mijn loon dekte ruim mijn vaste kosten. Wat ik daarna uitgaf, koos ik zelf.',
+            title: 'After rent and fixed costs I had '.Ledger::euro($left).' left',
+            body: 'My salary easily covered my fixed costs. What I spent after that was my own choice.',
             expectedOn: $today->addMonthNoOverflow()->endOfMonth()->startOfDay(),
             confidence: 80,
             impactCents: $left,
             urgency: 10,
             signals: [
-                ['label' => 'Inkomsten', 'detail' => Ledger::euro($income).' in de laatste 30 dagen'],
-                ['label' => 'Vaste kosten', 'detail' => Ledger::euro($fixed).' per maand aan huur en abonnementen'],
+                ['label' => 'Income', 'detail' => Ledger::euro($income).' in the last 30 days'],
+                ['label' => 'Fixed costs', 'detail' => Ledger::euro($fixed).' a month on rent and subscriptions'],
             ],
             actions: [
                 new ActionData(
                     kind: ActionKind::NoSale,
-                    title: 'Je budget zit goed 👍',
-                    body: 'Geen actie nodig. Ik hou het voor je in de gaten.',
-                    ctaLabel: 'Top',
+                    title: 'Your budget is in good shape',
+                    body: 'Nothing to do. I will keep an eye on it for you.',
+                    ctaLabel: 'Great',
                 ),
             ],
         );

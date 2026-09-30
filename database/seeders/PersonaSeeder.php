@@ -99,7 +99,7 @@ abstract class PersonaSeeder extends Seeder
             'amount_cents' => $opening,
             'counterparty' => 'Beginsaldo',
             'category' => TransactionCategory::Other,
-            'description' => 'Saldo bij start van de periode',
+            'description' => 'Balance at the start of the period',
             'is_simulated' => false,
         ]);
 

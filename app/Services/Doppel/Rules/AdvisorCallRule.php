@@ -35,22 +35,22 @@ class AdvisorCallRule implements Rule
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: 'Mijn inkomsten zakten van '.Ledger::euro($before).' naar '.Ledger::euro($lastMonth).' per maand',
-            body: 'Ik wilde er met iemand over praten die zelfstandigen kent, niet met een app.',
+            title: 'My income dropped from '.Ledger::euro($before).' to '.Ledger::euro($lastMonth).' a month',
+            body: 'I wanted to talk it through with someone who knows the self-employed, not with an app.',
             expectedOn: $today->addDays(7),
             confidence: 80,
             impactCents: $lastMonth - $before,
             urgency: 60,
             signals: [
-                ['label' => 'Inkomsten laatste 30 dagen', 'detail' => Ledger::euro($lastMonth)],
-                ['label' => 'Gemiddeld de 2 maanden ervoor', 'detail' => Ledger::euro($before).' per maand'],
+                ['label' => 'Income last 30 days', 'detail' => Ledger::euro($lastMonth)],
+                ['label' => 'Average over the 2 months before', 'detail' => Ledger::euro($before).' a month'],
             ],
             actions: [
                 new ActionData(
                     kind: ActionKind::Human,
-                    title: 'Wil je dat een adviseur je belt?',
-                    body: 'Een KBC-adviseur voor zelfstandigen belt je, zonder verkooppraatje.',
-                    ctaLabel: 'Ja, bel me',
+                    title: 'Want an adviser to call you?',
+                    body: 'A KBC adviser for the self-employed calls you, with no sales pitch.',
+                    ctaLabel: 'Yes, call me',
                 ),
             ],
         );

@@ -31,7 +31,7 @@ class WeatherForecast
     {
         return match (mb_strtolower($city)) {
             'gent' => [
-                ['date' => $today->addDays(4), 'type' => 'storm', 'code' => 'oranje', 'detail' => 'windstoten tot 100 km/u en hevige regen'],
+                ['date' => $today->addDays(4), 'type' => 'storm', 'code' => 'orange', 'detail' => 'wind gusts up to 100 km/h and heavy rain'],
             ],
             default => [],
         };

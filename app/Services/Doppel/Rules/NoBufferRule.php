@@ -45,23 +45,23 @@ class NoBufferRule implements Rule
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: 'Op het eind van de maand stond mijn rekening bijna op nul',
-            body: 'Ik had geen spaarbuffer. Eén onverwachte rekening, zoals een kapotte laptop, en ik had krap gezeten.',
+            title: 'By the end of the month my account was almost at zero',
+            body: 'I had no savings buffer. One unexpected bill, like a broken laptop, and money would have been tight.',
             expectedOn: $today->addMonthNoOverflow()->endOfMonth()->startOfDay(),
             confidence: 75,
             impactCents: null,
             urgency: 60,
             signals: [
-                ['label' => 'Geen spaarrekening', 'detail' => 'Geen overschrijvingen naar een spaarrekening gevonden'],
-                ['label' => 'Saldo vandaag', 'detail' => Ledger::euro($balance).' op je zichtrekening'],
-                ['label' => 'Uitgaven per maand', 'detail' => Ledger::euro($spending).' in de laatste 30 dagen'],
+                ['label' => 'No savings account', 'detail' => 'No transfers to a savings account found'],
+                ['label' => 'Balance today', 'detail' => Ledger::euro($balance).' in your current account'],
+                ['label' => 'Spending per month', 'detail' => Ledger::euro($spending).' in the last 30 days'],
             ],
             actions: [
                 new ActionData(
                     kind: ActionKind::Kbc,
-                    title: 'Automatisch sparen bij KBC',
-                    body: 'Zet elke maand automatisch een vast bedrag opzij, vanaf €25. Stoppen of pauzeren kan altijd.',
-                    ctaLabel: 'Start een spaarplan',
+                    title: 'Automatic saving with KBC',
+                    body: 'Put a fixed amount aside automatically every month, from €25. You can stop or pause at any time.',
+                    ctaLabel: 'Start a savings plan',
                 ),
             ],
         );
@@ -76,22 +76,22 @@ class NoBufferRule implements Rule
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: 'Ik zette '.Ledger::euro($monthly).' opzij en had mijn eerste buffer',
-            body: 'Elke maand ging er automatisch '.Ledger::euro($monthly).' naar mijn spaarrekening. Na een maand lag er al een eerste buffer klaar voor een onverwachte rekening.',
+            title: 'I put '.Ledger::euro($monthly).' aside and had my first buffer',
+            body: 'Every month '.Ledger::euro($monthly).' went to my savings account automatically. After one month I already had a first buffer for an unexpected bill.',
             expectedOn: $firstUpcoming?->booked_on ?? $horizon,
             confidence: 90,
             impactCents: $saved,
             urgency: 20,
             signals: [
-                ['label' => 'Maandelijks sparen', 'detail' => Ledger::euro($monthly).' per maand naar je spaarrekening'],
-                ['label' => 'Buffer over 30 dagen', 'detail' => Ledger::euro($saved).' gespaard'],
+                ['label' => 'Monthly saving', 'detail' => Ledger::euro($monthly).' a month to your savings account'],
+                ['label' => 'Buffer in 30 days', 'detail' => Ledger::euro($saved).' saved'],
             ],
             actions: [
                 new ActionData(
                     kind: ActionKind::NoSale,
-                    title: 'Je buffer groeit 👍',
-                    body: 'Geen actie nodig. Ik hou het voor je in de gaten.',
-                    ctaLabel: 'Top',
+                    title: 'Your buffer is growing',
+                    body: 'Nothing to do. I will keep an eye on it for you.',
+                    ctaLabel: 'Great',
                 ),
             ],
         );

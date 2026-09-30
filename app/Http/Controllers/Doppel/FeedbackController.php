@@ -9,7 +9,7 @@ use App\Services\Doppel\DoppelRefresher;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
-/** "Dat ben ik niet": the customer rejects a prediction, Doppel stops predicting that rule. */
+/** "That's not me": the customer rejects a prediction, Doppel stops predicting that rule. */
 class FeedbackController extends Controller
 {
     public function store(Request $request, DoppelRefresher $refresher): RedirectResponse
@@ -34,6 +34,6 @@ class FeedbackController extends Controller
         $customer->predictions()->where('scenario', '!=', Scenario::Base)->delete();
         $refresher->refresh($customer, Scenario::Base);
 
-        return back()->with('status', 'Begrepen, daar hou ik voortaan rekening mee.');
+        return back()->with('status', 'Got it, I\'ll keep that in mind from now on.');
     }
 }

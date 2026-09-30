@@ -17,7 +17,7 @@ const W = 320;
 const H = 150;
 const PAD = { t: 12, b: 22, l: 4, r: 4 };
 
-/** Eén saldolijn, zachte vulling, nullijn enkel als je eronder gaat. Geen labels op de lijn. */
+/** One balance line, soft fill, a zero line only when you dip below it. No labels on the line. */
 export default function BalanceChart({
     points,
     today,
@@ -65,7 +65,7 @@ export default function BalanceChart({
             viewBox={`0 0 ${W} ${H}`}
             className="w-full overflow-visible"
             role="img"
-            aria-label="Saldo over tijd"
+            aria-label="Balance over time"
         >
             <defs>
                 <linearGradient id={`${id}-fill`} x1="0" y1="0" x2="0" y2="1">
@@ -91,7 +91,7 @@ export default function BalanceChart({
                         textAnchor="end"
                         className="fill-[#e5484d] text-[10px] font-semibold"
                     >
-                        € 0
+                        €0
                     </text>
                 </>
             )}
@@ -130,7 +130,7 @@ export default function BalanceChart({
                 );
             })}
 
-            {/* vandaag */}
+            {/* today */}
             <circle
                 cx={x(0)}
                 cy={y(points[0].balance)}
@@ -140,7 +140,7 @@ export default function BalanceChart({
 
             <g className="fill-[#0b1f3a]/40 text-[10px]">
                 <text x={x(0)} y={H - 4}>
-                    Vandaag
+                    Today
                 </text>
                 <text x={x(total / 2)} y={H - 4} textAnchor="middle">
                     {shortDate(mid)}
@@ -149,7 +149,7 @@ export default function BalanceChart({
                     {shortDate(end)}
                 </text>
             </g>
-            <title>{`Van ${euro(points[0].balance)} naar ${euro(points[points.length - 1].balance)}`}</title>
+            <title>{`From ${euro(points[0].balance)} to ${euro(points[points.length - 1].balance)}`}</title>
         </svg>
     );
 }

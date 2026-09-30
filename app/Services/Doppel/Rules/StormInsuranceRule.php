@@ -18,7 +18,7 @@ use Illuminate\Support\Collection;
  */
 class StormInsuranceRule implements Rule
 {
-    public const HOME_KEYWORDS = ['brand', 'woning', 'huurder', 'inboedel'];
+    public const HOME_KEYWORDS = ['home', 'fire', 'tenant', 'contents', 'brand', 'woning', 'huurder', 'inboedel'];
 
     public function key(): string
     {
@@ -39,28 +39,28 @@ class StormInsuranceRule implements Rule
         }
 
         $weather = [
-            'label' => 'Weerbericht',
-            'detail' => 'KMI-waarschuwing code '.$storm['code'].' voor '.$customer->city.' op '.Ledger::date($storm['date']).': '.$storm['detail'],
+            'label' => 'Weather forecast',
+            'detail' => 'KMI code '.$storm['code'].' warning for '.$customer->city.' on '.Ledger::date($storm['date']).': '.$storm['detail'],
         ];
         $prepare = new ActionData(
             kind: ActionKind::NoSale,
-            title: 'Maak je klaar voor de storm',
-            body: 'Zet je fiets en losse spullen binnen, sluit je ramen en parkeer niet onder bomen.',
-            ctaLabel: 'Bekijk de KMI-waarschuwing',
+            title: 'Get ready for the storm',
+            body: 'Bring your bike and loose items inside, close your windows and do not park under trees.',
+            ctaLabel: 'See the KMI warning',
         );
 
         if (self::isHomeInsured($tx)) {
             return new PredictionData(
                 ruleKey: $this->key(),
-                title: 'Het stormde in '.$customer->city.', maar mijn woning was verzekerd',
-                body: 'Er waaiden takken en dakpannen rond. Mijn brandverzekering dekte stormschade, en wat ik binnen had gezet bleef heel.',
+                title: 'A storm hit '.$customer->city.', but my home was insured',
+                body: 'Branches and roof tiles were flying around. My home insurance covered storm damage, and what I had brought inside stayed intact.',
                 expectedOn: $storm['date'],
                 confidence: 70,
                 impactCents: null,
                 urgency: 45,
                 signals: [
                     $weather,
-                    ['label' => 'Woning verzekerd', 'detail' => 'Maandelijkse premie voor een brandverzekering op je rekening'],
+                    ['label' => 'Home insured', 'detail' => 'Monthly home insurance premium on your account'],
                 ],
                 actions: [$prepare],
             );
@@ -71,29 +71,29 @@ class StormInsuranceRule implements Rule
         return new PredictionData(
             ruleKey: $this->key(),
             title: $renting
-                ? 'Het stormde in '.$customer->city.', en mijn inboedel was nergens verzekerd'
-                : 'Het stormde in '.$customer->city.', en mijn woning was nergens verzekerd',
+                ? 'A storm hit '.$customer->city.', and my belongings were not insured anywhere'
+                : 'A storm hit '.$customer->city.', and my home was not insured anywhere',
             body: $renting
-                ? 'Het regende binnen langs een raam dat openwaaide. Mijn laptop en mijn zetel waren nat, en die schade betaalde ik helemaal zelf.'
-                : 'Er waaiden dakpannen van mijn dak. Die schade betaalde ik helemaal zelf.',
+                ? 'Rain came in through a window that blew open. My laptop and my sofa got soaked, and I paid for that damage in full myself.'
+                : 'Roof tiles blew off my roof. I paid for that damage in full myself.',
             expectedOn: $storm['date'],
             confidence: 70,
             impactCents: null,
             urgency: 60,
             signals: [
                 $weather,
-                ['label' => 'Geen woningverzekering', 'detail' => $renting
-                    ? 'Je betaalt huur, maar er gaat geen premie naar een brand- of huurdersverzekering'
-                    : 'Geen premie voor een brandverzekering gevonden op je rekening'],
+                ['label' => 'No home insurance', 'detail' => $renting
+                    ? 'You pay rent, but no premium goes to a home or tenant insurance'
+                    : 'No home insurance premium found on your account'],
             ],
             actions: [
                 new ActionData(
                     kind: ActionKind::Kbc,
-                    title: $renting ? 'KBC Brandverzekering voor huurders' : 'KBC Brandverzekering',
+                    title: $renting ? 'KBC Tenant Insurance' : 'KBC Home Insurance',
                     body: $renting
-                        ? 'Je inboedel en je aansprakelijkheid als huurder verzekerd, ook bij storm. In Vlaanderen is ze verplicht voor huurcontracten sinds 2019.'
-                        : 'Brand, waterschade en storm gedekt. Vandaag geregeld, dus verzekerd voor de storm er is.',
-                    ctaLabel: 'Bereken je premie',
+                        ? 'Your belongings and your liability as a tenant covered, storms included.'
+                        : 'Fire, water damage and storms covered. Arrange it today and you are covered before the storm arrives.',
+                    ctaLabel: 'Calculate your premium',
                 ),
                 $prepare,
             ],

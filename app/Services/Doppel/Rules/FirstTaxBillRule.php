@@ -33,22 +33,22 @@ class FirstTaxBillRule implements Rule
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: 'Mijn eerste belastingbrief viel in de bus',
-            body: 'Mijn eerste job betekende ook mijn eerste aanslagbiljet. Of ik moest bijbetalen of iets terugkreeg, hing af van de voorheffing op mijn loon.',
+            title: 'My first tax bill landed in the letterbox',
+            body: 'My first job also meant my first tax assessment. Whether I had to pay extra or got money back depended on the tax withheld from my salary.',
             expectedOn: $today->addMonthsNoOverflow(2),
             confidence: 70,
             impactCents: null,
             urgency: 40,
             signals: [
-                ['label' => 'Eerste loon', 'detail' => $salary->counterparty.' stortte je eerste loon op '.Ledger::date($salary->booked_on)],
-                ['label' => 'Geen belastingbetalingen', 'detail' => 'Er staat nog geen enkele betaling aan de FOD Financiën op je rekening'],
+                ['label' => 'First salary', 'detail' => $salary->counterparty.' paid your first salary on '.Ledger::date($salary->booked_on)],
+                ['label' => 'No tax payments', 'detail' => 'There is not a single payment to the tax office (FOD Financiën) on your account yet'],
             ],
             actions: [
                 new ActionData(
                     kind: ActionKind::NoSale,
-                    title: 'Zet een klein potje opzij',
-                    body: 'Een paar tientjes per maand opzij zetten voorkomt een verrassing als de brief komt.',
-                    ctaLabel: 'Zet een herinnering',
+                    title: 'Put a little aside',
+                    body: 'Setting aside a few tenners a month saves you a surprise when the letter comes.',
+                    ctaLabel: 'Set a reminder',
                 ),
             ],
         );

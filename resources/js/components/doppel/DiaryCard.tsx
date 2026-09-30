@@ -15,13 +15,12 @@ type Props = {
 
 function urgencyChip(urgency: number) {
     if (urgency >= 70)
-        return { label: 'Dringend', cls: 'bg-orange-100 text-orange-700' };
-    if (urgency >= 40)
-        return { label: 'Binnenkort', cls: 'bg-kbc/12 text-kbc' };
-    return { label: 'Ter info', cls: 'bg-ink/6 text-ink/60' };
+        return { label: 'Urgent', cls: 'bg-orange-100 text-orange-700' };
+    if (urgency >= 40) return { label: 'Soon', cls: 'bg-kbc/12 text-kbc' };
+    return { label: 'For info', cls: 'bg-ink/6 text-ink/60' };
 }
 
-/** Bij zorgen komen mens en "geen verkoop" eerst; KBC-verkoop nooit bovenaan. */
+/** When worried, a person and "no sale" come first; a KBC sale is never on top. */
 function orderActions(actions: CardAction[], mood: FaceMood): CardAction[] {
     if (mood !== 'worried' && mood !== 'paused') return actions;
     const rank: Record<CardAction['kind'], number> = {
@@ -116,7 +115,7 @@ export default function DiaryCard({
                     className="flex items-center justify-center gap-1.5 self-center text-[13px] font-semibold text-kbc"
                 >
                     <HelpCircle className="size-4" />
-                    Wat Doppel zag
+                    What Doppel saw
                 </button>
             )}
         </article>

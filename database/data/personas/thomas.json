@@ -5,8 +5,8 @@
     "age": 28,
     "city": "Ghent",
     "life_stage": "starter",
-    "persona_summary": "Thomas (28) is verpleegkundige in UZ Gent. Hij spaart elke maand €400, heeft €18.400 op zijn spaarrekening en betaalt volgende maand zijn laatste schijf van de autolening af.",
-    "diary_opener": "Hey Thomas, ik heb je komende maand al geleefd. In november kwam er plots €310 per maand vrij, en ik moest kiezen wat ik ermee deed.",
+    "persona_summary": "Thomas (28) is a nurse at UZ Gent. He saves €400 every month, has €18,400 in his savings account and pays the last instalment of his car loan next month.",
+    "diary_opener": "Hey Thomas, I've already lived your next month. In November €310 a month suddenly freed up, and I had to choose what to do with it.",
     "mood": "neutral",
     "balance_cents": 234000,
     "monthly": {
@@ -17,21 +17,21 @@
         {
             "days_ago": 2,
             "amount_cents": -31000,
-            "counterparty": "KBC Autolening, aflossing 47/48",
+            "counterparty": "KBC Car Loan, instalment 47/48",
             "category": "other",
-            "description": "nog 1 te gaan"
+            "description": "1 to go"
         },
         {
             "days_ago": 4,
             "amount_cents": -40000,
-            "counterparty": "Naar KBC Spaarrekening",
+            "counterparty": "To KBC Savings Account",
             "category": "savings",
-            "description": "elke maand"
+            "description": "every month"
         },
         {
             "days_ago": 5,
             "amount_cents": 248000,
-            "counterparty": "UZ Gent, loon",
+            "counterparty": "UZ Gent, salary",
             "category": "income",
             "description": null
         },
@@ -52,16 +52,16 @@
         {
             "days_ago": 10,
             "amount_cents": -8500,
-            "counterparty": "Luminus, voorschot energie",
+            "counterparty": "Luminus, energy advance",
             "category": "utilities",
             "description": null
         },
         {
             "days_ago": 12,
             "amount_cents": -28600,
-            "counterparty": "Ryanair, Lissabon, juli 2027",
+            "counterparty": "Ryanair, Lisbon, July 2027",
             "category": "other",
-            "description": "zomerreis"
+            "description": "summer trip"
         },
         {
             "days_ago": 18,
@@ -80,7 +80,7 @@
         {
             "days_ago": 29,
             "amount_cents": -79000,
-            "counterparty": "Huur Kortrijksesteenweg, Gent",
+            "counterparty": "Rent Kortrijksesteenweg, Gent",
             "category": "rent",
             "description": null
         }
@@ -88,126 +88,126 @@
     "cards": [
         {
             "rule_key": "idle",
-            "title": "Dit jaar verloor mijn spaargeld €240 aan waarde",
-            "body": "Mijn €18.400 bracht 1,5% op, maar de prijzen stegen sneller. Een buffer is slim, het deel erboven had harder kunnen werken.",
+            "title": "This year my savings lost €240 in value",
+            "body": "My €18,400 earned 1.5%, but prices rose faster. A buffer is smart, but the part above it could have worked harder.",
             "days_ahead": 0,
             "confidence": 80,
             "impact_cents": -24000,
             "urgency": 70,
             "signals": [
                 {
-                    "label": "Spaarrekening",
-                    "detail": "€18.400 aan 1,5%, terwijl de prijzen zo'n 2,8% per jaar stijgen"
+                    "label": "Savings account",
+                    "detail": "€18,400 at 1.5%, while prices rise about 2.8% a year"
                 },
                 {
-                    "label": "Elke maand €400 gespaard",
-                    "detail": "Al 3 jaar lang, zonder één maand over te slaan"
+                    "label": "€400 saved every month",
+                    "detail": "For 3 years now, without skipping a single month"
                 },
                 {
-                    "label": "Zomer is je grote kost",
-                    "detail": "Vorige juli en augustus ging er zo'n €2.900 naar vakantie, en je vlucht naar Lissabon is al geboekt"
+                    "label": "Summer is your big cost",
+                    "detail": "Last July and August about €2,900 went on holidays, and your flight to Lisbon is already booked"
                 }
             ],
             "actions": [
                 {
                     "kind": "no_sale",
-                    "title": "Je buffer: ongeveer €8.900 is genoeg",
-                    "body": "Drie maanden kosten (zo'n €6.000) plus je zomerreis (zo'n €2.900). De rest kan naar doelen op langere termijn, als je dat wil.",
-                    "cta_label": "Bekijk mijn buffer",
+                    "title": "Your buffer: about €8,900 is enough",
+                    "body": "Three months of costs (about €6,000) plus your summer trip (about €2,900). The rest can go to longer-term goals, if you want.",
+                    "cta_label": "View my buffer",
                     "partner_name": null
                 },
                 {
                     "kind": "human",
-                    "title": "Bespreek het met een adviseur",
-                    "body": "Een gesprek van 20 minuten, ook na je shift. Neem al je vragen over sparen en beleggen mee.",
-                    "cta_label": "Plan een gesprek",
+                    "title": "Talk it over with an adviser",
+                    "body": "A 20-minute chat, after your shift too. Bring all your questions about saving and investing.",
+                    "cta_label": "Book a chat",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "loan_end",
-            "title": "Er kwam €310 per maand vrij",
-            "body": "Eind oktober betaalde ik de laatste schijf van mijn autolening. Zonder plan verdween die €310 gewoon in de dagelijkse uitgaven.",
+            "title": "The month after, €310 a month freed up",
+            "body": "At the end of October I paid the last instalment of my car loan. Without a plan, that €310 just vanished into everyday spending.",
             "days_ahead": 28,
             "confidence": 94,
             "impact_cents": 31000,
             "urgency": 72,
             "signals": [
                 {
-                    "label": "Autolening loopt af",
-                    "detail": "Afbetaling 47 van 48 is betaald. Vanaf november blijft €310 per maand op je rekening."
+                    "label": "Car loan ending",
+                    "detail": "Instalment 47 of 48 is paid. From November €310 a month stays in your account."
                 },
                 {
-                    "label": "Elke maand €400 gespaard",
-                    "detail": "Al 3 jaar lang, zonder één maand over te slaan"
+                    "label": "€400 saved every month",
+                    "detail": "For 3 years now, without skipping a single month"
                 }
             ],
             "actions": []
         },
         {
             "rule_key": "ready",
-            "title": "Deze maand zette ik mijn eerste kleine stap in beleggen",
-            "body": "Ik had gelezen, naar de risico's gevraagd en Bolero twee keer geopend. Klein beginnen bleek een goeie manier om te leren.",
+            "title": "This month I took my first small step into investing",
+            "body": "I had read up, asked about the risks and opened Bolero twice. Starting small turned out to be a good way to learn.",
             "days_ahead": 30,
             "confidence": 66,
             "impact_cents": null,
             "urgency": 80,
             "signals": [
                 {
-                    "label": "Artikels over beleggen",
-                    "detail": "Je las er deze maand 5 in de app"
+                    "label": "Articles about investing",
+                    "detail": "You read 5 of them in the app this month"
                 },
                 {
-                    "label": "Bolero geopend",
-                    "detail": "Je kwam 2 keer op de startpagina van Bolero en stopte bij het kiezen van een fonds"
+                    "label": "Opened Bolero",
+                    "detail": "You visited the Bolero home page 2 times and stopped at choosing a fund"
                 },
                 {
-                    "label": "Vraag aan Kate",
-                    "detail": "Je vroeg Kate: 'Is beleggen riskant?'"
+                    "label": "Question to Kate",
+                    "detail": "You asked Kate: 'Is investing risky?'"
                 }
             ],
             "actions": [
                 {
                     "kind": "kbc",
-                    "title": "Beleg vanaf €50 per maand",
-                    "body": "Een KBC-beleggingsplan via Bolero: €50 per maand in een breed fonds, altijd te pauzeren of te stoppen. Je gaat verder waar je vorige keer stopte.",
-                    "cta_label": "Start met €50/maand",
+                    "title": "Invest from €50 a month",
+                    "body": "A KBC investment plan through Bolero: €50 a month in a broad fund, which you can pause or stop at any time. You pick up where you left off.",
+                    "cta_label": "Start with €50/month",
                     "partner_name": null
                 },
                 {
                     "kind": "no_sale",
-                    "title": "Beleggen uitgelegd in 3 minuten",
-                    "body": "Wat risico echt betekent, waarom tijd helpt en wat je kan verliezen. Eerlijk, kort, zonder fondsnamen.",
-                    "cta_label": "Bekijk de 3 minuten",
+                    "title": "Investing explained in 3 minutes",
+                    "body": "What risk really means, why time helps and what you could lose. Honest, short, no fund names.",
+                    "cta_label": "Watch the 3 minutes",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "pension_deadline",
-            "title": "Op 31 december liet ik €315 belastingvoordeel liggen",
-            "body": "Wie voor 31 december pensioenspaart, krijgt tot 30% terug van de belastingen. Ik had er nog niet aan gedacht.",
+            "title": "On 31 December I left €315 of tax benefit on the table",
+            "body": "Anyone who pays into pension savings before 31 December gets up to 30% back in tax. I hadn't thought of it yet.",
             "days_ahead": 92,
             "confidence": 85,
             "impact_cents": 31500,
             "urgency": 82,
             "signals": [
                 {
-                    "label": "Nog geen pensioensparen",
-                    "detail": "Je krijgt tot 30% terug op je belastingen, op maximaal €1.050 per jaar"
+                    "label": "No pension savings yet",
+                    "detail": "You get up to 30% back on your taxes, on at most €1,050 a year"
                 },
                 {
-                    "label": "Spaarrekening",
-                    "detail": "€18.400 aan 1,5%, terwijl de prijzen zo'n 2,8% per jaar stijgen"
+                    "label": "Savings account",
+                    "detail": "€18,400 at 1.5%, while prices rise about 2.8% a year"
                 }
             ],
             "actions": [
                 {
                     "kind": "kbc",
-                    "title": "Start met pensioensparen voor 31 december",
-                    "body": "Stort dit jaar tot €1.050 en krijg tot €315 terug op je belastingen. Eén storting vanaf je spaarrekening volstaat.",
-                    "cta_label": "Start met €1.050",
+                    "title": "Start pension savings before 31 December",
+                    "body": "Pay in up to €1,050 this year and get up to €315 back on your taxes. One transfer from your savings account is enough.",
+                    "cta_label": "Start with €1,050",
                     "partner_name": null
                 }
             ]
