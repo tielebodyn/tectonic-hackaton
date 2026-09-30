@@ -43,20 +43,20 @@ function MomentLine({
     return (
         <div
             className={cn(
-                'flex min-w-0 items-center gap-1.5 text-[11px] text-ink-2',
+                'text-ink-2 flex min-w-0 items-center gap-1.5 text-[11px]',
                 className,
             )}
         >
             <Sparkles
-                className="size-3 shrink-0 text-kbc-sky"
+                className="text-kbc-sky size-3 shrink-0"
                 strokeWidth={2.5}
             />
             <span className="truncate font-medium text-ink">
                 {moment.title}
             </span>
-            <span className="shrink-0 text-ink-3">·</span>
+            <span className="text-ink-3 shrink-0">·</span>
             <span className="shrink-0">{moment.horizon}</span>
-            <span className="shrink-0 text-ink-3">·</span>
+            <span className="text-ink-3 shrink-0">·</span>
             <span className="shrink-0 tabular-nums">
                 {moment.confidence}% sure
             </span>
@@ -66,8 +66,8 @@ function MomentLine({
 
 function NewBadge() {
     return (
-        <span className="inline-flex items-center gap-1 rounded-full bg-kbc-sky/12 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-[#0086bb] uppercase">
-            <span className="size-1.5 animate-pulse rounded-full bg-kbc-sky" />
+        <span className="bg-kbc-sky/12 inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-[#0086bb] uppercase">
+            <span className="bg-kbc-sky size-1.5 animate-pulse rounded-full" />
             New
         </span>
     );
@@ -83,7 +83,7 @@ export function HeroCard({ item, moment, soft, isNew, onOpen }: CardProps) {
     return (
         <button
             onClick={onOpen}
-            className="block w-full animate-in overflow-hidden rounded-[22px] border border-line bg-white text-left duration-500 fade-in slide-in-from-top-2 active:scale-[0.99]"
+            className="border-line block w-full animate-in overflow-hidden rounded-[22px] border bg-white text-left duration-500 fade-in slide-in-from-top-2 active:scale-[0.99]"
         >
             <div
                 className={cn(
@@ -99,7 +99,7 @@ export function HeroCard({ item, moment, soft, isNew, onOpen }: CardProps) {
                         />
                         {isNew && <NewBadge />}
                     </div>
-                    <span className="text-[10.5px] font-medium text-ink-2">
+                    <span className="text-ink-2 text-[10.5px] font-medium">
                         {HONEST_LABEL[rec.kind]}
                     </span>
                 </div>
@@ -117,7 +117,7 @@ export function HeroCard({ item, moment, soft, isNew, onOpen }: CardProps) {
                             {rec.title}
                         </div>
                         {rec.partner && (
-                            <div className="mt-0.5 text-[12px] text-ink-2">
+                            <div className="text-ink-2 mt-0.5 text-[12px]">
                                 with{' '}
                                 <span className="font-medium text-ink">
                                     {rec.partner}
@@ -131,11 +131,11 @@ export function HeroCard({ item, moment, soft, isNew, onOpen }: CardProps) {
 
             <div className="px-4 pt-3 pb-4">
                 <MomentLine moment={moment} />
-                <p className="mt-2 text-[13px] leading-relaxed text-ink-2">
+                <p className="text-ink-2 mt-2 text-[13px] leading-relaxed">
                     {rec.body}
                 </p>
                 {rec.valueToCustomer && (
-                    <div className="mt-2.5 flex items-center gap-1.5 text-[12px] font-medium text-k-nosale">
+                    <div className="text-k-nosale mt-2.5 flex items-center gap-1.5 text-[12px] font-medium">
                         <Check className="size-3.5" strokeWidth={2.75} />
                         {rec.valueToCustomer}
                     </div>
@@ -151,7 +151,7 @@ export function HeroCard({ item, moment, soft, isNew, onOpen }: CardProps) {
                     {rec.cta}
                     <ArrowRight className="size-4" strokeWidth={2.25} />
                 </div>
-                <div className="mt-2.5 flex items-center justify-center gap-1 text-[11px] text-ink-3">
+                <div className="text-ink-3 mt-2.5 flex items-center justify-center gap-1 text-[11px]">
                     <Info className="size-3" />
                     Why am I seeing this?
                 </div>
@@ -168,7 +168,7 @@ export function CompactCard({ item, moment, soft, isNew, onOpen }: CardProps) {
     return (
         <button
             onClick={onOpen}
-            className="block w-full animate-in rounded-[18px] border border-line bg-white p-3.5 text-left duration-500 fade-in slide-in-from-top-2 active:scale-[0.99]"
+            className="border-line block w-full animate-in rounded-[18px] border bg-white p-3.5 text-left duration-500 fade-in slide-in-from-top-2 active:scale-[0.99]"
         >
             <div className="flex items-center justify-between gap-2">
                 <div className="flex items-center gap-1.5">
@@ -178,7 +178,7 @@ export function CompactCard({ item, moment, soft, isNew, onOpen }: CardProps) {
                     />
                     {isNew && <NewBadge />}
                 </div>
-                <span className="flex items-center gap-1 text-[10.5px] text-ink-3">
+                <span className="text-ink-3 flex items-center gap-1 text-[10.5px]">
                     {HONEST_LABEL[rec.kind]}
                     <Info className="size-3" />
                 </span>
@@ -187,15 +187,15 @@ export function CompactCard({ item, moment, soft, isNew, onOpen }: CardProps) {
                 {rec.title}
             </div>
             {rec.partner && (
-                <div className="text-[11.5px] text-ink-2">
+                <div className="text-ink-2 text-[11.5px]">
                     with {rec.partner}
                 </div>
             )}
-            <p className="mt-1 line-clamp-2 text-[12.5px] leading-relaxed text-ink-2">
+            <p className="text-ink-2 mt-1 line-clamp-2 text-[12.5px] leading-relaxed">
                 {rec.body}
             </p>
             <MomentLine moment={moment} className="mt-2" />
-            <div className="mt-2.5 flex items-center justify-between gap-2 border-t border-line pt-2.5">
+            <div className="border-line mt-2.5 flex items-center justify-between gap-2 border-t pt-2.5">
                 <span
                     className={cn(
                         'flex items-center gap-1 text-[12.5px] font-semibold',
@@ -206,7 +206,7 @@ export function CompactCard({ item, moment, soft, isNew, onOpen }: CardProps) {
                     <ArrowRight className="size-3.5" strokeWidth={2.5} />
                 </span>
                 {rec.valueToCustomer && (
-                    <span className="truncate text-[11px] font-medium text-k-nosale">
+                    <span className="text-k-nosale truncate text-[11px] font-medium">
                         {rec.valueToCustomer}
                     </span>
                 )}

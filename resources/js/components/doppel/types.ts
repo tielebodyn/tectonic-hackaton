@@ -46,14 +46,20 @@ export type ShowCustomer = {
     persona_key: string | null;
 };
 
+/** Gemiddelde maand over de laatste 90 dagen (of uit het personascript). */
+export type Monthly = { income_cents: number; spend_cents: number };
+
+export type DemoPersona = { key: string; label: string };
+
 export type ShowProps = {
     customer: ShowCustomer;
     balance_cents: number;
+    monthly: Monthly;
     today: string;
     scenario: Scenario;
     opener: string;
     cards: Card[];
-    demo: { enabled: boolean; events: string[] };
+    demo: { enabled: boolean; events: string[]; personas: DemoPersona[] };
 };
 
 export type Persona = {
@@ -82,3 +88,26 @@ export const shortDate = (iso: string) =>
     new Intl.DateTimeFormat('nl-BE', { day: 'numeric', month: 'long' }).format(
         new Date(iso),
     );
+
+/** Hoe ver het dagboek vooruit kijkt, in maanden. 1 = de komende dertig dagen. */
+export type Horizon = 1 | 3 | 12;
+
+/** Terugkerend jaarmoment, afgeleid uit de eigen uitgaven. Geen voorspelling, wel verwacht. */
+export type SeasonalMoment = {
+    key: string;
+    title: string;
+    /** Eén woord voor op de tijdlijn. */
+    short: string;
+    body: string;
+    expected_on: string;
+    impact_cents: number;
+};
+
+/** Wat-als-knoppen in "Mijn geld, maand per maand". Bedragen in cent. */
+export type WhatIf = {
+    spend_delta_cents: number;
+    income_pct: number;
+    one_off_cents: number;
+    one_off_month: string | null;
+    saving_cents: number;
+};

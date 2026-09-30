@@ -28,7 +28,7 @@ export function HelpCards({
 
     if (!ranked.length) {
         return (
-            <div className="rounded-3xl border border-line bg-white p-8 text-[15px] text-ink-2">
+            <div className="border-line text-ink-2 rounded-3xl border bg-white p-8 text-[15px]">
                 Nothing needs your attention right now.
             </div>
         );
@@ -55,16 +55,16 @@ export function HelpCards({
                         >
                             <div className="flex items-center gap-2">
                                 <KindChip kind={rec.kind} />
-                                <span className="text-[12px] text-ink-3">
+                                <span className="text-ink-3 text-[12px]">
                                     {HONESTY[rec.kind]}
                                 </span>
                                 {rec.partner && (
-                                    <span className="text-[12px] text-ink-3">
+                                    <span className="text-ink-3 text-[12px]">
                                         · {rec.partner}
                                     </span>
                                 )}
                                 {first && (
-                                    <span className="ml-auto rounded-full bg-kbc-sky/12 px-2 py-0.5 text-[11px] font-semibold text-kbc-navy">
+                                    <span className="bg-kbc-sky/12 text-kbc-navy ml-auto rounded-full px-2 py-0.5 text-[11px] font-semibold">
                                         Best fit now
                                     </span>
                                 )}
@@ -72,11 +72,11 @@ export function HelpCards({
                             <h3 className="mt-4 text-[18px] leading-snug font-semibold tracking-tight text-ink">
                                 {rec.title}
                             </h3>
-                            <p className="mt-2 text-[14px] leading-relaxed text-ink-2">
+                            <p className="text-ink-2 mt-2 text-[14px] leading-relaxed">
                                 {rec.body}
                             </p>
                             {rec.valueToCustomer && (
-                                <div className="mt-4 flex items-start gap-2 text-[13px] font-medium text-k-nosale">
+                                <div className="text-k-nosale mt-4 flex items-start gap-2 text-[13px] font-medium">
                                     <Check
                                         className="mt-0.5 size-3.5 shrink-0"
                                         strokeWidth={2.5}
@@ -90,10 +90,10 @@ export function HelpCards({
                                         onClick={() =>
                                             onSelectMoment(moment.id)
                                         }
-                                        className="min-w-0 text-left text-[12px] text-ink-3 hover:text-ink-2"
+                                        className="text-ink-3 hover:text-ink-2 min-w-0 text-left text-[12px]"
                                     >
                                         For
-                                        <span className="block truncate font-medium text-ink-2">
+                                        <span className="text-ink-2 block truncate font-medium">
                                             {moment.title}
                                         </span>
                                     </button>
@@ -105,8 +105,8 @@ export function HelpCards({
                                     className={cn(
                                         'inline-flex shrink-0 items-center gap-1.5 rounded-full px-4 py-2 text-[13px] font-semibold transition-colors',
                                         first
-                                            ? 'bg-kbc-navy text-white hover:bg-kbc-navy-2'
-                                            : 'border border-line text-kbc-navy hover:bg-mist',
+                                            ? 'bg-kbc-navy hover:bg-kbc-navy-2 text-white'
+                                            : 'border-line text-kbc-navy hover:bg-mist border',
                                     )}
                                 >
                                     {rec.cta}
@@ -119,8 +119,8 @@ export function HelpCards({
             </div>
 
             {heldBack.length > 0 && (
-                <div className="mt-4 flex items-start gap-2.5 rounded-2xl bg-white/60 px-5 py-3.5 text-[13px] text-ink-2">
-                    <EyeOff className="mt-0.5 size-4 shrink-0 text-ink-3" />
+                <div className="text-ink-2 mt-4 flex items-start gap-2.5 rounded-2xl bg-white/60 px-5 py-3.5 text-[13px]">
+                    <EyeOff className="text-ink-3 mt-0.5 size-4 shrink-0" />
                     <span>
                         We're holding back {heldBack.length}{' '}
                         {heldBack.length === 1 ? 'offer' : 'offers'} on purpose:{' '}

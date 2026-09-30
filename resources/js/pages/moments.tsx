@@ -72,27 +72,27 @@ export default function Moments() {
     return (
         <>
             <Head title="KBC Moments" />
-            <div className="flex h-screen min-h-[720px] flex-col bg-mist font-sans text-ink">
-                <header className="flex h-14 shrink-0 items-center gap-6 border-b border-line bg-white px-5">
+            <div className="bg-mist flex h-screen min-h-[720px] flex-col font-sans text-ink">
+                <header className="border-line flex h-14 shrink-0 items-center gap-6 border-b bg-white px-5">
                     <div className="flex items-center gap-2.5">
-                        <div className="flex size-7 items-center justify-center rounded-lg bg-kbc-navy text-[10px] font-bold tracking-tight text-white">
+                        <div className="bg-kbc-navy flex size-7 items-center justify-center rounded-lg text-[10px] font-bold tracking-tight text-white">
                             KBC
                         </div>
                         <div className="leading-tight">
                             <div className="flex items-center gap-1.5 text-[15px] font-semibold tracking-tight">
                                 Moments
                                 <Sparkles
-                                    className="size-3.5 text-kbc-sky"
+                                    className="text-kbc-sky size-3.5"
                                     strokeWidth={2.5}
                                 />
                             </div>
-                            <div className="text-[11px] text-ink-3">
+                            <div className="text-ink-3 text-[11px]">
                                 Your bank, one step ahead of you
                             </div>
                         </div>
                     </div>
 
-                    <nav className="ml-4 flex rounded-lg bg-mist p-0.5 text-[13px] font-medium">
+                    <nav className="bg-mist ml-4 flex rounded-lg p-0.5 text-[13px] font-medium">
                         {(
                             [
                                 ['app', 'Your app'],
@@ -114,12 +114,12 @@ export default function Moments() {
                         ))}
                     </nav>
 
-                    <div className="ml-auto flex items-center gap-3 text-[12px] text-ink-3">
+                    <div className="text-ink-3 ml-auto flex items-center gap-3 text-[12px]">
                         <span className="flex items-center gap-1.5">
                             <Presentation className="size-3.5" />
                             Demo · fictional customers
                         </span>
-                        <span className="rounded-md border border-line px-2 py-1 tabular-nums">
+                        <span className="border-line rounded-md border px-2 py-1 tabular-nums">
                             Wed 30 Sep 2026
                         </span>
                     </div>
@@ -133,18 +133,18 @@ export default function Moments() {
                             : 'grid-cols-[248px_minmax(0,1fr)]',
                     )}
                 >
-                    <aside className="flex min-h-0 flex-col border-r border-line bg-white/70">
+                    <aside className="border-line flex min-h-0 flex-col border-r bg-white/70">
                         <div className="space-y-3 px-4 pt-4 pb-3">
-                            <div className="text-[11px] font-semibold tracking-[0.08em] text-ink-3 uppercase">
+                            <div className="text-ink-3 text-[11px] font-semibold tracking-[0.08em] uppercase">
                                 Demo · be one of them
                             </div>
-                            <label className="flex items-center gap-2 rounded-lg border border-line bg-white px-2.5 py-1.5 text-[13px]">
-                                <Search className="size-3.5 text-ink-3" />
+                            <label className="border-line flex items-center gap-2 rounded-lg border bg-white px-2.5 py-1.5 text-[13px]">
+                                <Search className="text-ink-3 size-3.5" />
                                 <input
                                     value={query}
                                     onChange={(e) => setQuery(e.target.value)}
                                     placeholder="Search people"
-                                    className="w-full bg-transparent outline-none placeholder:text-ink-3"
+                                    className="placeholder:text-ink-3 w-full bg-transparent outline-none"
                                 />
                             </label>
                         </div>
@@ -159,7 +159,7 @@ export default function Moments() {
                                             className={cn(
                                                 'flex w-full items-center gap-3 rounded-xl px-2.5 py-2 text-left transition-colors',
                                                 active
-                                                    ? 'bg-white shadow-[0_1px_3px_rgba(16,24,40,0.08)] ring-1 ring-line'
+                                                    ? 'ring-line bg-white shadow-[0_1px_3px_rgba(16,24,40,0.08)] ring-1'
                                                     : 'hover:bg-white',
                                             )}
                                         >
@@ -179,11 +179,11 @@ export default function Moments() {
                                                     >
                                                         {p.firstName}
                                                     </span>
-                                                    <span className="text-[12px] text-ink-3 tabular-nums">
+                                                    <span className="text-ink-3 text-[12px] tabular-nums">
                                                         {p.age}
                                                     </span>
                                                 </div>
-                                                <div className="truncate text-[12px] text-ink-2">
+                                                <div className="text-ink-2 truncate text-[12px]">
                                                     {p.lifeStage}
                                                 </div>
                                             </div>
@@ -205,7 +205,7 @@ export default function Moments() {
                                     />
                                 )}
                             </section>
-                            <section className="min-h-0 overflow-y-auto border-l border-line bg-white">
+                            <section className="border-line min-h-0 overflow-y-auto border-l bg-white">
                                 {current && (
                                     <IntelligencePanel
                                         key={current.id}

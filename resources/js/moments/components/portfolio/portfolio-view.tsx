@@ -36,10 +36,10 @@ function Section({
     children: ReactNode;
 }) {
     return (
-        <section className="rounded-[28px] border border-line bg-white p-8 shadow-[0_1px_2px_rgba(16,24,40,0.04)]">
+        <section className="border-line rounded-[28px] border bg-white p-8 shadow-[0_1px_2px_rgba(16,24,40,0.04)]">
             <div className="mb-7 flex items-end justify-between gap-6">
                 <div>
-                    <div className="text-[11px] font-semibold tracking-[0.08em] text-ink-3 uppercase">
+                    <div className="text-ink-3 text-[11px] font-semibold tracking-[0.08em] uppercase">
                         {eyebrow}
                     </div>
                     <h2 className="mt-1.5 text-[22px] font-semibold tracking-tight text-ink">
@@ -65,12 +65,12 @@ function Stat({
     children?: ReactNode;
 }) {
     return (
-        <div className="flex flex-col rounded-3xl border border-line bg-white p-5">
-            <div className="text-[13px] text-ink-3">{label}</div>
+        <div className="border-line flex flex-col rounded-3xl border bg-white p-5">
+            <div className="text-ink-3 text-[13px]">{label}</div>
             <div className="mt-1.5 text-[28px] leading-tight font-semibold tracking-tight text-ink tabular-nums">
                 {value}
             </div>
-            <div className="mt-1 text-[13px] leading-snug text-ink-2">
+            <div className="text-ink-2 mt-1 text-[13px] leading-snug">
                 {sub}
             </div>
             {children}
@@ -95,7 +95,7 @@ export function PortfolioView({
     const [scenario, setScenario] = useState<Scenario>(NO_SCENARIO);
 
     if (!view) {
-        return <div className="p-10 text-ink-3">No customers loaded yet.</div>;
+        return <div className="text-ink-3 p-10">No customers loaded yet.</div>;
     }
 
     const items = yearItems(view);
@@ -158,7 +158,7 @@ export function PortfolioView({
         headline = (
             <>
                 If things carry on like this, you'll have{' '}
-                <span className="font-semibold text-kbc-navy">
+                <span className="text-kbc-navy font-semibold">
                     {short(end)}
                 </span>{' '}
                 by next September. That's about {endBuffer.toFixed(1)} months of
@@ -177,7 +177,7 @@ export function PortfolioView({
         headline = (
             <>
                 If you {joined}, you'd have{milestone}{' '}
-                <span className="font-semibold text-kbc-navy">
+                <span className="text-kbc-navy font-semibold">
                     {short(end)}
                 </span>{' '}
                 by next September:{' '}
@@ -202,7 +202,7 @@ export function PortfolioView({
             {/* ---------- hero ---------- */}
             <header className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-10">
                 <div>
-                    <div className="text-[13px] font-medium text-kbc-sky">
+                    <div className="text-kbc-sky text-[13px] font-medium">
                         Your year ahead · Oct 2026 to Sep 2027
                     </div>
                     <h1 className="mt-3 text-[44px] leading-[1.05] font-semibold tracking-[-0.02em] text-ink">
@@ -210,7 +210,7 @@ export function PortfolioView({
                         <br />
                         for you, {view.firstName}.
                     </h1>
-                    <p className="mt-4 max-w-[560px] text-[17px] leading-relaxed text-ink-2">
+                    <p className="text-ink-2 mt-4 max-w-[560px] text-[17px] leading-relaxed">
                         {view.greeting}
                     </p>
                 </div>
@@ -234,7 +234,7 @@ export function PortfolioView({
                                 : 'more going out than coming in'
                         }
                     >
-                        <div className="mt-4 space-y-1.5 text-[12px] text-ink-3 tabular-nums">
+                        <div className="text-ink-3 mt-4 space-y-1.5 text-[12px] tabular-nums">
                             {[
                                 ['In', incomeCents, 'bg-k-nosale'],
                                 ['Out', spendCents, 'bg-ink-3/60'],
@@ -244,7 +244,7 @@ export function PortfolioView({
                                     className="flex items-center gap-2"
                                 >
                                     <span className="w-6">{label}</span>
-                                    <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-mist">
+                                    <div className="bg-mist h-1.5 flex-1 overflow-hidden rounded-full">
                                         <div
                                             className={cn(
                                                 'h-full rounded-full',
@@ -255,7 +255,7 @@ export function PortfolioView({
                                             }}
                                         />
                                     </div>
-                                    <span className="w-12 text-right text-ink-2">
+                                    <span className="text-ink-2 w-12 text-right">
                                         {short(v as number)}
                                     </span>
                                 </div>
@@ -267,7 +267,7 @@ export function PortfolioView({
                         value={
                             <>
                                 {buffer.toFixed(1)}{' '}
-                                <span className="text-[17px] font-medium text-ink-2">
+                                <span className="text-ink-2 text-[17px] font-medium">
                                     months
                                 </span>
                             </>
@@ -289,14 +289,14 @@ export function PortfolioView({
                                 />
                             ))}
                         </div>
-                        <div className="mt-1.5 text-[11px] text-ink-3">
+                        <div className="text-ink-3 mt-1.5 text-[11px]">
                             3 to 6 months is a comfortable cushion
                         </div>
                     </Stat>
                     {next && (
                         <button
                             onClick={() => selectMoment(next.id)}
-                            className="flex flex-col rounded-3xl bg-kbc-navy p-5 text-left text-white transition-colors hover:bg-kbc-navy-2"
+                            className="bg-kbc-navy hover:bg-kbc-navy-2 flex flex-col rounded-3xl p-5 text-left text-white transition-colors"
                         >
                             <div className="text-[13px] text-white/60">
                                 Next big moment
@@ -325,7 +325,7 @@ export function PortfolioView({
                 eyebrow="Your next 12 months"
                 title={`${moments.length} moments we see coming`}
                 aside={
-                    <span className="text-[13px] text-ink-3">
+                    <span className="text-ink-3 text-[13px]">
                         Tap one to see why we think so
                     </span>
                 }
@@ -336,7 +336,7 @@ export function PortfolioView({
                     onSelect={selectMoment}
                 />
                 {active?.moment && (
-                    <div className="mt-8 border-t border-line pt-8">
+                    <div className="border-line mt-8 border-t pt-8">
                         <MomentDetail
                             view={view}
                             moment={active.moment}
@@ -351,21 +351,21 @@ export function PortfolioView({
                 eyebrow="Your money, month by month"
                 title="Where you could be next September"
                 aside={
-                    <div className="flex items-center gap-5 text-[12px] text-ink-3">
+                    <div className="text-ink-3 flex items-center gap-5 text-[12px]">
                         <span className="flex items-center gap-2">
-                            <span className="h-[3px] w-5 rounded-full bg-kbc-navy" />
+                            <span className="bg-kbc-navy h-[3px] w-5 rounded-full" />
                             {changed
                                 ? 'With your changes'
                                 : 'If nothing changes'}
                         </span>
                         {changed && (
                             <span className="flex items-center gap-2">
-                                <span className="w-5 border-t-2 border-dashed border-ink-3" />
+                                <span className="border-ink-3 w-5 border-t-2 border-dashed" />
                                 As now
                             </span>
                         )}
                         <span className="flex items-center gap-2">
-                            <span className="flex size-4 items-center justify-center rounded-full border-2 border-kbc-navy text-[8px] font-bold text-kbc-navy">
+                            <span className="border-kbc-navy text-kbc-navy flex size-4 items-center justify-center rounded-full border-2 text-[8px] font-bold">
                                 1
                             </span>
                             Your moments
@@ -390,7 +390,7 @@ export function PortfolioView({
                             selectedId={active?.id}
                             onSelect={selectMoment}
                         />
-                        <div className="mt-6 text-[12px] text-ink-3">
+                        <div className="text-ink-3 mt-6 text-[12px]">
                             Based on your average income and spending, your
                             moments and a typical year. Investments not
                             included.
@@ -404,7 +404,7 @@ export function PortfolioView({
                             {changed && (
                                 <button
                                     onClick={() => setScenario(NO_SCENARIO)}
-                                    className="flex items-center gap-1 text-[12px] text-ink-3 hover:text-ink"
+                                    className="text-ink-3 flex items-center gap-1 text-[12px] hover:text-ink"
                                 >
                                     <RotateCcw className="size-3" />
                                     Reset
@@ -427,7 +427,7 @@ export function PortfolioView({
                 eyebrow="Help for these moments"
                 title="What we'd suggest, in this order"
                 aside={
-                    <span className="text-[13px] text-ink-3">
+                    <span className="text-ink-3 text-[13px]">
                         Ranked by how much it helps you, not us
                     </span>
                 }
@@ -440,8 +440,8 @@ export function PortfolioView({
             </Section>
 
             {/* ---------- private by design ---------- */}
-            <footer className="flex items-center gap-3 rounded-2xl px-2 text-[13px] text-ink-2">
-                <span className="flex size-8 items-center justify-center rounded-full bg-white text-kbc-navy ring-1 ring-line">
+            <footer className="text-ink-2 flex items-center gap-3 rounded-2xl px-2 text-[13px]">
+                <span className="text-kbc-navy ring-line flex size-8 items-center justify-center rounded-full bg-white ring-1">
                     <Lock className="size-3.5" />
                 </span>
                 <span>

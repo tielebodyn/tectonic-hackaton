@@ -86,7 +86,11 @@ export default function ActionsTab({
                                         <p className="px-3 pt-2 pb-1 text-[11px] text-ink/45">
                                             {r.card.title}
                                         </p>
-                                        <ActionCard action={r.action} />
+                                        <ActionCard
+                                            action={r.action}
+                                            card={r.card}
+                                            mood={mood}
+                                        />
                                     </div>
                                 ))}
                         </div>

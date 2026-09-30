@@ -36,11 +36,11 @@ export function SectionTitle({
 }) {
     return (
         <div className="mb-2.5 flex items-baseline justify-between px-1">
-            <h2 className="text-[11px] font-semibold tracking-[0.08em] text-ink-3 uppercase">
+            <h2 className="text-ink-3 text-[11px] font-semibold tracking-[0.08em] uppercase">
                 {children}
             </h2>
             {action && (
-                <span className="flex items-center text-[12px] font-medium text-kbc-navy-2">
+                <span className="text-kbc-navy-2 flex items-center text-[12px] font-medium">
                     {action}
                     <ChevronRight className="size-3.5" />
                 </span>
@@ -67,7 +67,7 @@ export function ComingUp({
     return (
         <section>
             <SectionTitle>Coming up</SectionTitle>
-            <div className="rounded-[20px] border border-line bg-white px-4 py-1">
+            <div className="border-line rounded-[20px] border bg-white px-4 py-1">
                 {sorted.map((m, i) => (
                     <div
                         key={m.id}
@@ -76,10 +76,10 @@ export function ComingUp({
                         {/* rail */}
                         <div className="relative flex w-3 shrink-0 justify-center">
                             {i > 0 && (
-                                <span className="absolute -top-3 h-[18px] w-px bg-line" />
+                                <span className="bg-line absolute -top-3 h-[18px] w-px" />
                             )}
                             {i < sorted.length - 1 && (
-                                <span className="absolute top-[18px] -bottom-3 w-px bg-line" />
+                                <span className="bg-line absolute top-[18px] -bottom-3 w-px" />
                             )}
                             <span
                                 className={cn(
@@ -91,7 +91,7 @@ export function ComingUp({
                             />
                         </div>
                         <div className="min-w-0 flex-1">
-                            <div className="flex items-center gap-1.5 text-[11px] text-ink-3">
+                            <div className="text-ink-3 flex items-center gap-1.5 text-[11px]">
                                 <span
                                     className={cn(
                                         'font-medium',
@@ -101,7 +101,7 @@ export function ComingUp({
                                     {m.horizon}
                                 </span>
                                 {newIds.has(m.id) && (
-                                    <span className="rounded-full bg-kbc-sky/12 px-1.5 text-[10px] font-semibold text-[#0086bb] uppercase">
+                                    <span className="bg-kbc-sky/12 rounded-full px-1.5 text-[10px] font-semibold text-[#0086bb] uppercase">
                                         New
                                     </span>
                                 )}
@@ -109,11 +109,11 @@ export function ComingUp({
                             <div className="mt-0.5 text-[13.5px] leading-snug font-medium text-ink">
                                 {m.title}
                             </div>
-                            <div className="mt-1 flex items-center gap-2 text-[11.5px] text-ink-2">
+                            <div className="text-ink-2 mt-1 flex items-center gap-2 text-[11.5px]">
                                 <span className="flex items-center gap-1.5 tabular-nums">
-                                    <span className="relative h-1 w-8 overflow-hidden rounded-full bg-mist">
+                                    <span className="bg-mist relative h-1 w-8 overflow-hidden rounded-full">
                                         <span
-                                            className="absolute inset-y-0 left-0 rounded-full bg-kbc-navy/70"
+                                            className="bg-kbc-navy/70 absolute inset-y-0 left-0 rounded-full"
                                             style={{
                                                 width: `${m.confidence}%`,
                                             }}
@@ -187,7 +187,7 @@ export function RecentTransactions({
     return (
         <section>
             <SectionTitle action="All">Recent</SectionTitle>
-            <ul className="divide-y divide-line overflow-hidden rounded-[20px] border border-line bg-white">
+            <ul className="divide-line border-line divide-y overflow-hidden rounded-[20px] border bg-white">
                 {transactions.slice(0, 10).map((tx) => {
                     const Icon = CATEGORY_ICON[tx.category] ?? CircleDashed;
                     const income = tx.amountCents > 0;
@@ -215,12 +215,12 @@ export function RecentTransactions({
                                 <div className="truncate text-[13.5px] font-medium text-ink">
                                     {tx.label}
                                 </div>
-                                <div className="flex items-center gap-1.5 text-[11px] text-ink-3">
+                                <div className="text-ink-3 flex items-center gap-1.5 text-[11px]">
                                     <span className="shrink-0">
                                         {fresh ? 'Just now' : tx.date}
                                     </span>
                                     {tx.flag && (
-                                        <span className="truncate rounded-md bg-kbc-sky/10 px-1.5 py-px text-[10.5px] font-medium text-[#0079a8]">
+                                        <span className="bg-kbc-sky/10 truncate rounded-md px-1.5 py-px text-[10.5px] font-medium text-[#0079a8]">
                                             noticed: {tx.flag}
                                         </span>
                                     )}
@@ -270,17 +270,17 @@ export function KateBubble({
             >
                 <span className="relative">
                     <KateAvatar size={32} />
-                    <span className="absolute -top-0.5 -right-0.5 size-2.5 rounded-full bg-k-human ring-2 ring-white" />
+                    <span className="bg-k-human absolute -top-0.5 -right-0.5 size-2.5 rounded-full ring-2 ring-white" />
                 </span>
                 <span className="min-w-0 flex-1">
                     <span className="block text-[11px] font-semibold text-ink">
                         Kate
                     </span>
-                    <span className="block truncate text-[12px] text-ink-2">
+                    <span className="text-ink-2 block truncate text-[12px]">
                         {opener}
                     </span>
                 </span>
-                <span className="shrink-0 rounded-full bg-kbc-navy px-3 py-1.5 text-[11.5px] font-semibold text-white">
+                <span className="bg-kbc-navy shrink-0 rounded-full px-3 py-1.5 text-[11.5px] font-semibold text-white">
                     Reply
                 </span>
             </button>
@@ -288,40 +288,40 @@ export function KateBubble({
     }
 
     return (
-        <div className="absolute inset-x-2.5 bottom-[86px] z-30 animate-in rounded-[22px] border border-line bg-white p-3.5 shadow-[0_16px_40px_-12px_rgba(11,31,51,0.3)] duration-300 zoom-in-95 fade-in slide-in-from-bottom-2">
+        <div className="border-line absolute inset-x-2.5 bottom-[86px] z-30 animate-in rounded-[22px] border bg-white p-3.5 shadow-[0_16px_40px_-12px_rgba(11,31,51,0.3)] duration-300 zoom-in-95 fade-in slide-in-from-bottom-2">
             <div className="flex items-center gap-2">
                 <KateAvatar />
                 <div className="flex-1 leading-tight">
                     <div className="text-[13px] font-semibold text-ink">
                         Kate
                     </div>
-                    <div className="text-[10.5px] text-ink-3">
+                    <div className="text-ink-3 text-[10.5px]">
                         Your KBC assistant
                     </div>
                 </div>
                 <button
                     onClick={() => setOpen(false)}
-                    className="flex size-7 items-center justify-center rounded-full bg-mist text-ink-2"
+                    className="bg-mist text-ink-2 flex size-7 items-center justify-center rounded-full"
                 >
                     <X className="size-3.5" strokeWidth={2.5} />
                 </button>
             </div>
-            <div className="mt-3 rounded-[16px] rounded-tl-[6px] bg-mist px-3.5 py-2.5 text-[13px] leading-relaxed text-ink">
+            <div className="bg-mist mt-3 rounded-[16px] rounded-tl-[6px] px-3.5 py-2.5 text-[13px] leading-relaxed text-ink">
                 {opener}
             </div>
             <div className="mt-2.5 flex flex-wrap gap-1.5">
                 {['Yes, show me', 'Later', 'Talk to a person'].map((q) => (
                     <span
                         key={q}
-                        className="rounded-full border border-line px-2.5 py-1 text-[11.5px] font-medium text-kbc-navy-2"
+                        className="border-line text-kbc-navy-2 rounded-full border px-2.5 py-1 text-[11.5px] font-medium"
                     >
                         {q}
                     </span>
                 ))}
             </div>
-            <div className="mt-2.5 flex items-center gap-2 rounded-full border border-line py-1.5 pr-1.5 pl-3.5 text-[12.5px] text-ink-3">
+            <div className="border-line text-ink-3 mt-2.5 flex items-center gap-2 rounded-full border py-1.5 pr-1.5 pl-3.5 text-[12.5px]">
                 <span className="flex-1">Message Kate, {firstName}…</span>
-                <span className="flex size-7 items-center justify-center rounded-full bg-kbc-navy text-white">
+                <span className="bg-kbc-navy flex size-7 items-center justify-center rounded-full text-white">
                     <Send className="size-3.5" />
                 </span>
             </div>
@@ -332,7 +332,7 @@ export function KateBubble({
 export function KateAvatar({ size = 30 }: { size?: number }) {
     return (
         <span
-            className="flex shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-kbc-sky to-kbc-navy-2 text-white"
+            className="from-kbc-sky to-kbc-navy-2 flex shrink-0 items-center justify-center rounded-full bg-gradient-to-br text-white"
             style={{ width: size, height: size }}
         >
             <Bot className="size-4" strokeWidth={2.25} />

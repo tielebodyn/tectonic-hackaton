@@ -1,0 +1,220 @@
+{
+    "order": 15,
+    "persona_key": "yasmine",
+    "display_name": "Yasmine Mertens",
+    "age": 38,
+    "city": "Brussels (Etterbeek)",
+    "life_stage": "moving",
+    "persona_summary": "Yasmine (38) woont sinds kort in Etterbeek met haar dochter Lina (9). Na haar scheiding leeft ze voor het eerst van één inkomen.",
+    "diary_opener": "Hey Yasmine, ik heb je komende maand al geleefd, en ik neem het rustig met je door. Het belangrijkste: op één inkomen liep het bijna rond, en de extra kosten van nu waren eenmalig.",
+    "mood": "neutral",
+    "balance_cents": 214000,
+    "monthly": {
+        "income_cents": 305000,
+        "spend_cents": 298000
+    },
+    "transactions": [
+        {
+            "days_ago": 2,
+            "amount_cents": 269000,
+            "counterparty": "UZ Brussel, loon",
+            "category": "income",
+            "description": null
+        },
+        {
+            "days_ago": 4,
+            "amount_cents": -145000,
+            "counterparty": "Advocatenkantoor Delvaux, factuur",
+            "category": "other",
+            "description": "nieuw"
+        },
+        {
+            "days_ago": 6,
+            "amount_cents": 36000,
+            "counterparty": "Famiris, Groeipakket Lina",
+            "category": "income",
+            "description": null
+        },
+        {
+            "days_ago": 7,
+            "amount_cents": -8700,
+            "counterparty": "Carrefour Market Etterbeek",
+            "category": "groceries",
+            "description": null
+        },
+        {
+            "days_ago": 9,
+            "amount_cents": -6400,
+            "counterparty": "Gemeenteschool, maaltijden en activiteiten",
+            "category": "other",
+            "description": null
+        },
+        {
+            "days_ago": 12,
+            "amount_cents": -12000,
+            "counterparty": "Engie, nieuwe aansluiting Etterbeek",
+            "category": "utilities",
+            "description": "nieuw adres"
+        },
+        {
+            "days_ago": 15,
+            "amount_cents": -4990,
+            "counterparty": "MIVB, maandabonnement",
+            "category": "other",
+            "description": null
+        },
+        {
+            "days_ago": 18,
+            "amount_cents": -7300,
+            "counterparty": "Colruyt Etterbeek",
+            "category": "groceries",
+            "description": null
+        },
+        {
+            "days_ago": 21,
+            "amount_cents": 182000,
+            "counterparty": "Afsluiting gezamenlijke rekening, jouw deel",
+            "category": "other",
+            "description": "gezamenlijke rekening afgesloten"
+        },
+        {
+            "days_ago": 29,
+            "amount_cents": -118000,
+            "counterparty": "Huur Rue des Champs, Etterbeek",
+            "category": "rent",
+            "description": "nieuwe huur"
+        }
+    ],
+    "cards": [
+        {
+            "rule_key": "one_income",
+            "title": "Mijn eerste maand op één inkomen liep bijna rond",
+            "body": "Huur, school en de dagelijkse kosten liepen nu op mijn loon alleen. Ik kwam zo’n €70 tekort, vooral door eenmalige kosten.",
+            "days_ahead": 0,
+            "confidence": 92,
+            "impact_cents": -7000,
+            "urgency": 88,
+            "signals": [
+                {
+                    "label": "Gezamenlijke rekening afgesloten",
+                    "detail": "Op 9 september werd jullie gezamenlijke rekening afgesloten, jouw deel van €1.820 kwam op je eigen rekening"
+                },
+                {
+                    "label": "Huur op je nieuwe adres",
+                    "detail": "Je betaalde je eerste huur van €1.180 in Etterbeek en zette energie op hetzelfde adres"
+                },
+                {
+                    "label": "Eenmalige advocatenkosten",
+                    "detail": "Je betaalde €1.450 aan een advocatenkantoor, de tweede factuur sinds juli. Die tel ik als eenmalig"
+                },
+                {
+                    "label": "Je volgt je saldo op",
+                    "detail": "Je keek deze week vaker naar je saldo dan anders. Een rustig overzicht kan dat makkelijker maken"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "human",
+                    "title": "Een rustig gesprek, met een mens",
+                    "body": "Een halfuur met een KBC-adviseur, telefonisch of in het kantoor. Jij kiest waarover het gaat. Niets te tekenen.",
+                    "cta_label": "Kies een moment",
+                    "partner_name": null
+                },
+                {
+                    "kind": "no_sale",
+                    "title": "Een frisse start voor je budget",
+                    "body": "Een overzicht met alleen jouw inkomen en kosten. Eenmalige kosten zoals de advocaat staan apart.",
+                    "cta_label": "Toon mijn overzicht",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "beneficiaries",
+            "title": "Over drie weken stonden mijn verzekeringen nog op mijn oude situatie",
+            "body": "Mijn levensverzekering noemde nog mijn ex-partner als begunstigde, en mijn woning stond nog op het oude adres. Dat kon ik aanpassen wanneer ik er klaar voor was.",
+            "days_ahead": 21,
+            "confidence": 85,
+            "impact_cents": null,
+            "urgency": 70,
+            "signals": [
+                {
+                    "label": "Oude begunstigde",
+                    "detail": "Je KBC Leven-polis uit 2017 noemt nog je ex-partner als begunstigde"
+                },
+                {
+                    "label": "Nieuw adres",
+                    "detail": "Je wijzigde je adres naar Etterbeek in de app, met Lina bij jou ingeschreven"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "no_sale",
+                    "title": "Checklist: wat pas je aan na een scheiding",
+                    "body": "Een korte lijst: de begunstigde van je levensverzekering, het adres op je polissen en wie je rekeningen kan zien.",
+                    "cta_label": "Open de checklist",
+                    "partner_name": null
+                },
+                {
+                    "kind": "kbc",
+                    "title": "Huurdersverzekering voor je nieuwe thuis",
+                    "body": "Als huurder ben je aansprakelijk voor brand- en waterschade. De KBC Woonverzekering dekt je appartement en spullen in Etterbeek.",
+                    "cta_label": "Bekijk de prijs",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "single_parent",
+            "title": "Volgende maand vond ik een nieuw ritme als alleenstaande mama",
+            "body": "Alimentatie, Groeipakket en schoolkosten kregen stilaan een vaste plek in mijn maand. Met een duidelijk overzicht kon ik rustig vooruit plannen.",
+            "days_ahead": 30,
+            "confidence": 74,
+            "impact_cents": null,
+            "urgency": 70,
+            "signals": [
+                {
+                    "label": "Vraag aan Kate",
+                    "detail": "Je vroeg Kate: \"Hoe zie ik of er alimentatie binnenkwam?\""
+                },
+                {
+                    "label": "Nieuw adres",
+                    "detail": "Je wijzigde je adres naar Etterbeek in de app, met Lina bij jou ingeschreven"
+                },
+                {
+                    "label": "Huur op je nieuwe adres",
+                    "detail": "Je betaalde je eerste huur van €1.180 in Etterbeek en zette energie op hetzelfde adres"
+                }
+            ],
+            "actions": []
+        },
+        {
+            "rule_key": "tax",
+            "title": "Over een half jaar kreeg ik zo’n €600 terug via mijn belastingen",
+            "body": "Als alleenstaande ouder met Lina bij mij kreeg ik een hogere belastingvrije som. Dat telde mee in mijn aangifte van volgend jaar.",
+            "days_ahead": 180,
+            "confidence": 60,
+            "impact_cents": 60000,
+            "urgency": 40,
+            "signals": [
+                {
+                    "label": "Nieuw adres",
+                    "detail": "Je wijzigde je adres naar Etterbeek in de app, met Lina bij jou ingeschreven"
+                },
+                {
+                    "label": "Gezamenlijke rekening afgesloten",
+                    "detail": "Op 9 september werd jullie gezamenlijke rekening afgesloten, jouw deel van €1.820 kwam op je eigen rekening"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "no_sale",
+                    "title": "Alleenstaande ouder? Je belastingvrije som kan stijgen",
+                    "body": "Een eenvoudige uitleg over de toeslag voor alleenstaande ouders en wat je nakijkt in je volgende aangifte bij FOD Financiën.",
+                    "cta_label": "Lees de uitleg",
+                    "partner_name": null
+                }
+            ]
+        }
+    ]
+}

@@ -44,7 +44,7 @@ export function freshClass(on: boolean): string {
     return cn(
         'transition-[background-color,box-shadow] duration-1000',
         on &&
-            'animate-in bg-kbc-sky/[0.07] shadow-[0_0_0_1px_rgba(0,174,239,0.45)] fade-in slide-in-from-top-1',
+            'bg-kbc-sky/[0.07] animate-in shadow-[0_0_0_1px_rgba(0,174,239,0.45)] fade-in slide-in-from-top-1',
     );
 }
 
@@ -54,7 +54,7 @@ export function NewTag({ show }: { show: boolean }) {
     }
 
     return (
-        <span className="animate-in rounded bg-kbc-sky px-1 py-px text-[9px] font-bold tracking-[0.06em] text-white uppercase fade-in">
+        <span className="bg-kbc-sky animate-in rounded px-1 py-px text-[9px] font-bold tracking-[0.06em] text-white uppercase fade-in">
             New
         </span>
     );
@@ -87,7 +87,7 @@ export function SectionHeader({
                 )}
             </div>
             {aside && (
-                <div className="shrink-0 text-[12px] text-ink-3">{aside}</div>
+                <div className="text-ink-3 shrink-0 text-[12px]">{aside}</div>
             )}
         </div>
     );
@@ -95,7 +95,7 @@ export function SectionHeader({
 
 export function EmptyNote({ children }: { children: ReactNode }) {
     return (
-        <div className="rounded-xl border border-dashed border-line px-4 py-6 text-center text-[12px] text-ink-3">
+        <div className="border-line text-ink-3 rounded-xl border border-dashed px-4 py-6 text-center text-[12px]">
             {children}
         </div>
     );
@@ -230,7 +230,7 @@ export function Card({
     return (
         <div
             className={cn(
-                'rounded-2xl border border-line bg-white shadow-[0_1px_2px_rgba(16,24,40,0.04)]',
+                'border-line rounded-2xl border bg-white shadow-[0_1px_2px_rgba(16,24,40,0.04)]',
                 className,
             )}
         >

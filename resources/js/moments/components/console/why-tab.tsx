@@ -239,10 +239,10 @@ export function WhyTab({
                 </div>
                 {rest.length > 0 && (
                     <div className="mt-3">
-                        <div className="mb-1.5 text-[12px] font-medium text-ink-3">
+                        <div className="text-ink-3 mb-1.5 text-[12px] font-medium">
                             Also considered, but less useful now
                         </div>
-                        <Card className="divide-y divide-line/70">
+                        <Card className="divide-line/70 divide-y">
                             {rest.map((r) => (
                                 <div
                                     key={r.rec.id}
@@ -252,7 +252,7 @@ export function WhyTab({
                                     )}
                                 >
                                     <KindChip kind={r.rec.kind} />
-                                    <span className="min-w-0 flex-1 truncate text-[13px] text-ink-2">
+                                    <span className="text-ink-2 min-w-0 flex-1 truncate text-[13px]">
                                         {r.rec.title}
                                     </span>
                                     <Breakdown
@@ -283,9 +283,9 @@ export function WhyTab({
                         for you.
                     </EmptyNote>
                 ) : (
-                    <Card className="overflow-hidden border-k-human/20">
-                        <div className="flex items-start gap-2.5 bg-k-human/[0.045] px-4 py-3 text-[12.5px] leading-snug text-ink-2">
-                            <PauseCircle className="mt-0.5 size-4 shrink-0 text-k-human" />
+                    <Card className="border-k-human/20 overflow-hidden">
+                        <div className="bg-k-human/[0.045] text-ink-2 flex items-start gap-2.5 px-4 py-3 text-[12.5px] leading-snug">
+                            <PauseCircle className="text-k-human mt-0.5 size-4 shrink-0" />
                             <span>
                                 <b className="font-semibold text-ink">
                                     We could have shown you these. We chose not
@@ -294,7 +294,7 @@ export function WhyTab({
                                 Here's why, in plain words.
                             </span>
                         </div>
-                        <div className="divide-y divide-line/70">
+                        <div className="divide-line/70 divide-y">
                             {held.map((h) => (
                                 <div
                                     key={h.rec.id}
@@ -309,7 +309,7 @@ export function WhyTab({
                                     />
                                     <div className="min-w-0 flex-1">
                                         <div className="flex items-center gap-2">
-                                            <span className="truncate text-[13px] font-medium text-ink-3 line-through decoration-ink-3/70">
+                                            <span className="text-ink-3 decoration-ink-3/70 truncate text-[13px] font-medium line-through">
                                                 {h.rec.title}
                                             </span>
                                             <NewTag
@@ -333,13 +333,13 @@ export function WhyTab({
                 <SectionHeader eyebrow="How we decided" />
                 <Card className="px-4 py-3.5">
                     <ol className="relative space-y-2.5">
-                        <span className="absolute top-2 bottom-2 left-[9px] w-px bg-line" />
+                        <span className="bg-line absolute top-2 bottom-2 left-[9px] w-px" />
                         {steps.map((s, i) => (
                             <li
                                 key={`${i}-${s}`}
-                                className="relative flex items-start gap-3 text-[12.5px] leading-snug text-ink-2"
+                                className="text-ink-2 relative flex items-start gap-3 text-[12.5px] leading-snug"
                             >
-                                <span className="relative z-10 flex size-[19px] shrink-0 items-center justify-center rounded-full border border-line bg-white text-[10px] font-semibold text-ink-3 tabular-nums">
+                                <span className="border-line text-ink-3 relative z-10 flex size-[19px] shrink-0 items-center justify-center rounded-full border bg-white text-[10px] font-semibold tabular-nums">
                                     {i + 1}
                                 </span>
                                 <span
@@ -354,8 +354,8 @@ export function WhyTab({
                             </li>
                         ))}
                     </ol>
-                    <div className="mt-3.5 flex items-center gap-2 border-t border-line/70 pt-3 text-[12px] text-ink-3">
-                        <Sparkles className="size-3.5 text-kbc-sky" />
+                    <div className="border-line/70 text-ink-3 mt-3.5 flex items-center gap-2 border-t pt-3 text-[12px]">
+                        <Sparkles className="text-kbc-sky size-3.5" />
                         Fixed, checkable rules made these choices. AI only
                         helped write the words.
                     </div>
@@ -367,7 +367,7 @@ export function WhyTab({
 
 function Legend({ care }: { care: string }) {
     return (
-        <div className="flex flex-wrap items-center gap-x-3.5 gap-y-1 text-[11.5px] text-ink-2">
+        <div className="text-ink-2 flex flex-wrap items-center gap-x-3.5 gap-y-1 text-[11.5px]">
             {PARTS.map((p) => (
                 <span key={p.key} className="flex items-center gap-1.5">
                     <span className={cn('size-2 rounded-sm', p.color)} />
@@ -378,7 +378,7 @@ function Legend({ care }: { care: string }) {
                 <span className="size-2 rounded-sm" style={stripes(care)} />
                 Extra care
             </span>
-            <span className="ml-auto rounded-full bg-k-nosale/10 px-2 py-0.5 font-medium text-k-nosale">
+            <span className="bg-k-nosale/10 text-k-nosale ml-auto rounded-full px-2 py-0.5 font-medium">
                 What's good for you counts {RATIO}× more than what's good for
                 KBC
             </span>
@@ -401,7 +401,7 @@ function Breakdown({
 
     return (
         <div className={cn('flex items-center gap-2', className)}>
-            <div className="flex h-2 flex-1 overflow-hidden rounded-full bg-mist">
+            <div className="bg-mist flex h-2 flex-1 overflow-hidden rounded-full">
                 {PARTS.map((p) => (
                     <div
                         key={p.key}
@@ -484,13 +484,13 @@ function SuggestionCard({
                     <div className="flex flex-wrap items-center gap-2">
                         <KindChip kind={rec.kind} />
                         {position === 1 && (
-                            <span className="text-[11.5px] font-semibold text-kbc-navy">
+                            <span className="text-kbc-navy text-[11.5px] font-semibold">
                                 Our top suggestion
                             </span>
                         )}
                         <NewTag show={isFresh} />
                         {moved > 0 && moved < 90 && (
-                            <span className="flex animate-in items-center gap-0.5 text-[11px] font-medium text-kbc-sky fade-in">
+                            <span className="text-kbc-sky flex animate-in items-center gap-0.5 text-[11px] font-medium fade-in">
                                 <ArrowUp className="size-3" strokeWidth={2.5} />
                                 moved up
                             </span>
@@ -508,7 +508,7 @@ function SuggestionCard({
                     <div className="mt-1.5 text-[14px] leading-snug font-semibold tracking-tight text-ink">
                         {rec.title}
                     </div>
-                    <div className="mt-0.5 text-[12.5px] leading-snug text-ink-2">
+                    <div className="text-ink-2 mt-0.5 text-[12.5px] leading-snug">
                         {rec.body}
                     </div>
 
@@ -516,13 +516,13 @@ function SuggestionCard({
                         {reasons.map((r) => (
                             <span
                                 key={r}
-                                className="rounded-md border border-line bg-white px-1.5 py-0.5 text-[11.5px] text-ink-2"
+                                className="border-line text-ink-2 rounded-md border bg-white px-1.5 py-0.5 text-[11.5px]"
                             >
                                 ✓ {r}
                             </span>
                         ))}
                         {rec.valueToCustomer && (
-                            <span className="rounded-md bg-k-nosale/8 px-1.5 py-0.5 text-[11.5px] font-medium text-k-nosale">
+                            <span className="bg-k-nosale/8 text-k-nosale rounded-md px-1.5 py-0.5 text-[11.5px] font-medium">
                                 {rec.valueToCustomer}
                             </span>
                         )}
@@ -538,7 +538,7 @@ function SuggestionCard({
                             className="flex-1"
                         />
                         {moment && (
-                            <span className="max-w-[45%] truncate text-[11.5px] text-ink-3">
+                            <span className="text-ink-3 max-w-[45%] truncate text-[11.5px]">
                                 For: {moment.title}
                             </span>
                         )}

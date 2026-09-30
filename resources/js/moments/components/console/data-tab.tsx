@@ -168,14 +168,14 @@ export function DataTab({
                         'border-kbc-navy/30 bg-kbc-navy/[0.03]',
                 )}
             >
-                <span className="flex size-9 items-center justify-center rounded-xl bg-kbc-navy/8 text-kbc-navy">
+                <span className="bg-kbc-navy/8 text-kbc-navy flex size-9 items-center justify-center rounded-xl">
                     <PauseCircle className="size-4.5" />
                 </span>
                 <div className="min-w-0 flex-1">
                     <div className="text-[14px] font-semibold text-ink">
                         Pause all offers
                     </div>
-                    <div className="text-[12.5px] text-ink-2">
+                    <div className="text-ink-2 text-[12.5px]">
                         {prefs.pauseOffers
                             ? 'Paused. You still get help, safety alerts and a person when you need one.'
                             : 'No products, no partner deals. Help and safety alerts stay on.'}
@@ -196,7 +196,7 @@ export function DataTab({
                         eyebrow="What we use"
                         aside="Turn any of it off"
                     />
-                    <Card className="divide-y divide-line/70">
+                    <Card className="divide-line/70 divide-y">
                         {SOURCES.map((source) => {
                             const Icon = SOURCE_STYLE[source].icon;
                             const used = view.signals.filter(
@@ -231,13 +231,13 @@ export function DataTab({
                                             >
                                                 {SOURCE_COPY[source].label}
                                             </span>
-                                            <span className="text-[11px] text-ink-3 tabular-nums">
+                                            <span className="text-ink-3 text-[11px] tabular-nums">
                                                 {used
                                                     ? `${used} thing${used === 1 ? '' : 's'} noticed`
                                                     : 'not used for you'}
                                             </span>
                                         </div>
-                                        <div className="truncate text-[11.5px] text-ink-3">
+                                        <div className="text-ink-3 truncate text-[11.5px]">
                                             {SOURCE_COPY[source].explain}
                                         </div>
                                     </div>
@@ -268,9 +268,9 @@ export function DataTab({
                                 {NEVER.map((n) => (
                                     <li
                                         key={n}
-                                        className="flex items-center gap-2 text-[12.5px] text-ink-2"
+                                        className="text-ink-2 flex items-center gap-2 text-[12.5px]"
                                     >
-                                        <Ban className="size-3.5 text-ink-3" />
+                                        <Ban className="text-ink-3 size-3.5" />
                                         {n}
                                     </li>
                                 ))}
@@ -279,17 +279,17 @@ export function DataTab({
                     </div>
                     <div>
                         <SectionHeader eyebrow="Where it lives" />
-                        <Card className="space-y-2 px-4 py-3 text-[12.5px] text-ink-2">
+                        <Card className="text-ink-2 space-y-2 px-4 py-3 text-[12.5px]">
                             <div className="flex items-center gap-2">
-                                <Server className="size-3.5 text-ink-3" /> On
+                                <Server className="text-ink-3 size-3.5" /> On
                                 KBC's own servers, in the EU
                             </div>
                             <div className="flex items-center gap-2">
-                                <Timer className="size-3.5 text-ink-3" /> Kept
+                                <Timer className="text-ink-3 size-3.5" /> Kept
                                 for 13 months at most
                             </div>
                             <div className="flex items-center gap-2">
-                                <ShieldCheck className="size-3.5 text-ink-3" />{' '}
+                                <ShieldCheck className="text-ink-3 size-3.5" />{' '}
                                 Never sold, never shared for ads
                             </div>
                         </Card>
@@ -299,14 +299,14 @@ export function DataTab({
 
             <div>
                 <SectionHeader eyebrow="Promises we keep" />
-                <Card className="divide-y divide-line/70">
+                <Card className="divide-line/70 divide-y">
                     {promises.map((p) => (
                         <div
                             key={p.id}
                             className={cn(
                                 'flex items-center gap-3 px-4 py-2.5',
                                 fresh.has(p.id) &&
-                                    'animate-in bg-kbc-sky/[0.07] fade-in',
+                                    'bg-kbc-sky/[0.07] animate-in fade-in',
                             )}
                         >
                             <span
@@ -314,7 +314,7 @@ export function DataTab({
                                     'flex size-5 shrink-0 items-center justify-center rounded-full',
                                     p.active
                                         ? 'bg-k-nosale text-white'
-                                        : 'border border-line text-transparent',
+                                        : 'border-line border text-transparent',
                                 )}
                             >
                                 <Check className="size-3" strokeWidth={3} />
@@ -323,7 +323,7 @@ export function DataTab({
                                 <div className="text-[13px] font-medium text-ink">
                                     {p.title}
                                 </div>
-                                <div className="text-[11.5px] text-ink-3">
+                                <div className="text-ink-3 text-[11.5px]">
                                     {p.body}
                                 </div>
                             </div>
@@ -351,8 +351,8 @@ export function DataTab({
             <div>
                 <SectionHeader eyebrow="What you told us" />
                 {dismissed.length === 0 && notMe.length === 0 ? (
-                    <div className="flex items-start gap-2.5 rounded-2xl border border-dashed border-line px-4 py-3.5 text-[12.5px] text-ink-2">
-                        <MessageSquareX className="mt-0.5 size-4 shrink-0 text-ink-3" />
+                    <div className="border-line text-ink-2 flex items-start gap-2.5 rounded-2xl border border-dashed px-4 py-3.5 text-[12.5px]">
+                        <MessageSquareX className="text-ink-3 mt-0.5 size-4 shrink-0" />
                         <span>
                             Nothing yet. Tap{' '}
                             <b className="font-medium text-ink">
@@ -364,7 +364,7 @@ export function DataTab({
                         </span>
                     </div>
                 ) : (
-                    <Card className="divide-y divide-line/70">
+                    <Card className="divide-line/70 divide-y">
                         {dismissed.map((r) => (
                             <div
                                 key={r.id}
@@ -377,7 +377,7 @@ export function DataTab({
                                     </span>{' '}
                                     wasn't relevant.
                                 </div>
-                                <div className="text-[11.5px] text-ink-3">
+                                <div className="text-ink-3 text-[11.5px]">
                                     Removed. You'll see fewer suggestions like
                                     this, and so will 1,240 people in a similar
                                     spot.
@@ -396,7 +396,7 @@ export function DataTab({
                                     </span>{' '}
                                     wasn't you.
                                 </div>
-                                <div className="text-[11.5px] text-ink-3">
+                                <div className="text-ink-3 text-[11.5px]">
                                     We've stopped using it for your suggestions.
                                 </div>
                             </div>
@@ -417,13 +417,13 @@ export function DataTab({
                         return (
                             <div
                                 key={r.title}
-                                className="rounded-2xl border border-line bg-white px-3 py-3"
+                                className="border-line rounded-2xl border bg-white px-3 py-3"
                             >
-                                <Icon className="size-4 text-kbc-navy" />
+                                <Icon className="text-kbc-navy size-4" />
                                 <div className="mt-2 text-[12.5px] font-semibold text-ink">
                                     {r.title}
                                 </div>
-                                <div className="mt-0.5 text-[11.5px] leading-snug text-ink-3">
+                                <div className="text-ink-3 mt-0.5 text-[11.5px] leading-snug">
                                     {r.body}
                                 </div>
                             </div>
@@ -432,7 +432,7 @@ export function DataTab({
                 </div>
                 <button
                     onClick={download}
-                    className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-kbc-navy px-4 py-2.5 text-[13px] font-semibold text-white transition-colors hover:bg-kbc-navy-2"
+                    className="bg-kbc-navy hover:bg-kbc-navy-2 mt-3 flex w-full items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-[13px] font-semibold text-white transition-colors"
                 >
                     {downloaded ? (
                         <Check className="size-4" />

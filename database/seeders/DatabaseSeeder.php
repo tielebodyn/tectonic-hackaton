@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             LotteSeeder::class,
             PeetersSeeder::class,
             KarimSeeder::class,
+            ScriptedPersonaSeeder::class,
         ]);
 
         // Detection logic may not be merged yet; seeding must still pass without it.

@@ -1,0 +1,224 @@
+{
+    "order": 14,
+    "persona_key": "nora",
+    "display_name": "Nora El Idrissi",
+    "age": 33,
+    "city": "Antwerp",
+    "life_stage": "moving",
+    "persona_summary": "Nora (33) woont in Antwerpen en is zes weken geleden mama geworden van Amir. Ze is nu met moederschapsverlof.",
+    "diary_opener": "Hey Nora, ik heb je komende maand al geleefd. Het belangrijkste: tijdens het verlof kwam er elke maand zo’n €1.080 minder binnen, maar met een plan kwamen Amir en ik er rustig door.",
+    "mood": "neutral",
+    "balance_cents": 142380,
+    "monthly": {
+        "income_cents": 205000,
+        "spend_cents": 238000
+    },
+    "transactions": [
+        {
+            "days_ago": 1,
+            "amount_cents": -4690,
+            "counterparty": "Kruidvat Antwerpen Meir",
+            "category": "other",
+            "description": "baby"
+        },
+        {
+            "days_ago": 3,
+            "amount_cents": -9120,
+            "counterparty": "Colruyt Berchem",
+            "category": "groceries",
+            "description": null
+        },
+        {
+            "days_ago": 6,
+            "amount_cents": 187000,
+            "counterparty": "Helan ziekenfonds, moederschapsuitkering",
+            "category": "income",
+            "description": "moederschapsuitkering"
+        },
+        {
+            "days_ago": 8,
+            "amount_cents": -40000,
+            "counterparty": "Kinderopvang ’t Kuikentje, waarborg",
+            "category": "other",
+            "description": "nieuw"
+        },
+        {
+            "days_ago": 10,
+            "amount_cents": -98000,
+            "counterparty": "Huur appartement Berchem",
+            "category": "rent",
+            "description": null
+        },
+        {
+            "days_ago": 13,
+            "amount_cents": -86000,
+            "counterparty": "ZNA Middelheim, ziekenhuisfactuur",
+            "category": "other",
+            "description": "geboorte"
+        },
+        {
+            "days_ago": 20,
+            "amount_cents": 18400,
+            "counterparty": "Kidslife Groeipakket",
+            "category": "income",
+            "description": "nieuw"
+        },
+        {
+            "days_ago": 22,
+            "amount_cents": -6230,
+            "counterparty": "Aldi Antwerpen",
+            "category": "groceries",
+            "description": "baby"
+        },
+        {
+            "days_ago": 25,
+            "amount_cents": -11200,
+            "counterparty": "Engie",
+            "category": "utilities",
+            "description": null
+        },
+        {
+            "days_ago": 27,
+            "amount_cents": -23900,
+            "counterparty": "Dreambaby Wijnegem",
+            "category": "other",
+            "description": "baby"
+        },
+        {
+            "days_ago": 36,
+            "amount_cents": 295000,
+            "counterparty": "Stad Antwerpen, salaris",
+            "category": "income",
+            "description": "laatste volledige loon"
+        }
+    ],
+    "cards": [
+        {
+            "rule_key": "leave_income",
+            "title": "Deze maand kwam er €1.080 minder binnen dan mijn gewone loon",
+            "body": "Mijn moederschapsuitkering van Helan lag een pak lager dan mijn loon. Mijn spaargeld overbrugde het, maar een plan voor de verlofmaanden hielp.",
+            "days_ahead": 0,
+            "confidence": 92,
+            "impact_cents": -108000,
+            "urgency": 92,
+            "signals": [
+                {
+                    "label": "Loon werd uitkering",
+                    "detail": "Helan stortte €1.870 op 24 september, je loon bij Stad Antwerpen was €2.950"
+                },
+                {
+                    "label": "Meer babykosten",
+                    "detail": "Zo’n €190 per maand aan luiers en verzorging bij Kruidvat, Aldi en Colruyt, dat is nieuw"
+                },
+                {
+                    "label": "Vraag aan Kate",
+                    "detail": "Je vroeg Kate: \"Wanneer betaalt het Groeipakket, en hoeveel?\""
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "no_sale",
+                    "title": "Je budget voor de verlofmaanden",
+                    "body": "Tot je verlof stopt, geef je zo’n €330 per maand meer uit dan er binnenkomt. Je spaargeld vangt dat makkelijk op. Bekijk het maand per maand.",
+                    "cta_label": "Bekijk mijn verlofbudget",
+                    "partner_name": null
+                },
+                {
+                    "kind": "no_sale",
+                    "title": "Zo werkt je Groeipakket",
+                    "body": "Kidslife betaalt zo’n €184 rond de 10e van elke maand, plus een eenmalig startbedrag van €1.311. Je ziet het zodra het binnenkomt.",
+                    "cta_label": "Wat krijg ik?",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "childcare",
+            "title": "Volgende maand ging Amir naar de opvang, voor zo’n €520 per maand",
+            "body": "Begin november startte Amir in ’t Kuikentje. De prijs hing af van mijn inkomen, maar ik had het al in mijn budget gezet.",
+            "days_ahead": 30,
+            "confidence": 88,
+            "impact_cents": -52000,
+            "urgency": 75,
+            "signals": [
+                {
+                    "label": "Waarborg opvang",
+                    "detail": "Je betaalde ’t Kuikentje €400 waarborg. De meeste opvangen starten zo’n 5 weken later"
+                },
+                {
+                    "label": "Amir is geboren",
+                    "detail": "Amir werd 6 weken geleden geboren en je Groeipakket-dossier bij Kidslife is geopend. Proficiat!"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "no_sale",
+                    "title": "De opvang zit al in je plan",
+                    "body": "Vanaf november staat er zo’n €520 per maand in je budget. Tip: opvangkosten geven je later belastingvermindering.",
+                    "cta_label": "Bekijk november",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "hospi",
+            "title": "Over zes weken was Amir nog altijd niet mee verzekerd in het ziekenhuis",
+            "body": "Wie een baby binnen 3 maanden toevoegt, heeft geen wachttijd. Daarna moest Amir maanden wachten op dekking.",
+            "days_ahead": 42,
+            "confidence": 85,
+            "impact_cents": null,
+            "urgency": 70,
+            "signals": [
+                {
+                    "label": "Alleen jij gedekt",
+                    "detail": "Je KBC Hospitalisatieverzekering dekt jou, niet Amir. Baby’s die binnen 3 maanden na de geboorte worden toegevoegd, hebben geen wachttijd"
+                },
+                {
+                    "label": "Amir is geboren",
+                    "detail": "Amir werd 6 weken geleden geboren en je Groeipakket-dossier bij Kidslife is geopend. Proficiat!"
+                },
+                {
+                    "label": "Ziekenhuisfactuur betaald",
+                    "detail": "Je betaalde ZNA Middelheim €860 voor de bevalling op 17 september"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "kbc",
+                    "title": "Voeg Amir toe aan je hospitalisatieverzekering",
+                    "body": "Amir krijgt dezelfde dekking als jij, zonder wachttijd als je hem voor half november toevoegt. Zo’n €6 per maand.",
+                    "cta_label": "Voeg Amir toe",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "child_saving",
+            "title": "Over twee maanden begon ik een klein spaarpotje voor Amir",
+            "body": "Veel ouders starten in het eerste jaar met sparen voor hun kind. Geen haast: na je verlof is ook prima.",
+            "days_ahead": 60,
+            "confidence": 58,
+            "impact_cents": null,
+            "urgency": 40,
+            "signals": [
+                {
+                    "label": "Sparen voor je kind bekeken",
+                    "detail": "Je opende deze maand twee keer de pagina \"Sparen voor je kind\""
+                },
+                {
+                    "label": "Amir is geboren",
+                    "detail": "Amir werd 6 weken geleden geboren en je Groeipakket-dossier bij Kidslife is geopend. Proficiat!"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "kbc",
+                    "title": "Een spaarplan voor Amir",
+                    "body": "Start met €25 per maand op een spaarrekening of beleggingsplan op zijn naam. De grootouders kunnen ook bijstorten.",
+                    "cta_label": "Start vanaf €25/maand",
+                    "partner_name": null
+                }
+            ]
+        }
+    ]
+}

@@ -64,7 +64,7 @@ export function YearTimeline({
                                     'flex h-[128px] w-full flex-col rounded-2xl border p-4 text-left transition-all duration-200',
                                     active
                                         ? 'border-kbc-navy bg-white shadow-[0_10px_28px_-10px_rgba(0,54,101,0.35)]'
-                                        : 'border-line bg-white hover:border-ink-3/40 hover:shadow-[0_6px_20px_-12px_rgba(16,24,40,0.2)]',
+                                        : 'border-line hover:border-ink-3/40 bg-white hover:shadow-[0_6px_20px_-12px_rgba(16,24,40,0.2)]',
                                 )}
                             >
                                 <div className="flex items-center gap-2 text-[12px]">
@@ -86,7 +86,7 @@ export function YearTimeline({
                                     >
                                         {now ? 'Right now' : m.horizon}
                                     </span>
-                                    <span className="ml-auto text-ink-3 tabular-nums">
+                                    <span className="text-ink-3 ml-auto tabular-nums">
                                         {m.confidence}% sure
                                     </span>
                                 </div>
@@ -94,7 +94,7 @@ export function YearTimeline({
                                     {m.title}
                                 </div>
                                 <div className="mt-auto flex items-center gap-3 pt-2">
-                                    <div className="h-1 flex-1 overflow-hidden rounded-full bg-mist">
+                                    <div className="bg-mist h-1 flex-1 overflow-hidden rounded-full">
                                         <div
                                             className={cn(
                                                 'h-full rounded-full',
@@ -153,11 +153,11 @@ export function YearTimeline({
 
             {/* the axis */}
             <div className="relative h-11">
-                <div className="absolute inset-x-0 top-[9px] h-[3px] rounded-full bg-gradient-to-r from-kbc-sky via-kbc-navy/25 to-line" />
+                <div className="from-kbc-sky via-kbc-navy/25 to-line absolute inset-x-0 top-[9px] h-[3px] rounded-full bg-gradient-to-r" />
                 <div className="absolute top-0 left-0 -translate-x-1/2">
                     <span className="relative flex size-[21px] items-center justify-center">
-                        <span className="absolute inline-flex size-full animate-ping rounded-full bg-kbc-sky/40" />
-                        <span className="relative size-3 rounded-full border-[3px] border-white bg-kbc-sky shadow" />
+                        <span className="bg-kbc-sky/40 absolute inline-flex size-full animate-ping rounded-full" />
+                        <span className="bg-kbc-sky relative size-3 rounded-full border-[3px] border-white shadow" />
                     </span>
                 </div>
                 {placed.map(({ item, x }) => (
@@ -170,22 +170,22 @@ export function YearTimeline({
                         style={{ left: `${x}%` }}
                     />
                 ))}
-                <div className="absolute inset-x-0 top-6 grid grid-cols-12 text-[12px] text-ink-3">
+                <div className="text-ink-3 absolute inset-x-0 top-6 grid grid-cols-12 text-[12px]">
                     {MONTHS.map((m, i) => (
                         <div
                             key={m}
-                            className="border-l border-line pl-2 first:border-transparent"
+                            className="border-line border-l pl-2 first:border-transparent"
                         >
                             <span
                                 className={cn(
-                                    i === 0 && 'font-medium text-ink-2',
-                                    i === 3 && 'font-medium text-ink-2',
+                                    i === 0 && 'text-ink-2 font-medium',
+                                    i === 3 && 'text-ink-2 font-medium',
                                 )}
                             >
                                 {m}
                             </span>
                             {(i === 0 || i === 3) && (
-                                <span className="ml-1 text-ink-3">
+                                <span className="text-ink-3 ml-1">
                                     {i === 0 ? '2026' : '2027'}
                                 </span>
                             )}
@@ -203,13 +203,13 @@ export function YearTimeline({
                     <div
                         key={s.id}
                         title={s.note}
-                        className="absolute flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-dashed border-line bg-white/60 px-2.5 py-1 text-[12px] whitespace-nowrap text-ink-2"
+                        className="border-line text-ink-2 absolute flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-dashed bg-white/60 px-2.5 py-1 text-[12px] whitespace-nowrap"
                         style={{
                             left: `${(s.days / 365) * 100}%`,
                             top: seasonRows[i] * 34,
                         }}
                     >
-                        <CalendarDays className="size-3 text-ink-3" />
+                        <CalendarDays className="text-ink-3 size-3" />
                         {s.title}
                         {s.impactCents !== 0 && (
                             <span className="text-ink-3 tabular-nums">

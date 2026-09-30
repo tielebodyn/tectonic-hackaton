@@ -37,7 +37,11 @@ export default function DoppelShow(props: ShowProps) {
         props;
     const { flash } = usePage<{ flash: { status: string | null } }>().props;
 
-    const [tab, setTab] = useState<Tab>('home');
+    const [tab, setTab] = useState<Tab>(() =>
+        new URLSearchParams(window.location.search).get('tab') === 'diary'
+            ? 'diary'
+            : 'home',
+    );
     const frame = useRef<HTMLElement>(null);
     const [phase, setPhase] = useState<'idle' | 'banner' | 'thinking'>('idle');
     const [whyCard, setWhyCard] = useState<Card | null>(null);
@@ -117,6 +121,7 @@ export default function DoppelShow(props: ShowProps) {
             {demo.enabled && (
                 <DemoBar
                     personaKey={customer.persona_key}
+                    personas={demo.personas}
                     canSimulate={
                         customer.persona_key === 'karim' &&
                         demo.events.includes('karim_invoice_paid')
@@ -313,6 +318,9 @@ export default function DoppelShow(props: ShowProps) {
                         mood={mood}
                         leaving={leaving}
                         onWhy={openWhy}
+                        monthly={props.monthly}
+                        balanceCents={balance_cents}
+                        variant={customer.mascot_variant}
                     />
                 )}
                 {tab === 'actions' && (

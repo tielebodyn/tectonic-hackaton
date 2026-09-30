@@ -168,15 +168,15 @@ export function IntelligencePanel({
 
             <section className="bg-white px-6 pt-4 pb-4">
                 <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1.5 text-[12px] font-semibold text-kbc-navy">
+                    <div className="text-kbc-navy flex items-center gap-1.5 text-[12px] font-semibold">
                         <Sparkles
-                            className="size-3.5 text-kbc-sky"
+                            className="text-kbc-sky size-3.5"
                             strokeWidth={2.25}
                         />
                         What KBC understands about you
                     </div>
-                    <div className="flex items-center gap-1.5 text-[11.5px] text-ink-3">
-                        <span className="size-1.5 rounded-full bg-k-nosale" />
+                    <div className="text-ink-3 flex items-center gap-1.5 text-[11.5px]">
+                        <span className="bg-k-nosale size-1.5 rounded-full" />
                         Updated just now
                     </div>
                 </div>
@@ -191,7 +191,7 @@ export function IntelligencePanel({
                         <div className="text-[20px] leading-tight font-semibold tracking-tight text-ink">
                             Hi {view.firstName}.
                         </div>
-                        <div className="mt-0.5 text-[13.5px] leading-snug text-ink-2">
+                        <div className="text-ink-2 mt-0.5 text-[13.5px] leading-snug">
                             {view.greeting}
                         </div>
                     </div>
@@ -203,8 +203,8 @@ export function IntelligencePanel({
                 </div>
             </section>
 
-            <nav className="sticky top-10 z-20 border-y border-line bg-white/95 px-6 py-2.5 backdrop-blur-md">
-                <div className="grid grid-cols-4 gap-1 rounded-xl bg-mist p-1">
+            <nav className="border-line sticky top-10 z-20 border-y bg-white/95 px-6 py-2.5 backdrop-blur-md">
+                <div className="bg-mist grid grid-cols-4 gap-1 rounded-xl p-1">
                     {TABS.map((t) => {
                         const Icon = t.icon;
                         const active = tab === t.id;
@@ -234,8 +234,8 @@ export function IntelligencePanel({
                                 {t.label}
                                 {hot && (
                                     <span className="absolute top-1 right-1 flex size-1.5">
-                                        <span className="absolute inline-flex size-full animate-ping rounded-full bg-kbc-sky" />
-                                        <span className="relative inline-flex size-1.5 rounded-full bg-kbc-sky" />
+                                        <span className="bg-kbc-sky absolute inline-flex size-full animate-ping rounded-full" />
+                                        <span className="bg-kbc-sky relative inline-flex size-1.5 rounded-full" />
                                     </span>
                                 )}
                             </button>
@@ -244,15 +244,15 @@ export function IntelligencePanel({
                 </div>
 
                 {track.summary.length > 0 && (
-                    <div className="mt-2 flex animate-in items-center gap-2 rounded-lg bg-kbc-sky/10 px-3 py-1.5 text-[12px] text-kbc-navy fade-in slide-in-from-top-1">
+                    <div className="bg-kbc-sky/10 text-kbc-navy mt-2 flex animate-in items-center gap-2 rounded-lg px-3 py-1.5 text-[12px] fade-in slide-in-from-top-1">
                         <span className="relative flex size-2 shrink-0">
-                            <span className="absolute inline-flex size-full animate-ping rounded-full bg-kbc-sky opacity-70" />
-                            <span className="relative inline-flex size-2 rounded-full bg-kbc-sky" />
+                            <span className="bg-kbc-sky absolute inline-flex size-full animate-ping rounded-full opacity-70" />
+                            <span className="bg-kbc-sky relative inline-flex size-2 rounded-full" />
                         </span>
                         <span className="shrink-0 font-semibold">
                             Something changed, so we updated this for you.
                         </span>
-                        <span className="truncate text-kbc-navy/70">
+                        <span className="text-kbc-navy/70 truncate">
                             {track.summary.join(' · ')}
                         </span>
                     </div>
@@ -293,7 +293,7 @@ export function IntelligencePanel({
                 )}
             </div>
 
-            <footer className="flex items-center gap-1.5 px-6 pb-5 text-[11.5px] text-ink-3">
+            <footer className="text-ink-3 flex items-center gap-1.5 px-6 pb-5 text-[11.5px]">
                 <ShieldCheck className="size-3.5" />
                 Your data stays with KBC in the EU. We never sell it. You can
                 change any of this, any time.
@@ -358,7 +358,7 @@ function StateCard({
     }
 
     return (
-        <div className="flex flex-col justify-center space-y-2.5 rounded-2xl bg-mist/70 px-4 py-3">
+        <div className="bg-mist/70 flex flex-col justify-center space-y-2.5 rounded-2xl px-4 py-3">
             {lines.map((l) => {
                 const Icon = l.icon;
 
@@ -384,12 +384,12 @@ function StateCard({
                             >
                                 {l.title}
                                 {fresh.has(l.id) && (
-                                    <span className="ml-2 rounded bg-kbc-sky px-1 py-px align-middle text-[9px] font-bold tracking-[0.06em] text-white uppercase">
+                                    <span className="bg-kbc-sky ml-2 rounded px-1 py-px align-middle text-[9px] font-bold tracking-[0.06em] text-white uppercase">
                                         New
                                     </span>
                                 )}
                             </div>
-                            <div className="mt-0.5 text-[12.5px] leading-snug text-ink-2">
+                            <div className="text-ink-2 mt-0.5 text-[12.5px] leading-snug">
                                 {l.body}
                             </div>
                         </div>
@@ -421,8 +421,8 @@ function MoneyCard({ view }: { view: PersonaView }) {
     ];
 
     return (
-        <div className="min-w-[180px] rounded-2xl border border-line px-4 py-2.5">
-            <div className="text-[11.5px] font-medium text-ink-3">
+        <div className="border-line min-w-[180px] rounded-2xl border px-4 py-2.5">
+            <div className="text-ink-3 text-[11.5px] font-medium">
                 A usual month
             </div>
             <div className="mt-1 space-y-0.5">
@@ -480,17 +480,17 @@ function DemoControls({
                                     'flex items-center gap-1.5 rounded-md px-2 py-1 text-[11.5px] font-medium transition-colors',
                                     fired
                                         ? 'text-white/40'
-                                        : 'bg-white/10 text-white hover:bg-kbc-sky/30 active:scale-[0.98]',
+                                        : 'hover:bg-kbc-sky/30 bg-white/10 text-white active:scale-[0.98]',
                                 )}
                             >
                                 {fired ? (
                                     <CheckCircle2
-                                        className="size-3.5 text-k-nosale"
+                                        className="text-k-nosale size-3.5"
                                         strokeWidth={2.5}
                                     />
                                 ) : (
                                     <Zap
-                                        className="size-3.5 fill-kbc-sky text-kbc-sky"
+                                        className="fill-kbc-sky text-kbc-sky size-3.5"
                                         strokeWidth={2}
                                     />
                                 )}

@@ -135,7 +135,7 @@ export function Eyebrow({
     return (
         <div
             className={cn(
-                'text-[11px] font-semibold tracking-[0.08em] text-ink-3 uppercase',
+                'text-ink-3 text-[11px] font-semibold tracking-[0.08em] uppercase',
                 className,
             )}
         >
@@ -154,7 +154,7 @@ export function Panel({
     return (
         <div
             className={cn(
-                'rounded-2xl border border-line bg-white shadow-[0_1px_2px_rgba(16,24,40,0.04)]',
+                'border-line rounded-2xl border bg-white shadow-[0_1px_2px_rgba(16,24,40,0.04)]',
                 className,
             )}
         >
@@ -176,7 +176,7 @@ export function Meter({
     return (
         <div
             className={cn(
-                'h-1.5 w-full overflow-hidden rounded-full bg-mist',
+                'bg-mist h-1.5 w-full overflow-hidden rounded-full',
                 className,
             )}
         >

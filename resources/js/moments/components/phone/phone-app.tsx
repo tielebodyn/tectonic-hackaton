@@ -93,7 +93,7 @@ export function PhoneApp({
                 className="absolute inset-0 [scrollbar-width:none] overflow-y-auto overscroll-contain"
             >
                 {/* ---------- navy header ---------- */}
-                <header className="relative bg-kbc-navy px-5 pt-[56px] pb-9 text-white">
+                <header className="bg-kbc-navy relative px-5 pt-[56px] pb-9 text-white">
                     <div
                         className="pointer-events-none absolute inset-0 opacity-70"
                         style={{
@@ -104,7 +104,7 @@ export function PhoneApp({
                     <div className="relative">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
-                                <span className="flex h-7 items-center rounded-[8px] bg-white px-1.5 text-[12px] font-extrabold tracking-tight text-kbc-navy">
+                                <span className="text-kbc-navy flex h-7 items-center rounded-[8px] bg-white px-1.5 text-[12px] font-extrabold tracking-tight">
                                     KBC
                                 </span>
                                 <span className="text-[13px] font-medium text-white/70">
@@ -115,7 +115,7 @@ export function PhoneApp({
                                 <span className="relative flex size-8 items-center justify-center rounded-full bg-white/10">
                                     <Bell className="size-4" />
                                     {view.push && (
-                                        <span className="absolute top-1.5 right-2 size-1.5 rounded-full bg-kbc-sky" />
+                                        <span className="bg-kbc-sky absolute top-1.5 right-2 size-1.5 rounded-full" />
                                     )}
                                 </span>
                                 <span
@@ -182,11 +182,11 @@ export function PhoneApp({
                 </header>
 
                 {/* ---------- body ---------- */}
-                <div className="relative -mt-5 space-y-6 rounded-t-[26px] bg-mist px-3.5 pt-3 pb-[160px]">
+                <div className="bg-mist relative -mt-5 space-y-6 rounded-t-[26px] px-3.5 pt-3 pb-[160px]">
                     <section className="space-y-2.5">
                         {view.state.vulnerable && (
-                            <div className="flex animate-in gap-3 rounded-[18px] border border-k-protect/25 bg-k-protect/10 p-3.5 duration-500 fade-in slide-in-from-top-2">
-                                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-k-protect text-white">
+                            <div className="border-k-protect/25 bg-k-protect/10 flex animate-in gap-3 rounded-[18px] border p-3.5 duration-500 fade-in slide-in-from-top-2">
+                                <span className="bg-k-protect flex size-8 shrink-0 items-center justify-center rounded-full text-white">
                                     <ShieldCheck
                                         className="size-4"
                                         strokeWidth={2.25}
@@ -196,7 +196,7 @@ export function PhoneApp({
                                     <div className="font-semibold">
                                         We're keeping an extra eye out for you
                                     </div>
-                                    <div className="mt-0.5 text-ink-2">
+                                    <div className="text-ink-2 mt-0.5">
                                         Something unusual is going on. No offers
                                         for now — your safety comes first.
                                     </div>
@@ -204,8 +204,8 @@ export function PhoneApp({
                             </div>
                         )}
                         {view.state.financialStress && (
-                            <div className="flex animate-in gap-3 rounded-[18px] border border-kbc-navy/10 bg-white p-3.5 duration-500 fade-in slide-in-from-top-2">
-                                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-kbc-navy/[0.07] text-kbc-navy">
+                            <div className="border-kbc-navy/10 flex animate-in gap-3 rounded-[18px] border bg-white p-3.5 duration-500 fade-in slide-in-from-top-2">
+                                <span className="bg-kbc-navy/[0.07] text-kbc-navy flex size-8 shrink-0 items-center justify-center rounded-full">
                                     <HeartHandshake
                                         className="size-4"
                                         strokeWidth={2.25}
@@ -215,7 +215,7 @@ export function PhoneApp({
                                     <div className="font-semibold">
                                         We've paused offers for now
                                     </div>
-                                    <div className="mt-0.5 text-ink-2">
+                                    <div className="text-ink-2 mt-0.5">
                                         Things look tight. Want to talk to
                                         someone?
                                     </div>
@@ -224,24 +224,24 @@ export function PhoneApp({
                         )}
 
                         <div className="flex items-baseline justify-between px-1 pt-1">
-                            <h2 className="text-[11px] font-semibold tracking-[0.08em] text-ink-3 uppercase">
+                            <h2 className="text-ink-3 text-[11px] font-semibold tracking-[0.08em] uppercase">
                                 For you, right now
                             </h2>
-                            <span className="flex items-center gap-1 text-[11px] text-ink-3">
-                                <Sparkles className="size-3 text-kbc-sky" />
+                            <span className="text-ink-3 flex items-center gap-1 text-[11px]">
+                                <Sparkles className="text-kbc-sky size-3" />
                                 Based on your accounts
                             </span>
                         </div>
 
                         {top.length === 0 ? (
-                            <div className="rounded-[20px] border border-line bg-white p-5 text-center">
-                                <div className="mx-auto flex size-10 items-center justify-center rounded-full bg-k-nosale/10 text-k-nosale">
+                            <div className="border-line rounded-[20px] border bg-white p-5 text-center">
+                                <div className="bg-k-nosale/10 text-k-nosale mx-auto flex size-10 items-center justify-center rounded-full">
                                     <ShieldCheck className="size-5" />
                                 </div>
                                 <div className="mt-2.5 text-[14px] font-semibold text-ink">
                                     All calm
                                 </div>
-                                <div className="mt-0.5 text-[12.5px] text-ink-2">
+                                <div className="text-ink-2 mt-0.5 text-[12.5px]">
                                     Nothing needs your attention right now.
                                     We'll let you know when it does.
                                 </div>
@@ -270,7 +270,7 @@ export function PhoneApp({
                         newIds={newTxIds}
                     />
 
-                    <div className="px-2 text-center text-[10.5px] leading-relaxed text-ink-3">
+                    <div className="text-ink-3 px-2 text-center text-[10.5px] leading-relaxed">
                         Personalised for you by KBC. You decide what we may use.
                     </div>
                 </div>
@@ -279,7 +279,7 @@ export function PhoneApp({
             {/* frosted strip behind the status bar once the navy header has scrolled away */}
             <div
                 className={cn(
-                    'pointer-events-none absolute inset-x-0 top-0 z-30 h-[54px] border-b border-line/70 bg-mist/80 backdrop-blur-xl transition-opacity duration-200',
+                    'border-line/70 bg-mist/80 pointer-events-none absolute inset-x-0 top-0 z-30 h-[54px] border-b backdrop-blur-xl transition-opacity duration-200',
                     scrolled ? 'opacity-100' : 'opacity-0',
                 )}
             />
@@ -347,7 +347,7 @@ function TabBar() {
     ];
 
     return (
-        <nav className="absolute inset-x-0 bottom-0 z-30 border-t border-line/80 bg-white/90 pt-2 pb-6 backdrop-blur-xl">
+        <nav className="border-line/80 absolute inset-x-0 bottom-0 z-30 border-t bg-white/90 pt-2 pb-6 backdrop-blur-xl">
             <ul className="flex justify-around">
                 {tabs.map(({ icon: Icon, label, active }) => (
                     <li
@@ -397,11 +397,11 @@ function PushBanner({ push }: { push: { title: string; body: string } }) {
             )}
         >
             <div className="flex gap-3">
-                <span className="flex size-[38px] shrink-0 items-center justify-center rounded-[10px] bg-kbc-navy text-[11px] font-extrabold tracking-tight text-white">
+                <span className="bg-kbc-navy flex size-[38px] shrink-0 items-center justify-center rounded-[10px] text-[11px] font-extrabold tracking-tight text-white">
                     KBC
                 </span>
                 <div className="min-w-0 flex-1">
-                    <div className="flex items-baseline justify-between gap-2 text-[11.5px] text-ink-2/80">
+                    <div className="text-ink-2/80 flex items-baseline justify-between gap-2 text-[11.5px]">
                         <span className="font-medium tracking-wide uppercase">
                             KBC Mobile
                         </span>

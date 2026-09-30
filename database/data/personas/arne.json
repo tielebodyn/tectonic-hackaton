@@ -1,0 +1,216 @@
+{
+    "order": 10,
+    "persona_key": "arne",
+    "display_name": "Arne Janssens",
+    "age": 20,
+    "city": "Leuven",
+    "life_stage": "starter",
+    "persona_summary": "Arne (20) studeert aan de KU Leuven en woont sinds september op kot in de Naamsestraat. Hij werkt als jobstudent bij Delhaize en plant een trip naar Kraków.",
+    "diary_opener": "Hey Arne, ik heb je komende maand al geleefd. Begin november zat ik aan mijn 650 studenturen, en daarboven betaalde ik gewone sociale bijdragen.",
+    "mood": "neutral",
+    "balance_cents": 31240,
+    "monthly": {
+        "income_cents": 72000,
+        "spend_cents": 69500
+    },
+    "transactions": [
+        {
+            "days_ago": 1,
+            "amount_cents": -2340,
+            "counterparty": "Aldi Leuven Tiensesteenweg",
+            "category": "groceries",
+            "description": null
+        },
+        {
+            "days_ago": 2,
+            "amount_cents": 5000,
+            "counterparty": "Pieter Janssens (papa)",
+            "category": "other",
+            "description": "bijdrage huur"
+        },
+        {
+            "days_ago": 3,
+            "amount_cents": -1850,
+            "counterparty": "Café Commerce Leuven",
+            "category": "other",
+            "description": null
+        },
+        {
+            "days_ago": 5,
+            "amount_cents": 41800,
+            "counterparty": "Delhaize Le Lion (studentenjob)",
+            "category": "income",
+            "description": "studentenjob"
+        },
+        {
+            "days_ago": 9,
+            "amount_cents": -76000,
+            "counterparty": "Huurwaarborg kot Naamsestraat",
+            "category": "rent",
+            "description": "huurwaarborg kot"
+        },
+        {
+            "days_ago": 9,
+            "amount_cents": 80000,
+            "counterparty": "Mama & papa Janssens",
+            "category": "other",
+            "description": "bijdrage waarborg"
+        },
+        {
+            "days_ago": 10,
+            "amount_cents": -38000,
+            "counterparty": "Kotbaas V. Peeters, huur oktober",
+            "category": "rent",
+            "description": null
+        },
+        {
+            "days_ago": 12,
+            "amount_cents": 1250,
+            "counterparty": "Payconiq · Lars (pizza)",
+            "category": "other",
+            "description": null
+        },
+        {
+            "days_ago": 14,
+            "amount_cents": -12400,
+            "counterparty": "Acco Leuven (cursusboeken)",
+            "category": "other",
+            "description": null
+        },
+        {
+            "days_ago": 16,
+            "amount_cents": -4800,
+            "counterparty": "Telenet Wi-Fi kot",
+            "category": "utilities",
+            "description": "gedeelde kost"
+        }
+    ],
+    "cards": [
+        {
+            "rule_key": "kot",
+            "title": "Deze maand kwam ik op kot, en de kleine kosten stapelden zich op",
+            "body": "Waarborg betaald, huur liep, en met drie kotgenoten deelde ik Wi-Fi, pizza en boodschappen. Wie wat moest betalen, raakte ik snel kwijt.",
+            "days_ahead": 0,
+            "confidence": 88,
+            "impact_cents": null,
+            "urgency": 70,
+            "signals": [
+                {
+                    "label": "Op kot",
+                    "detail": "Huurwaarborg van €760 betaald, en sinds september huur aan je kotbaas in Leuven"
+                },
+                {
+                    "label": "Gedeelde kosten",
+                    "detail": "9 Payconiq-betalingen met je 3 kotgenoten deze maand (Wi-Fi, pizza, boodschappen)"
+                },
+                {
+                    "label": "Steun van je ouders",
+                    "detail": "Je ouders storten regelmatig bij, waaronder €800 in september voor de waarborg"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "no_sale",
+                    "title": "Verdeel de kotkosten met je kotgenoten",
+                    "body": "Maak een gedeelde groep voor Wi-Fi, boodschappen en pizza. Iedereen ziet wie wat moet, afrekenen gaat met één tik.",
+                    "cta_label": "Maak \"Kot Naamsestraat\"",
+                    "partner_name": null
+                },
+                {
+                    "kind": "kbc",
+                    "title": "Je gratis studentenpakket",
+                    "body": "Je rekening en bankkaart blijven gratis tot je 25 bent. Een tweede kaart of een spaardoel kan erbij zonder kosten.",
+                    "cta_label": "Bekijk wat erin zit",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "trip",
+            "title": "Over een maand vertrok ik naar Kraków",
+            "body": "De trip kostte me zo'n €350. Wat ik niet verwachtte: betalen in euro in plaats van złoty maakte alles duurder.",
+            "days_ahead": 32,
+            "confidence": 74,
+            "impact_cents": -35000,
+            "urgency": 80,
+            "signals": [
+                {
+                    "label": "Reisverzekering bekeken",
+                    "detail": "Je opende de pagina reisverzekering 2 keer en de munt-omrekenaar voor złoty 4 keer"
+                },
+                {
+                    "label": "Vraag aan Kate",
+                    "detail": "Je vroeg Kate: 'Werkt mijn kaart in Polen?'"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "kbc",
+                    "title": "Reisbijstand voor deze trip",
+                    "body": "KBC Reisbijstand dekt medische kosten en repatriëring, alleen voor deze reis. Geen jaarcontract nodig.",
+                    "cta_label": "Verzeker mijn trip vanaf €9",
+                    "partner_name": null
+                },
+                {
+                    "kind": "no_sale",
+                    "title": "Betaal in złoty, niet in euro",
+                    "body": "Kies aan de kassa altijd PLN: 'betalen in euro' kost tot 7% extra. Haal één keer cash af, niet elke dag.",
+                    "cta_label": "Toon mijn reistips",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "hours_cap",
+            "title": "Over vijf weken zat ik aan mijn 650 studenturen",
+            "body": "Ik had nog ongeveer 110 uren over. Daarboven betaalde ik gewone sociale bijdragen, en dat kon ook de belastingen van mijn ouders raken.",
+            "days_ahead": 35,
+            "confidence": 82,
+            "impact_cents": null,
+            "urgency": 85,
+            "signals": [
+                {
+                    "label": "Studenturen",
+                    "detail": "Op basis van je Delhaize-loon werkte je dit jaar ongeveer 540 uren. De grens is 650 per jaar."
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "no_sale",
+                    "title": "Nog 110 studenturen",
+                    "body": "Check je saldo op Student@work en plan je shiften voor november. Over de grens gaan kost je sociale bijdragen.",
+                    "cta_label": "Zo werkt de grens",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "exams",
+            "title": "In de blok had ik €180 minder",
+            "body": "Vanaf half december werkte ik minder en gaf ik meer uit aan eten en koffie.",
+            "days_ahead": 75,
+            "confidence": 68,
+            "impact_cents": -18000,
+            "urgency": 35,
+            "signals": [
+                {
+                    "label": "Examens in aantocht",
+                    "detail": "Je blok aan de KU Leuven start half december. De meeste studenten werken dan 60% minder."
+                },
+                {
+                    "label": "Studenturen",
+                    "detail": "Op basis van je Delhaize-loon werkte je dit jaar ongeveer 540 uren. De grens is 650 per jaar."
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "no_sale",
+                    "title": "Plan je blokbudget",
+                    "body": "Zet tot december €15 per week opzij, dan is de examenmaand zonder shiften niet krap.",
+                    "cta_label": "Maak een blokpotje",
+                    "partner_name": null
+                }
+            ]
+        }
+    ]
+}

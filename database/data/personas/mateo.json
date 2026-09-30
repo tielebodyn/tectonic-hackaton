@@ -1,0 +1,224 @@
+{
+    "order": 12,
+    "persona_key": "mateo",
+    "display_name": "Mateo García",
+    "age": 29,
+    "city": "Brussels (Saint-Gilles)",
+    "life_stage": "starter",
+    "persona_summary": "Mateo (29) is een Spaanse software engineer die drie weken geleden naar Sint-Gillis verhuisde voor een job bij Nexlane. Hij spreekt liever Engels en zit midden in zijn eerste Belgische papierwerk.",
+    "diary_opener": "Hey Mateo, ik heb je komende maand al geleefd. Ik had maar drie maanden om het belastingstelsel voor nieuwkomers aan te vragen, en de klok liep al.",
+    "mood": "neutral",
+    "balance_cents": 1033400,
+    "monthly": {
+        "income_cents": 385000,
+        "spend_cents": 262000
+    },
+    "transactions": [
+        {
+            "days_ago": 1,
+            "amount_cents": 800000,
+            "counterparty": "Overschrijving van ES •••• 3391 (M. García)",
+            "category": "other",
+            "description": "vanuit Spanje"
+        },
+        {
+            "days_ago": 2,
+            "amount_cents": 291000,
+            "counterparty": "Nexlane NV, loon september",
+            "category": "income",
+            "description": "eerste loon"
+        },
+        {
+            "days_ago": 3,
+            "amount_cents": -6400,
+            "counterparty": "Delhaize Saint-Gilles",
+            "category": "groceries",
+            "description": null
+        },
+        {
+            "days_ago": 5,
+            "amount_cents": -2200,
+            "counterparty": "Commune de Saint-Gilles, verblijfskaart",
+            "category": "tax",
+            "description": "ingeschreven"
+        },
+        {
+            "days_ago": 7,
+            "amount_cents": -7900,
+            "counterparty": "Proximus, installatie internet",
+            "category": "utilities",
+            "description": null
+        },
+        {
+            "days_ago": 10,
+            "amount_cents": -250000,
+            "counterparty": "Huurwaarborg Rue de la Victoire",
+            "category": "rent",
+            "description": "eenmalig"
+        },
+        {
+            "days_ago": 12,
+            "amount_cents": 300000,
+            "counterparty": "Overschrijving van ES •••• 3391 (M. García)",
+            "category": "other",
+            "description": "vanuit Spanje"
+        },
+        {
+            "days_ago": 14,
+            "amount_cents": -4900,
+            "counterparty": "STIB-MIVB, maandabonnement",
+            "category": "other",
+            "description": null
+        },
+        {
+            "days_ago": 15,
+            "amount_cents": -61200,
+            "counterparty": "IKEA Anderlecht",
+            "category": "other",
+            "description": "nieuwe woning"
+        },
+        {
+            "days_ago": 18,
+            "amount_cents": 100000,
+            "counterparty": "Overschrijving van ES •••• 3391 (M. García)",
+            "category": "other",
+            "description": "vanuit Spanje"
+        },
+        {
+            "days_ago": 20,
+            "amount_cents": -125000,
+            "counterparty": "Huur Rue de la Victoire, Saint-Gilles",
+            "category": "rent",
+            "description": null
+        }
+    ],
+    "cards": [
+        {
+            "rule_key": "fees",
+            "title": "Deze maand betaalde ik dubbel voor twee bankrekeningen",
+            "body": "Ik schoof geld heen en weer tussen Spanje en België. Met alles op één plek had ik zo'n €150 aan transfer- en rekeningkosten bespaard.",
+            "days_ahead": 0,
+            "confidence": 70,
+            "impact_cents": -15000,
+            "urgency": 65,
+            "signals": [
+                {
+                    "label": "3 keer geld uit Spanje",
+                    "detail": "Je zette deze maand €12.000 over van je Spaanse rekening. Veel banken rekenen kosten voor instant transfers of een maandelijkse rekeningkost."
+                },
+                {
+                    "label": "Nieuw bij KBC",
+                    "detail": "Je opende je rekeningen 3 weken geleden online, zonder Belgische bankgeschiedenis"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "kbc",
+                    "title": "Breng je dagelijkse bankzaken naar KBC",
+                    "body": "Overschrijvingen in euro naar Spanje zijn gratis. Je Spaanse domiciliëringen zetten we mee over, zodat je de extra rekening kan sluiten wanneer je klaar bent.",
+                    "cta_label": "Zet mijn domiciliëringen over",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "health_fund",
+            "title": "Over drie weken betaalde ik mijn dokter nog altijd volledig zelf",
+            "body": "Zonder ziekenfonds kreeg ik niets terug van dokter, apotheek of ziekenhuis. Ik had beter meteen aangesloten.",
+            "days_ahead": 21,
+            "confidence": 88,
+            "impact_cents": null,
+            "urgency": 90,
+            "signals": [
+                {
+                    "label": "Vraag aan Kate",
+                    "detail": "Je vroeg Kate: 'What is a mutuelle?'"
+                },
+                {
+                    "label": "Ingeschreven in Sint-Gillis",
+                    "detail": "Je betaalde je verblijfskaart bij de gemeente, dus je woont nu officieel in België"
+                },
+                {
+                    "label": "Eerste Belgisch loon",
+                    "detail": "Nexlane NV stortte €2.910 op 28 september voor je eerste weken. Een volle maand wordt zo'n €3.850."
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "partner",
+                    "title": "Sluit in 10 minuten aan bij een ziekenfonds",
+                    "body": "Korte uitleg over hoe ziekenfondsen in België werken, en een link om online aan te sluiten bij Helan, in het Engels. Een ander ziekenfonds kiezen kan ook.",
+                    "cta_label": "Sluit online aan",
+                    "partner_name": "Helan"
+                }
+            ]
+        },
+        {
+            "rule_key": "car",
+            "title": "Volgende maand kocht ik een auto",
+            "body": "Ik had eerst een verzekering nodig voor ik een nummerplaat kreeg. Goed dat ik de stappen op voorhand kende.",
+            "days_ahead": 30,
+            "confidence": 60,
+            "impact_cents": null,
+            "urgency": 60,
+            "signals": [
+                {
+                    "label": "Autoverzekering bekeken",
+                    "detail": "Je opende de pagina autoverzekering deze week 3 keer in de app"
+                },
+                {
+                    "label": "3 keer geld uit Spanje",
+                    "detail": "Je zette deze maand €12.000 over van je Spaanse rekening. Veel banken rekenen kosten voor instant transfers of een maandelijkse rekeningkost."
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "kbc",
+                    "title": "KBC autoverzekering, met je Spaanse historiek",
+                    "body": "Je schadevrije jaren in Spanje kunnen hier meetellen. Je nummerplaat vragen we ook voor je aan.",
+                    "cta_label": "Vraag een prijs",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "tax",
+            "title": "Over twee maanden sloot het venster voor het nieuwkomersstelsel",
+            "body": "Ik was nu Belgisch belastingplichtig. Mijn werkgever kon het speciale stelsel voor nieuwkomers aanvragen, maar alleen binnen 3 maanden na mijn start.",
+            "days_ahead": 62,
+            "confidence": 64,
+            "impact_cents": null,
+            "urgency": 92,
+            "signals": [
+                {
+                    "label": "Eerste Belgisch loon",
+                    "detail": "Nexlane NV stortte €2.910 op 28 september voor je eerste weken. Een volle maand wordt zo'n €3.850."
+                },
+                {
+                    "label": "Ingeschreven in Sint-Gillis",
+                    "detail": "Je betaalde je verblijfskaart bij de gemeente, dus je woont nu officieel in België"
+                },
+                {
+                    "label": "Nieuw bij KBC",
+                    "detail": "Je opende je rekeningen 3 weken geleden online, zonder Belgische bankgeschiedenis"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "no_sale",
+                    "title": "Je startlijst voor België",
+                    "body": "Inschrijving bij de gemeente, ziekenfonds, het nieuwkomersstelsel, je Spaanse rijbewijs, je eerste aangifte: wat en wanneer, in gewoon Engels.",
+                    "cta_label": "Open mijn startlijst",
+                    "partner_name": null
+                },
+                {
+                    "kind": "human",
+                    "title": "Praat met een Engelstalige adviseur",
+                    "body": "Een videogesprek van 20 minuten over alles wat nieuw is: belastingen, pensioen, huren en bankieren in België.",
+                    "cta_label": "Plan een videogesprek",
+                    "partner_name": null
+                }
+            ]
+        }
+    ]
+}

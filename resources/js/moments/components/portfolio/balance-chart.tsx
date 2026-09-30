@@ -237,8 +237,8 @@ export function BalanceChart({
                             className={cn(
                                 'absolute z-10 flex size-6 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 text-[11px] font-semibold tabular-nums shadow-sm transition-all duration-500',
                                 active
-                                    ? 'scale-110 border-white bg-kbc-navy text-white'
-                                    : 'border-kbc-navy bg-white text-kbc-navy hover:bg-kbc-navy hover:text-white',
+                                    ? 'bg-kbc-navy scale-110 border-white text-white'
+                                    : 'border-kbc-navy text-kbc-navy hover:bg-kbc-navy bg-white hover:text-white',
                             )}
                             style={{
                                 left: `${(m.days / 365) * 100}%`,
@@ -277,7 +277,7 @@ export function BalanceChart({
                     </div>
                 </div>
                 <span
-                    className="pointer-events-none absolute z-10 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-kbc-sky shadow transition-all duration-300"
+                    className="bg-kbc-sky pointer-events-none absolute z-10 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white shadow transition-all duration-300"
                     style={{
                         left: `${(h / 12) * 100}%`,
                         top: `${pct(points[h])}%`,
@@ -302,7 +302,7 @@ export function BalanceChart({
                 </div>
             </div>
 
-            <div className="relative mt-3 h-4 text-[12px] text-ink-3">
+            <div className="text-ink-3 relative mt-3 h-4 text-[12px]">
                 <span className="absolute left-0">Today</span>
                 {MONTHS.map((m, i) =>
                     i < 11 ? (

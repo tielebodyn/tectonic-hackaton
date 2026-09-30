@@ -13,21 +13,6 @@
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
         'Noto Color Emoji';
 
-    /* KBC Moments POC */
-    --color-kbc-navy: #003665;
-    --color-kbc-navy-2: #0a4a80;
-    --color-kbc-sky: #00aeef;
-    --color-ink: #0b1f33;
-    --color-ink-2: #51606f;
-    --color-ink-3: #8795a3;
-    --color-mist: #f2f5f8;
-    --color-line: #e2e8ef;
-    --color-k-kbc: #003665;
-    --color-k-partner: #6b5bd2;
-    --color-k-nosale: #0e9f6e;
-    --color-k-human: #e4572e;
-    --color-k-protect: #c98a00;
-
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
     --radius-sm: calc(var(--radius) - 4px);

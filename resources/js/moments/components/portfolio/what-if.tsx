@@ -64,7 +64,7 @@ function Row({
                     <span className="block text-[14px] leading-tight font-semibold text-ink">
                         {title}
                     </span>
-                    <span className="mt-0.5 block text-[12px] text-ink-3">
+                    <span className="text-ink-3 mt-0.5 block text-[12px]">
                         {hint}
                     </span>
                 </span>
@@ -85,7 +85,7 @@ function Segmented<T extends string | number>({
     onChange: (v: T) => void;
 }) {
     return (
-        <div className="flex rounded-xl bg-mist p-1 text-[13px] font-medium">
+        <div className="bg-mist flex rounded-xl p-1 text-[13px] font-medium">
             {options.map((o) => (
                 <button
                     key={o.value}
@@ -93,7 +93,7 @@ function Segmented<T extends string | number>({
                     className={cn(
                         'flex-1 rounded-lg px-2 py-1.5 tabular-nums transition-all',
                         o.value === value
-                            ? 'bg-white text-kbc-navy shadow-sm'
+                            ? 'text-kbc-navy bg-white shadow-sm'
                             : 'text-ink-2 hover:text-ink',
                     )}
                 >

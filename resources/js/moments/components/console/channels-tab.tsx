@@ -88,7 +88,7 @@ export function ChannelsTab({
                                     'max-w-[240px] truncate rounded-full border px-3 py-1 text-[12px] font-medium transition-colors',
                                     r.rec.id === selected?.rec.id
                                         ? 'border-kbc-navy bg-kbc-navy text-white'
-                                        : 'border-line bg-white text-ink-2 hover:border-kbc-navy/30',
+                                        : 'border-line text-ink-2 hover:border-kbc-navy/30 bg-white',
                                 )}
                             >
                                 {r.rec.title}
@@ -111,7 +111,7 @@ export function ChannelsTab({
                             </span>
                         </div>
                         {sentence && (
-                            <p className="mt-2 text-[13px] leading-relaxed text-ink-2">
+                            <p className="text-ink-2 mt-2 text-[13px] leading-relaxed">
                                 You'll see this in{' '}
                                 <span className="font-medium text-ink">
                                     {sentence}
@@ -121,9 +121,9 @@ export function ChannelsTab({
                         )}
 
                         <ol className="relative mt-4 space-y-3">
-                            <span className="absolute top-3 bottom-3 left-[15px] w-px bg-line" />
+                            <span className="bg-line absolute top-3 bottom-3 left-[15px] w-px" />
                             {steps.length === 0 && (
-                                <li className="text-[12.5px] text-ink-3">
+                                <li className="text-ink-3 text-[12.5px]">
                                     Only shown in the app.
                                 </li>
                             )}
@@ -177,11 +177,11 @@ export function ChannelsTab({
                                                         : s.when}
                                                 </span>
                                             </div>
-                                            <div className="mt-1 inline-block rounded-xl rounded-tl-sm bg-mist px-3 py-1.5 text-[12.5px] leading-snug text-ink-2">
+                                            <div className="bg-mist text-ink-2 mt-1 inline-block rounded-xl rounded-tl-sm px-3 py-1.5 text-[12.5px] leading-snug">
                                                 {s.message}
                                             </div>
                                             {off && (
-                                                <div className="mt-1 flex items-center gap-1 text-[11.5px] text-ink-3">
+                                                <div className="text-ink-3 mt-1 flex items-center gap-1 text-[11.5px]">
                                                     <BellOff className="size-3" />{' '}
                                                     Skipped: you turned this off
                                                 </div>
@@ -202,12 +202,12 @@ export function ChannelsTab({
                 />
                 <div className="grid grid-cols-2 gap-3">
                     <div className="rounded-2xl bg-gradient-to-br from-[#dfe7ef] to-[#eef2f6] p-3">
-                        <div className="mb-2 text-[11px] font-medium text-ink-3">
+                        <div className="text-ink-3 mb-2 text-[11px] font-medium">
                             Push notification
                         </div>
                         <div className="rounded-xl bg-white/85 px-3 py-2.5 shadow-[0_2px_8px_rgba(16,24,40,0.08)] backdrop-blur">
-                            <div className="flex items-center gap-1.5 text-[10.5px] text-ink-3">
-                                <span className="flex size-4 items-center justify-center rounded bg-kbc-navy text-[7px] font-bold text-white">
+                            <div className="text-ink-3 flex items-center gap-1.5 text-[10.5px]">
+                                <span className="bg-kbc-navy flex size-4 items-center justify-center rounded text-[7px] font-bold text-white">
                                     KBC
                                 </span>
                                 KBC Mobile
@@ -216,49 +216,49 @@ export function ChannelsTab({
                             <div className="mt-1 text-[12.5px] font-semibold text-ink">
                                 {view.push.title}
                             </div>
-                            <div className="text-[12px] leading-snug text-ink-2">
+                            <div className="text-ink-2 text-[12px] leading-snug">
                                 {view.push.body}
                             </div>
                         </div>
                         {!prefs.channels.push && (
-                            <div className="mt-2 flex items-center gap-1 text-[11px] text-ink-3">
+                            <div className="text-ink-3 mt-2 flex items-center gap-1 text-[11px]">
                                 <BellOff className="size-3" /> Off. You'll see
                                 it in the app instead.
                             </div>
                         )}
                     </div>
 
-                    <div className="rounded-2xl border border-line bg-white p-3">
-                        <div className="mb-2 flex items-center gap-1.5 text-[11px] font-medium text-ink-3">
+                    <div className="border-line rounded-2xl border bg-white p-3">
+                        <div className="text-ink-3 mb-2 flex items-center gap-1.5 text-[11px] font-medium">
                             <MessageCircle className="size-3" /> Kate
                         </div>
                         <div className="flex items-start gap-2">
-                            <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-kbc-sky/15 text-[10px] font-bold text-kbc-navy">
+                            <span className="bg-kbc-sky/15 text-kbc-navy flex size-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold">
                                 K
                             </span>
-                            <div className="rounded-xl rounded-tl-sm bg-mist px-3 py-2 text-[12.5px] leading-snug text-ink">
+                            <div className="bg-mist rounded-xl rounded-tl-sm px-3 py-2 text-[12.5px] leading-snug text-ink">
                                 {view.kateOpener}
                             </div>
                         </div>
                     </div>
 
-                    <div className="col-span-2 rounded-2xl border border-line bg-white p-3.5">
-                        <div className="flex items-center gap-1.5 text-[11px] font-medium text-ink-3">
+                    <div className="border-line col-span-2 rounded-2xl border bg-white p-3.5">
+                        <div className="text-ink-3 flex items-center gap-1.5 text-[11px] font-medium">
                             <UserRound className="size-3" /> If you ask to talk
                             to someone
                         </div>
                         {view.advisorBrief ? (
                             <>
-                                <div className="mt-1.5 text-[12.5px] text-ink-2">
+                                <div className="text-ink-2 mt-1.5 text-[12.5px]">
                                     Your advisor sees this short note, so you
                                     don't have to explain everything again:
                                 </div>
-                                <div className="mt-2 rounded-xl border-l-2 border-k-human bg-k-human/[0.04] px-3 py-2 text-[12.5px] leading-snug text-ink">
+                                <div className="border-k-human bg-k-human/[0.04] mt-2 rounded-xl border-l-2 px-3 py-2 text-[12.5px] leading-snug text-ink">
                                     {view.advisorBrief}
                                 </div>
                             </>
                         ) : (
-                            <div className="mt-1.5 text-[12.5px] text-ink-2">
+                            <div className="text-ink-2 mt-1.5 text-[12.5px]">
                                 No advisor is involved right now. If you ask,
                                 they'll only see what's on this screen.
                             </div>
@@ -272,20 +272,20 @@ export function ChannelsTab({
                     eyebrow="Your choices"
                     aside="Changes apply right away"
                 />
-                <Card className="divide-y divide-line/70">
+                <Card className="divide-line/70 divide-y">
                     <div className="flex items-center gap-3 px-4 py-2.5">
-                        <span className="flex size-7 items-center justify-center rounded-lg bg-mist text-ink-2">
+                        <span className="bg-mist text-ink-2 flex size-7 items-center justify-center rounded-lg">
                             <Lock className="size-3.5" />
                         </span>
                         <div className="min-w-0 flex-1">
                             <div className="text-[13px] font-medium text-ink">
                                 {CHANNEL_COPY.app.label}
                             </div>
-                            <div className="text-[11.5px] text-ink-3">
+                            <div className="text-ink-3 text-[11.5px]">
                                 {CHANNEL_COPY.app.sub}
                             </div>
                         </div>
-                        <span className="text-[11.5px] text-ink-3">
+                        <span className="text-ink-3 text-[11.5px]">
                             Always on
                         </span>
                     </div>
@@ -297,14 +297,14 @@ export function ChannelsTab({
                                 key={c}
                                 className="flex items-center gap-3 px-4 py-2.5"
                             >
-                                <span className="flex size-7 items-center justify-center rounded-lg bg-mist text-ink-2">
+                                <span className="bg-mist text-ink-2 flex size-7 items-center justify-center rounded-lg">
                                     <Icon className="size-3.5" />
                                 </span>
                                 <div className="min-w-0 flex-1">
                                     <div className="text-[13px] font-medium text-ink">
                                         {CHANNEL_COPY[c].label}
                                     </div>
-                                    <div className="text-[11.5px] text-ink-3">
+                                    <div className="text-ink-3 text-[11.5px]">
                                         {CHANNEL_COPY[c].sub}
                                     </div>
                                 </div>
@@ -325,14 +325,14 @@ export function ChannelsTab({
                         );
                     })}
                     <div className="flex items-center gap-3 px-4 py-2.5">
-                        <span className="flex size-7 items-center justify-center rounded-lg bg-mist text-ink-2">
+                        <span className="bg-mist text-ink-2 flex size-7 items-center justify-center rounded-lg">
                             <Moon className="size-3.5" />
                         </span>
                         <div className="min-w-0 flex-1">
                             <div className="text-[13px] font-medium text-ink">
                                 Quiet hours
                             </div>
-                            <div className="text-[11.5px] text-ink-3 tabular-nums">
+                            <div className="text-ink-3 text-[11.5px] tabular-nums">
                                 Nothing between 21:00 and 08:00
                             </div>
                         </div>

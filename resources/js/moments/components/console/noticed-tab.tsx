@@ -58,7 +58,7 @@ export function NoticedTab({
 
     return (
         <div className="space-y-4">
-            <p className="text-[13px] leading-relaxed text-ink-2">
+            <p className="text-ink-2 text-[13px] leading-relaxed">
                 We noticed{' '}
                 <b className="font-semibold text-ink">
                     {view.signals.length} things
@@ -92,8 +92,8 @@ export function NoticedTab({
                         ))}
                     </div>
 
-                    <div className="mt-3 flex items-start gap-2.5 rounded-xl bg-white/60 px-3.5 py-3 text-[12px] leading-snug text-ink-2 ring-1 ring-line">
-                        <Users className="mt-0.5 size-3.5 shrink-0 text-kbc-sky" />
+                    <div className="text-ink-2 ring-line mt-3 flex items-start gap-2.5 rounded-xl bg-white/60 px-3.5 py-3 text-[12px] leading-snug ring-1">
+                        <Users className="text-kbc-sky mt-0.5 size-3.5 shrink-0" />
                         <div>
                             <span className="font-semibold text-ink">
                                 You're not alone.
@@ -131,19 +131,19 @@ export function NoticedTab({
                                     key={g.source}
                                     className="overflow-hidden"
                                 >
-                                    <div className="flex items-center gap-2 border-b border-line/70 px-3.5 py-2">
-                                        <Icon className="size-3.5 text-ink-3" />
+                                    <div className="border-line/70 flex items-center gap-2 border-b px-3.5 py-2">
+                                        <Icon className="text-ink-3 size-3.5" />
                                         <span className="text-[12px] font-semibold text-ink">
                                             {SOURCE_COPY[g.source].label}
                                         </span>
                                         {off && (
-                                            <span className="ml-auto flex items-center gap-1 text-[11px] text-ink-3">
+                                            <span className="text-ink-3 ml-auto flex items-center gap-1 text-[11px]">
                                                 <EyeOff className="size-3" />
                                                 You turned this off
                                             </span>
                                         )}
                                     </div>
-                                    <div className="divide-y divide-line/70">
+                                    <div className="divide-line/70 divide-y">
                                         {g.signals.map((s) => (
                                             <SignalRow
                                                 key={s.id}
@@ -201,15 +201,15 @@ function MomentCard({
             )}
         >
             <div className="flex items-center gap-2 text-[11.5px]">
-                <span className="inline-flex items-center gap-1 rounded-full bg-mist px-2 py-0.5 font-medium text-ink-2">
+                <span className="bg-mist text-ink-2 inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-medium">
                     <Clock className="size-3" />
                     {moment.horizon}
                 </span>
-                <span className="font-medium text-kbc-navy">
+                <span className="text-kbc-navy font-medium">
                     {sureness(moment.confidence)}
                 </span>
                 <NewTag show={isFresh} />
-                <span className="ml-auto flex items-center gap-1.5 text-ink-3 tabular-nums">
+                <span className="text-ink-3 ml-auto flex items-center gap-1.5 tabular-nums">
                     <span className="flex h-3 items-end gap-[2px]">
                         {[20, 40, 60, 80, 95].map((t, i) => (
                             <span
@@ -230,7 +230,7 @@ function MomentCard({
             <div className="mt-2 text-[14px] leading-snug font-semibold tracking-tight text-ink">
                 {moment.title}
             </div>
-            <div className="mt-1 text-[12.5px] leading-snug text-ink-2">
+            <div className="text-ink-2 mt-1 text-[12.5px] leading-snug">
                 {moment.narrative}
             </div>
 
@@ -250,17 +250,17 @@ function MomentCard({
             )}
 
             {active && basis.length > 0 && (
-                <div className="mt-3 animate-in border-t border-line/70 pt-2.5 fade-in">
-                    <div className="text-[11px] font-medium text-ink-3">
+                <div className="border-line/70 mt-3 animate-in border-t pt-2.5 fade-in">
+                    <div className="text-ink-3 text-[11px] font-medium">
                         Based on
                     </div>
                     <ul className="mt-1 space-y-0.5">
                         {basis.map((s) => (
                             <li
                                 key={s.id}
-                                className="flex items-center gap-1.5 text-[12px] text-ink-2"
+                                className="text-ink-2 flex items-center gap-1.5 text-[12px]"
                             >
-                                <span className="size-1 shrink-0 rounded-full bg-kbc-sky" />
+                                <span className="bg-kbc-sky size-1 shrink-0 rounded-full" />
                                 <span className="truncate">{s.label}</span>
                             </li>
                         ))}
@@ -340,24 +340,24 @@ function SignalRow({
             )}
         >
             {highlight && (
-                <span className="absolute inset-y-2 left-0 w-[3px] rounded-r bg-kbc-sky" />
+                <span className="bg-kbc-sky absolute inset-y-2 left-0 w-[3px] rounded-r" />
             )}
             <div className="flex items-center gap-2">
                 <span
                     className={cn(
                         'text-[13px] leading-snug font-medium text-ink',
                         (notMe || off) &&
-                            'text-ink-3 line-through decoration-ink-3/60',
+                            'text-ink-3 decoration-ink-3/60 line-through',
                     )}
                 >
                     {signal.label}
                 </span>
                 <NewTag show={isFresh} />
             </div>
-            <div className="mt-0.5 text-[12px] leading-snug text-ink-3">
+            <div className="text-ink-3 mt-0.5 text-[12px] leading-snug">
                 {signal.detail}
             </div>
-            <div className="mt-1.5 flex min-h-[20px] items-center gap-2 text-[11px] text-ink-3">
+            <div className="text-ink-3 mt-1.5 flex min-h-[20px] items-center gap-2 text-[11px]">
                 <Strength value={signal.strength} />
                 <span>{signal.observedAt}</span>
                 <div className="ml-auto flex items-center gap-1">
@@ -366,7 +366,7 @@ function SignalRow({
                             <span>We won't use this.</span>
                             <button
                                 onClick={undo}
-                                className="font-medium text-kbc-navy hover:underline"
+                                className="text-kbc-navy font-medium hover:underline"
                             >
                                 Undo
                             </button>
@@ -374,7 +374,7 @@ function SignalRow({
                     ) : confirmed ? (
                         <button
                             onClick={undo}
-                            className="flex items-center gap-1 font-medium text-k-nosale"
+                            className="text-k-nosale flex items-center gap-1 font-medium"
                         >
                             <Check className="size-3" strokeWidth={3} />
                             Thanks for confirming
@@ -385,13 +385,13 @@ function SignalRow({
                                 <span className="mr-0.5">Is this right?</span>
                                 <button
                                     onClick={() => answer('confirmed')}
-                                    className="rounded-md border border-line bg-white px-1.5 py-px font-medium text-ink-2 hover:border-k-nosale/50 hover:text-k-nosale"
+                                    className="border-line text-ink-2 hover:border-k-nosale/50 hover:text-k-nosale rounded-md border bg-white px-1.5 py-px font-medium"
                                 >
                                     Yes
                                 </button>
                                 <button
                                     onClick={() => answer('notMe')}
-                                    className="flex items-center gap-0.5 rounded-md border border-line bg-white px-1.5 py-px font-medium text-ink-2 hover:border-k-human/50 hover:text-k-human"
+                                    className="border-line text-ink-2 hover:border-k-human/50 hover:text-k-human flex items-center gap-0.5 rounded-md border bg-white px-1.5 py-px font-medium"
                                 >
                                     <X className="size-2.5" strokeWidth={3} />
                                     Not me

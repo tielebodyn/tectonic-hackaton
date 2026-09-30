@@ -19,7 +19,7 @@ export function PhoneFrame({
             <div className="absolute top-[220px] -right-[3px] h-20 w-[3px] rounded-r bg-[#2a3342]" />
 
             <div className="rounded-[55px] bg-black p-[9px]">
-                <div className="relative isolate h-[788px] w-[372px] overflow-hidden rounded-[46px] bg-mist">
+                <div className="bg-mist relative isolate h-[788px] w-[372px] overflow-hidden rounded-[46px]">
                     {children}
 
                     {/* status bar + dynamic island */}

@@ -28,8 +28,8 @@ export function MomentDetail({
             className="grid animate-in grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-10 duration-300 fade-in slide-in-from-bottom-1"
         >
             <div>
-                <div className="flex items-center gap-2 text-[13px] text-ink-3">
-                    <span className="flex size-5 items-center justify-center rounded-full bg-kbc-navy text-[11px] font-semibold text-white">
+                <div className="text-ink-3 flex items-center gap-2 text-[13px]">
+                    <span className="bg-kbc-navy flex size-5 items-center justify-center rounded-full text-[11px] font-semibold text-white">
                         {n}
                     </span>
                     {moment.daysAhead <= 7 ? 'Right now' : moment.horizon}
@@ -50,7 +50,7 @@ export function MomentDetail({
                 <h3 className="mt-3 text-[26px] leading-tight font-semibold tracking-tight text-ink">
                     {moment.title}
                 </h3>
-                <p className="mt-3 text-[16px] leading-relaxed text-ink-2">
+                <p className="text-ink-2 mt-3 text-[16px] leading-relaxed">
                     {moment.narrative}
                 </p>
 
@@ -84,7 +84,7 @@ export function MomentDetail({
                             {moment.confidence}%
                         </span>
                     </div>
-                    <div className="text-[14px] leading-snug text-ink-2">
+                    <div className="text-ink-2 text-[14px] leading-snug">
                         <span className="font-semibold text-ink">
                             {moment.confidence}% sure
                         </span>
@@ -97,8 +97,8 @@ export function MomentDetail({
 
                 <div className="mt-5 flex items-center gap-2">
                     {answer ? (
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-mist px-4 py-2 text-[13px] text-ink-2">
-                            <Check className="size-3.5 text-k-nosale" />
+                        <span className="bg-mist text-ink-2 inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[13px]">
+                            <Check className="text-k-nosale size-3.5" />
                             {answer === 'yes'
                                 ? 'Thanks, noted.'
                                 : "Got it. We won't bring this up again."}
@@ -112,7 +112,7 @@ export function MomentDetail({
                                         [moment.id]: 'yes',
                                     }))
                                 }
-                                className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white px-4 py-2 text-[13px] font-medium text-ink hover:bg-mist"
+                                className="border-line hover:bg-mist inline-flex items-center gap-1.5 rounded-full border bg-white px-4 py-2 text-[13px] font-medium text-ink"
                             >
                                 <Check className="size-3.5" />
                                 That's right
@@ -124,7 +124,7 @@ export function MomentDetail({
                                         [moment.id]: 'no',
                                     }))
                                 }
-                                className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white px-4 py-2 text-[13px] font-medium text-ink-2 hover:bg-mist"
+                                className="border-line text-ink-2 hover:bg-mist inline-flex items-center gap-1.5 rounded-full border bg-white px-4 py-2 text-[13px] font-medium"
                             >
                                 <ThumbsDown className="size-3.5" />
                                 Not for me
@@ -132,7 +132,7 @@ export function MomentDetail({
                         </>
                     )}
                     {helps > 0 && (
-                        <span className="ml-2 text-[13px] text-ink-3">
+                        <span className="text-ink-3 ml-2 text-[13px]">
                             {helps} {helps === 1 ? 'way' : 'ways'} we can help,
                             below
                         </span>
@@ -141,10 +141,10 @@ export function MomentDetail({
             </div>
 
             <div>
-                <div className="text-[11px] font-semibold tracking-[0.08em] text-ink-3 uppercase">
+                <div className="text-ink-3 text-[11px] font-semibold tracking-[0.08em] uppercase">
                     Why we think so
                 </div>
-                <ul className="mt-3 divide-y divide-line">
+                <ul className="divide-line mt-3 divide-y">
                     {signals.map((s) => {
                         const src = SOURCE_STYLE[s.source];
                         const Icon = src.icon;
@@ -154,7 +154,7 @@ export function MomentDetail({
                                 key={s.id}
                                 className="flex gap-3.5 py-3.5 first:pt-1"
                             >
-                                <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-kbc-sky/10 text-kbc-navy">
+                                <span className="bg-kbc-sky/10 text-kbc-navy flex size-9 shrink-0 items-center justify-center rounded-xl">
                                     <Icon className="size-4" />
                                 </span>
                                 <div className="min-w-0 flex-1">
@@ -162,14 +162,14 @@ export function MomentDetail({
                                         <span className="text-[14px] font-semibold text-ink">
                                             {s.label}
                                         </span>
-                                        <span className="shrink-0 text-[12px] text-ink-3">
+                                        <span className="text-ink-3 shrink-0 text-[12px]">
                                             {s.observedAt}
                                         </span>
                                     </div>
-                                    <p className="mt-0.5 text-[13px] leading-relaxed text-ink-2">
+                                    <p className="text-ink-2 mt-0.5 text-[13px] leading-relaxed">
                                         {s.detail}
                                     </p>
-                                    <div className="mt-1.5 flex items-center gap-2 text-[11px] text-ink-3">
+                                    <div className="text-ink-3 mt-1.5 flex items-center gap-2 text-[11px]">
                                         {src.label}
                                         <span className="flex gap-0.5">
                                             {[0.2, 0.4, 0.6, 0.8, 1].map(
@@ -193,7 +193,7 @@ export function MomentDetail({
                         );
                     })}
                     {!signals.length && (
-                        <li className="py-3 text-[13px] text-ink-3">
+                        <li className="text-ink-3 py-3 text-[13px]">
                             No signals linked yet.
                         </li>
                     )}

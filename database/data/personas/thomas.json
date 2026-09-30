@@ -1,0 +1,216 @@
+{
+    "order": 11,
+    "persona_key": "thomas",
+    "display_name": "Thomas Verstraete",
+    "age": 28,
+    "city": "Ghent",
+    "life_stage": "starter",
+    "persona_summary": "Thomas (28) is verpleegkundige in UZ Gent. Hij spaart elke maand €400, heeft €18.400 op zijn spaarrekening en betaalt volgende maand zijn laatste schijf van de autolening af.",
+    "diary_opener": "Hey Thomas, ik heb je komende maand al geleefd. In november kwam er plots €310 per maand vrij, en ik moest kiezen wat ik ermee deed.",
+    "mood": "neutral",
+    "balance_cents": 234000,
+    "monthly": {
+        "income_cents": 248000,
+        "spend_cents": 198000
+    },
+    "transactions": [
+        {
+            "days_ago": 2,
+            "amount_cents": -31000,
+            "counterparty": "KBC Autolening, aflossing 47/48",
+            "category": "other",
+            "description": "nog 1 te gaan"
+        },
+        {
+            "days_ago": 4,
+            "amount_cents": -40000,
+            "counterparty": "Naar KBC Spaarrekening",
+            "category": "savings",
+            "description": "elke maand"
+        },
+        {
+            "days_ago": 5,
+            "amount_cents": 248000,
+            "counterparty": "UZ Gent, loon",
+            "category": "income",
+            "description": null
+        },
+        {
+            "days_ago": 6,
+            "amount_cents": -5400,
+            "counterparty": "Albert Heijn Gent Zuid",
+            "category": "groceries",
+            "description": null
+        },
+        {
+            "days_ago": 8,
+            "amount_cents": -2999,
+            "counterparty": "Basic-Fit Gent",
+            "category": "subscription",
+            "description": null
+        },
+        {
+            "days_ago": 10,
+            "amount_cents": -8500,
+            "counterparty": "Luminus, voorschot energie",
+            "category": "utilities",
+            "description": null
+        },
+        {
+            "days_ago": 12,
+            "amount_cents": -28600,
+            "counterparty": "Ryanair, Lissabon, juli 2027",
+            "category": "other",
+            "description": "zomerreis"
+        },
+        {
+            "days_ago": 18,
+            "amount_cents": -4700,
+            "counterparty": "Delhaize Gent Sint-Pieters",
+            "category": "groceries",
+            "description": null
+        },
+        {
+            "days_ago": 25,
+            "amount_cents": -1199,
+            "counterparty": "Spotify",
+            "category": "subscription",
+            "description": null
+        },
+        {
+            "days_ago": 29,
+            "amount_cents": -79000,
+            "counterparty": "Huur Kortrijksesteenweg, Gent",
+            "category": "rent",
+            "description": null
+        }
+    ],
+    "cards": [
+        {
+            "rule_key": "idle",
+            "title": "Dit jaar verloor mijn spaargeld €240 aan waarde",
+            "body": "Mijn €18.400 bracht 1,5% op, maar de prijzen stegen sneller. Een buffer is slim, het deel erboven had harder kunnen werken.",
+            "days_ahead": 0,
+            "confidence": 80,
+            "impact_cents": -24000,
+            "urgency": 70,
+            "signals": [
+                {
+                    "label": "Spaarrekening",
+                    "detail": "€18.400 aan 1,5%, terwijl de prijzen zo'n 2,8% per jaar stijgen"
+                },
+                {
+                    "label": "Elke maand €400 gespaard",
+                    "detail": "Al 3 jaar lang, zonder één maand over te slaan"
+                },
+                {
+                    "label": "Zomer is je grote kost",
+                    "detail": "Vorige juli en augustus ging er zo'n €2.900 naar vakantie, en je vlucht naar Lissabon is al geboekt"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "no_sale",
+                    "title": "Je buffer: ongeveer €8.900 is genoeg",
+                    "body": "Drie maanden kosten (zo'n €6.000) plus je zomerreis (zo'n €2.900). De rest kan naar doelen op langere termijn, als je dat wil.",
+                    "cta_label": "Bekijk mijn buffer",
+                    "partner_name": null
+                },
+                {
+                    "kind": "human",
+                    "title": "Bespreek het met een adviseur",
+                    "body": "Een gesprek van 20 minuten, ook na je shift. Neem al je vragen over sparen en beleggen mee.",
+                    "cta_label": "Plan een gesprek",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "loan_end",
+            "title": "Volgende maand kwam er €310 per maand vrij",
+            "body": "Eind oktober betaalde ik de laatste schijf van mijn autolening. Zonder plan verdween die €310 gewoon in de dagelijkse uitgaven.",
+            "days_ahead": 28,
+            "confidence": 94,
+            "impact_cents": 31000,
+            "urgency": 72,
+            "signals": [
+                {
+                    "label": "Autolening loopt af",
+                    "detail": "Afbetaling 47 van 48 is betaald. Vanaf november blijft €310 per maand op je rekening."
+                },
+                {
+                    "label": "Elke maand €400 gespaard",
+                    "detail": "Al 3 jaar lang, zonder één maand over te slaan"
+                }
+            ],
+            "actions": []
+        },
+        {
+            "rule_key": "ready",
+            "title": "Deze maand zette ik mijn eerste kleine stap in beleggen",
+            "body": "Ik had gelezen, naar de risico's gevraagd en Bolero twee keer geopend. Klein beginnen bleek een goeie manier om te leren.",
+            "days_ahead": 30,
+            "confidence": 66,
+            "impact_cents": null,
+            "urgency": 80,
+            "signals": [
+                {
+                    "label": "Artikels over beleggen",
+                    "detail": "Je las er deze maand 5 in de app"
+                },
+                {
+                    "label": "Bolero geopend",
+                    "detail": "Je kwam 2 keer op de startpagina van Bolero en stopte bij het kiezen van een fonds"
+                },
+                {
+                    "label": "Vraag aan Kate",
+                    "detail": "Je vroeg Kate: 'Is beleggen riskant?'"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "kbc",
+                    "title": "Beleg vanaf €50 per maand",
+                    "body": "Een KBC-beleggingsplan via Bolero: €50 per maand in een breed fonds, altijd te pauzeren of te stoppen. Je gaat verder waar je vorige keer stopte.",
+                    "cta_label": "Start met €50/maand",
+                    "partner_name": null
+                },
+                {
+                    "kind": "no_sale",
+                    "title": "Beleggen uitgelegd in 3 minuten",
+                    "body": "Wat risico echt betekent, waarom tijd helpt en wat je kan verliezen. Eerlijk, kort, zonder fondsnamen.",
+                    "cta_label": "Bekijk de 3 minuten",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "pension_deadline",
+            "title": "Op 31 december liet ik €315 belastingvoordeel liggen",
+            "body": "Wie voor 31 december pensioenspaart, krijgt tot 30% terug van de belastingen. Ik had er nog niet aan gedacht.",
+            "days_ahead": 92,
+            "confidence": 85,
+            "impact_cents": 31500,
+            "urgency": 82,
+            "signals": [
+                {
+                    "label": "Nog geen pensioensparen",
+                    "detail": "Je krijgt tot 30% terug op je belastingen, op maximaal €1.050 per jaar"
+                },
+                {
+                    "label": "Spaarrekening",
+                    "detail": "€18.400 aan 1,5%, terwijl de prijzen zo'n 2,8% per jaar stijgen"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "kbc",
+                    "title": "Start met pensioensparen voor 31 december",
+                    "body": "Stort dit jaar tot €1.050 en krijg tot €315 terug op je belastingen. Eén storting vanaf je spaarrekening volstaat.",
+                    "cta_label": "Start met €1.050",
+                    "partner_name": null
+                }
+            ]
+        }
+    ]
+}
