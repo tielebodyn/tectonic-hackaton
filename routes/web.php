@@ -7,7 +7,9 @@ use App\Models\Customer;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
+Route::inertia('/', 'moments')->name('home');
+
+Route::get('doppel-demo', function () {
     $personas = config('doppel.demo_mode')
         ? Customer::whereNotNull('persona_key')
             ->orderBy('id')
@@ -23,7 +25,7 @@ Route::get('/', function () {
         : [];
 
     return Inertia::render('welcome', ['personas' => $personas]);
-})->name('home');
+})->name('doppel-demo');
 
 Route::post('demo/login/{persona}', [DemoController::class, 'login'])
     ->where('persona', 'lotte|peeters|karim')
