@@ -29,7 +29,7 @@ const moodLabel: Record<FaceMood, string> = {
     thinking: 'Thinking',
     worried: 'Worried',
     relieved: 'Relieved',
-    paused: 'Paused',
+    paused: 'Handing over to a person',
 };
 
 export default function DoppelShow(props: ShowProps) {

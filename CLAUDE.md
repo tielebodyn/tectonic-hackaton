@@ -75,11 +75,11 @@ passkeys and the settings pages already exist and need no work.
   explainability.
 - When AI suggests or decides something, show the reasoning in the UI and keep a human in the
   loop.
-- All UI copy in Dutch (Flemish, informal "je"). Doppel speaks in the first person ("ik") and in
+- All UI copy in English (plain, informal "you"). Doppel speaks in the first person ("I") and in
   the past tense: he already lived the customer's month. Screens about Doppel (profile, settings)
-  speak about "Doppel" in the third person.
-- Fixed terms: "Wat Doppel zag" (the signals), "Zo ben ik niet" (feedback), "Geen verkoop" (no-sale
-  cards), "Wat als ik…" (fork). Signals describe facts about "je rekening", never "ik zag".
+  speak about "Doppel" in the third person. Never mix in Dutch.
+- Fixed terms: "What Doppel saw" (the signals), "That's not me" (feedback), "No sale" (no-sale
+  cards), "What if I…" (fork). Signals describe facts about "your account", never "I saw".
 - In the base scenario Doppel lives the month as the customer is. Advice belongs on the action card,
   never in a diary line as if the customer already did it.
 

@@ -325,7 +325,7 @@
     border-radius: 999px;
 }
 
-/* Mood-transities op het figuurtje: ogen eerst, dan mond, dan houding. */
+/* Mood transitions on the figure: eyes first, then mouth, then posture. */
 .doppel-brow {
     transition: transform 300ms ease-in-out;
 }

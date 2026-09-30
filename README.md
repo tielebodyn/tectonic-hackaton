@@ -6,20 +6,20 @@
 
 ## The idea
 
-Every KBC customer gets a digital double, **Doppel**: a fluffy character with the same income, expenses, contracts and habits as the customer. Doppel lives 30 days ahead and writes down what happened to him, in the first person and in the past tense ("Op 20 oktober kwam ik €900 tekort voor mijn btw"). The home screen is **Doppel's diary**: what is coming, not what already happened.
+Every KBC customer gets a digital double, **Doppel**: a fluffy character with the same income, expenses, contracts and habits as the customer. Doppel lives 30 days ahead and writes down what happened to him, in the first person and in the past tense ("On 20 October I was €900 short for my VAT"). The home screen is **Doppel's diary**: what is coming, not what already happened.
 
-The app is in Dutch, like KBC Mobile for Flemish customers. The main parts:
+The app is in English. The main parts:
 
 | In the app | What it does |
 |---|---|
-| **Mijn dagboek** | Timeline of upcoming moments, each with a date and a confidence level. |
-| **Action cards** | Per moment: a KBC offer, a partner offer, or a card with **no sales pitch at all** ("Geen verkoop"). |
+| **My diary** | Timeline of upcoming moments, each with a date and a confidence level. |
+| **Action cards** | Per moment: a KBC offer, a partner offer, or a card with **no sales pitch at all** ("No sale"). |
 | **Push preview** | The most urgent diary moment, shown as the push notification the customer would get. Push and app come from the same diary. |
-| **Wat Doppel zag** | Every card shows the transactions and signals that led to it. |
-| **Zo ben ik niet** | The customer corrects their double. The card disappears and Doppel stops using that rule. |
-| **Wat als ik…** | Replay the month with one change (€100 a month savings, or a fixed energy contract). |
-| **Doppel geeft door aan een mens** | When there are stress signals (falling balance, a first buy-now-pay-later payment), Doppel stops selling and offers a call from a KBC advisor. |
-| **Profiel** | The customer decides what Doppel may see and can pause him. |
+| **What Doppel saw** | Every card shows the transactions and signals that led to it. |
+| **That's not me** | The customer corrects their double. The card disappears and Doppel stops using that rule. |
+| **What if I…** | Replay the month with one change (€100 a month savings, or a fixed energy contract). |
+| **Doppel hands over to a person** | When there are stress signals (falling balance, a first buy-now-pay-later payment), Doppel stops selling and offers a call from a KBC advisor. |
+| **Profile** | The customer decides what Doppel may see and can pause him. |
 
 ### Demo personas
 
@@ -78,7 +78,7 @@ Open https://tectonic-hackaton.ddev.site. In demo mode you land on the welcome s
 ## What is unfinished
 
 - Nine of the twelve personas use a scripted diary instead of the rule engine.
-- "Wat als ik…" replays the whole screen with the other scenario; the two Doppels are not yet shown side by side, and every persona sees both scenarios.
+- "What if I…" replays the whole screen with the other scenario; the two Doppels are not yet shown side by side, and every persona sees both scenarios.
 - Demo mode logs visitors straight into a persona without a password. It exists for the demo only and is off when `DEMO_MODE=false`.
 - Demo data only; no connection to real banking data. Live updates use a page reload, not websockets.
 - Not built: a shared "household Doppel", Doppel speaking in the customer's own voice, ElevenLabs audio briefing.
