@@ -1,0 +1,217 @@
+{
+    "order": 16,
+    "persona_key": "georgette",
+    "display_name": "Georgette Lambrecht",
+    "age": 81,
+    "city": "Kortrijk",
+    "life_stage": "moving",
+    "persona_summary": "Georgette (81) woont in Kortrijk en leeft van haar pensioen. De voorbije 48 uur gingen twee ongewone betalingen naar een onbekende rekening, een derde hield Doppel tegen.",
+    "diary_opener": "Dag Georgette, ik heb je komende maand al geleefd. Ik hield één betaling tegen, zodat je geld veilig blijft tot we samen even gepraat hebben.",
+    "mood": "paused",
+    "balance_cents": 318000,
+    "monthly": {
+        "income_cents": 189000,
+        "spend_cents": 142000
+    },
+    "transactions": [
+        {
+            "days_ago": 0,
+            "amount_cents": -180000,
+            "counterparty": "Overschrijving naar BE•• •••• 7719, \"voor Jonas gsm + huur\"",
+            "category": "other",
+            "description": "nieuwe rekening, ongewoon"
+        },
+        {
+            "days_ago": 1,
+            "amount_cents": -95000,
+            "counterparty": "Overschrijving naar BE•• •••• 7719, \"nieuwe gsm\"",
+            "category": "other",
+            "description": "nieuwe rekening"
+        },
+        {
+            "days_ago": 3,
+            "amount_cents": -4800,
+            "counterparty": "Colruyt Kortrijk",
+            "category": "groceries",
+            "description": null
+        },
+        {
+            "days_ago": 5,
+            "amount_cents": -2300,
+            "counterparty": "Apotheek De Kroon Kortrijk",
+            "category": "other",
+            "description": null
+        },
+        {
+            "days_ago": 6,
+            "amount_cents": -1200,
+            "counterparty": "Bakkerij Vandaele",
+            "category": "groceries",
+            "description": null
+        },
+        {
+            "days_ago": 8,
+            "amount_cents": -11800,
+            "counterparty": "Luminus, voorschot energie",
+            "category": "utilities",
+            "description": null
+        },
+        {
+            "days_ago": 10,
+            "amount_cents": -3600,
+            "counterparty": "Wit-Gele Kruis, thuisverpleging",
+            "category": "other",
+            "description": null
+        },
+        {
+            "days_ago": 12,
+            "amount_cents": -4200,
+            "counterparty": "Proximus, vaste lijn & tv",
+            "category": "subscription",
+            "description": null
+        },
+        {
+            "days_ago": 15,
+            "amount_cents": -5200,
+            "counterparty": "Colruyt Kortrijk",
+            "category": "groceries",
+            "description": null
+        },
+        {
+            "days_ago": 29,
+            "amount_cents": 189000,
+            "counterparty": "Federale Pensioendienst, pensioen",
+            "category": "income",
+            "description": null
+        }
+    ],
+    "cards": [
+        {
+            "rule_key": "scam",
+            "title": "Iemand deed alsof hij familie was, maar dat was hij niet",
+            "body": "Ik kreeg een berichtje van een 'nieuw nummer' en stuurde €950 en €1.800. Dat is een bekende truc, en het is niet jouw schuld: die mensen zijn heel overtuigend.",
+            "days_ahead": 0,
+            "confidence": 91,
+            "impact_cents": -275000,
+            "urgency": 85,
+            "signals": [
+                {
+                    "label": "Een nieuwe rekening",
+                    "detail": "Gisteren en vandaag ging er geld naar een rekening die je nog nooit had betaald"
+                },
+                {
+                    "label": "Grotere bedragen dan normaal",
+                    "detail": "Je grootste betaling in 5 jaar was €640. Deze waren €950 en €1.800"
+                },
+                {
+                    "label": "Berichtjes over een 'nieuw nummer'",
+                    "detail": "Safeonweb en Febelfin waarschuwen voor WhatsApp-berichtjes van iemand die zegt dat hij je kind of kleinkind is, met een nieuw nummer"
+                },
+                {
+                    "label": "Je wilde je kleinzoon helpen",
+                    "detail": "Vorige maand belde je ons kantoor in Kortrijk met de vraag hoe je snel geld naar je kleinzoon stuurt"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "human",
+                    "title": "Praat met Ann, je eigen adviseur",
+                    "body": "Ann Desmet van KBC Kortrijk kent je. Ze belt je graag op, of je loopt gewoon eens binnen.",
+                    "cta_label": "Laat Ann me bellen",
+                    "partner_name": null
+                },
+                {
+                    "kind": "no_sale",
+                    "title": "Zo herken je een 'nieuw nummer'-berichtje",
+                    "body": "Drie eenvoudige checks: bel naar het oude nummer, vraag iets wat alleen zij weten, en betaal nooit in haast. Ook op papier, als je wil.",
+                    "cta_label": "Toon de 3 checks",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "third",
+            "title": "Vandaag hield ik je betaling van €2.400 tegen",
+            "body": "Ik heb die derde betaling niet verstuurd. Het geld staat veilig op je rekening tot we samen even gepraat hebben.",
+            "days_ahead": 0,
+            "confidence": 86,
+            "impact_cents": -240000,
+            "urgency": 95,
+            "signals": [
+                {
+                    "label": "Een derde betaling stond klaar",
+                    "detail": "Je had €2.400 klaargezet voor dezelfde rekening. Die blijft staan tot we met je gepraat hebben"
+                },
+                {
+                    "label": "Laat in de nacht",
+                    "detail": "Je logde in om 01:40, terwijl je de app normaal 's morgens gebruikt"
+                },
+                {
+                    "label": "Een nieuwe rekening",
+                    "detail": "Gisteren en vandaag ging er geld naar een rekening die je nog nooit had betaald"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "human",
+                    "title": "We hielden een betaling tegen. Was jij dat echt?",
+                    "body": "Je betaling van €2.400 staat stil, er gaat dus niets van je rekening. Iemand van KBC belt je vandaag om rustig samen te kijken.",
+                    "cta_label": "Bel me nu",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "pension",
+            "title": "Morgen kwam mijn pensioen gewoon binnen",
+            "body": "Op 1 oktober stond mijn pensioen van €1.890 op de rekening, zoals elke maand. Daar veranderde niets aan.",
+            "days_ahead": 1,
+            "confidence": 95,
+            "impact_cents": 189000,
+            "urgency": 60,
+            "signals": [
+                {
+                    "label": "Je vaste betalingen blijven hetzelfde",
+                    "detail": "Colruyt, de apotheek, de thuiszorg, de energie: al sinds 2019 hetzelfde rustige ritme"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "no_sale",
+                    "title": "Je pensioen komt morgen, zoals altijd",
+                    "body": "Je €1.890 komt op 1 oktober binnen. Je energie en thuiszorg worden gewoon betaald, zoals altijd.",
+                    "cta_label": "Bekijk mijn maand",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "trusted",
+            "title": "Over twee weken keek mijn dochter Annick mee",
+            "body": "Ik koos Annick. Zij krijgt een berichtje als er iets vreemds gebeurt op mijn rekening. Betalen kan ze niet, ze kijkt alleen mee.",
+            "days_ahead": 14,
+            "confidence": 70,
+            "impact_cents": null,
+            "urgency": 65,
+            "signals": [
+                {
+                    "label": "Je vaste betalingen blijven hetzelfde",
+                    "detail": "Colruyt, de apotheek, de thuiszorg, de energie: al sinds 2019 hetzelfde rustige ritme"
+                },
+                {
+                    "label": "Je wilde je kleinzoon helpen",
+                    "detail": "Vorige maand belde je ons kantoor in Kortrijk met de vraag hoe je snel geld naar je kleinzoon stuurt"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "human",
+                    "title": "Kies iemand die je vertrouwt",
+                    "body": "Kies één persoon, zoals je dochter Annick, die een berichtje krijgt als er iets vreemds gebeurt. Ze kan alleen kijken, nooit betalen.",
+                    "cta_label": "Kies een vertrouwenspersoon",
+                    "partner_name": null
+                }
+            ]
+        }
+    ]
+}

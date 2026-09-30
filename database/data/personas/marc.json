@@ -1,0 +1,228 @@
+{
+    "order": 18,
+    "persona_key": "marc",
+    "display_name": "Marc Wouters",
+    "age": 64,
+    "city": "Bruges",
+    "life_stage": "self_employed",
+    "persona_summary": "Marc (64) uit Brugge gaat op 1 februari met pensioen, na 41 jaar bij dezelfde werkgever. Hij reist graag en spaart voor zijn kleinkinderen Lotte en Wout.",
+    "diary_opener": "Hey Marc, ik heb je komende maanden al geleefd. Op 1 februari ging ik met pensioen, en diezelfde dag stopte mijn hospitalisatieverzekering.",
+    "mood": "neutral",
+    "balance_cents": 684000,
+    "monthly": {
+        "income_cents": 398000,
+        "spend_cents": 352000
+    },
+    "transactions": [
+        {
+            "days_ago": 5,
+            "amount_cents": 398000,
+            "counterparty": "Brugse Havenlogistiek NV, loon",
+            "category": "income",
+            "description": "nog 4 lonen"
+        },
+        {
+            "days_ago": 6,
+            "amount_cents": -234000,
+            "counterparty": "Sunweb, Tenerife, 2 personen",
+            "category": "other",
+            "description": "reis"
+        },
+        {
+            "days_ago": 8,
+            "amount_cents": -13800,
+            "counterparty": "Colruyt Brugge",
+            "category": "groceries",
+            "description": null
+        },
+        {
+            "days_ago": 10,
+            "amount_cents": -20000,
+            "counterparty": "Doorlopende opdracht, sparen voor Lotte & Wout",
+            "category": "other",
+            "description": "kleinkinderen"
+        },
+        {
+            "days_ago": 11,
+            "amount_cents": -16500,
+            "counterparty": "Engie, voorschot energie",
+            "category": "utilities",
+            "description": null
+        },
+        {
+            "days_ago": 13,
+            "amount_cents": -61200,
+            "counterparty": "Brussels Airlines",
+            "category": "other",
+            "description": "reis"
+        },
+        {
+            "days_ago": 15,
+            "amount_cents": -9600,
+            "counterparty": "Delhaize Sint-Kruis",
+            "category": "groceries",
+            "description": null
+        },
+        {
+            "days_ago": 18,
+            "amount_cents": -8900,
+            "counterparty": "Proximus",
+            "category": "subscription",
+            "description": null
+        },
+        {
+            "days_ago": 20,
+            "amount_cents": -4200,
+            "counterparty": "Apotheek Sint-Andries",
+            "category": "other",
+            "description": null
+        },
+        {
+            "days_ago": 25,
+            "amount_cents": -5400,
+            "counterparty": "KBC Verzekeringen, autoverzekering",
+            "category": "insurance",
+            "description": null
+        },
+        {
+            "days_ago": 29,
+            "amount_cents": -39500,
+            "counterparty": "Club Brugge, abonnement",
+            "category": "other",
+            "description": null
+        }
+    ],
+    "cards": [
+        {
+            "rule_key": "hospi",
+            "title": "Op 1 februari stopte mijn hospitalisatieverzekering",
+            "body": "Het plan van mijn werkgever eindigde toen ik met pensioen ging. Omdat ik het binnen 105 dagen vroeg, hield ik dezelfde dekking, zonder medisch onderzoek of wachttijd.",
+            "days_ahead": 124,
+            "confidence": 88,
+            "impact_cents": null,
+            "urgency": 90,
+            "signals": [
+                {
+                    "label": "Hospitalisatie via je werkgever",
+                    "detail": "Je bent verzekerd via het KBC-hospitalisatieplan van je werkgever, en dat stopt op de dag dat je met pensioen gaat"
+                },
+                {
+                    "label": "Pensioen vanaf 1 februari",
+                    "detail": "Je wordt 65 in januari, dus je wettelijk pensioen start op de eerste dag van de maand erna"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "kbc",
+                    "title": "Hou je hospitalisatieverzekering na je pensioen",
+                    "body": "Zet je huidige KBC-plan zelf verder. Zelfde dekking, geen medische vragen, geen wachttijd. We vullen het formulier samen in.",
+                    "cta_label": "Behoud mijn dekking",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "income_drop",
+            "title": "In februari kwam er €1.670 minder binnen dan ik gewoon was",
+            "body": "Mijn pensioen verving mijn loon: zo'n €2.310 in plaats van €3.980. Dat voelde ik vooral bij het reizen.",
+            "days_ahead": 124,
+            "confidence": 78,
+            "impact_cents": -167000,
+            "urgency": 80,
+            "signals": [
+                {
+                    "label": "Je pensioenraming",
+                    "detail": "Volgens de raming die je deelde van mypension.be krijg je €2.310 netto per maand. Je loon vandaag is €3.980 netto"
+                },
+                {
+                    "label": "Je vraag aan Kate",
+                    "detail": "Je vroeg Kate: 'Hoeveel pensioen krijg ik?'"
+                },
+                {
+                    "label": "Pensioen vanaf 1 februari",
+                    "detail": "Je wordt 65 in januari, dus je wettelijk pensioen start op de eerste dag van de maand erna"
+                },
+                {
+                    "label": "Je reist graag",
+                    "detail": "Je gaf de voorbije 3 maanden €4.900 uit aan vluchten en reizen, bijna de helft van je vrije uitgaven"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "no_sale",
+                    "title": "Je pensioenbudget: wat verandert er",
+                    "body": "We leggen je uitgaven van de voorbije 12 maanden naast je pensioenraming, per categorie. Reizen blijft mogelijk, je ziet hoe.",
+                    "cta_label": "Bekijk mijn pensioenbudget",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "lump_sum",
+            "title": "Op 1 februari kreeg ik €126.000 op mijn rekening",
+            "body": "Mijn groepsverzekering keerde uit, zo'n €126.000 na belastingen. Omdat ik vooraf een plan had, moest ik niets overhaast beslissen.",
+            "days_ahead": 124,
+            "confidence": 85,
+            "impact_cents": 12600000,
+            "urgency": 65,
+            "signals": [
+                {
+                    "label": "Groepsverzekering keert uit",
+                    "detail": "De KBC-groepsverzekering van je werkgever bouwde zo'n €145.000 bruto op, in één keer uitbetaald bij je pensioen"
+                },
+                {
+                    "label": "Pensioen vanaf 1 februari",
+                    "detail": "Je wordt 65 in januari, dus je wettelijk pensioen start op de eerste dag van de maand erna"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "human",
+                    "title": "Plan je pensioenkapitaal met een KBC-adviseur",
+                    "body": "Zit voor februari samen met een adviseur in Brugge. Reizen, kleinkinderen, een veilige buffer: eerst je plannen, dan de cijfers.",
+                    "cta_label": "Maak een afspraak",
+                    "partner_name": null
+                },
+                {
+                    "kind": "kbc",
+                    "title": "KBC-beleggingsplan, stap voor stap",
+                    "body": "Beleg een deel van je kapitaal gespreid over 12 maanden in een defensief fonds, zodat je niet alles op één moment instapt.",
+                    "cta_label": "Simuleer een plan",
+                    "partner_name": null
+                }
+            ]
+        },
+        {
+            "rule_key": "estate",
+            "title": "In maart wilde ik Lotte en Wout meer geven, en toen telde de timing",
+            "body": "Ik spaarde al voor mijn kleinkinderen. Een geregistreerde schenking of een schenking via overschrijving helpt hen meer, maar de regels over timing zijn belangrijk.",
+            "days_ahead": 180,
+            "confidence": 58,
+            "impact_cents": null,
+            "urgency": 40,
+            "signals": [
+                {
+                    "label": "Je spaart voor Lotte en Wout",
+                    "detail": "Sinds 2021 zet je elke maand €100 opzij voor elk kleinkind"
+                },
+                {
+                    "label": "Artikel over schenken",
+                    "detail": "Je opende deze maand twee keer het artikel 'Schenken aan kleinkinderen: wat je moet weten'"
+                },
+                {
+                    "label": "Groepsverzekering keert uit",
+                    "detail": "De KBC-groepsverzekering van je werkgever bouwde zo'n €145.000 bruto op, in één keer uitbetaald bij je pensioen"
+                }
+            ],
+            "actions": [
+                {
+                    "kind": "no_sale",
+                    "title": "Schenken aan kleinkinderen, uitgelegd",
+                    "body": "Geregistreerd of via overschrijving: wat het kost en waarom timing telt. 4 minuten lezen, zonder verkooppraatje.",
+                    "cta_label": "Lees de gids",
+                    "partner_name": null
+                }
+            ]
+        }
+    ]
+}

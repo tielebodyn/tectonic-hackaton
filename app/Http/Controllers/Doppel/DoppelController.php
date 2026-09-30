@@ -9,6 +9,8 @@ use App\Models\Customer;
 use App\Services\Doppel\AiService;
 use App\Services\Doppel\CardComposer;
 use App\Services\Doppel\DoppelRefresher;
+use App\Services\Doppel\Rules\Ledger;
+use App\Services\Doppel\ScriptedPersonas;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -54,6 +56,7 @@ class DoppelController extends Controller
                 'persona_key' => $customer->persona_key,
             ],
             'balance_cents' => $customer->balanceCents(),
+            'monthly' => ScriptedPersonas::monthly($customer) ?? $this->monthlyFor($customer),
             'today' => config('doppel.today'),
             'scenario' => $scenario->value,
             'opener' => $this->openerFor($customer, $scenario, $cards, $ai),
@@ -61,8 +64,24 @@ class DoppelController extends Controller
             'demo' => [
                 'enabled' => (bool) config('doppel.demo_mode'),
                 'events' => collect(DemoEvent::cases())->map(fn (DemoEvent $e) => $e->value),
+                'personas' => Customer::whereNotNull('persona_key')->orderBy('id')->get(['persona_key', 'display_name'])
+                    ->map(fn (Customer $c) => ['key' => $c->persona_key, 'label' => explode(' ', $c->display_name)[0]]),
             ],
         ]);
+    }
+
+    /** Average month over the 90 days up to today; the opening-balance row is not income. */
+    private function monthlyFor(Customer $customer): array
+    {
+        $tx = $customer->transactions()
+            ->whereBetween('booked_on', [Ledger::today()->subDays(90), Ledger::today()])
+            ->where('counterparty', '!=', 'Beginsaldo')
+            ->get(['amount_cents']);
+
+        return [
+            'income_cents' => (int) round($tx->where('amount_cents', '>', 0)->sum('amount_cents') / 3),
+            'spend_cents' => (int) round(abs($tx->where('amount_cents', '<', 0)->sum('amount_cents')) / 3),
+        ];
     }
 
     private function openerFor(Customer $customer, Scenario $scenario, $cards, AiService $ai): string

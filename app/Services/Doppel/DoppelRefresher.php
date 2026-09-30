@@ -53,7 +53,8 @@ class DoppelRefresher
                 return;
             }
 
-            $customer->mood = $this->detector->mood($transactions, $predictions, $customer->mood);
+            $customer->mood = ScriptedPersonas::mood($customer)
+                ?? $this->detector->mood($transactions, $predictions, $customer->mood);
             $customer->save();
 
             $this->writeOpener($customer, $scenario);
@@ -91,6 +92,14 @@ class DoppelRefresher
     /** AI only writes the opener line. Any failure keeps the previous opener. */
     private function writeOpener(Customer $customer, Scenario $scenario): void
     {
+        // Scripted personas keep their hand-written opener.
+        if (ScriptedPersonas::has($customer)) {
+            $customer->diary_opener = ScriptedPersonas::load($customer->persona_key)['diary_opener'] ?? $customer->diary_opener;
+            $customer->save();
+
+            return;
+        }
+
         try {
             $stored = Prediction::with('actions')
                 ->where('customer_id', $customer->id)

@@ -26,10 +26,33 @@ function cardKeys($page): array
     return collect($page->toArray()['props']['cards'])->pluck('rule_key')->all();
 }
 
-it('shows the persona picker on the home page in demo mode', function () {
-    $this->get('/')
+it('shows the persona picker in demo mode', function () {
+    $this->get('/personas')
         ->assertOk()
-        ->assertInertia(fn (Assert $page) => $page->component('welcome')->has('personas', 3));
+        ->assertInertia(fn (Assert $page) => $page->component('welcome')->has('personas', 12));
+});
+
+it('opens the app as karim for guests on the home page', function () {
+    $this->get('/')->assertRedirect('/doppel');
+
+    $this->assertAuthenticatedAs(karim()->user);
+});
+
+it('switches persona with ?as= on the home page', function () {
+    $this->get('/?as=marc')->assertRedirect('/doppel');
+
+    $this->assertAuthenticatedAs(Customer::where('persona_key', 'marc')->first()->user);
+});
+
+it('shows a scripted persona through the same diary', function () {
+    $this->actingAs(Customer::where('persona_key', 'georgette')->first()->user)
+        ->get('/doppel')
+        ->assertOk()
+        ->assertInertia(fn (Assert $page) => $page
+            ->where('customer.persona_key', 'georgette')
+            ->where('customer.mood', 'paused')
+            ->has('cards')
+            ->has('monthly.income_cents'));
 });
 
 it('logs in as a demo persona without a password', function () {

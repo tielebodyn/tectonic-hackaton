@@ -4,10 +4,31 @@ use App\Http\Controllers\Doppel\DemoController;
 use App\Http\Controllers\Doppel\DoppelController;
 use App\Http\Controllers\Doppel\FeedbackController;
 use App\Models\Customer;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
+// POC: the app is the front door. In demo mode guests land straight in Keano's app as Karim.
+Route::get('/', function (Request $request) {
+    if (! config('doppel.demo_mode')) {
+        return redirect()->route('personas');
+    }
+
+    // ?as=lotte switches persona in one click (demo links, screenshots).
+    $as = $request->query('as');
+    if (! $request->user() || is_string($as)) {
+        $key = is_string($as) && preg_match('/^[a-z-]+$/', $as) ? $as : 'karim';
+        $demo = Customer::where('persona_key', $key)->with('user')->first()?->user;
+        abort_if($demo === null, 503, 'Run ddev artisan migrate:fresh --seed first.');
+        Auth::login($demo);
+        $request->session()->regenerate();
+    }
+
+    return redirect()->route('doppel', $request->except('as'));
+})->name('home');
+
+Route::get('personas', function () {
     $personas = config('doppel.demo_mode')
         ? Customer::whereNotNull('persona_key')
             ->orderBy('id')
@@ -23,10 +44,10 @@ Route::get('/', function () {
         : [];
 
     return Inertia::render('welcome', ['personas' => $personas]);
-})->name('home');
+})->name('personas');
 
 Route::post('demo/login/{persona}', [DemoController::class, 'login'])
-    ->where('persona', 'lotte|peeters|karim')
+    ->where('persona', '[a-z-]+')
     ->name('demo.login');
 
 Route::middleware(['auth', 'verified'])->group(function () {

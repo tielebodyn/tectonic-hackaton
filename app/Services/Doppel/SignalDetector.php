@@ -41,6 +41,10 @@ class SignalDetector
     /** @return list<PredictionData> */
     public function detect(Customer $customer, Collection $transactions, Scenario $scenario = Scenario::Base): array
     {
+        if (ScriptedPersonas::has($customer)) {
+            return ScriptedPersonas::predictions($customer);
+        }
+
         $today = Ledger::today();
         $predictions = [];
 

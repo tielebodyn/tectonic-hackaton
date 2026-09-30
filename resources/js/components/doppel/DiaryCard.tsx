@@ -102,6 +102,8 @@ export default function DiaryCard({
                         <ActionCard
                             key={`${action.kind}-${action.title}`}
                             action={action}
+                            card={card}
+                            mood={mood}
                         />
                     ))}
                 </div>
