@@ -1,24 +1,29 @@
 import { useId } from 'react';
-import type { Mood, Variant } from '@/types/doppel';
+import type {
+    FaceMood as Mood,
+    MascotVariant,
+} from '@/components/doppel/types';
 import { cn } from '@/lib/utils';
 
 type Props = {
     mood: Mood;
-    variant: Variant;
+    variant: MascotVariant;
     /** Breedte in px; hoogte is gelijk. */
     size?: number;
     /** Waar Doppel naar kijkt (vork-weergave: naar elkaar). */
     look?: 'center' | 'left' | 'right';
     /** Korte knik, bv. na "Zo ben ik niet". */
     nod?: boolean;
+    /** Zwaait met de rechterarm (welkomstscherm). */
+    wave?: boolean;
     className?: string;
 };
 
 // Vachtkleuren: licht KBC-blauw pluis met witte highlight.
 const FUR_LIGHT = '#ffffff';
-const FUR_MID = '#d9e9fb';
-const FUR_DARK = '#6f95cc';
-const FUR_LINE = '#8fb0dc';
+const FUR_MID = '#d2e4fa';
+const FUR_DARK = '#5a89c9';
+const FUR_LINE = '#86a9d8';
 const FACE = '#141d33';
 
 const browLeft: Record<Mood, string> = {
@@ -81,6 +86,7 @@ export default function Doppel({
     size = 240,
     look = 'center',
     nod = false,
+    wave = false,
     className,
 }: Props) {
     const id = useId().replace(/:/g, '');
@@ -179,8 +185,8 @@ export default function Doppel({
                     cy="246"
                     rx="70"
                     ry="10"
-                    fill="#000"
-                    opacity="0.45"
+                    fill={FUR_DARK}
+                    opacity="0.35"
                     filter={`url(#${id}-shadow)`}
                 />
 
@@ -190,7 +196,7 @@ export default function Doppel({
                         style={{ ...fillBoxBottom, transform: posture[mood] }}
                     >
                         {/* attribuut achter het lijf */}
-                        {variant === 'starter' && (
+                        {variant === 'backpack' && (
                             <g>
                                 <rect
                                     x="182"
@@ -221,13 +227,27 @@ export default function Doppel({
                                 ry="13"
                                 transform="rotate(20 34 172)"
                             />
-                            <ellipse
-                                cx="206"
-                                cy="172"
-                                rx="18"
-                                ry="13"
-                                transform="rotate(-20 206 172)"
-                            />
+                            {wave ? (
+                                <ellipse
+                                    className="animate-doppel-wave"
+                                    cx="212"
+                                    cy="150"
+                                    rx="20"
+                                    ry="13"
+                                    style={{
+                                        transformBox: 'fill-box',
+                                        transformOrigin: '15% 70%',
+                                    }}
+                                />
+                            ) : (
+                                <ellipse
+                                    cx="206"
+                                    cy="172"
+                                    rx="18"
+                                    ry="13"
+                                    transform="rotate(-20 206 172)"
+                                />
+                            )}
                             <ellipse cx="92" cy="236" rx="20" ry="11" />
                             <ellipse cx="148" cy="236" rx="20" ry="11" />
                         </g>
@@ -372,7 +392,7 @@ export default function Doppel({
                         </g>
 
                         {/* attribuut voor het lijf */}
-                        {variant === 'mover' && (
+                        {variant === 'box' && (
                             <g>
                                 <rect
                                     x="68"
@@ -400,7 +420,7 @@ export default function Doppel({
                                 />
                             </g>
                         )}
-                        {variant === 'freelancer' && (
+                        {variant === 'laptop' && (
                             <g>
                                 <rect
                                     x="64"

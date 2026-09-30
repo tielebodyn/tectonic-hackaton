@@ -179,6 +179,8 @@
     --animate-doppel-banner: doppel-banner 2.2s cubic-bezier(0.2, 0.8, 0.2, 1)
         both;
     --animate-doppel-steam: doppel-steam 2.4s ease-in-out infinite;
+    --animate-doppel-wave: doppel-wave 1.6s ease-in-out infinite;
+    --animate-doppel-float: doppel-float 4s ease-in-out infinite;
 
     @keyframes doppel-breathe {
         0%,
@@ -258,6 +260,24 @@
             transform: translateY(-12px);
         }
     }
+    @keyframes doppel-wave {
+        0%,
+        100% {
+            transform: rotate(-58deg);
+        }
+        50% {
+            transform: rotate(-82deg);
+        }
+    }
+    @keyframes doppel-float {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-6px);
+        }
+    }
     @keyframes doppel-steam {
         0%,
         100% {
@@ -271,25 +291,25 @@
     }
 }
 
-/* shadcn-tokens overschreven binnen Doppel: donkere app-look, glas-kaarten, radius 24. */
+/* shadcn-tokens overschreven binnen Doppel: clean light app, zachte grijze kaarten, radius 24. */
 .doppel {
-    color-scheme: dark;
-    --background: var(--color-night);
-    --foreground: #ffffff;
-    --card: rgb(255 255 255 / 0.06);
-    --card-foreground: #ffffff;
-    --popover: #131d3b;
-    --popover-foreground: #ffffff;
-    --primary: var(--color-kbc);
+    color-scheme: light;
+    --background: #ffffff;
+    --foreground: var(--color-ink);
+    --card: #f4f6fa;
+    --card-foreground: var(--color-ink);
+    --popover: #ffffff;
+    --popover-foreground: var(--color-ink);
+    --primary: var(--color-ink);
     --primary-foreground: #ffffff;
-    --secondary: rgb(255 255 255 / 0.08);
-    --secondary-foreground: #ffffff;
-    --muted: rgb(255 255 255 / 0.06);
-    --muted-foreground: rgb(255 255 255 / 0.6);
-    --accent: rgb(0 163 224 / 0.18);
-    --accent-foreground: #ffffff;
-    --border: rgb(255 255 255 / 0.12);
-    --input: rgb(255 255 255 / 0.14);
+    --secondary: #f4f6fa;
+    --secondary-foreground: var(--color-ink);
+    --muted: #f4f6fa;
+    --muted-foreground: #6b7385;
+    --accent: rgb(0 163 224 / 0.1);
+    --accent-foreground: var(--color-ink);
+    --border: rgb(11 31 58 / 0.08);
+    --input: rgb(11 31 58 / 0.12);
     --ring: var(--color-kbc);
     --radius: var(--radius-frame);
     font-family: var(--font-ui);
