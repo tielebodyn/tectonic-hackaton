@@ -271,29 +271,25 @@
     }
 }
 
-/* shadcn-tokens overschreven binnen Doppel: warm off-white, diep donkerblauw, radius 24, geen dark mode. */
+/* shadcn-tokens overschreven binnen Doppel: donkere app-look, glas-kaarten, radius 24. */
 .doppel {
-    color-scheme: light;
-    --background: var(--color-paper);
-    --foreground: var(--color-ink);
-    --card: #ffffff;
-    --card-foreground: var(--color-ink);
-    --popover: #ffffff;
-    --popover-foreground: var(--color-ink);
-    --primary: var(--color-ink);
-    --primary-foreground: var(--color-paper);
-    --secondary: color-mix(in oklab, var(--color-ink) 6%, var(--color-paper));
-    --secondary-foreground: var(--color-ink);
-    --muted: color-mix(in oklab, var(--color-ink) 5%, var(--color-paper));
-    --muted-foreground: color-mix(
-        in oklab,
-        var(--color-ink) 62%,
-        var(--color-paper)
-    );
-    --accent: color-mix(in oklab, var(--color-kbc) 12%, var(--color-paper));
-    --accent-foreground: var(--color-ink);
-    --border: color-mix(in oklab, var(--color-ink) 8%, transparent);
-    --input: color-mix(in oklab, var(--color-ink) 12%, transparent);
+    color-scheme: dark;
+    --background: var(--color-night);
+    --foreground: #ffffff;
+    --card: rgb(255 255 255 / 0.06);
+    --card-foreground: #ffffff;
+    --popover: #131d3b;
+    --popover-foreground: #ffffff;
+    --primary: var(--color-kbc);
+    --primary-foreground: #ffffff;
+    --secondary: rgb(255 255 255 / 0.08);
+    --secondary-foreground: #ffffff;
+    --muted: rgb(255 255 255 / 0.06);
+    --muted-foreground: rgb(255 255 255 / 0.6);
+    --accent: rgb(0 163 224 / 0.18);
+    --accent-foreground: #ffffff;
+    --border: rgb(255 255 255 / 0.12);
+    --input: rgb(255 255 255 / 0.14);
     --ring: var(--color-kbc);
     --radius: var(--radius-frame);
     font-family: var(--font-ui);
