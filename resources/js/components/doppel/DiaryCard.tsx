@@ -114,7 +114,7 @@ export default function DiaryCard({
                     className="flex items-center justify-center gap-1.5 self-center text-[13px] font-semibold text-kbc"
                 >
                     <HelpCircle className="size-4" />
-                    Waarom denk ik dat?
+                    Wat Doppel zag
                 </button>
             )}
         </article>

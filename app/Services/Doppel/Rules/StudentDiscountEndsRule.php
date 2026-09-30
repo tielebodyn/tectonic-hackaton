@@ -44,7 +44,7 @@ class StudentDiscountEndsRule implements Rule
         return new PredictionData(
             ruleKey: $this->key(),
             title: 'Volgende week verloor ik mijn studentenkorting',
-            body: "Met een vast loon was ik officieel geen student meer. {$names} gingen naar het gewone tarief: ongeveer ".Ledger::euro($extra).' per maand meer.',
+            body: "Met mijn eerste vaste job was ik geen student meer. {$names} gingen naar het gewone tarief: ongeveer ".Ledger::euro($extra).' per maand meer.',
             expectedOn: $today->addDays(7),
             confidence: 85,
             impactCents: -$extra,

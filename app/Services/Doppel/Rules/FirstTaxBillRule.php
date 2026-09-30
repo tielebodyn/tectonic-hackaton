@@ -33,7 +33,7 @@ class FirstTaxBillRule implements Rule
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: 'Twee maanden later viel mijn eerste belastingbrief in de bus',
+            title: 'Over twee maanden viel mijn eerste belastingbrief in de bus',
             body: 'Mijn eerste job betekende ook mijn eerste aanslagbiljet. Of ik moest bijbetalen of iets terugkreeg, hing af van de voorheffing op mijn loon.',
             expectedOn: $today->addMonthsNoOverflow(2),
             confidence: 70,

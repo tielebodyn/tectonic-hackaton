@@ -40,7 +40,7 @@ class DemoController extends Controller
 
         $this->rebuild($customer, $refresher);
 
-        return redirect()->route('doppel')->with('status', 'Brouwerij De Leie heeft betaald.');
+        return redirect()->route('doppel')->with('status', 'Studio Noord heeft betaald.');
     }
 
     public function reset(Request $request, DoppelRefresher $refresher): RedirectResponse
@@ -62,7 +62,7 @@ class DemoController extends Controller
 
         // Idempotent: clicking twice during the demo must not double the income.
         $customer->transactions()->firstOrCreate(
-            ['counterparty' => 'Brouwerij De Leie', 'is_simulated' => true],
+            ['counterparty' => 'Studio Noord', 'is_simulated' => true],
             [
                 'booked_on' => config('doppel.today'),
                 'amount_cents' => 320000,

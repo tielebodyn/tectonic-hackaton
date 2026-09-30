@@ -61,7 +61,7 @@ class MobileCheaperRule implements Rule
                     title: 'Goedkoper bellen via een KBC-partner',
                     body: 'Vergelijkbare data en belminuten voor ongeveer '.Ledger::euro(self::PARTNER_PRICE_CENTS).' per maand. Je nummer blijft hetzelfde.',
                     ctaLabel: 'Vergelijk abonnementen',
-                    partnerName: 'Mobile Vikings',
+                    partnerName: 'Belmo',
                 ),
             ],
         );

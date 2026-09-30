@@ -16,7 +16,7 @@ const groups: { kind: ActionKind; title: string; blurb: string }[] = [
     },
     {
         kind: 'no_sale',
-        title: 'Zonder iets te kopen',
+        title: 'Geen verkoop',
         blurb: 'Dingen die je zelf kunt doen.',
     },
     {
@@ -58,7 +58,7 @@ export default function ActionsTab({
             <p className="mt-0.5 text-[13px] text-ink/55">
                 {worried
                     ? 'Eerst hulp, dan tips. Verkopen doe ik nu niet.'
-                    : 'Kies zelf. Doppel dringt niet aan.'}
+                    : 'Kies zelf. Ik dring niet aan.'}
             </p>
 
             {visible.length === 0 ? (

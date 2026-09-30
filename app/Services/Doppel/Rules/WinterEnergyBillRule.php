@@ -49,7 +49,7 @@ class WinterEnergyBillRule implements Rule
         if (Ledger::mentions($last, [Ledger::FIXED_TARIFF_MARKER])) {
             return new PredictionData(
                 ruleKey: $this->key(),
-                title: 'Mijn energiefactuur bleef deze winter gewoon gelijk',
+                title: 'Mijn energievoorschot bleef deze winter gewoon gelijk',
                 body: "Met een vast tarief bij {$supplier} betaalde ik ook in de koude maanden hetzelfde voorschot.",
                 expectedOn: $today->addDays(30),
                 confidence: 80,
@@ -69,7 +69,7 @@ class WinterEnergyBillRule implements Rule
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: 'Mijn eerste winterafrekening viel '.Ledger::euro(self::WINTER_INCREASE_CENTS).' hoger uit',
+            title: 'Mijn eerste winter in het nieuwe huis kostte '.Ledger::euro(self::WINTER_INCREASE_CENTS).' meer aan energie',
             body: "Nieuw huis, nieuw contract bij {$supplier} met een variabel tarief. Toen het kouder werd, ging mijn verbruik omhoog en het voorschot volgde.",
             expectedOn: $today->addDays(30),
             confidence: 70,

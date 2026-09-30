@@ -29,7 +29,7 @@ const moodLabel: Record<FaceMood, string> = {
     thinking: 'Aan het nadenken',
     worried: 'Maakt zich zorgen',
     relieved: 'Opgelucht',
-    paused: 'Even gepauzeerd',
+    paused: 'Geeft door aan een mens',
 };
 
 export default function DoppelShow(props: ShowProps) {
@@ -153,7 +153,7 @@ export default function DoppelShow(props: ShowProps) {
                                 €3.200 ontvangen
                             </span>
                             <span className="block truncate text-[12px] text-white/60">
-                                van Brouwerij De Leie · Factuur betaald
+                                van Studio Noord · Factuur betaald
                             </span>
                         </span>
                     </div>
@@ -238,8 +238,8 @@ export default function DoppelShow(props: ShowProps) {
                                 </p>
                                 <p className="text-[12px] text-ink/50">
                                     {impact < 0
-                                        ? 'Verwachte impact'
-                                        : 'Dingen die ik zag'}
+                                        ? 'Wat het je kost'
+                                        : 'Momenten in mijn dagboek'}
                                 </p>
                             </div>
                         </section>
@@ -251,7 +251,7 @@ export default function DoppelShow(props: ShowProps) {
                             <div className="flex items-end justify-between">
                                 <div>
                                     <h2 className="text-[18px] font-bold">
-                                        Wat ik zag
+                                        Wat ik meemaakte
                                     </h2>
                                     <p className="mt-0.5 text-[13px] text-ink/55">
                                         Het belangrijkste eerst.
@@ -269,8 +269,8 @@ export default function DoppelShow(props: ShowProps) {
                             {visibleCards.length === 0 ? (
                                 <div className="mt-4 rounded-[24px] bg-emerald-50 p-6 text-center">
                                     <p className="text-[20px] leading-snug font-bold">
-                                        Ik heb je maand geleefd. Niets om je
-                                        zorgen over te maken.
+                                        Ik heb je maand al geleefd. Er gebeurde
+                                        niets om je zorgen over te maken.
                                     </p>
                                 </div>
                             ) : (

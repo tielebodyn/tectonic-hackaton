@@ -41,7 +41,7 @@ class PeetersSeeder extends PersonaSeeder
             'city' => 'Gent',
             'life_stage' => LifeStage::Moving,
             'persona_summary' => 'Jonas (34) en Sarah (33) Peeters verhuizen met hun peuter binnen Gent. Ze betaalden een huurwaarborg, een verhuisfirma en een nieuwe keuken, en hebben net een nieuw Engie-contract. Voor de nieuwe woning loopt nog geen verzekering.',
-            'diary_opener' => 'Hey Jonas en Sarah, ik heb jullie komende maand al geleefd. Mijn eerste winter in het nieuwe huis werd duurder dan gedacht, en toen bleek mijn inboedel nergens verzekerd.',
+            'diary_opener' => 'Hey Jonas en Sarah, ik heb jullie komende maand al geleefd. Het nieuwe huis bleek nog niet verzekerd, en de eerste winter werd duurder dan gedacht.',
         ], 3100.00);
     }
 }

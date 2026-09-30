@@ -66,7 +66,7 @@ class VatShortfallRule implements Rule
             actions: [
                 new ActionData(
                     kind: ActionKind::Kbc,
-                    title: 'KBC Business kaskrediet',
+                    title: 'KBC-Kaskrediet',
                     body: 'Een flexibele kredietlijn voor je zaak. Je betaalt alleen rente op wat je echt gebruikt.',
                     ctaLabel: 'Bekijk kaskrediet',
                 ),

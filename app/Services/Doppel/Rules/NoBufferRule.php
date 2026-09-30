@@ -45,21 +45,21 @@ class NoBufferRule implements Rule
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: 'Eind oktober stond mijn rekening bijna op nul',
+            title: 'Op het eind van de maand stond mijn rekening bijna op nul',
             body: 'Ik had geen spaarbuffer. Eén onverwachte rekening, zoals een kapotte laptop, en ik kwam krap te zitten.',
             expectedOn: $today->addMonthNoOverflow()->endOfMonth()->startOfDay(),
             confidence: 75,
             impactCents: null,
             urgency: 60,
             signals: [
-                ['label' => 'Geen spaarrekening', 'detail' => 'Ik zag geen enkele overschrijving naar een spaarrekening'],
+                ['label' => 'Geen spaarrekening', 'detail' => 'Geen overschrijvingen naar een spaarrekening gevonden'],
                 ['label' => 'Saldo vandaag', 'detail' => Ledger::euro($balance).' op je zichtrekening'],
                 ['label' => 'Uitgaven per maand', 'detail' => Ledger::euro($spending).' in de laatste 30 dagen'],
             ],
             actions: [
                 new ActionData(
                     kind: ActionKind::Kbc,
-                    title: 'KBC Spaarplan',
+                    title: 'Automatisch sparen bij KBC',
                     body: 'Zet elke maand automatisch een vast bedrag opzij, vanaf €25. Stoppen of pauzeren kan altijd.',
                     ctaLabel: 'Start een spaarplan',
                 ),
@@ -77,7 +77,7 @@ class NoBufferRule implements Rule
         return new PredictionData(
             ruleKey: $this->key(),
             title: 'Ik zette '.Ledger::euro($monthly).' opzij en had mijn eerste buffer',
-            body: 'Elke maand ging er automatisch '.Ledger::euro($monthly).' naar mijn spaarrekening. Tegen de zomer had ik genoeg voor een onverwachte rekening.',
+            body: 'Elke maand ging er automatisch '.Ledger::euro($monthly).' naar mijn spaarrekening. Na een maand lag er al een eerste buffer klaar voor een onverwachte rekening.',
             expectedOn: $firstUpcoming?->booked_on ?? $horizon,
             confidence: 90,
             impactCents: $saved,

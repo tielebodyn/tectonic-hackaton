@@ -28,7 +28,7 @@ export default function DiaryTimeline({
                 Mijn dagboek
             </h2>
             <p className="mt-0.5 text-[13px] text-ink/55">
-                Zo leefde ik de komende dertig dagen, dag na dag.
+                Zo leefde ik je komende maand, en dit zag ik al aankomen.
             </p>
 
             <ol className="relative mt-5 flex flex-col gap-4 pl-7">
@@ -76,8 +76,8 @@ export default function DiaryTimeline({
             {sorted.length === 0 && (
                 <div className="mt-4 rounded-[24px] bg-emerald-50 p-6 text-center">
                     <p className="text-[20px] leading-snug font-bold">
-                        Ik heb je maand geleefd. Niets om je zorgen over te
-                        maken.
+                        Ik heb je maand al geleefd. Er gebeurde niets om je
+                        zorgen over te maken.
                     </p>
                 </div>
             )}

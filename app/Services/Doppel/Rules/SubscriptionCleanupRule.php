@@ -44,8 +44,8 @@ class SubscriptionCleanupRule implements Rule
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: 'Ik zegde 2 abonnementen op en hield '.Ledger::euro($monthly).' per maand over',
-            body: "{$names} liepen elke maand door. Samen was dat ".Ledger::euro($monthly * 12).' per jaar.',
+            title: "{$names} bleven doorlopen: samen ".Ledger::euro($monthly).' per maand',
+            body: 'Of ik ze nu gebruikte of niet, elke maand ging het geld eraf. Op een jaar was dat '.Ledger::euro($monthly * 12).'.',
             expectedOn: Ledger::nextOccurrence($subs->first()->booked_on->day, $today),
             confidence: 60,
             impactCents: $monthly,

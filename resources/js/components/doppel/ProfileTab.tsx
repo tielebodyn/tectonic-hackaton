@@ -187,19 +187,20 @@ export default function ProfileTab({
 
             <div className="mt-6 rounded-[24px] bg-ink p-4 text-white">
                 <p className="text-[11px] font-semibold tracking-[0.14em] text-white/55 uppercase">
-                    Beloftes
+                    Wat we beloven
                 </p>
                 <ul className="mt-2 flex flex-col gap-1.5 text-[13px] leading-snug text-white/85">
                     <li>
-                        Je gegevens blijven bij KBC. Niets gaat naar derden.
+                        Je gegevens blijven bij KBC. Niets gaat naar derden
+                        zonder jouw uitdrukkelijke ja.
                     </li>
                     <li>
                         Elke voorspelling toont waarom. Zeg "zo ben ik niet" en
                         hij leert.
                     </li>
                     <li>
-                        Wordt het krap, dan verkoopt Doppel niets en belt een
-                        mens.
+                        Wordt het krap, dan verkoopt Doppel niets en vraagt hij
+                        of een adviseur je mag bellen.
                     </li>
                 </ul>
             </div>

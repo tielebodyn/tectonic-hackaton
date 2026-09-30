@@ -39,7 +39,7 @@ export default function Welcome({ personas }: { personas: Persona[] }) {
 
                 <section className="relative px-6 pt-4 text-center">
                     <h1 className="text-[28px] leading-[1.15] font-bold tracking-tight">
-                        Je dubbelganger heeft volgende maand al geleefd
+                        Je dubbelganger heeft je volgende maand al geleefd
                     </h1>
                     <p className="mt-3 text-[15px] leading-snug text-ink/55">
                         Doppel leeft in je KBC-app een maand vooruit en vertelt
