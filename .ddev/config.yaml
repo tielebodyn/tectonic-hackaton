@@ -2,7 +2,7 @@ name: tectonic-hackaton
 type: laravel
 docroot: public
 php_version: "8.4"
-webserver_type: apache-fpm
+webserver_type: nginx-fpm
 xdebug_enabled: false
 additional_hostnames: []
 additional_fqdns: []
