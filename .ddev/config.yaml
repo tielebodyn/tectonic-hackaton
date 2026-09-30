@@ -290,7 +290,7 @@ corepack_enable: false
 # for them. Example:
 #hooks:
 
-nodejs_version: "24"
+nodejs_version: auto
 
 web_extra_exposed_ports:
   - name: vite
