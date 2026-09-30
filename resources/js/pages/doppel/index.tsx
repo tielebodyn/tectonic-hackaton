@@ -60,12 +60,15 @@ export default function DoppelIndex(props: Props) {
                     }}
                 />
 
-                <header className="relative flex items-baseline justify-between px-6 pt-6">
+                <header className="relative flex items-start justify-between gap-4 px-6 pt-6">
                     <span className="font-display text-xl tracking-tight">
                         Doppel
                     </span>
-                    <span className="text-xs text-ink/55">
-                        {customer.name} · {customer.lifeStage}
+                    <span className="flex flex-col items-end text-right text-xs leading-snug text-ink/55">
+                        <span className="font-medium text-ink/80">
+                            {customer.name}
+                        </span>
+                        <span>{customer.lifeStage}</span>
                     </span>
                 </header>
 

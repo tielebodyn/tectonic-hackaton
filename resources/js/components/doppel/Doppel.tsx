@@ -311,26 +311,14 @@ export default function Doppel({
                                 fill={ACCENT}
                                 opacity="0.14"
                             />
-                            <path
-                                d="M 54 226 H 146"
+                            <rect
+                                x="54"
+                                y="222"
+                                width="92"
+                                height="9"
+                                rx="4.5"
+                                fill={PAPER}
                                 stroke={ACCENT}
-                                strokeWidth="4"
-                                strokeLinecap="round"
-                            />
-                            <circle
-                                cx="80"
-                                cy="224"
-                                r="6"
-                                fill={PAPER}
-                                stroke={INK}
-                                strokeWidth="3"
-                            />
-                            <circle
-                                cx="120"
-                                cy="224"
-                                r="6"
-                                fill={PAPER}
-                                stroke={INK}
                                 strokeWidth="3"
                             />
                             {/* koffie */}
