@@ -123,7 +123,7 @@
         },
         {
             "rule_key": "health_fund",
-            "title": "Over drie weken betaalde ik mijn dokter nog altijd volledig zelf",
+            "title": "Ik betaalde mijn dokter nog altijd volledig zelf",
             "body": "Zonder ziekenfonds kreeg ik niets terug van dokter, apotheek of ziekenhuis. Ik had beter meteen aangesloten.",
             "days_ahead": 21,
             "confidence": 88,
@@ -155,7 +155,7 @@
         },
         {
             "rule_key": "car",
-            "title": "Volgende maand kocht ik een auto",
+            "title": "Ik kocht een auto",
             "body": "Ik had eerst een verzekering nodig voor ik een nummerplaat kreeg. Goed dat ik de stappen op voorhand kende.",
             "days_ahead": 30,
             "confidence": 60,
@@ -183,7 +183,7 @@
         },
         {
             "rule_key": "tax",
-            "title": "Over twee maanden sloot het venster voor het nieuwkomersstelsel",
+            "title": "Het venster voor het nieuwkomersstelsel sloot",
             "body": "Ik was nu Belgisch belastingplichtig. Mijn werkgever kon het speciale stelsel voor nieuwkomers aanvragen, maar alleen binnen 3 maanden na mijn start.",
             "days_ahead": 62,
             "confidence": 64,

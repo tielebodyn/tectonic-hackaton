@@ -17,7 +17,7 @@ const scenarios: { value: Scenario; label: string; hint: string }[] = [
     },
 ];
 
-/** "Laat Doppel het proberen": dezelfde maand, met één keuze anders. */
+/** "Wat als ik…": dezelfde maand, met één keuze anders. */
 export default function ForkView({ scenario }: { scenario: Scenario }) {
     const current = scenarios.find((s) => s.value === scenario) ?? scenarios[0];
 
@@ -32,7 +32,7 @@ export default function ForkView({ scenario }: { scenario: Scenario }) {
     return (
         <section className="px-5 pt-7">
             <h2 className="text-[18px] font-bold text-ink">
-                Laat Doppel het proberen
+                Wat als ik…
             </h2>
             <p className="mt-0.5 text-[13px] text-ink/55">{current.hint}</p>
             <div className="mt-3 flex [scrollbar-width:none] gap-2 overflow-x-auto pb-1">

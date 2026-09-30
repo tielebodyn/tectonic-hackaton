@@ -134,7 +134,7 @@
         },
         {
             "rule_key": "childcare",
-            "title": "Volgende maand ging Amir naar de opvang, voor zo’n €520 per maand",
+            "title": "Amir ging naar de opvang, voor zo’n €520 per maand",
             "body": "Begin november startte Amir in ’t Kuikentje. De prijs hing af van mijn inkomen, maar ik had het al in mijn budget gezet.",
             "days_ahead": 30,
             "confidence": 88,
@@ -194,7 +194,7 @@
         },
         {
             "rule_key": "child_saving",
-            "title": "Over twee maanden begon ik een klein spaarpotje voor Amir",
+            "title": "Ik begon een klein spaarpotje voor Amir",
             "body": "Veel ouders starten in het eerste jaar met sparen voor hun kind. Geen haast: na je verlof is ook prima.",
             "days_ahead": 60,
             "confidence": 58,

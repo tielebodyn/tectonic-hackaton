@@ -131,7 +131,7 @@
         },
         {
             "rule_key": "beneficiaries",
-            "title": "Over drie weken stonden mijn verzekeringen nog op mijn oude situatie",
+            "title": "Mijn verzekeringen stonden nog op mijn oude situatie",
             "body": "Mijn levensverzekering noemde nog mijn ex-partner als begunstigde, en mijn woning stond nog op het oude adres. Dat kon ik aanpassen wanneer ik er klaar voor was.",
             "days_ahead": 21,
             "confidence": 85,
@@ -166,7 +166,7 @@
         },
         {
             "rule_key": "single_parent",
-            "title": "Volgende maand vond ik een nieuw ritme als alleenstaande mama",
+            "title": "Ik vond een nieuw ritme als alleenstaande mama",
             "body": "Alimentatie, Groeipakket en schoolkosten kregen stilaan een vaste plek in mijn maand. Met een duidelijk overzicht kon ik rustig vooruit plannen.",
             "days_ahead": 30,
             "confidence": 74,

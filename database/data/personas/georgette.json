@@ -163,7 +163,7 @@
         },
         {
             "rule_key": "pension",
-            "title": "Morgen kwam mijn pensioen gewoon binnen",
+            "title": "Mijn pensioen kwam gewoon binnen",
             "body": "Op 1 oktober stond mijn pensioen van €1.890 op de rekening, zoals elke maand. Daar veranderde niets aan.",
             "days_ahead": 1,
             "confidence": 95,
@@ -187,7 +187,7 @@
         },
         {
             "rule_key": "trusted",
-            "title": "Over twee weken keek mijn dochter Annick mee",
+            "title": "Mijn dochter Annick keek mee",
             "body": "Ik koos Annick. Zij krijgt een berichtje als er iets vreemds gebeurt op mijn rekening. Betalen kan ze niet, ze kijkt alleen mee.",
             "days_ahead": 14,
             "confidence": 70,

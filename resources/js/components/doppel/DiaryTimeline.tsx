@@ -127,7 +127,11 @@ export default function DiaryTimeline({
                 Mijn dagboek
             </h2>
             <p className="mt-0.5 text-[13px] text-ink/55">
-                Zo liep het, als ik vooruit leef.
+                {horizon === 1
+                    ? 'Zo heb ik je komende maand beleefd, dag na dag.'
+                    : horizon === 3
+                      ? 'Zo heb ik je komende drie maanden beleefd, maand na maand.'
+                      : 'Zo heb ik je komende jaar beleefd, maand na maand.'}
             </p>
 
             <div
@@ -214,8 +218,8 @@ export default function DiaryTimeline({
             {rows.length === 0 ? (
                 <div className="mt-6 rounded-[24px] bg-emerald-50 p-6 text-center">
                     <p className="text-[18px] leading-snug font-bold">
-                        Ik heb deze periode al geleefd. Niets om je zorgen over
-                        te maken.
+                        Ik heb deze periode al geleefd. Er gebeurde niets om je
+                        zorgen over te maken.
                     </p>
                 </div>
             ) : (

@@ -127,7 +127,7 @@
         },
         {
             "rule_key": "loan_end",
-            "title": "Volgende maand kwam er €310 per maand vrij",
+            "title": "Er kwam €310 per maand vrij",
             "body": "Eind oktober betaalde ik de laatste schijf van mijn autolening. Zonder plan verdween die €310 gewoon in de dagelijkse uitgaven.",
             "days_ahead": 28,
             "confidence": 94,
