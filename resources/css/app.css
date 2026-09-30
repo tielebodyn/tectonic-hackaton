@@ -317,7 +317,7 @@
     transition: transform 300ms ease-in-out;
 }
 .doppel-mouth {
-    transition: d 300ms ease-in-out 300ms;
+    transition: transform 300ms ease-in-out 300ms;
 }
 .doppel-torso {
     transition: transform 300ms ease-in-out 600ms;
