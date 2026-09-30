@@ -1,0 +1,43 @@
+{
+    "customer": {
+        "name": "Karim",
+        "lifeStage": "47, zelfstandig grafisch ontwerper",
+        "variant": "freelancer",
+        "mood": "relieved",
+        "summary": "Klant BV betaalde. Ik heb je oktober opnieuw geleefd en dit keer haalde ik de twintigste zonder problemen.",
+        "opener": "Goed nieuws, Karim. Klant BV betaalde €3.200. Ik heb je oktober opnieuw geleefd en de btw ging er gewoon af."
+    },
+    "predictions": [
+        {
+            "id": 22,
+            "title": "De sociale bijdragen kwamen twee weken na een dure maand",
+            "expectedAt": "2026-12-15",
+            "horizon": "over ±2 maanden",
+            "confidence": 55,
+            "signals": [
+                "transactie: Xerius, €1.180 per kwartaal, telkens midden december",
+                "patroon: december is je duurste maand door eindejaarsuitgaven",
+                "transactie: €3.200 ontvangen van Klant BV, je buffer staat weer boven €4.000"
+            ],
+            "status": "open"
+        }
+    ],
+    "forkPredictions": null,
+    "forkLabel": null,
+    "actions": [
+        {
+            "id": 22,
+            "predictionId": 22,
+            "kind": "no_sale",
+            "title": "Twee ongebruikte abonnementen opzeggen",
+            "ctaLabel": "Toon ze"
+        },
+        {
+            "id": 24,
+            "predictionId": 22,
+            "kind": "human",
+            "title": "Toch even overlopen met een adviseur?",
+            "ctaLabel": "Plan een gesprek"
+        }
+    ]
+}

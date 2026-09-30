@@ -1,0 +1,111 @@
+{
+    "customer": {
+        "name": "Lotte",
+        "lifeStage": "24, eerste job, Gent",
+        "variant": "starter",
+        "mood": "relaxed",
+        "summary": "Eerste loon, eerste eigen budget. Ik heb een maand vooruit geleefd en het klopt allemaal, op één klein ding na.",
+        "opener": "Hey Lotte, ik heb je oktober al geleefd. Volgende week verloor ik mijn studentenkorting op Spotify."
+    },
+    "predictions": [
+        {
+            "id": 1,
+            "title": "Je studentenkorting op Spotify viel weg",
+            "expectedAt": "2026-10-07",
+            "horizon": "volgende week",
+            "confidence": 90,
+            "signals": [
+                "transactie: Spotify Premium Student, €5,99 per maand sinds september 2022",
+                "patroon: de studentenformule stopt twaalf maanden na de laatste inschrijving",
+                "app: je wijzigde je situatie in september naar 'werkend'"
+            ],
+            "status": "open"
+        },
+        {
+            "id": 2,
+            "title": "Je eerste belastingaangifte als werknemer kwam eraan",
+            "expectedAt": "2026-12-01",
+            "horizon": "over ±2 maanden",
+            "confidence": 80,
+            "signals": [
+                "transactie: eerste loonstorting van Studio Vos bv op 28 augustus",
+                "patroon: starters krijgen hun eerste voorstel van vereenvoudigde aangifte in het najaar",
+                "app: je opende de rubriek 'Belastingen' twee keer, maar sloot ze weer"
+            ],
+            "status": "open"
+        },
+        {
+            "id": 3,
+            "title": "Drie maanden buffer opbouwen lukte nog niet helemaal",
+            "expectedAt": "2026-12-31",
+            "horizon": "dit jaar",
+            "confidence": 70,
+            "signals": [
+                "transactie: gemiddeld €140 per maand over naar je spaarrekening",
+                "patroon: je vaste kosten zijn €1.240 per maand, drie maanden buffer is €3.720",
+                "app: je zette in juli een spaardoel 'Buffer' zonder bedrag"
+            ],
+            "status": "open"
+        }
+    ],
+    "forkPredictions": [
+        {
+            "id": 1,
+            "title": "Je studentenkorting op Spotify viel weg",
+            "expectedAt": "2026-10-07",
+            "horizon": "volgende week",
+            "confidence": 90,
+            "signals": [
+                "transactie: Spotify Premium Student, €5,99 per maand sinds september 2022"
+            ],
+            "status": "open"
+        },
+        {
+            "id": 2,
+            "title": "Je eerste belastingaangifte als werknemer kwam eraan",
+            "expectedAt": "2026-12-01",
+            "horizon": "over ±2 maanden",
+            "confidence": 80,
+            "signals": [
+                "transactie: eerste loonstorting van Studio Vos bv op 28 augustus"
+            ],
+            "status": "open"
+        },
+        {
+            "id": 3,
+            "title": "Drie maanden buffer stond eind december op je rekening",
+            "expectedAt": "2026-12-31",
+            "horizon": "dit jaar",
+            "confidence": 92,
+            "signals": [
+                "patroon: €140 plus €100 extra per maand haalt €3.720 in december",
+                "transactie: geen enkele maand met een negatief saldo in de simulatie"
+            ],
+            "status": "open"
+        }
+    ],
+    "forkLabel": "Doppel die €100/maand spaart",
+    "actions": [
+        {
+            "id": 1,
+            "predictionId": 3,
+            "kind": "kbc",
+            "title": "Spaarplan starten",
+            "ctaLabel": "Bekijk het spaarplan"
+        },
+        {
+            "id": 2,
+            "predictionId": 1,
+            "kind": "partner",
+            "title": "Goedkopere gsm-formule",
+            "ctaLabel": "Vergelijk formules"
+        },
+        {
+            "id": 3,
+            "predictionId": 2,
+            "kind": "no_sale",
+            "title": "Je budget zit goed",
+            "ctaLabel": "Niets te doen"
+        }
+    ]
+}
