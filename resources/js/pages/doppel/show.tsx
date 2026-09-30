@@ -106,7 +106,7 @@ export default function DoppelShow(props: ShowProps) {
     }
 
     return (
-        <div className="doppel min-h-dvh bg-[#eef1f6] text-ink sm:px-4 sm:py-6">
+        <div className="doppel min-h-dvh bg-[#eef1f6] text-ink sm:flex sm:h-dvh sm:flex-col sm:px-4 sm:py-4">
             <Head title="Mijn Doppel" />
 
             {demo.enabled && (
@@ -123,7 +123,7 @@ export default function DoppelShow(props: ShowProps) {
 
             {/* Telefoonframe: full-bleed op mobiel, 390px gecentreerd op groter scherm. */}
             <main
-                className="relative mx-auto flex min-h-dvh w-full max-w-[390px] flex-col overflow-clip bg-white sm:min-h-[844px] sm:rounded-[40px] sm:border sm:border-ink/6 sm:shadow-[0_30px_80px_rgba(11,31,58,0.18)]"
+                className="relative mx-auto flex min-h-dvh w-full max-w-[390px] [scrollbar-width:none] flex-col overflow-clip bg-white sm:min-h-0 sm:flex-1 sm:overflow-y-auto sm:rounded-[40px] sm:border sm:border-ink/6 sm:shadow-[0_30px_80px_rgba(11,31,58,0.18)]"
                 style={{ '--mood': moodColor[mood] } as React.CSSProperties}
             >
                 {/* zachte pastelvlekken bovenaan */}

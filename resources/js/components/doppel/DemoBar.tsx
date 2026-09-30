@@ -25,7 +25,7 @@ export default function DemoBar({
     onSimulate,
 }: Props) {
     return (
-        <div className="sticky top-0 z-40 flex w-full items-center justify-center gap-2 bg-ink px-3 py-2 text-white sm:static sm:mb-5 sm:rounded-full sm:bg-ink/90">
+        <div className="sticky top-0 z-40 flex w-full items-center justify-center gap-2 bg-ink px-3 py-2 text-white sm:static sm:mb-4 sm:w-auto sm:shrink-0 sm:self-center sm:rounded-full sm:bg-ink/90">
             <span className="hidden text-[11px] font-semibold tracking-[0.18em] text-white/50 uppercase sm:inline">
                 Demo
             </span>
