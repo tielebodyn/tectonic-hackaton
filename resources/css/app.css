@@ -9,9 +9,61 @@
 
 @theme {
     --font-sans:
-        'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
-        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-        'Noto Color Emoji';
+        'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Doppel: the bank speaks in Inter, Doppel speaks in Fraunces */
+    --font-diary: 'Fraunces', ui-serif, Georgia, serif;
+
+    /* Doppel brand palette (KBC-adjacent, not a KBC copy) */
+    --color-doppel-navy: #0b2a4a;
+    --color-doppel-navy-soft: #1d4470;
+    --color-doppel-sky: #1ba6e0;
+    --color-doppel-sky-soft: #e3f4fc;
+    --color-doppel-paper: #f6f4ef;
+    --color-doppel-ink: #0f1b2a;
+    --color-doppel-muted: #5b6878;
+    --color-doppel-line: #dde3ea;
+    /* Card kinds */
+    --color-kind-kbc: #0b2a4a;
+    --color-kind-partner: #cbd5e1;
+    --color-kind-nosale: #2f8f5b;
+    --color-kind-nosale-soft: #e6f4ec;
+    --color-kind-human: #b8752c;
+    --color-kind-human-soft: #fbf1e3;
+
+    --animate-kobe-float: kobe-float 4s ease-in-out infinite;
+    --animate-thought: thought 1.2s ease-in-out infinite;
+    --animate-strike: strike 0.6s ease-out forwards;
+
+    @keyframes kobe-float {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-4px);
+        }
+    }
+
+    @keyframes thought {
+        0%,
+        100% {
+            opacity: 0.25;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes strike {
+        from {
+            background-size: 0% 2px;
+        }
+        to {
+            background-size: 100% 2px;
+        }
+    }
 
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
@@ -68,7 +120,7 @@
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
+    --primary: #0b2a4a;
     --primary-foreground: oklch(0.985 0 0);
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);
@@ -80,7 +132,7 @@
     --destructive-foreground: oklch(0.577 0.245 27.325);
     --border: oklch(0.922 0 0);
     --input: oklch(0.922 0 0);
-    --ring: oklch(0.87 0 0);
+    --ring: #1ba6e0;
     --chart-1: oklch(0.646 0.222 41.116);
     --chart-2: oklch(0.6 0.118 184.704);
     --chart-3: oklch(0.398 0.07 227.392);
@@ -140,4 +192,12 @@
     body {
         @apply bg-background text-foreground;
     }
+}
+
+/* Doppel: animated strike-through used when the diary rewrites itself */
+.diary-strike {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 55%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
 }
