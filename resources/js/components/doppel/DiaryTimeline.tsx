@@ -1,11 +1,16 @@
+import { ChevronRight } from 'lucide-react';
 import { useState } from 'react';
-import DiaryCard from '@/components/doppel/DiaryCard';
+import BalanceChart from '@/components/doppel/BalanceChart';
 import {
     cardsWithin,
+    daysBetween,
     horizonEnd,
+    monthLabel,
+    noWhatIf,
+    project,
     seasonalMoments,
+    type Cost,
 } from '@/components/doppel/forecast';
-import MoneyForecast from '@/components/doppel/MoneyForecast';
 import type {
     Card,
     FaceMood,
@@ -13,7 +18,7 @@ import type {
     MascotVariant,
     Monthly,
 } from '@/components/doppel/types';
-import { shortDate } from '@/components/doppel/types';
+import { euro, shortDate } from '@/components/doppel/types';
 import { cn } from '@/lib/utils';
 
 type Props = {
@@ -27,52 +32,103 @@ type Props = {
     variant?: MascotVariant;
 };
 
-const horizons: { value: Horizon; label: string; subtitle: string }[] = [
-    {
-        value: 1,
-        label: '30 dagen',
-        subtitle: 'Zo heb ik je komende maand beleefd, dag na dag.',
-    },
-    {
-        value: 3,
-        label: '3 maanden',
-        subtitle: 'Zo heb ik je komende drie maanden beleefd, maand na maand.',
-    },
-    {
-        value: 12,
-        label: '12 maanden',
-        subtitle: 'Zo heb ik je komende jaar beleefd, maand na maand.',
-    },
+type Row = {
+    key: string;
+    date: string;
+    title: string;
+    cents: number | null;
+    card: Card | null;
+    urgent: boolean;
+};
+
+const horizons: { value: Horizon; label: string }[] = [
+    { value: 1, label: '30 dagen' },
+    { value: 3, label: '3 maanden' },
+    { value: 12, label: '1 jaar' },
 ];
 
-/** Dagboek: alle kaarten op een tijdlijn, van vandaag naar verder weg. Ver = vager. */
+/** Dagboek: hoe ver vooruit, één saldolijn, en wat er gebeurde per maand. */
 export default function DiaryTimeline({
     cards,
     today,
-    mood,
     leaving,
     onWhy,
     monthly,
     balanceCents,
-    variant,
 }: Props) {
     const [horizon, setHorizon] = useState<Horizon>(1);
-    const current = horizons.find((h) => h.value === horizon) ?? horizons[0];
+    const [active, setActive] = useState<string | null>(null);
     const end = horizonEnd(today, horizon);
 
-    const inRange = cardsWithin(cards, end);
-    const seasonal =
-        horizon > 1 && monthly ? seasonalMoments(today, end, monthly) : [];
-    const sorted = [...inRange].sort((a, b) =>
-        a.expected_on.localeCompare(b.expected_on),
-    );
+    const rows: Row[] = [
+        ...cardsWithin(cards, end)
+            .filter((c) => c.rule_key !== 'all_good')
+            .map((c) => ({
+                key: `card-${c.rule_key}-${c.id}`,
+                date: c.expected_on,
+                title: c.title,
+                cents: c.impact_cents,
+                card: c,
+                urgent: c.urgency >= 70,
+            })),
+        ...(horizon > 1 && monthly
+            ? seasonalMoments(today, end, monthly).map((s) => ({
+                  key: s.key,
+                  date: s.expected_on,
+                  title: s.title,
+                  cents: s.impact_cents,
+                  card: null,
+                  urgent: false,
+              }))
+            : []),
+    ]
+        .filter((r) => r.card === null || r.card.id !== leaving)
+        .sort((a, b) => a.date.localeCompare(b.date));
+
+    const costs: Cost[] = rows
+        .filter((r) => (r.cents ?? 0) < 0)
+        .map((r) => ({
+            key: r.key,
+            day: Math.max(0, daysBetween(today, r.date)),
+            cents: r.cents ?? 0,
+            title: r.title,
+            date: r.date,
+            kind: r.card ? 'card' : 'season',
+        }));
+    const points =
+        monthly && balanceCents !== undefined
+            ? project(
+                  balanceCents,
+                  monthly,
+                  daysBetween(today, end),
+                  costs,
+                  noWhatIf,
+              )
+            : null;
+    const endBalance = points ? points[points.length - 1].balance : null;
+    const delta =
+        points && endBalance !== null ? endBalance - points[0].balance : 0;
+
+    const months = rows.reduce<Record<string, Row[]>>((acc, r) => {
+        (acc[r.date.slice(0, 7)] ??= []).push(r);
+        return acc;
+    }, {});
+
+    function pick(key: string) {
+        setActive(key);
+        document
+            .getElementById(key)
+            ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
 
     return (
-        <section className="px-5 pt-6 pb-6">
+        <section className="px-5 pt-6 pb-8">
             <h2 className="text-[22px] font-bold tracking-tight">
                 Mijn dagboek
             </h2>
-            <p className="mt-0.5 text-[13px] text-ink/55">{current.subtitle}</p>
+            <p className="mt-0.5 text-[13px] text-ink/55">
+                Zo liep het, als ik vooruit leef.
+            </p>
 
             <div
                 role="tablist"
@@ -85,12 +141,15 @@ export default function DiaryTimeline({
                         type="button"
                         role="tab"
                         aria-selected={h.value === horizon}
-                        onClick={() => setHorizon(h.value)}
+                        onClick={() => {
+                            setHorizon(h.value);
+                            setActive(null);
+                        }}
                         className={cn(
                             'rounded-full py-2 text-[13px] font-semibold transition-colors',
                             h.value === horizon
-                                ? 'bg-ink text-white'
-                                : 'text-ink/60 hover:text-ink',
+                                ? 'bg-white text-ink shadow-[0_1px_4px_rgba(11,31,58,0.1)]'
+                                : 'text-ink/50 hover:text-ink',
                         )}
                     >
                         {h.label}
@@ -98,80 +157,146 @@ export default function DiaryTimeline({
                 ))}
             </div>
 
-            {monthly && balanceCents !== undefined && (
-                <MoneyForecast
+            {points && endBalance !== null && (
+                <div
                     key={horizon}
-                    horizon={horizon}
-                    today={today}
-                    end={end}
-                    balanceCents={balanceCents}
-                    monthly={monthly}
-                    cards={inRange}
-                    seasonal={seasonal}
-                    mood={mood}
-                    variant={variant}
-                    onWhy={onWhy}
-                    yearView={horizon > 1}
-                />
+                    className="mt-4 animate-doppel-rise rounded-[24px] bg-[#f4f6fa] p-4"
+                >
+                    <p className="text-[12px] text-ink/50">
+                        Op mijn rekening op {shortDate(end)}
+                        {horizon > 1 ? ` ${end.slice(0, 4)}` : ''}
+                    </p>
+                    <div className="mt-0.5 flex items-baseline justify-between gap-2">
+                        <p
+                            className={cn(
+                                'text-[28px] leading-none font-bold tracking-tight',
+                                endBalance < 0 ? 'text-[#e5484d]' : 'text-ink',
+                            )}
+                        >
+                            {euro(endBalance)}
+                        </p>
+                        <span
+                            className={cn(
+                                'rounded-full px-2.5 py-1 text-[12px] font-bold',
+                                delta < 0
+                                    ? 'bg-[#e5484d]/10 text-[#e5484d]'
+                                    : 'bg-emerald-100 text-emerald-700',
+                            )}
+                        >
+                            {delta >= 0 ? '+' : ''}
+                            {euro(delta)}
+                        </span>
+                    </div>
+                    <div className="mt-4">
+                        <BalanceChart
+                            points={points}
+                            today={today}
+                            end={end}
+                            active={active}
+                            onPick={pick}
+                            markers={rows
+                                .filter(
+                                    (r) => r.cents !== null && r.cents !== 0,
+                                )
+                                .map((r) => ({
+                                    key: r.key,
+                                    day: Math.max(
+                                        0,
+                                        daysBetween(today, r.date),
+                                    ),
+                                    negative: (r.cents ?? 0) < 0,
+                                }))}
+                        />
+                    </div>
+                </div>
             )}
 
-            {horizon === 1 && (
-                <>
-                    <h3 className="mt-8 text-[18px] font-bold">Dag na dag</h3>
-                    <ol className="relative mt-4 flex flex-col gap-4 pl-7">
-                        {/* tijd-as */}
-                        <span
-                            aria-hidden
-                            className="absolute top-2 bottom-2 left-[9px] w-px bg-ink/10"
-                        />
-                        <li className="relative -mb-1">
-                            <span
-                                aria-hidden
-                                className="absolute top-1 -left-7 grid size-5 place-items-center rounded-full bg-kbc/15"
-                            >
-                                <span className="size-2.5 rounded-full bg-kbc shadow-[0_0_0_4px_rgba(0,163,224,0.2)]" />
-                            </span>
-                            <span className="text-[11px] font-bold tracking-[0.14em] text-kbc uppercase">
-                                Vandaag · {shortDate(today)}
-                            </span>
-                        </li>
-                        {sorted.map((card, i) => {
-                            const fade = Math.max(0.55, 1 - i * 0.12);
-                            return (
-                                <li
-                                    key={`${card.rule_key}-${card.id}`}
-                                    className="relative"
-                                    style={{
-                                        opacity: leaving === card.id ? 1 : fade,
-                                    }}
-                                >
-                                    <span
-                                        aria-hidden
-                                        className="absolute top-5 -left-7 size-5 rounded-full border-2 border-white bg-ink/15"
-                                    />
-                                    <DiaryCard
-                                        card={card}
-                                        index={i}
-                                        mood={mood}
-                                        leaving={
-                                            leaving !== null &&
-                                            leaving === card.id
-                                        }
-                                        onWhy={onWhy}
-                                    />
-                                </li>
-                            );
-                        })}
-                    </ol>
-                    {sorted.length === 0 && (
-                        <div className="mt-4 rounded-[24px] bg-emerald-50 p-6 text-center">
-                            <p className="text-[20px] leading-snug font-bold">
-                                Ik heb je maand al geleefd. Er gebeurde niets om
-                                je zorgen over te maken.
-                            </p>
-                        </div>
-                    )}
-                </>
+            {rows.length === 0 ? (
+                <div className="mt-6 rounded-[24px] bg-emerald-50 p-6 text-center">
+                    <p className="text-[18px] leading-snug font-bold">
+                        Ik heb deze periode al geleefd. Niets om je zorgen over
+                        te maken.
+                    </p>
+                </div>
+            ) : (
+                Object.entries(months).map(([month, items], mi) => (
+                    <div
+                        key={`${horizon}-${month}`}
+                        className="mt-6 animate-doppel-rise"
+                        style={{ animationDelay: `${mi * 60}ms` }}
+                    >
+                        <h3 className="mb-2 text-[12px] font-bold tracking-[0.12em] text-ink/40 uppercase">
+                            {monthLabel(`${month}-01`)}
+                        </h3>
+                        <ul className="overflow-hidden rounded-[22px] bg-[#f4f6fa]">
+                            {items.map((r, i) => {
+                                const day = r.date
+                                    .slice(8, 10)
+                                    .replace(/^0/, '');
+                                const Row = r.card ? 'button' : 'div';
+                                return (
+                                    <li
+                                        key={r.key}
+                                        id={r.key}
+                                        className={cn(
+                                            i > 0 && 'border-t border-ink/6',
+                                        )}
+                                    >
+                                        <Row
+                                            {...(r.card
+                                                ? {
+                                                      type: 'button' as const,
+                                                      onClick: () =>
+                                                          r.card &&
+                                                          onWhy(r.card),
+                                                  }
+                                                : {})}
+                                            className={cn(
+                                                'flex w-full items-center gap-3 px-3 py-3 text-left transition-colors',
+                                                active === r.key && 'bg-kbc/8',
+                                                r.card && 'hover:bg-ink/3',
+                                            )}
+                                        >
+                                            <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-white text-[15px] font-bold text-ink">
+                                                {day}
+                                            </span>
+                                            <span className="min-w-0 flex-1">
+                                                <span className="line-clamp-2 text-[14px] leading-snug font-semibold text-ink">
+                                                    {r.title}
+                                                </span>
+                                                <span className="mt-0.5 flex items-center gap-1.5 text-[12px] text-ink/45">
+                                                    {r.urgent && (
+                                                        <span className="size-1.5 rounded-full bg-orange-500" />
+                                                    )}
+                                                    {r.card
+                                                        ? `${r.card.confidence}% zeker`
+                                                        : 'Elk jaar terug'}
+                                                </span>
+                                            </span>
+                                            {r.cents !== null &&
+                                                r.cents !== 0 && (
+                                                    <span
+                                                        className={cn(
+                                                            'shrink-0 text-[14px] font-bold',
+                                                            r.cents < 0
+                                                                ? 'text-ink'
+                                                                : 'text-emerald-600',
+                                                        )}
+                                                    >
+                                                        {r.cents > 0 ? '+' : ''}
+                                                        {euro(r.cents)}
+                                                    </span>
+                                                )}
+                                            {r.card && (
+                                                <ChevronRight className="size-4 shrink-0 text-ink/30" />
+                                            )}
+                                        </Row>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+                ))
             )}
         </section>
     );

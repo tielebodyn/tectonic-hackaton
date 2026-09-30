@@ -2,7 +2,6 @@ import { Head, router, usePage } from '@inertiajs/react';
 import { ChevronRight, Wallet } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
-import ActionsTab from '@/components/doppel/ActionsTab';
 import DemoBar from '@/components/doppel/DemoBar';
 import DiaryCard from '@/components/doppel/DiaryCard';
 import DiaryTimeline from '@/components/doppel/DiaryTimeline';
@@ -322,9 +321,6 @@ export default function DoppelShow(props: ShowProps) {
                         balanceCents={balance_cents}
                         variant={customer.mascot_variant}
                     />
-                )}
-                {tab === 'actions' && (
-                    <ActionsTab cards={visibleCards} mood={mood} />
                 )}
                 {tab === 'profile' && (
                     <ProfileTab

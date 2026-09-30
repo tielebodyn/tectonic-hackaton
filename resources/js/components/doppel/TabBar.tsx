@@ -1,12 +1,11 @@
-import { BookOpen, Home, Sparkles, User } from 'lucide-react';
+import { BookOpen, Home, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-export type Tab = 'home' | 'diary' | 'actions' | 'profile';
+export type Tab = 'home' | 'diary' | 'profile';
 
 const tabs: { key: Tab; icon: typeof Home; label: string }[] = [
     { key: 'home', icon: Home, label: 'Home' },
     { key: 'diary', icon: BookOpen, label: 'Dagboek' },
-    { key: 'actions', icon: Sparkles, label: 'Acties' },
     { key: 'profile', icon: User, label: 'Profiel' },
 ];
 

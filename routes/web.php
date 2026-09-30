@@ -9,26 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-// POC: the app is the front door. In demo mode guests land straight in Keano's app as Karim.
-Route::get('/', function (Request $request) {
-    if (! config('doppel.demo_mode')) {
-        return redirect()->route('personas');
-    }
-
-    // ?as=lotte switches persona in one click (demo links, screenshots).
-    $as = $request->query('as');
-    if (! $request->user() || is_string($as)) {
-        $key = is_string($as) && preg_match('/^[a-z-]+$/', $as) ? $as : 'karim';
-        $demo = Customer::where('persona_key', $key)->with('user')->first()?->user;
-        abort_if($demo === null, 503, 'Run ddev artisan migrate:fresh --seed first.');
-        Auth::login($demo);
-        $request->session()->regenerate();
-    }
-
-    return redirect()->route('doppel', $request->except('as'));
-})->name('home');
-
-Route::get('personas', function () {
+/** Persona cards for the welcome screen (demo mode only). */
+$welcome = function () {
     $personas = config('doppel.demo_mode')
         ? Customer::whereNotNull('persona_key')
             ->orderBy('id')
@@ -44,7 +26,25 @@ Route::get('personas', function () {
         : [];
 
     return Inertia::render('welcome', ['personas' => $personas]);
-})->name('personas');
+};
+
+// The welcome screen is the front door. ?as=lotte still logs in as a persona in one click (demo links).
+Route::get('/', function (Request $request) use ($welcome) {
+    $as = $request->query('as');
+
+    if (config('doppel.demo_mode') && is_string($as) && preg_match('/^[a-z-]+$/', $as)) {
+        $demo = Customer::where('persona_key', $as)->with('user')->first()?->user;
+        abort_if($demo === null, 404);
+        Auth::login($demo);
+        $request->session()->regenerate();
+
+        return redirect()->route('doppel', $request->except('as'));
+    }
+
+    return $welcome();
+})->name('home');
+
+Route::get('personas', $welcome)->name('personas');
 
 Route::post('demo/login/{persona}', [DemoController::class, 'login'])
     ->where('persona', '[a-z-]+')

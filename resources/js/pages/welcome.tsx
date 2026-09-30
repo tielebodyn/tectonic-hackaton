@@ -71,7 +71,7 @@ export default function Welcome({ personas }: { personas: Persona[] }) {
                             </Form>
                             <div className="mt-4 flex items-center justify-center gap-1.5 text-[12px] text-ink/45">
                                 <span>Of bekijk als</span>
-                                {personas.map((persona) => (
+                                {personas.slice(0, 3).map((persona) => (
                                     <Form
                                         key={persona.persona_key}
                                         {...demoLogin.form(persona.persona_key)}
