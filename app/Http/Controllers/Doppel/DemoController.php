@@ -40,7 +40,7 @@ class DemoController extends Controller
 
         $this->rebuild($customer, $refresher);
 
-        return redirect()->route('doppel')->with('status', 'Studio Noord heeft betaald.');
+        return redirect()->route('doppel')->with('status', 'Studio Noord has paid.');
     }
 
     public function reset(Request $request, DoppelRefresher $refresher): RedirectResponse
@@ -53,12 +53,12 @@ class DemoController extends Controller
 
         $this->rebuild($customer, $refresher);
 
-        return redirect()->route('doppel')->with('status', 'Demo teruggezet.');
+        return redirect()->route('doppel')->with('status', 'Demo reset.');
     }
 
     private function payKarimInvoice(Customer $customer): void
     {
-        abort_unless($customer->persona_key === 'karim', 422, 'Dit event hoort bij Karim.');
+        abort_unless($customer->persona_key === 'karim', 422, 'This event belongs to Karim.');
 
         // Idempotent: clicking twice during the demo must not double the income.
         $customer->transactions()->firstOrCreate(
@@ -67,7 +67,7 @@ class DemoController extends Controller
                 'booked_on' => config('doppel.today'),
                 'amount_cents' => 320000,
                 'category' => TransactionCategory::Income,
-                'description' => 'Factuur betaald',
+                'description' => 'Invoice paid',
             ],
         );
     }

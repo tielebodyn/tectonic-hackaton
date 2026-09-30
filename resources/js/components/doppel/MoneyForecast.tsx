@@ -5,7 +5,7 @@ import type { Cost, Point } from '@/components/doppel/forecast';
 import {
     addDays,
     daysBetween,
-    joinNl,
+    joinEn,
     monthName,
     monthShort,
     monthStarts,
@@ -37,11 +37,11 @@ type Props = {
     mood: FaceMood;
     variant?: MascotVariant;
     onWhy: (card: Card) => void;
-    /** Jaarzicht: de grafiek is de tijdlijn, met een ingeklapte lijst eronder. */
+    /** Year view: the chart is the timeline, with a collapsed list below it. */
     yearView?: boolean;
 };
 
-/** Een checkpoint op de lijn: een dagboekkaart, een jaarmoment of je eigen eenmalige keuze. */
+/** A checkpoint on the line: a diary card, a yearly moment or your own one-off choice. */
 type Pin = {
     key: string;
     day: number;
@@ -73,7 +73,7 @@ function shortEuro(cents: number): string {
     const a = Math.abs(v);
     if (a >= 1000) {
         const k = (a / 1000).toFixed(a >= 10000 ? 0 : 1).replace('.0', '');
-        return `${sign}€${k.replace('.', ',')}k`;
+        return `${sign}€${k}k`;
     }
     return `${sign}€${Math.round(a)}`;
 }
@@ -84,7 +84,7 @@ function niceStep(raw: number): number {
     return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 5 ? 5 : 10) * p;
 }
 
-/** Vloeiende lijn die geen pieken verzint (monotone cubic). */
+/** Smooth line that doesn't invent peaks (monotone cubic). */
 function smooth(pts: [number, number][]): string {
     const n = pts.length;
     if (n < 2) return '';
@@ -122,7 +122,7 @@ function smooth(pts: [number, number][]): string {
     return d;
 }
 
-/** Labels die elkaar zouden raken, schuiven naar een volgende rij. */
+/** Labels that would touch each other move to the next row. */
 function stagger(items: { x: number; w: number }[]): number[] {
     const ends: number[] = [];
     return items.map(({ x, w }) => {
@@ -139,10 +139,9 @@ function stagger(items: { x: number; w: number }[]): number[] {
 
 function urgencyChip(urgency: number) {
     if (urgency >= 70)
-        return { label: 'Dringend', cls: 'bg-orange-100 text-orange-700' };
-    if (urgency >= 40)
-        return { label: 'Binnenkort', cls: 'bg-kbc/12 text-kbc' };
-    return { label: 'Ter info', cls: 'bg-ink/6 text-ink/60' };
+        return { label: 'Urgent', cls: 'bg-orange-100 text-orange-700' };
+    if (urgency >= 40) return { label: 'Soon', cls: 'bg-kbc/12 text-kbc' };
+    return { label: 'For info', cls: 'bg-ink/6 text-ink/60' };
 }
 
 type Tone = 'good' | 'bad' | 'neutral';
@@ -222,7 +221,7 @@ function Slider({
     );
 }
 
-/** "Mijn geld, maand per maand": saldo vooruit geleefd, momenten als checkpoints op de lijn. */
+/** "My money, month by month": balance lived ahead, moments as checkpoints on the line. */
 export default function MoneyForecast({
     horizon,
     today,
@@ -294,8 +293,8 @@ export default function MoneyForecast({
                       cents: w.one_off_cents,
                       title:
                           w.one_off_cents < 0
-                              ? 'Jouw eenmalige uitgave'
-                              : 'Jouw meevaller',
+                              ? 'Your one-off expense'
+                              : 'Your windfall',
                       label: shortEuro(w.one_off_cents),
                       kind: 'one_off' as const,
                       num: null,
@@ -304,7 +303,7 @@ export default function MoneyForecast({
             : []),
     ].sort((a, b) => a.day - b.day);
 
-    // Enkel kosten tellen; geld dat misschien binnenkomt telt pas als het er is.
+    // Only costs count; money that might come in only counts once it's there.
     const toCost = (p: Pin): Cost => ({
         key: p.key,
         day: p.day,
@@ -333,7 +332,7 @@ export default function MoneyForecast({
         w.saving_cents !== 0;
     const saving = w.saving_cents > 0;
 
-    // schaal
+    // scale
     const values = [
         ...base.map((p) => p.balance),
         ...mine.map((p) => p.balance),
@@ -365,7 +364,7 @@ export default function MoneyForecast({
     const savedLine = smooth(pts(mine, 'saved'));
     const area = `${mineLine} L${x(totalDays)},${zeroY} L${x(0)},${zeroY} Z`;
 
-    // maand-as
+    // month axis
     const gridMonths =
         horizon === 1
             ? []
@@ -399,7 +398,7 @@ export default function MoneyForecast({
                   })
                   .filter((l) => l.width > 20);
 
-    // pins op de lijn, dicht bij elkaar = gestapeld
+    // pins on the line, close together = stacked
     const placed = pins.map((p, i) => {
         const px = x(p.day);
         const stack = pins
@@ -430,8 +429,8 @@ export default function MoneyForecast({
         }
     }
 
-    // Doppel vertelt
-    const endLabel = `eind ${monthName(end)}`;
+    // Doppel tells
+    const endLabel = `end of ${monthName(end)}`;
     const endValue = mine[mine.length - 1].balance;
     const endBase = base[base.length - 1].balance;
     const endSaved = mine[mine.length - 1].saved;
@@ -440,48 +439,48 @@ export default function MoneyForecast({
 
     const parts: string[] = [];
     if (w.spend_delta_cents > 0)
-        parts.push(`elke maand ${euro(w.spend_delta_cents)} meer uitgeeft`);
+        parts.push(`spent ${euro(w.spend_delta_cents)} more every month`);
     if (w.spend_delta_cents < 0)
-        parts.push(`elke maand ${euro(-w.spend_delta_cents)} minder uitgeeft`);
+        parts.push(`spent ${euro(-w.spend_delta_cents)} less every month`);
     if (w.income_pct !== 0)
         parts.push(
-            `${Math.abs(w.income_pct)}% ${w.income_pct > 0 ? 'meer' : 'minder'} verdient`,
+            `earned ${Math.abs(w.income_pct)}% ${w.income_pct > 0 ? 'more' : 'less'}`,
         );
     if (w.one_off_cents < 0)
         parts.push(
-            `in ${monthName(`${oneOffMonth}-15`)} eenmalig ${euro(-w.one_off_cents)} uitgeeft`,
+            `spent a one-off ${euro(-w.one_off_cents)} in ${monthName(`${oneOffMonth}-15`)}`,
         );
     if (w.one_off_cents > 0)
         parts.push(
-            `in ${monthName(`${oneOffMonth}-15`)} ${euro(w.one_off_cents)} extra krijgt`,
+            `got ${euro(w.one_off_cents)} extra in ${monthName(`${oneOffMonth}-15`)}`,
         );
 
     const negLine = firstNeg
-        ? ` Rond ${shortDate(addDays(today, firstNeg.day))} zakte ik onder nul. Dan werd het krap.`
+        ? ` Around ${shortDate(addDays(today, firstNeg.day))} I dipped below zero. Then things got tight.`
         : null;
     let story: string;
     if (!changed) {
-        story = `Zoals nu stond ik ${endLabel} op ${euro(endValue)}.${negLine ?? (tight ? ' Krap, maar het lukte.' : ' Dat voelde rustig.')}`;
+        story = `As it is, I had ${euro(endValue)} at the ${endLabel}.${negLine ?? (tight ? ' Tight, but I made it.' : ' That felt calm.')}`;
     } else if (parts.length === 0) {
         const bufferMonths = endSaved / Math.max(1, monthly.spend_cents);
         const buffer =
             bufferMonths >= 1
-                ? `${Math.floor(bufferMonths)} ${Math.floor(bufferMonths) === 1 ? 'maand' : 'maanden'} buffer`
-                : `${Math.max(1, Math.round(bufferMonths * 4.3))} weken buffer`;
-        story = `Met ${euro(w.saving_cents)} per maand sparen had ik ${endLabel} ${euro(endSaved)} opzij, goed voor ${buffer}.${negLine ? ' Maar mijn zichtrekening ging even onder nul.' : ''}`;
+                ? `${Math.floor(bufferMonths)} ${Math.floor(bufferMonths) === 1 ? 'month' : 'months'} of buffer`
+                : `${Math.max(1, Math.round(bufferMonths * 4.3))} weeks of buffer`;
+        story = `Saving ${euro(w.saving_cents)} a month, I had ${euro(endSaved)} put aside by the ${endLabel}, good for ${buffer}.${negLine ? ' But my current account dipped below zero for a while.' : ''}`;
     } else {
-        if (saving) parts.push(`${euro(w.saving_cents)} per maand spaart`);
+        if (saving) parts.push(`saved ${euro(w.saving_cents)} a month`);
         const diff = endValue + endSaved - endBase;
         const verdict =
             negLine ??
             (tight
-                ? ' Dan werd het krap.'
+                ? ' Then things got tight.'
                 : diff > 0
-                  ? ` Dat is ${euro(diff)} meer dan zoals nu.`
+                  ? ` That's ${euro(diff)} more than as it is.`
                   : diff < 0
-                    ? ` ${euro(-diff)} minder dan zoals nu, maar het lukte.`
+                    ? ` ${euro(-diff)} less than as it is, but I made it.`
                     : '');
-        story = `Als je ${joinNl(parts)}, stond ik ${endLabel} op ${euro(endValue)}.${verdict}`;
+        story = `If you ${joinEn(parts)}, I had ${euro(endValue)} at the ${endLabel}.${verdict}`;
     }
     const storyMood: FaceMood = firstNeg || tight ? 'worried' : mood;
 
@@ -505,16 +504,16 @@ export default function MoneyForecast({
             {!yearView && (
                 <>
                     <h2 className="text-[22px] font-bold tracking-tight">
-                        Mijn geld, maand per maand
+                        My money, month by month
                     </h2>
                     <p className="mt-0.5 text-[13px] text-ink/55">
-                        Zo zag mijn rekening eruit. Schuif gerust, ik leef het
-                        meteen opnieuw.
+                        This is how my account looked. Go ahead and slide, I'll
+                        live it again right away.
                     </p>
                 </>
             )}
 
-            {/* grafiek = tijdlijn */}
+            {/* chart = timeline */}
             <div
                 className={cn(
                     'animate-doppel-rise rounded-[28px] bg-[#f4f6fa] p-4',
@@ -524,7 +523,7 @@ export default function MoneyForecast({
                 <div className="flex items-end justify-between gap-3">
                     <div className="min-w-0">
                         <p className="text-[12px] text-ink/50">
-                            Op mijn rekening, {endLabel}
+                            In my account, {endLabel}
                         </p>
                         <p
                             className={cn(
@@ -538,23 +537,23 @@ export default function MoneyForecast({
                     <div className="shrink-0 pb-1 text-right text-[12px] leading-snug">
                         {changed ? (
                             <p className="text-ink/50">
-                                Zoals nu {euro(endBase)}
+                                As it is {euro(endBase)}
                             </p>
                         ) : (
                             <p className="text-ink/50">
-                                Vandaag {euro(balanceCents)}
+                                Today {euro(balanceCents)}
                             </p>
                         )}
                         {saving && (
                             <p className="font-semibold text-emerald-700">
-                                + {euro(endSaved)} gespaard
+                                + {euro(endSaved)} saved
                             </p>
                         )}
                     </div>
                 </div>
 
                 <div className="relative mt-2 -mr-4 flex">
-                    {/* vaste y-as */}
+                    {/* fixed y axis */}
                     <svg
                         width={AXIS}
                         height={H}
@@ -586,7 +585,7 @@ export default function MoneyForecast({
                                 height={H}
                                 className="block overflow-visible"
                                 role="img"
-                                aria-label={`Verwacht saldo tot ${endLabel}`}
+                                aria-label={`Expected balance until the ${endLabel}`}
                             >
                                 <defs>
                                     <linearGradient
@@ -714,7 +713,7 @@ export default function MoneyForecast({
                                 )}
                             </svg>
 
-                            {/* nu */}
+                            {/* now */}
                             <span
                                 aria-hidden
                                 className="pointer-events-none absolute flex size-5 -translate-x-1/2 -translate-y-1/2 items-center justify-center"
@@ -766,7 +765,7 @@ export default function MoneyForecast({
                             })}
                         </div>
 
-                        {/* korte labels onder de as */}
+                        {/* short labels below the axis */}
                         {pins.length > 0 && (
                             <div
                                 className="relative mt-1"
@@ -816,7 +815,7 @@ export default function MoneyForecast({
                     </div>
                 </div>
 
-                {/* detail van het gekozen checkpoint */}
+                {/* detail of the chosen checkpoint */}
                 {selected && (
                     <PinDetail
                         key={selected.key}
@@ -829,29 +828,29 @@ export default function MoneyForecast({
                 <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-ink/50">
                     <span className="flex items-center gap-1.5">
                         <span className="w-4 border-t-2 border-dashed border-ink/35" />
-                        Zoals nu
+                        As it is
                     </span>
                     {changed && (
                         <span className="flex items-center gap-1.5">
                             <span className="w-4 border-t-[2.5px] border-kbc" />
-                            Met jouw keuzes
+                            With your choices
                         </span>
                     )}
                     {saving && (
                         <span className="flex items-center gap-1.5">
                             <span className="w-4 border-t-2 border-emerald-600" />
-                            Gespaard
+                            Saved
                         </span>
                     )}
                     {horizon === 12 && (
                         <span className="ml-auto text-ink/40">
-                            Veeg voor het hele jaar →
+                            Swipe for the whole year →
                         </span>
                     )}
                 </p>
             </div>
 
-            {/* Doppel vertelt */}
+            {/* Doppel tells */}
             <div className="mt-4 flex items-end gap-2">
                 <div className="grid size-11 shrink-0 place-items-center overflow-hidden rounded-full bg-kbc/10">
                     <Doppel
@@ -870,10 +869,10 @@ export default function MoneyForecast({
                 </div>
             </div>
 
-            {/* wat als */}
+            {/* what if */}
             <div className="mt-4 flex flex-col gap-3 rounded-[28px] bg-[#f4f6fa] p-4">
                 <div className="flex items-center justify-between">
-                    <h3 className="text-[15px] font-bold">Wat als...</h3>
+                    <h3 className="text-[15px] font-bold">What if...</h3>
                     <button
                         type="button"
                         onClick={() => setW(noWhatIf)}
@@ -881,16 +880,16 @@ export default function MoneyForecast({
                         className="flex items-center gap-1 text-[12px] font-semibold text-kbc transition-opacity disabled:opacity-0"
                     >
                         <RotateCcw className="size-3.5" />
-                        Terug naar zoals nu
+                        Back to as it is
                     </button>
                 </div>
 
                 <Slider
-                    label="Elke maand uitgeven"
+                    label="Monthly spending"
                     display={
                         w.spend_delta_cents === 0
-                            ? 'Zoals nu'
-                            : `${signed(w.spend_delta_cents)} ${w.spend_delta_cents > 0 ? 'meer' : 'minder'} per maand`
+                            ? 'As it is'
+                            : `${signed(w.spend_delta_cents)} ${w.spend_delta_cents > 0 ? 'more' : 'less'} per month`
                     }
                     tone={
                         w.spend_delta_cents > 0
@@ -907,11 +906,11 @@ export default function MoneyForecast({
                 />
 
                 <Slider
-                    label="Inkomen"
+                    label="Income"
                     display={
                         w.income_pct === 0
-                            ? 'Zoals nu'
-                            : `${w.income_pct > 0 ? '+' : '−'}${Math.abs(w.income_pct)}% · ${signed(incomeCents)}/maand`
+                            ? 'As it is'
+                            : `${w.income_pct > 0 ? '+' : '−'}${Math.abs(w.income_pct)}% · ${signed(incomeCents)}/month`
                     }
                     tone={
                         w.income_pct > 0
@@ -929,11 +928,11 @@ export default function MoneyForecast({
 
                 <div>
                     <Slider
-                        label="Eenmalig"
+                        label="One-off"
                         display={
                             w.one_off_cents === 0
-                                ? 'Uitgave of meevaller'
-                                : `${signed(w.one_off_cents)} ${w.one_off_cents < 0 ? 'uitgave' : 'meevaller'}`
+                                ? 'Expense or windfall'
+                                : `${signed(w.one_off_cents)} ${w.one_off_cents < 0 ? 'expense' : 'windfall'}`
                         }
                         tone={
                             w.one_off_cents > 0
@@ -970,11 +969,11 @@ export default function MoneyForecast({
                 </div>
 
                 <Slider
-                    label="Sparen"
+                    label="Saving"
                     display={
                         w.saving_cents === 0
-                            ? 'Niets opzij'
-                            : `${euro(w.saving_cents)} per maand`
+                            ? 'Nothing aside'
+                            : `${euro(w.saving_cents)} per month`
                     }
                     tone={saving ? 'good' : 'neutral'}
                     min={0}
@@ -984,7 +983,7 @@ export default function MoneyForecast({
                     onChange={(v) => set({ saving_cents: v })}
                 />
             </div>
-            {/* ingeklapte lijst */}
+            {/* collapsed list */}
             {yearView && pins.length > 0 && (
                 <div className="mt-3 rounded-[24px] bg-[#f4f6fa]">
                     <button
@@ -993,7 +992,7 @@ export default function MoneyForecast({
                         aria-expanded={listOpen}
                         className="flex w-full items-center justify-between px-4 py-3 text-[14px] font-semibold"
                     >
-                        Alle momenten ({pins.length})
+                        All moments ({pins.length})
                         <ChevronDown
                             className={cn(
                                 'size-4 text-ink/50 transition-transform',
@@ -1034,7 +1033,7 @@ export default function MoneyForecast({
                                             <span className="block text-[11px] text-ink/50">
                                                 {shortDate(p.date)}
                                                 {p.kind === 'season' &&
-                                                    ' · verwacht'}
+                                                    ' · expected'}
                                             </span>
                                         </span>
                                         {p.cents !== 0 && (
@@ -1066,8 +1065,8 @@ function PinDetail({
     const chip = card
         ? urgencyChip(card.urgency)
         : pin.kind === 'season'
-          ? { label: 'Verwacht', cls: 'bg-ink/6 text-ink/55' }
-          : { label: 'Jouw keuze', cls: 'bg-orange-100 text-orange-700' };
+          ? { label: 'Expected', cls: 'bg-ink/6 text-ink/55' }
+          : { label: 'Your choice', cls: 'bg-orange-100 text-orange-700' };
     const body = card?.body ?? pin.moment?.body ?? null;
 
     return (
@@ -1087,7 +1086,7 @@ function PinDetail({
                 <span className="flex-1" />
                 {card && (
                     <span className="text-[12px] font-semibold text-ink/55">
-                        {card.confidence}% zeker
+                        {card.confidence}% sure
                     </span>
                 )}
                 {pin.cents !== 0 && (
@@ -1106,7 +1105,7 @@ function PinDetail({
             )}
             <div className="mt-2 flex items-center justify-between gap-2">
                 <span className="text-[12px] text-ink/50">
-                    Daarna stond ik op{' '}
+                    After that I had{' '}
                     <span
                         className={cn(
                             'font-bold',
@@ -1123,7 +1122,7 @@ function PinDetail({
                         className="flex shrink-0 items-center gap-1 text-[12px] font-semibold text-kbc"
                     >
                         <HelpCircle className="size-3.5" />
-                        Waarom denk ik dat?
+                        Why do I think that?
                     </button>
                 )}
             </div>

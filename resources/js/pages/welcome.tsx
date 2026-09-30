@@ -39,11 +39,11 @@ export default function Welcome({ personas }: { personas: Persona[] }) {
 
                 <section className="relative px-6 pt-4 text-center">
                     <h1 className="text-[28px] leading-[1.15] font-bold tracking-tight">
-                        Je dubbelganger heeft je volgende maand al geleefd
+                        Your double has already lived next month
                     </h1>
                     <p className="mt-3 text-[15px] leading-snug text-ink/55">
-                        Doppel leeft in je KBC-app een maand vooruit en vertelt
-                        wat hem overkwam, voor het jou overkomt.
+                        Doppel lives one month ahead in your KBC app and tells
+                        you what happened to him, before it happens to you.
                     </p>
                 </section>
 
@@ -56,7 +56,7 @@ export default function Welcome({ personas }: { personas: Persona[] }) {
                 <section className="relative px-5 pt-6 pb-8">
                     {personas.length > 0 ? (
                         <>
-                            {/* Demo: "Verbind met KBC" logt meteen in als de eerste persona. */}
+                            {/* Demo: "Connect with KBC" logs straight in as the first persona. */}
                             <Form {...demoLogin.form(personas[0].persona_key)}>
                                 {({ processing }) => (
                                     <button
@@ -64,13 +64,13 @@ export default function Welcome({ personas }: { personas: Persona[] }) {
                                         disabled={processing}
                                         className="flex w-full items-center justify-center gap-2 rounded-full bg-ink py-4 text-[16px] font-bold text-white transition-transform active:scale-[0.98] disabled:opacity-60"
                                     >
-                                        Verbind met KBC
+                                        Connect with KBC
                                         <ChevronRight className="size-4" />
                                     </button>
                                 )}
                             </Form>
                             <div className="mt-4 flex items-center justify-center gap-1.5 text-[12px] text-ink/45">
-                                <span>Of bekijk als</span>
+                                <span>Or view as</span>
                                 {personas.slice(0, 3).map((persona) => (
                                     <Form
                                         key={persona.persona_key}
@@ -91,7 +91,7 @@ export default function Welcome({ personas }: { personas: Persona[] }) {
                             href={doppel()}
                             className="flex w-full items-center justify-center rounded-full bg-ink py-4 text-[16px] font-bold text-white"
                         >
-                            Naar mijn Doppel
+                            Go to my Doppel
                         </Link>
                     ) : (
                         <div className="flex gap-3">
@@ -99,13 +99,13 @@ export default function Welcome({ personas }: { personas: Persona[] }) {
                                 href={login()}
                                 className="flex flex-1 items-center justify-center rounded-full bg-ink py-4 text-[16px] font-bold text-white"
                             >
-                                Verbind met KBC
+                                Connect with KBC
                             </Link>
                             <Link
                                 href={login()}
                                 className="flex flex-1 items-center justify-center rounded-full border border-ink/15 py-4 text-[16px] font-bold text-ink"
                             >
-                                Aanmelden
+                                Log in
                             </Link>
                         </div>
                     )}

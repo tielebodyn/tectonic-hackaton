@@ -17,7 +17,7 @@ class Ledger
 
     public const MOBILE_KEYWORDS = ['proximus', 'orange', 'telenet', 'base', 'mobile', 'gsm', 'mobiel'];
 
-    public const FIXED_TARIFF_MARKER = 'vast tarief';
+    public const FIXED_TARIFF_MARKER = 'fixed rate';
 
     public static function today(): CarbonImmutable
     {
@@ -168,11 +168,11 @@ class Ledger
     {
         $cents = abs($cents);
 
-        return '€'.number_format($cents / 100, $cents % 100 === 0 ? 0 : 2, ',', '.');
+        return '€'.number_format($cents / 100, $cents % 100 === 0 ? 0 : 2, '.', ',');
     }
 
     public static function date(CarbonImmutable $date): string
     {
-        return $date->locale('nl')->translatedFormat('j F');
+        return $date->format('j F');
     }
 }

@@ -40,26 +40,26 @@ class SubscriptionCleanupRule implements Rule
         }
 
         $monthly = (int) abs($subs->sum('amount_cents'));
-        $names = $subs->pluck('counterparty')->join(' en ');
+        $names = $subs->pluck('counterparty')->join(' and ');
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: "{$names} bleven doorlopen: samen ".Ledger::euro($monthly).' per maand',
-            body: 'Of ik ze nu gebruikte of niet, elke maand ging het geld eraf. Op een jaar was dat '.Ledger::euro($monthly * 12).'.',
+            title: "{$names} kept running: together ".Ledger::euro($monthly).' a month',
+            body: 'Whether I used them or not, the money left my account every month. Over a year that was '.Ledger::euro($monthly * 12).'.',
             expectedOn: Ledger::nextOccurrence($subs->first()->booked_on->day, $today),
             confidence: 60,
             impactCents: $monthly,
             urgency: 35,
             signals: $subs->map(fn (Transaction $t) => [
                 'label' => $t->counterparty,
-                'detail' => Ledger::euro($t->amount_cents).' per maand, laatst op '.Ledger::date($t->booked_on),
+                'detail' => Ledger::euro($t->amount_cents).' a month, last on '.Ledger::date($t->booked_on),
             ])->all(),
             actions: [
                 new ActionData(
                     kind: ActionKind::NoSale,
-                    title: 'Zeg 2 abonnementen op',
-                    body: "Check of je {$names} nog allebei nodig hebt.",
-                    ctaLabel: 'Toon abonnementen',
+                    title: 'Cancel 2 subscriptions',
+                    body: "Check whether you still need both {$names}.",
+                    ctaLabel: 'Show subscriptions',
                 ),
             ],
         );

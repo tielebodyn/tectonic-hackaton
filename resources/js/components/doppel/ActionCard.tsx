@@ -29,12 +29,12 @@ const style: Record<
     no_sale: {
         tile: 'bg-emerald-100 text-emerald-700',
         icon: ThumbsUp,
-        label: 'Geen verkoop',
+        label: 'No sale',
     },
     human: {
         tile: 'bg-orange-100 text-orange-600',
         icon: PhoneCall,
-        label: 'Adviseur',
+        label: 'Adviser',
     },
 };
 
@@ -51,7 +51,7 @@ export default function ActionCard({ action, card, mood }: Props) {
                 type="button"
                 onClick={() =>
                     toast(
-                        `${action.cta_label}: in de echte app gaat dit verder.`,
+                        `${action.cta_label}: in the real app, this is where it continues.`,
                     )
                 }
                 className="flex w-full items-center gap-3 rounded-2xl bg-white p-3 text-left transition-transform active:scale-[0.98]"
@@ -81,8 +81,8 @@ export default function ActionCard({ action, card, mood }: Props) {
             <button
                 type="button"
                 onClick={() => setWhyOpen(true)}
-                aria-label="Waarom dit voorstel?"
-                title="Waarom dit voorstel?"
+                aria-label="Why this suggestion?"
+                title="Why this suggestion?"
                 className="absolute top-1/2 right-9 grid size-8 -translate-y-1/2 place-items-center rounded-full bg-[#f4f6fa] text-kbc transition-colors hover:bg-kbc/12"
             >
                 <Lightbulb className="size-4" />

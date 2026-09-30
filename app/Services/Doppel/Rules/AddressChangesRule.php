@@ -14,7 +14,7 @@ use Illuminate\Support\Collection;
 /** Moving costs on the account: time to change the address everywhere. No sales pitch. */
 class AddressChangesRule implements Rule
 {
-    private const CHECKLIST = ['de gemeente', 'je werkgever', 'je ziekenfonds', 'je energieleverancier', 'je internetprovider', 'je verzekeraar'];
+    private const CHECKLIST = ['the town hall', 'your employer', 'your health insurance fund', 'your energy supplier', 'your internet provider', 'your insurer'];
 
     public function key(): string
     {
@@ -35,26 +35,26 @@ class AddressChangesRule implements Rule
         }
 
         $count = count(self::CHECKLIST);
-        $list = collect(self::CHECKLIST)->join(', ', ' en ');
+        $list = collect(self::CHECKLIST)->join(', ', ' and ');
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: "Ik moest bij {$count} instanties mijn adres wijzigen",
-            body: "Na de verhuis moest ik mijn nieuwe adres doorgeven aan {$list}. Wie ik vergat, stuurde mijn post nog naar het oude adres.",
+            title: "I had to change my address in {$count} places",
+            body: "After the move I had to give my new address to {$list}. Whoever I forgot still sent my post to the old address.",
             expectedOn: $today->addDays(14),
             confidence: 90,
             impactCents: null,
             urgency: 65,
             signals: [
-                ['label' => 'Verhuiskosten', 'detail' => $moving->pluck('counterparty')->unique()->join(', ').' in de laatste 60 dagen'],
-                ['label' => 'Totaal verhuis', 'detail' => Ledger::euro((int) $moving->sum('amount_cents')).' uitgegeven aan de verhuis'],
+                ['label' => 'Moving costs', 'detail' => $moving->pluck('counterparty')->unique()->join(', ').' in the last 60 days'],
+                ['label' => 'Total move', 'detail' => Ledger::euro((int) $moving->sum('amount_cents')).' spent on the move'],
             ],
             actions: [
                 new ActionData(
                     kind: ActionKind::NoSale,
-                    title: 'Checklist adreswijziging',
-                    body: 'Vink af wie je al verwittigd hebt: '.collect(self::CHECKLIST)->map(fn (string $who) => ucfirst($who))->join(', ').'.',
-                    ctaLabel: 'Open de checklist',
+                    title: 'Change of address checklist',
+                    body: 'Tick off who you have already told: '.collect(self::CHECKLIST)->map(fn (string $who) => ucfirst($who))->join(', ').'.',
+                    ctaLabel: 'Open the checklist',
                 ),
             ],
         );

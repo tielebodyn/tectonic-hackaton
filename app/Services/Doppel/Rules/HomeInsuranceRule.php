@@ -34,22 +34,22 @@ class HomeInsuranceRule implements Rule
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: 'Ik woonde in mijn nieuwe huis zonder brandverzekering',
-            body: 'Na de verhuis was mijn nieuwe huis nergens verzekerd. Een lek of een kortsluiting had ik helemaal zelf moeten betalen.',
+            title: 'I lived in my new home without home insurance',
+            body: 'After the move my new home was not insured anywhere. A leak or a short circuit would have been mine to pay in full.',
             expectedOn: $today->addDays(14),
             confidence: 80,
             impactCents: null,
             urgency: 50,
             signals: [
-                ['label' => 'Verhuisd', 'detail' => 'Verhuiskosten bij '.$moving->pluck('counterparty')->unique()->join(', ')],
-                ['label' => 'Geen verzekering', 'detail' => 'Geen betalingen aan een verzekeraar gevonden'],
+                ['label' => 'Moved house', 'detail' => 'Moving costs at '.$moving->pluck('counterparty')->unique()->join(', ')],
+                ['label' => 'No insurance', 'detail' => 'No payments to an insurer found'],
             ],
             actions: [
                 new ActionData(
                     kind: ActionKind::Kbc,
-                    title: 'KBC Brandverzekering',
-                    body: 'Brand, waterschade en storm gedekt vanaf de dag dat je de sleutels krijgt.',
-                    ctaLabel: 'Bereken je premie',
+                    title: 'KBC Home Insurance',
+                    body: 'Fire, water damage and storms covered from the day you get the keys.',
+                    ctaLabel: 'Calculate your premium',
                 ),
             ],
         );

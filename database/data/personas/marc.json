@@ -5,8 +5,8 @@
     "age": 64,
     "city": "Bruges",
     "life_stage": "self_employed",
-    "persona_summary": "Marc (64) uit Brugge gaat op 1 februari met pensioen, na 41 jaar bij dezelfde werkgever. Hij reist graag en spaart voor zijn kleinkinderen Lotte en Wout.",
-    "diary_opener": "Hey Marc, ik heb je komende maanden al geleefd. Op 1 februari ging ik met pensioen, en diezelfde dag stopte mijn hospitalisatieverzekering.",
+    "persona_summary": "Marc (64) from Brugge retires on 1 February, after 41 years with the same employer. He loves to travel and saves for his grandchildren Lotte and Wout.",
+    "diary_opener": "Hey Marc, I've already lived your next few months. On 1 February I retired, and that same day my hospital insurance stopped.",
     "mood": "neutral",
     "balance_cents": 684000,
     "monthly": {
@@ -17,16 +17,16 @@
         {
             "days_ago": 5,
             "amount_cents": 398000,
-            "counterparty": "Brugse Havenlogistiek NV, loon",
+            "counterparty": "Brugse Havenlogistiek NV, salary",
             "category": "income",
-            "description": "nog 4 lonen"
+            "description": "4 salaries left"
         },
         {
             "days_ago": 6,
             "amount_cents": -234000,
-            "counterparty": "Sunweb, Tenerife, 2 personen",
+            "counterparty": "Sunweb, Tenerife, 2 people",
             "category": "other",
-            "description": "reis"
+            "description": "trip"
         },
         {
             "days_ago": 8,
@@ -38,14 +38,14 @@
         {
             "days_ago": 10,
             "amount_cents": -20000,
-            "counterparty": "Doorlopende opdracht, sparen voor Lotte & Wout",
+            "counterparty": "Standing order, saving for Lotte & Wout",
             "category": "other",
-            "description": "kleinkinderen"
+            "description": "grandchildren"
         },
         {
             "days_ago": 11,
             "amount_cents": -16500,
-            "counterparty": "Engie, voorschot energie",
+            "counterparty": "Engie, energy advance",
             "category": "utilities",
             "description": null
         },
@@ -54,7 +54,7 @@
             "amount_cents": -61200,
             "counterparty": "Brussels Airlines",
             "category": "other",
-            "description": "reis"
+            "description": "trip"
         },
         {
             "days_ago": 15,
@@ -80,14 +80,14 @@
         {
             "days_ago": 25,
             "amount_cents": -5400,
-            "counterparty": "KBC Verzekeringen, autoverzekering",
+            "counterparty": "KBC Insurance, car insurance",
             "category": "insurance",
             "description": null
         },
         {
             "days_ago": 29,
             "amount_cents": -39500,
-            "counterparty": "Club Brugge, abonnement",
+            "counterparty": "Club Brugge, season ticket",
             "category": "other",
             "description": null
         }
@@ -95,131 +95,131 @@
     "cards": [
         {
             "rule_key": "hospi",
-            "title": "Op 1 februari stopte mijn hospitalisatieverzekering",
-            "body": "Het plan van mijn werkgever eindigde toen ik met pensioen ging. Omdat ik het binnen 105 dagen vroeg, hield ik dezelfde dekking, zonder medisch onderzoek of wachttijd.",
+            "title": "On 1 February my hospital insurance stopped",
+            "body": "My employer's plan ended when I retired. Because I asked within 105 days, I kept the same cover, with no medical exam or waiting period.",
             "days_ahead": 124,
             "confidence": 88,
             "impact_cents": null,
             "urgency": 90,
             "signals": [
                 {
-                    "label": "Hospitalisatie via je werkgever",
-                    "detail": "Je bent verzekerd via het KBC-hospitalisatieplan van je werkgever, en dat stopt op de dag dat je met pensioen gaat"
+                    "label": "Hospital cover through your employer",
+                    "detail": "You are insured through your employer's KBC hospital plan, and that stops on the day you retire"
                 },
                 {
-                    "label": "Pensioen vanaf 1 februari",
-                    "detail": "Je wordt 65 in januari, dus je wettelijk pensioen start op de eerste dag van de maand erna"
+                    "label": "Retired from 1 February",
+                    "detail": "You turn 65 in January, so your state pension starts on the first day of the following month"
                 }
             ],
             "actions": [
                 {
                     "kind": "kbc",
-                    "title": "Hou je hospitalisatieverzekering na je pensioen",
-                    "body": "Zet je huidige KBC-plan zelf verder. Zelfde dekking, geen medische vragen, geen wachttijd. We vullen het formulier samen in.",
-                    "cta_label": "Behoud mijn dekking",
+                    "title": "Keep your hospital insurance after you retire",
+                    "body": "Continue your current KBC plan yourself. Same cover, no medical questions, no waiting period. We fill in the form together.",
+                    "cta_label": "Keep my cover",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "income_drop",
-            "title": "In februari kwam er €1.670 minder binnen dan ik gewoon was",
-            "body": "Mijn pensioen verving mijn loon: zo'n €2.310 in plaats van €3.980. Dat voelde ik vooral bij het reizen.",
+            "title": "In February €1,670 less came in than I was used to",
+            "body": "My pension replaced my salary: about €2,310 instead of €3,980. I felt it most when travelling.",
             "days_ahead": 124,
             "confidence": 78,
             "impact_cents": -167000,
             "urgency": 80,
             "signals": [
                 {
-                    "label": "Je pensioenraming",
-                    "detail": "Volgens de raming die je deelde van mypension.be krijg je €2.310 netto per maand. Je loon vandaag is €3.980 netto"
+                    "label": "Your pension estimate",
+                    "detail": "According to the mypension.be estimate you shared, you will get €2,310 net a month. Your salary today is €3,980 net"
                 },
                 {
-                    "label": "Je vraag aan Kate",
-                    "detail": "Je vroeg Kate: 'Hoeveel pensioen krijg ik?'"
+                    "label": "Your question to Kate",
+                    "detail": "You asked Kate: 'How much pension will I get?'"
                 },
                 {
-                    "label": "Pensioen vanaf 1 februari",
-                    "detail": "Je wordt 65 in januari, dus je wettelijk pensioen start op de eerste dag van de maand erna"
+                    "label": "Retired from 1 February",
+                    "detail": "You turn 65 in January, so your state pension starts on the first day of the following month"
                 },
                 {
-                    "label": "Je reist graag",
-                    "detail": "Je gaf de voorbije 3 maanden €4.900 uit aan vluchten en reizen, bijna de helft van je vrije uitgaven"
+                    "label": "You love to travel",
+                    "detail": "You spent €4,900 on flights and trips in the past 3 months, almost half of your free spending"
                 }
             ],
             "actions": [
                 {
                     "kind": "no_sale",
-                    "title": "Je pensioenbudget: wat verandert er",
-                    "body": "We leggen je uitgaven van de voorbije 12 maanden naast je pensioenraming, per categorie. Reizen blijft mogelijk, je ziet hoe.",
-                    "cta_label": "Bekijk mijn pensioenbudget",
+                    "title": "Your retirement budget: what changes",
+                    "body": "We put your spending of the past 12 months next to your pension estimate, by category. Travelling stays possible, you'll see how.",
+                    "cta_label": "View my retirement budget",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "lump_sum",
-            "title": "Op 1 februari kreeg ik €126.000 op mijn rekening",
-            "body": "Mijn groepsverzekering keerde uit, zo'n €126.000 na belastingen. Omdat ik vooraf een plan had, moest ik niets overhaast beslissen.",
+            "title": "On 1 February €126,000 landed in my account",
+            "body": "My group insurance paid out, about €126,000 after tax. Because I had a plan beforehand, I didn't have to rush any decision.",
             "days_ahead": 124,
             "confidence": 85,
             "impact_cents": 12600000,
             "urgency": 65,
             "signals": [
                 {
-                    "label": "Groepsverzekering keert uit",
-                    "detail": "De KBC-groepsverzekering van je werkgever bouwde zo'n €145.000 bruto op, in één keer uitbetaald bij je pensioen"
+                    "label": "Group insurance pays out",
+                    "detail": "Your employer's KBC group insurance built up about €145,000 gross, paid out in one go when you retire"
                 },
                 {
-                    "label": "Pensioen vanaf 1 februari",
-                    "detail": "Je wordt 65 in januari, dus je wettelijk pensioen start op de eerste dag van de maand erna"
+                    "label": "Retired from 1 February",
+                    "detail": "You turn 65 in January, so your state pension starts on the first day of the following month"
                 }
             ],
             "actions": [
                 {
                     "kind": "human",
-                    "title": "Plan je pensioenkapitaal met een KBC-adviseur",
-                    "body": "Zit voor februari samen met een adviseur in Brugge. Reizen, kleinkinderen, een veilige buffer: eerst je plannen, dan de cijfers.",
-                    "cta_label": "Maak een afspraak",
+                    "title": "Plan your retirement lump sum with a KBC adviser",
+                    "body": "Sit down with an adviser in Brugge before February. Travel, grandchildren, a safe buffer: your plans first, then the numbers.",
+                    "cta_label": "Book an appointment",
                     "partner_name": null
                 },
                 {
                     "kind": "kbc",
-                    "title": "KBC-beleggingsplan, stap voor stap",
-                    "body": "Beleg een deel van je kapitaal gespreid over 12 maanden in een defensief fonds, zodat je niet alles op één moment instapt.",
-                    "cta_label": "Simuleer een plan",
+                    "title": "KBC investment plan, step by step",
+                    "body": "Invest part of your lump sum in a defensive fund, spread over 12 months, so you don't go in all at once.",
+                    "cta_label": "Simulate a plan",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "estate",
-            "title": "In maart wilde ik Lotte en Wout meer geven, en toen telde de timing",
-            "body": "Ik spaarde al voor mijn kleinkinderen. Een geregistreerde schenking of een schenking via overschrijving helpt hen meer, maar de regels over timing zijn belangrijk.",
+            "title": "In March I wanted to give Lotte and Wout more, and then timing mattered",
+            "body": "I was already saving for my grandchildren. A registered gift or a gift by bank transfer helps them more, but the timing rules matter.",
             "days_ahead": 180,
             "confidence": 58,
             "impact_cents": null,
             "urgency": 40,
             "signals": [
                 {
-                    "label": "Je spaart voor Lotte en Wout",
-                    "detail": "Sinds 2021 zet je elke maand €100 opzij voor elk kleinkind"
+                    "label": "You save for Lotte and Wout",
+                    "detail": "Since 2021 you've put €100 aside every month for each grandchild"
                 },
                 {
-                    "label": "Artikel over schenken",
-                    "detail": "Je opende deze maand twee keer het artikel 'Schenken aan kleinkinderen: wat je moet weten'"
+                    "label": "Article about gifting",
+                    "detail": "This month you opened the article 'Gifts to grandchildren: what you need to know' twice"
                 },
                 {
-                    "label": "Groepsverzekering keert uit",
-                    "detail": "De KBC-groepsverzekering van je werkgever bouwde zo'n €145.000 bruto op, in één keer uitbetaald bij je pensioen"
+                    "label": "Group insurance pays out",
+                    "detail": "Your employer's KBC group insurance built up about €145,000 gross, paid out in one go when you retire"
                 }
             ],
             "actions": [
                 {
                     "kind": "no_sale",
-                    "title": "Schenken aan kleinkinderen, uitgelegd",
-                    "body": "Geregistreerd of via overschrijving: wat het kost en waarom timing telt. 4 minuten lezen, zonder verkooppraatje.",
-                    "cta_label": "Lees de gids",
+                    "title": "Gifts to grandchildren, explained",
+                    "body": "Registered or by bank transfer: what it costs and why timing matters. A 4-minute read, no sales pitch.",
+                    "cta_label": "Read the guide",
                     "partner_name": null
                 }
             ]

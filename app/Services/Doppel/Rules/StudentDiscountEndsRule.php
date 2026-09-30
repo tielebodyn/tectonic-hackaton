@@ -37,28 +37,28 @@ class StudentDiscountEndsRule implements Rule
             return null;
         }
 
-        $names = $studentSubs->pluck('counterparty')->join(', ', ' en ');
+        $names = $studentSubs->pluck('counterparty')->join(', ', ' and ');
         // Regular price is roughly double the student price.
         $extra = (int) abs($studentSubs->sum('amount_cents'));
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: 'Op '.Ledger::date($today->addDays(7)).' verloor ik mijn studentenkorting',
-            body: "Met mijn eerste vaste job was ik geen student meer. {$names} schakelden over naar het gewone tarief: ongeveer ".Ledger::euro($extra).' per maand meer.',
+            title: 'On '.Ledger::date($today->addDays(7)).' I lost my student discount',
+            body: "With my first permanent job I was no longer a student. {$names} switched to the regular price: about ".Ledger::euro($extra).' a month more.',
             expectedOn: $today->addDays(7),
             confidence: 85,
             impactCents: -$extra,
             urgency: 70,
             signals: [
-                ['label' => 'Studententarief', 'detail' => $studentSubs->map(fn (Transaction $t) => $t->counterparty.' ('.Ledger::euro($t->amount_cents).'/maand)')->join(', ')],
-                ['label' => 'Eerste loon', 'detail' => $salary->counterparty.' stortte '.Ledger::euro($salary->amount_cents).' op '.Ledger::date($salary->booked_on)],
+                ['label' => 'Student price', 'detail' => $studentSubs->map(fn (Transaction $t) => $t->counterparty.' ('.Ledger::euro($t->amount_cents).'/month)')->join(', ')],
+                ['label' => 'First salary', 'detail' => $salary->counterparty.' paid '.Ledger::euro($salary->amount_cents).' on '.Ledger::date($salary->booked_on)],
             ],
             actions: [
                 new ActionData(
                     kind: ActionKind::NoSale,
-                    title: 'Zet je abonnementen op een rij',
-                    body: 'Kijk welke je echt gebruikt voor de korting wegvalt. Opzeggen kan meestal per maand.',
-                    ctaLabel: 'Bekijk abonnementen',
+                    title: 'Line up your subscriptions',
+                    body: 'See which ones you really use before the discount ends. You can usually cancel monthly.',
+                    ctaLabel: 'View subscriptions',
                 ),
             ],
         );

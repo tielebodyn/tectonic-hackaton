@@ -16,13 +16,14 @@ type Props = {
 
 function iconFor(signal: Signal) {
     const t = `${signal.label} ${signal.detail}`.toLowerCase();
-    if (/saldo|buffer|spaar/.test(t)) return Wallet;
-    if (/betaal|factuur|abonnement|huur|kosten|inkomst/.test(t)) return Receipt;
-    if (/app|bekeek|zocht|opende/.test(t)) return Smartphone;
+    if (/balance|buffer|saving/.test(t)) return Wallet;
+    if (/pa(y|id)|invoice|bill|subscription|rent|cost|income/.test(t))
+        return Receipt;
+    if (/app|viewed|searched|opened/.test(t)) return Smartphone;
     return Activity;
 }
 
-/** Lade van onder: "Wat Doppel zag" met signalen en de knop "Zo ben ik niet". */
+/** Bottom drawer: "What Doppel saw" with the signals and the "That's not me" button. */
 export default function WhyDrawer({
     card,
     open,
@@ -42,7 +43,7 @@ export default function WhyDrawer({
                 {card && (
                     <>
                         <SheetTitle className="text-[20px] font-bold text-ink">
-                            Wat Doppel zag
+                            What Doppel saw
                         </SheetTitle>
                         <SheetDescription className="mt-1 text-[14px] text-ink/60">
                             {card.title}
@@ -76,8 +77,8 @@ export default function WhyDrawer({
                         </ul>
 
                         <p className="mt-5 text-center text-[12px] text-ink/50">
-                            Doppel is {card.confidence}% zeker. Klopt dit niet?
-                            Zeg het hem.
+                            Doppel is {card.confidence}% sure. Not right? Tell
+                            him.
                         </p>
                         {card.id !== null && (
                             <button
@@ -85,7 +86,7 @@ export default function WhyDrawer({
                                 onClick={() => onDismiss(card)}
                                 className="mt-3 w-full rounded-full border border-ink/12 py-3 text-[15px] font-semibold text-ink transition-colors hover:bg-ink/4"
                             >
-                                Zo ben ik niet
+                                That's not me
                             </button>
                         )}
                     </>

@@ -5,8 +5,8 @@ export type Tab = 'home' | 'diary' | 'profile';
 
 const tabs: { key: Tab; icon: typeof Home; label: string }[] = [
     { key: 'home', icon: Home, label: 'Home' },
-    { key: 'diary', icon: BookOpen, label: 'Dagboek' },
-    { key: 'profile', icon: User, label: 'Profiel' },
+    { key: 'diary', icon: BookOpen, label: 'Diary' },
+    { key: 'profile', icon: User, label: 'Profile' },
 ];
 
 export default function TabBar({

@@ -5,8 +5,8 @@
     "age": 33,
     "city": "Antwerp",
     "life_stage": "moving",
-    "persona_summary": "Nora (33) woont in Antwerpen en is zes weken geleden mama geworden van Amir. Ze is nu met moederschapsverlof.",
-    "diary_opener": "Hey Nora, ik heb je komende maand al geleefd. Het belangrijkste: tijdens het verlof kwam er elke maand zo’n €1.080 minder binnen, maar met een plan kwamen Amir en ik er rustig door.",
+    "persona_summary": "Nora (33) lives in Antwerpen and became mum to Amir six weeks ago. She is now on maternity leave.",
+    "diary_opener": "Hey Nora, I've already lived your next month. The big one: during the leave about €1,080 less came in every month, but with a plan Amir and I got through it calmly.",
     "mood": "neutral",
     "balance_cents": 142380,
     "monthly": {
@@ -31,37 +31,37 @@
         {
             "days_ago": 6,
             "amount_cents": 187000,
-            "counterparty": "Helan ziekenfonds, moederschapsuitkering",
+            "counterparty": "Helan health fund, maternity benefit",
             "category": "income",
-            "description": "moederschapsuitkering"
+            "description": "maternity benefit"
         },
         {
             "days_ago": 8,
             "amount_cents": -40000,
-            "counterparty": "Kinderopvang ’t Kuikentje, waarborg",
+            "counterparty": "Daycare ’t Kuikentje, deposit",
             "category": "other",
-            "description": "nieuw"
+            "description": "new"
         },
         {
             "days_ago": 10,
             "amount_cents": -98000,
-            "counterparty": "Huur appartement Berchem",
+            "counterparty": "Apartment rent Berchem",
             "category": "rent",
             "description": null
         },
         {
             "days_ago": 13,
             "amount_cents": -86000,
-            "counterparty": "ZNA Middelheim, ziekenhuisfactuur",
+            "counterparty": "ZNA Middelheim, hospital bill",
             "category": "other",
-            "description": "geboorte"
+            "description": "birth"
         },
         {
             "days_ago": 20,
             "amount_cents": 18400,
             "counterparty": "Kidslife Groeipakket",
             "category": "income",
-            "description": "nieuw"
+            "description": "new"
         },
         {
             "days_ago": 22,
@@ -87,135 +87,135 @@
         {
             "days_ago": 36,
             "amount_cents": 295000,
-            "counterparty": "Stad Antwerpen, salaris",
+            "counterparty": "Stad Antwerpen, salary",
             "category": "income",
-            "description": "laatste volledige loon"
+            "description": "last full salary"
         }
     ],
     "cards": [
         {
             "rule_key": "leave_income",
-            "title": "Deze maand kwam er €1.080 minder binnen dan mijn gewone loon",
-            "body": "Mijn moederschapsuitkering van Helan lag een pak lager dan mijn loon. Mijn spaargeld overbrugde het, maar een plan voor de verlofmaanden hielp.",
+            "title": "This month €1,080 less came in than my usual salary",
+            "body": "My maternity benefit from Helan was a lot lower than my salary. My savings bridged the gap, but a plan for the leave months helped.",
             "days_ahead": 0,
             "confidence": 92,
             "impact_cents": -108000,
             "urgency": 92,
             "signals": [
                 {
-                    "label": "Loon werd uitkering",
-                    "detail": "Helan stortte €1.870 op 24 september, je loon bij Stad Antwerpen was €2.950"
+                    "label": "Salary became benefit",
+                    "detail": "Helan paid €1,870 on 24 September, your salary at Stad Antwerpen was €2,950"
                 },
                 {
-                    "label": "Meer babykosten",
-                    "detail": "Zo’n €190 per maand aan luiers en verzorging bij Kruidvat, Aldi en Colruyt, dat is nieuw"
+                    "label": "More baby costs",
+                    "detail": "About €190 a month on nappies and care products at Kruidvat, Aldi and Colruyt, that's new"
                 },
                 {
-                    "label": "Vraag aan Kate",
-                    "detail": "Je vroeg Kate: \"Wanneer betaalt het Groeipakket, en hoeveel?\""
+                    "label": "Question to Kate",
+                    "detail": "You asked Kate: \"When does the Groeipakket pay, and how much?\""
                 }
             ],
             "actions": [
                 {
                     "kind": "no_sale",
-                    "title": "Je budget voor de verlofmaanden",
-                    "body": "Tot je verlof stopt, geef je zo’n €330 per maand meer uit dan er binnenkomt. Je spaargeld vangt dat makkelijk op. Bekijk het maand per maand.",
-                    "cta_label": "Bekijk mijn verlofbudget",
+                    "title": "Your budget for the leave months",
+                    "body": "Until your leave ends, you spend about €330 a month more than comes in. Your savings easily cover that. See it month by month.",
+                    "cta_label": "View my leave budget",
                     "partner_name": null
                 },
                 {
                     "kind": "no_sale",
-                    "title": "Zo werkt je Groeipakket",
-                    "body": "Kidslife betaalt zo’n €184 rond de 10e van elke maand, plus een eenmalig startbedrag van €1.311. Je ziet het zodra het binnenkomt.",
-                    "cta_label": "Wat krijg ik?",
+                    "title": "How your Groeipakket works",
+                    "body": "Kidslife pays about €184 around the 10th of every month, plus a one-off birth grant of €1,311. You'll see it as soon as it comes in.",
+                    "cta_label": "What do I get?",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "childcare",
-            "title": "Amir ging naar de opvang, voor zo’n €520 per maand",
-            "body": "Begin november startte Amir in ’t Kuikentje. De prijs hing af van mijn inkomen, maar ik had het al in mijn budget gezet.",
+            "title": "The month after, Amir started daycare, for about €520 a month",
+            "body": "In early November Amir started at ’t Kuikentje. The price depended on my income, but I had already put it in my budget.",
             "days_ahead": 30,
             "confidence": 88,
             "impact_cents": -52000,
             "urgency": 75,
             "signals": [
                 {
-                    "label": "Waarborg opvang",
-                    "detail": "Je betaalde ’t Kuikentje €400 waarborg. De meeste opvangen starten zo’n 5 weken later"
+                    "label": "Daycare deposit",
+                    "detail": "You paid ’t Kuikentje a €400 deposit. Most daycares start about 5 weeks later"
                 },
                 {
-                    "label": "Amir is geboren",
-                    "detail": "Amir werd 6 weken geleden geboren en je Groeipakket-dossier bij Kidslife is geopend. Proficiat!"
+                    "label": "Amir was born",
+                    "detail": "Amir was born 6 weeks ago and your Groeipakket file at Kidslife is open. Congratulations!"
                 }
             ],
             "actions": [
                 {
                     "kind": "no_sale",
-                    "title": "De opvang zit al in je plan",
-                    "body": "Vanaf november staat er zo’n €520 per maand in je budget. Tip: opvangkosten geven je later belastingvermindering.",
-                    "cta_label": "Bekijk november",
+                    "title": "Daycare is already in your plan",
+                    "body": "From November about €520 a month is in your budget. Tip: daycare costs get you a tax reduction later.",
+                    "cta_label": "View November",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "hospi",
-            "title": "Over zes weken was Amir nog altijd niet mee verzekerd in het ziekenhuis",
-            "body": "Wie een baby binnen 3 maanden toevoegt, heeft geen wachttijd. Daarna moest Amir maanden wachten op dekking.",
+            "title": "Six weeks in, Amir still wasn't covered by my hospital insurance",
+            "body": "If you add a baby within 3 months, there's no waiting period. After that, Amir had to wait months for cover.",
             "days_ahead": 42,
             "confidence": 85,
             "impact_cents": null,
             "urgency": 70,
             "signals": [
                 {
-                    "label": "Alleen jij gedekt",
-                    "detail": "Je KBC Hospitalisatieverzekering dekt jou, niet Amir. Baby’s die binnen 3 maanden na de geboorte worden toegevoegd, hebben geen wachttijd"
+                    "label": "Only you are covered",
+                    "detail": "Your KBC Hospital Insurance covers you, not Amir. Babies added within 3 months of birth have no waiting period"
                 },
                 {
-                    "label": "Amir is geboren",
-                    "detail": "Amir werd 6 weken geleden geboren en je Groeipakket-dossier bij Kidslife is geopend. Proficiat!"
+                    "label": "Amir was born",
+                    "detail": "Amir was born 6 weeks ago and your Groeipakket file at Kidslife is open. Congratulations!"
                 },
                 {
-                    "label": "Ziekenhuisfactuur betaald",
-                    "detail": "Je betaalde ZNA Middelheim €860 voor de bevalling op 17 september"
+                    "label": "Hospital bill paid",
+                    "detail": "You paid ZNA Middelheim €860 for the birth on 17 September"
                 }
             ],
             "actions": [
                 {
                     "kind": "kbc",
-                    "title": "Voeg Amir toe aan je hospitalisatieverzekering",
-                    "body": "Amir krijgt dezelfde dekking als jij, zonder wachttijd als je hem voor half november toevoegt. Zo’n €6 per maand.",
-                    "cta_label": "Voeg Amir toe",
+                    "title": "Add Amir to your hospital insurance",
+                    "body": "Amir gets the same cover as you, with no waiting period if you add him before mid-November. About €6 a month.",
+                    "cta_label": "Add Amir",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "child_saving",
-            "title": "Ik begon een klein spaarpotje voor Amir",
-            "body": "Veel ouders starten in het eerste jaar met sparen voor hun kind. Geen haast: na je verlof is ook prima.",
+            "title": "Two months in, I started a little savings pot for Amir",
+            "body": "Many parents start saving for their child in the first year. No rush: after your leave is fine too.",
             "days_ahead": 60,
             "confidence": 58,
             "impact_cents": null,
             "urgency": 40,
             "signals": [
                 {
-                    "label": "Sparen voor je kind bekeken",
-                    "detail": "Je opende deze maand twee keer de pagina \"Sparen voor je kind\""
+                    "label": "Looked at saving for your child",
+                    "detail": "This month you opened the \"Saving for your child\" page twice"
                 },
                 {
-                    "label": "Amir is geboren",
-                    "detail": "Amir werd 6 weken geleden geboren en je Groeipakket-dossier bij Kidslife is geopend. Proficiat!"
+                    "label": "Amir was born",
+                    "detail": "Amir was born 6 weeks ago and your Groeipakket file at Kidslife is open. Congratulations!"
                 }
             ],
             "actions": [
                 {
                     "kind": "kbc",
-                    "title": "Een spaarplan voor Amir",
-                    "body": "Start met €25 per maand op een spaarrekening of beleggingsplan op zijn naam. De grootouders kunnen ook bijstorten.",
-                    "cta_label": "Start vanaf €25/maand",
+                    "title": "A savings plan for Amir",
+                    "body": "Start with €25 a month in a savings account or investment plan in his name. The grandparents can chip in too.",
+                    "cta_label": "Start from €25/month",
                     "partner_name": null
                 }
             ]

@@ -34,9 +34,9 @@ class ScenarioTransform
             'customer_id' => $customerId,
             'booked_on' => $today->startOfMonth()->addMonthsNoOverflow($i),
             'amount_cents' => -10000,
-            'counterparty' => 'KBC Spaarrekening',
+            'counterparty' => 'KBC Savings Account',
             'category' => TransactionCategory::Savings,
-            'description' => 'Spaarplan €100 per maand (wat als)',
+            'description' => 'Savings plan €100 a month (what if)',
             'is_simulated' => true,
         ]));
 

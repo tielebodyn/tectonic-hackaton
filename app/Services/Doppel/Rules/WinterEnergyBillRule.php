@@ -42,26 +42,26 @@ class WinterEnergyBillRule implements Rule
         $last = $energy->last();
         $supplier = $last->counterparty;
         $signals = [
-            ['label' => 'Nieuw energiecontract', 'detail' => "Eerste betaling aan {$supplier} op ".Ledger::date($first->booked_on)],
-            ['label' => 'Voorschot nu', 'detail' => Ledger::euro($last->amount_cents).' per maand'],
+            ['label' => 'New energy contract', 'detail' => "First payment to {$supplier} on ".Ledger::date($first->booked_on)],
+            ['label' => 'Advance now', 'detail' => Ledger::euro($last->amount_cents).' a month'],
         ];
 
         if (Ledger::mentions($last, [Ledger::FIXED_TARIFF_MARKER])) {
             return new PredictionData(
                 ruleKey: $this->key(),
-                title: 'Mijn energievoorschot bleef de hele winter gelijk',
-                body: "Met een vast tarief bij {$supplier} betaalde ik ook in de koude maanden hetzelfde voorschot.",
+                title: 'My energy advance stayed the same all winter',
+                body: "With a fixed rate at {$supplier} I paid the same advance, even in the cold months.",
                 expectedOn: $today->addDays(30),
                 confidence: 80,
                 impactCents: 0,
                 urgency: 20,
-                signals: [...$signals, ['label' => 'Vast tarief', 'detail' => 'Je prijs lag vast voor de hele winter']],
+                signals: [...$signals, ['label' => 'Fixed rate', 'detail' => 'Your price was locked in for the whole winter']],
                 actions: [
                     new ActionData(
                         kind: ActionKind::NoSale,
-                        title: 'Geen winterverrassing 👍',
-                        body: 'Geen actie nodig. Je voorschot blijft gelijk.',
-                        ctaLabel: 'Top',
+                        title: 'No winter surprise',
+                        body: 'Nothing to do. Your advance stays the same.',
+                        ctaLabel: 'Great',
                     ),
                 ],
             );
@@ -69,19 +69,19 @@ class WinterEnergyBillRule implements Rule
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: 'Mijn eerste winter in het nieuwe huis kostte '.Ledger::euro(self::WINTER_INCREASE_CENTS).' meer aan energie',
-            body: "Nieuw huis, nieuw contract bij {$supplier} met een variabel tarief. Toen het kouder werd, ging mijn verbruik omhoog en het voorschot volgde.",
+            title: 'My first winter in the new home cost '.Ledger::euro(self::WINTER_INCREASE_CENTS).' more in energy',
+            body: "New home, new contract at {$supplier} with a variable rate. When it got colder my usage went up and the advance followed.",
             expectedOn: $today->addDays(30),
             confidence: 70,
             impactCents: -self::WINTER_INCREASE_CENTS,
             urgency: 55,
-            signals: [...$signals, ['label' => 'Eerste winter', 'detail' => 'Nog geen winterverbruik bekend voor dit adres']],
+            signals: [...$signals, ['label' => 'First winter', 'detail' => 'No winter usage known yet for this address']],
             actions: [
                 new ActionData(
                     kind: ActionKind::Partner,
-                    title: 'Vergelijk energiecontracten',
-                    body: 'Vergelijk vaste en variabele tarieven voor je nieuwe adres voor de winter begint.',
-                    ctaLabel: 'Vergelijk nu',
+                    title: 'Compare energy contracts',
+                    body: 'Compare fixed and variable rates for your new address before winter starts.',
+                    ctaLabel: 'Compare now',
                     partnerName: 'Mijnenergie',
                 ),
             ],

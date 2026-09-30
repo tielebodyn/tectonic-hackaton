@@ -52,23 +52,23 @@ class VatShortfallRule implements Rule
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: 'Op '.Ledger::date($deadline).' kwam ik '.Ledger::euro($shortfall).' tekort voor mijn btw',
-            body: 'Toen moest mijn btw voor dit kwartaal betaald zijn, maar na mijn vaste kosten stond er niet genoeg meer op de rekening.',
+            title: 'On '.Ledger::date($deadline).' I was '.Ledger::euro($shortfall).' short for my VAT',
+            body: 'That was the deadline for this quarter\'s VAT, but after my fixed costs there was not enough left in the account.',
             expectedOn: $deadline,
             confidence: 85,
             impactCents: $shortfall,
             urgency: 90,
             signals: [
-                ['label' => 'Saldo vandaag', 'detail' => Ledger::euro($balance).' op je zakelijke rekening'],
-                ['label' => 'Vaste uitgaven tot '.Ledger::date($deadline), 'detail' => Ledger::euro($outflowCents).' aan '.$outflows->count().' vaste betalingen'],
-                ['label' => 'Btw vorig kwartaal', 'detail' => Ledger::euro($vatCents).' betaald op '.Ledger::date($previousVat->booked_on)],
+                ['label' => 'Balance today', 'detail' => Ledger::euro($balance).' in your business account'],
+                ['label' => 'Fixed costs until '.Ledger::date($deadline), 'detail' => Ledger::euro($outflowCents).' in '.$outflows->count().' fixed payments'],
+                ['label' => 'VAT last quarter', 'detail' => Ledger::euro($vatCents).' paid on '.Ledger::date($previousVat->booked_on)],
             ],
             actions: [
                 new ActionData(
                     kind: ActionKind::Kbc,
-                    title: 'KBC-Kaskrediet',
-                    body: 'Een flexibele kredietlijn voor je zaak. Je betaalt alleen rente op wat je echt gebruikt.',
-                    ctaLabel: 'Bekijk kaskrediet',
+                    title: 'KBC Cash Credit',
+                    body: 'A flexible credit line for your business. You only pay interest on what you actually use.',
+                    ctaLabel: 'View cash credit',
                 ),
             ],
         );

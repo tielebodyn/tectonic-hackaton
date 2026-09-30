@@ -1,11 +1,11 @@
-/** Props zoals DoppelController@show ze stuurt. Snake_case komt uit PHP. */
+/** Props as DoppelController@show sends them. Snake_case comes from PHP. */
 
 export type BackendMood = 'neutral' | 'relieved' | 'paused';
 export type MascotVariant = 'backpack' | 'box' | 'laptop';
 export type Scenario = 'base' | 'save_100' | 'fixed_energy';
 export type ActionKind = 'kbc' | 'partner' | 'no_sale' | 'human';
 
-/** Gezichtsuitdrukking van de buddy (frontend), ruimer dan de backend-mood. */
+/** The buddy's facial expression (frontend), richer than the backend mood. */
 export type FaceMood =
     | 'relaxed'
     | 'thinking'
@@ -46,7 +46,7 @@ export type ShowCustomer = {
     persona_key: string | null;
 };
 
-/** Gemiddelde maand over de laatste 90 dagen (of uit het personascript). */
+/** Average month over the last 90 days (or from the persona script). */
 export type Monthly = { income_cents: number; spend_cents: number };
 
 export type DemoPersona = { key: string; label: string };
@@ -78,32 +78,32 @@ export const faceFor: Record<BackendMood, FaceMood> = {
 };
 
 export const euro = (cents: number) =>
-    new Intl.NumberFormat('nl-BE', {
+    new Intl.NumberFormat('en-IE', {
         style: 'currency',
         currency: 'EUR',
         maximumFractionDigits: 0,
     }).format(cents / 100);
 
 export const shortDate = (iso: string) =>
-    new Intl.DateTimeFormat('nl-BE', { day: 'numeric', month: 'long' }).format(
+    new Intl.DateTimeFormat('en-IE', { day: 'numeric', month: 'long' }).format(
         new Date(iso),
     );
 
-/** Hoe ver het dagboek vooruit kijkt, in maanden. 1 = de komende dertig dagen. */
+/** How far ahead the diary looks, in months. 1 = the next thirty days. */
 export type Horizon = 1 | 3 | 12;
 
-/** Terugkerend jaarmoment, afgeleid uit de eigen uitgaven. Geen voorspelling, wel verwacht. */
+/** Recurring yearly moment, derived from the customer's own spending. Not a prediction, but expected. */
 export type SeasonalMoment = {
     key: string;
     title: string;
-    /** Eén woord voor op de tijdlijn. */
+    /** One word for the timeline. */
     short: string;
     body: string;
     expected_on: string;
     impact_cents: number;
 };
 
-/** Wat-als-knoppen in "Mijn geld, maand per maand". Bedragen in cent. */
+/** What-if controls in "My money, month by month". Amounts in cents. */
 export type WhatIf = {
     spend_delta_cents: number;
     income_pct: number;

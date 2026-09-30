@@ -4,20 +4,24 @@ import { doppel } from '@/routes';
 import { cn } from '@/lib/utils';
 
 const scenarios: { value: Scenario; label: string; hint: string }[] = [
-    { value: 'base', label: 'Zoals nu', hint: 'Zo leefde ik je maand.' },
+    {
+        value: 'base',
+        label: 'As it is',
+        hint: 'This is how I lived your month.',
+    },
     {
         value: 'save_100',
-        label: '€100/maand sparen',
-        hint: 'Doppel die elke maand €100 opzij zet.',
+        label: 'Save €100/month',
+        hint: 'Doppel putting €100 aside every month.',
     },
     {
         value: 'fixed_energy',
-        label: 'Vast energiecontract',
-        hint: 'Doppel met een vaste energieprijs.',
+        label: 'Fixed energy contract',
+        hint: 'Doppel with a fixed energy price.',
     },
 ];
 
-/** "Wat als ik…": dezelfde maand, met één keuze anders. */
+/** "What if I…": the same month, with one choice made differently. */
 export default function ForkView({ scenario }: { scenario: Scenario }) {
     const current = scenarios.find((s) => s.value === scenario) ?? scenarios[0];
 
@@ -31,9 +35,7 @@ export default function ForkView({ scenario }: { scenario: Scenario }) {
 
     return (
         <section className="px-5 pt-7">
-            <h2 className="text-[18px] font-bold text-ink">
-                Wat als ik…
-            </h2>
+            <h2 className="text-[18px] font-bold text-ink">What if I…</h2>
             <p className="mt-0.5 text-[13px] text-ink/55">{current.hint}</p>
             <div className="mt-3 flex [scrollbar-width:none] gap-2 overflow-x-auto pb-1">
                 {scenarios.map((s) => (

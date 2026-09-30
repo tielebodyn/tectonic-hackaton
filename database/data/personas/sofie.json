@@ -5,8 +5,8 @@
     "age": 52,
     "city": "Hasselt",
     "life_stage": "self_employed",
-    "persona_summary": "Sofie (52) uit Hasselt runt een industrieel schoonmaakbedrijf met 14 medewerkers. Haar zaak groeit, maar zo'n €280.000 staat stil op haar zichtrekening.",
-    "diary_opener": "Hey Sofie, ik heb je komende maanden al geleefd. Je zaak groeide mooi, maar de €280.000 op je rekening deed al die tijd niets voor me.",
+    "persona_summary": "Sofie (52) from Hasselt runs an industrial cleaning company with 14 employees. Her business is growing, but about €280,000 sits idle in her current account.",
+    "diary_opener": "Hey Sofie, I've already lived your next few months. Your business grew nicely, but the €280,000 in your account did nothing for me all that time.",
     "mood": "neutral",
     "balance_cents": 31245000,
     "monthly": {
@@ -17,58 +17,58 @@
         {
             "days_ago": 1,
             "amount_cents": -6670000,
-            "counterparty": "Lonen september, 14 medewerkers",
+            "counterparty": "September salaries, 14 employees",
             "category": "other",
-            "description": "loonlast +12%"
+            "description": "payroll +12%"
         },
         {
             "days_ago": 2,
             "amount_cents": 3860000,
-            "counterparty": "Genk Logistics Park NV, factuur 2026-118",
+            "counterparty": "Genk Logistics Park NV, invoice 2026-118",
             "category": "income",
-            "description": "nieuwe klant"
+            "description": "new client"
         },
         {
             "days_ago": 4,
             "amount_cents": -1940000,
-            "counterparty": "RSZ, sociale bijdragen Q3",
+            "counterparty": "RSZ, social contributions Q3",
             "category": "tax",
             "description": null
         },
         {
             "days_ago": 6,
             "amount_cents": -284000,
-            "counterparty": "TotalEnergies tankkaarten",
+            "counterparty": "TotalEnergies fuel cards",
             "category": "other",
             "description": null
         },
         {
             "days_ago": 7,
             "amount_cents": -620000,
-            "counterparty": "Kärcher Belgium, schrobzuigmachine",
+            "counterparty": "Kärcher Belgium, scrubber dryer",
             "category": "other",
             "description": null
         },
         {
             "days_ago": 8,
             "amount_cents": 1430000,
-            "counterparty": "Stad Hasselt, factuur 2026-104",
+            "counterparty": "Stad Hasselt, invoice 2026-104",
             "category": "income",
             "description": null
         },
         {
             "days_ago": 10,
             "amount_cents": -2160000,
-            "counterparty": "FOD Financiën, btw Q2",
+            "counterparty": "FOD Financiën, VAT Q2",
             "category": "tax",
             "description": null
         },
         {
             "days_ago": 12,
             "amount_cents": -198000,
-            "counterparty": "Mercedes-Benz Financial, leasing bestelwagens (3)",
+            "counterparty": "Mercedes-Benz Financial, van lease (3)",
             "category": "other",
-            "description": "loopt af in december"
+            "description": "ends in December"
         },
         {
             "days_ago": 14,
@@ -80,7 +80,7 @@
         {
             "days_ago": 15,
             "amount_cents": 2790000,
-            "counterparty": "Umicore Olen, factuur 2026-097",
+            "counterparty": "Umicore Olen, invoice 2026-097",
             "category": "income",
             "description": null
         }
@@ -88,131 +88,131 @@
     "cards": [
         {
             "rule_key": "idle_cash",
-            "title": "Deze maand bracht €280.000 op mijn rekening niets op",
-            "body": "Ik hield meer dan vier maanden loon als buffer. Veilig, maar op een termijnrekening had het deel daarboven me zo'n €7.000 per jaar opgebracht.",
+            "title": "This month €280,000 in my account earned nothing",
+            "body": "I kept more than four months of salaries as a buffer. Safe, but in a term account the part above that would have earned me about €7,000 a year.",
             "days_ahead": 0,
             "confidence": 90,
             "impact_cents": 700000,
             "urgency": 82,
             "signals": [
                 {
-                    "label": "Stilstaand geld",
-                    "detail": "Sinds januari staat er zo'n €280.000 meer op je zakelijke rekening dan je bedrijf elke maand nodig heeft, aan 0% rente"
+                    "label": "Idle money",
+                    "detail": "Since January about €280,000 more than your business needs each month has sat in your business account, at 0% interest"
                 },
                 {
-                    "label": "Nieuwe vaste klant",
-                    "detail": "Genk Logistics Park NV betaalde op 28 september zijn eerste factuur van €38.600"
+                    "label": "New regular client",
+                    "detail": "Genk Logistics Park NV paid its first invoice of €38,600 on 28 September"
                 },
                 {
-                    "label": "Groeiend team",
-                    "detail": "Je loonlast steeg met 12% in 6 maanden, van 12 naar 14 medewerkers"
+                    "label": "Growing team",
+                    "detail": "Your payroll rose 12% in 6 months, from 12 to 14 employees"
                 }
             ],
             "actions": [
                 {
                     "kind": "kbc",
-                    "title": "Zet €200.000 op een KBC-termijnrekening",
-                    "body": "Hou €80.000 als dagelijkse buffer en zet de rest vast voor 6 of 12 maanden aan een vaste rente. Je ziet het gewoon naast je zichtrekening.",
-                    "cta_label": "Bekijk de rentes",
+                    "title": "Put €200,000 in a KBC term account",
+                    "body": "Keep €80,000 as a day-to-day buffer and lock the rest away for 6 or 12 months at a fixed rate. You'll see it right next to your current account.",
+                    "cta_label": "View the rates",
                     "partner_name": null
                 },
                 {
                     "kind": "no_sale",
-                    "title": "Je buffer dekt 4,2 maanden loon",
-                    "body": "De meeste bedrijven van jouw grootte houden 2 à 3 maanden aan. Bekijk hoe je buffer dit jaar bewoog.",
-                    "cta_label": "Bekijk mijn buffer",
+                    "title": "Your buffer covers 4.2 months of salaries",
+                    "body": "Most businesses your size keep 2 to 3 months. See how your buffer moved this year.",
+                    "cta_label": "View my buffer",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "keyperson",
-            "title": "Ik merkte dat alleen ik de lonen kon betalen",
-            "body": "Ik ben de enige bestuurder en de enige die betalingen kan tekenen. Als ik maanden uitval, voelen mijn 14 mensen en mijn klanten dat meteen.",
+            "title": "A week in, I noticed that only I could pay the salaries",
+            "body": "I'm the only director and the only one who can sign payments. If I'm out for months, my 14 people and my clients feel it right away.",
             "days_ahead": 7,
             "confidence": 62,
             "impact_cents": null,
             "urgency": 55,
             "signals": [
                 {
-                    "label": "Enige handtekening",
-                    "detail": "De KBO vermeldt je als enige bestuurder, en niemand anders kan betalingen goedkeuren op je zakelijke rekening"
+                    "label": "Sole signatory",
+                    "detail": "The KBO lists you as the only director, and nobody else can approve payments on your business account"
                 },
                 {
-                    "label": "Groeiend team",
-                    "detail": "Je loonlast steeg met 12% in 6 maanden, van 12 naar 14 medewerkers"
+                    "label": "Growing team",
+                    "detail": "Your payroll rose 12% in 6 months, from 12 to 14 employees"
                 }
             ],
             "actions": [
                 {
                     "kind": "kbc",
-                    "title": "Keyman-verzekering",
-                    "body": "Keert uit aan je bedrijf als jij lang niet kunt werken, zodat lonen en contracten gewoon doorlopen.",
-                    "cta_label": "Bereken de dekking",
+                    "title": "Key person insurance",
+                    "body": "Pays out to your business if you can't work for a long time, so salaries and contracts just keep running.",
+                    "cta_label": "Calculate the cover",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "fleet",
-            "title": "In december moest ik mijn drie bestelwagens inleveren",
-            "body": "Mijn leasing bij Mercedes-Benz liep af. Ik vergeleek al elektrische wagens, maar koos te laat en stond even zonder volledige vloot.",
+            "title": "In December I had to hand in my three vans",
+            "body": "My Mercedes-Benz lease ended. I was already comparing electric vans, but chose too late and was briefly without a full fleet.",
             "days_ahead": 75,
             "confidence": 82,
             "impact_cents": null,
             "urgency": 75,
             "signals": [
                 {
-                    "label": "Leasing loopt af in december",
-                    "detail": "Je betaalt €1.980 per maand aan Mercedes-Benz Financial, voor een leasing van 48 maanden sinds december 2022"
+                    "label": "Lease ends in December",
+                    "detail": "You pay €1,980 a month to Mercedes-Benz Financial, for a 48-month lease since December 2022"
                 },
                 {
-                    "label": "Offerte elektrische bestelwagens",
-                    "detail": "Je opende deze week twee keer je KBC Autolease-offerte voor 3 elektrische bestelwagens"
+                    "label": "Quote for electric vans",
+                    "detail": "This week you opened your KBC Autolease quote for 3 electric vans twice"
                 },
                 {
-                    "label": "Nieuwe vaste klant",
-                    "detail": "Genk Logistics Park NV betaalde op 28 september zijn eerste factuur van €38.600"
+                    "label": "New regular client",
+                    "detail": "Genk Logistics Park NV paid its first invoice of €38,600 on 28 September"
                 }
             ],
             "actions": [
                 {
                     "kind": "kbc",
-                    "title": "KBC Autolease voor je 3 nieuwe bestelwagens",
-                    "body": "Elektrisch, met onderhoud, banden en verzekering in één maandprijs. Bestel voor begin november, dan rijden ze in december.",
-                    "cta_label": "Werk mijn offerte af",
+                    "title": "KBC Autolease for your 3 new vans",
+                    "body": "Electric, with maintenance, tyres and insurance in one monthly price. Order before early November and they're on the road in December.",
+                    "cta_label": "Finish my quote",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "succession",
-            "title": "Over een half jaar dacht ik na over wie mijn bedrijf overneemt",
-            "body": "Mijn pensioen was nog 5 tot 10 jaar weg, maar wie nu begint, houdt meer keuzes: verkopen, familie of een management buy-out.",
+            "title": "Six months in, I was thinking about who takes over my business",
+            "body": "My retirement was still 5 to 10 years away, but starting now keeps more options open: selling, family or a management buy-out.",
             "days_ahead": 180,
             "confidence": 68,
             "impact_cents": null,
             "urgency": 60,
             "signals": [
                 {
-                    "label": "Je vraag aan Kate",
-                    "detail": "Je vroeg Kate: 'Wat gebeurt er met mijn bedrijf als ik met pensioen ga?'"
+                    "label": "Your question to Kate",
+                    "detail": "You asked Kate: 'What happens to my business when I retire?'"
                 },
                 {
-                    "label": "Pensioensparen op het maximum",
-                    "detail": "Je pensioensparen en VAPZ zitten allebei aan het maximum voor 2026, dus daar valt dit jaar geen extra belastingvoordeel meer te halen"
+                    "label": "Pension savings maxed out",
+                    "detail": "Your pension savings and VAPZ are both at the maximum for 2026, so there's no extra tax benefit left there this year"
                 },
                 {
-                    "label": "Enige handtekening",
-                    "detail": "De KBO vermeldt je als enige bestuurder, en niemand anders kan betalingen goedkeuren op je zakelijke rekening"
+                    "label": "Sole signatory",
+                    "detail": "The KBO lists you as the only director, and nobody else can approve payments on your business account"
                 }
             ],
             "actions": [
                 {
                     "kind": "human",
-                    "title": "Een eerste gesprek over overdracht",
-                    "body": "Een uur, geen papierwerk. Een private banker van KBC zet je opties op een rij en wat je nu al kunt voorbereiden: waardering, familie, belastingen.",
-                    "cta_label": "Kies een moment in Hasselt",
+                    "title": "A first talk about succession",
+                    "body": "One hour, no paperwork. A KBC private banker lays out your options and what you can already prepare: valuation, family, taxes.",
+                    "cta_label": "Pick a time in Hasselt",
                     "partner_name": null
                 }
             ]

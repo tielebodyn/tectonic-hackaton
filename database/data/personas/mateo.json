@@ -5,8 +5,8 @@
     "age": 29,
     "city": "Brussels (Saint-Gilles)",
     "life_stage": "starter",
-    "persona_summary": "Mateo (29) is een Spaanse software engineer die drie weken geleden naar Sint-Gillis verhuisde voor een job bij Nexlane. Hij spreekt liever Engels en zit midden in zijn eerste Belgische papierwerk.",
-    "diary_opener": "Hey Mateo, ik heb je komende maand al geleefd. Ik had maar drie maanden om het belastingstelsel voor nieuwkomers aan te vragen, en de klok liep al.",
+    "persona_summary": "Mateo (29) is a Spanish software engineer who moved to Sint-Gillis three weeks ago for a job at Nexlane. He prefers English and is in the middle of his first Belgian paperwork.",
+    "diary_opener": "Hey Mateo, I've already lived your next month. I only had three months to apply for the tax regime for newcomers, and the clock was already ticking.",
     "mood": "neutral",
     "balance_cents": 1033400,
     "monthly": {
@@ -17,16 +17,16 @@
         {
             "days_ago": 1,
             "amount_cents": 800000,
-            "counterparty": "Overschrijving van ES •••• 3391 (M. García)",
+            "counterparty": "Transfer from ES •••• 3391 (M. García)",
             "category": "other",
-            "description": "vanuit Spanje"
+            "description": "from Spain"
         },
         {
             "days_ago": 2,
             "amount_cents": 291000,
-            "counterparty": "Nexlane NV, loon september",
+            "counterparty": "Nexlane NV, September salary",
             "category": "income",
-            "description": "eerste loon"
+            "description": "first salary"
         },
         {
             "days_ago": 3,
@@ -38,35 +38,35 @@
         {
             "days_ago": 5,
             "amount_cents": -2200,
-            "counterparty": "Commune de Saint-Gilles, verblijfskaart",
+            "counterparty": "Commune de Saint-Gilles, residence card",
             "category": "tax",
-            "description": "ingeschreven"
+            "description": "registered"
         },
         {
             "days_ago": 7,
             "amount_cents": -7900,
-            "counterparty": "Proximus, installatie internet",
+            "counterparty": "Proximus, internet installation",
             "category": "utilities",
             "description": null
         },
         {
             "days_ago": 10,
             "amount_cents": -250000,
-            "counterparty": "Huurwaarborg Rue de la Victoire",
+            "counterparty": "Rental deposit Rue de la Victoire",
             "category": "rent",
-            "description": "eenmalig"
+            "description": "one-off"
         },
         {
             "days_ago": 12,
             "amount_cents": 300000,
-            "counterparty": "Overschrijving van ES •••• 3391 (M. García)",
+            "counterparty": "Transfer from ES •••• 3391 (M. García)",
             "category": "other",
-            "description": "vanuit Spanje"
+            "description": "from Spain"
         },
         {
             "days_ago": 14,
             "amount_cents": -4900,
-            "counterparty": "STIB-MIVB, maandabonnement",
+            "counterparty": "STIB-MIVB, monthly pass",
             "category": "other",
             "description": null
         },
@@ -75,19 +75,19 @@
             "amount_cents": -61200,
             "counterparty": "IKEA Anderlecht",
             "category": "other",
-            "description": "nieuwe woning"
+            "description": "new home"
         },
         {
             "days_ago": 18,
             "amount_cents": 100000,
-            "counterparty": "Overschrijving van ES •••• 3391 (M. García)",
+            "counterparty": "Transfer from ES •••• 3391 (M. García)",
             "category": "other",
-            "description": "vanuit Spanje"
+            "description": "from Spain"
         },
         {
             "days_ago": 20,
             "amount_cents": -125000,
-            "counterparty": "Huur Rue de la Victoire, Saint-Gilles",
+            "counterparty": "Rent Rue de la Victoire, Saint-Gilles",
             "category": "rent",
             "description": null
         }
@@ -95,127 +95,127 @@
     "cards": [
         {
             "rule_key": "fees",
-            "title": "Deze maand betaalde ik dubbel voor twee bankrekeningen",
-            "body": "Ik schoof geld heen en weer tussen Spanje en België. Met alles op één plek had ik zo'n €150 aan transfer- en rekeningkosten bespaard.",
+            "title": "This month I paid twice for two bank accounts",
+            "body": "I moved money back and forth between Spain and Belgium. With everything in one place I'd have saved about €150 in transfer and account fees.",
             "days_ahead": 0,
             "confidence": 70,
             "impact_cents": -15000,
             "urgency": 65,
             "signals": [
                 {
-                    "label": "3 keer geld uit Spanje",
-                    "detail": "Je zette deze maand €12.000 over van je Spaanse rekening. Veel banken rekenen kosten voor instant transfers of een maandelijkse rekeningkost."
+                    "label": "Money from Spain, 3 times",
+                    "detail": "You transferred €12,000 from your Spanish account this month. Many banks charge for instant transfers or a monthly account fee."
                 },
                 {
-                    "label": "Nieuw bij KBC",
-                    "detail": "Je opende je rekeningen 3 weken geleden online, zonder Belgische bankgeschiedenis"
+                    "label": "New at KBC",
+                    "detail": "You opened your accounts online 3 weeks ago, with no Belgian banking history"
                 }
             ],
             "actions": [
                 {
                     "kind": "kbc",
-                    "title": "Breng je dagelijkse bankzaken naar KBC",
-                    "body": "Overschrijvingen in euro naar Spanje zijn gratis. Je Spaanse domiciliëringen zetten we mee over, zodat je de extra rekening kan sluiten wanneer je klaar bent.",
-                    "cta_label": "Zet mijn domiciliëringen over",
+                    "title": "Bring your everyday banking to KBC",
+                    "body": "Euro transfers to Spain are free. We move your Spanish direct debits over too, so you can close the extra account when you're ready.",
+                    "cta_label": "Move my direct debits",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "health_fund",
-            "title": "Ik betaalde mijn dokter nog altijd volledig zelf",
-            "body": "Zonder ziekenfonds kreeg ik niets terug van dokter, apotheek of ziekenhuis. Ik had beter meteen aangesloten.",
+            "title": "Three weeks in, I was still paying my doctor in full myself",
+            "body": "Without a health insurance fund I got nothing back from the doctor, pharmacy or hospital. I should have joined right away.",
             "days_ahead": 21,
             "confidence": 88,
             "impact_cents": null,
             "urgency": 90,
             "signals": [
                 {
-                    "label": "Vraag aan Kate",
-                    "detail": "Je vroeg Kate: 'What is a mutuelle?'"
+                    "label": "Question to Kate",
+                    "detail": "You asked Kate: 'What is a mutuelle?'"
                 },
                 {
-                    "label": "Ingeschreven in Sint-Gillis",
-                    "detail": "Je betaalde je verblijfskaart bij de gemeente, dus je woont nu officieel in België"
+                    "label": "Registered in Sint-Gillis",
+                    "detail": "You paid for your residence card at the town hall, so you now officially live in Belgium"
                 },
                 {
-                    "label": "Eerste Belgisch loon",
-                    "detail": "Nexlane NV stortte €2.910 op 28 september voor je eerste weken. Een volle maand wordt zo'n €3.850."
+                    "label": "First Belgian salary",
+                    "detail": "Nexlane NV paid €2,910 on 28 September for your first weeks. A full month will be about €3,850."
                 }
             ],
             "actions": [
                 {
                     "kind": "partner",
-                    "title": "Sluit in 10 minuten aan bij een ziekenfonds",
-                    "body": "Korte uitleg over hoe ziekenfondsen in België werken, en een link om online aan te sluiten bij Helan, in het Engels. Een ander ziekenfonds kiezen kan ook.",
-                    "cta_label": "Sluit online aan",
+                    "title": "Join a health insurance fund in 10 minutes",
+                    "body": "A short explanation of how health insurance funds work in Belgium, and a link to join Helan online, in English. You can pick another fund too.",
+                    "cta_label": "Join online",
                     "partner_name": "Helan"
                 }
             ]
         },
         {
             "rule_key": "car",
-            "title": "Ik kocht een auto",
-            "body": "Ik had eerst een verzekering nodig voor ik een nummerplaat kreeg. Goed dat ik de stappen op voorhand kende.",
+            "title": "The month after, I bought a car",
+            "body": "I needed insurance before I could get a number plate. Good thing I knew the steps in advance.",
             "days_ahead": 30,
             "confidence": 60,
             "impact_cents": null,
             "urgency": 60,
             "signals": [
                 {
-                    "label": "Autoverzekering bekeken",
-                    "detail": "Je opende de pagina autoverzekering deze week 3 keer in de app"
+                    "label": "Looked at car insurance",
+                    "detail": "You opened the car insurance page in the app 3 times this week"
                 },
                 {
-                    "label": "3 keer geld uit Spanje",
-                    "detail": "Je zette deze maand €12.000 over van je Spaanse rekening. Veel banken rekenen kosten voor instant transfers of een maandelijkse rekeningkost."
+                    "label": "Money from Spain, 3 times",
+                    "detail": "You transferred €12,000 from your Spanish account this month. Many banks charge for instant transfers or a monthly account fee."
                 }
             ],
             "actions": [
                 {
                     "kind": "kbc",
-                    "title": "KBC autoverzekering, met je Spaanse historiek",
-                    "body": "Je schadevrije jaren in Spanje kunnen hier meetellen. Je nummerplaat vragen we ook voor je aan.",
-                    "cta_label": "Vraag een prijs",
+                    "title": "KBC car insurance, with your Spanish history",
+                    "body": "Your no-claims years in Spain can count here. We also request your number plate for you.",
+                    "cta_label": "Get a quote",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "tax",
-            "title": "Het venster voor het nieuwkomersstelsel sloot",
-            "body": "Ik was nu Belgisch belastingplichtig. Mijn werkgever kon het speciale stelsel voor nieuwkomers aanvragen, maar alleen binnen 3 maanden na mijn start.",
+            "title": "Two months in, the window for the newcomer regime closed",
+            "body": "I was now a Belgian taxpayer. My employer could apply for the special regime for newcomers, but only within 3 months of my start.",
             "days_ahead": 62,
             "confidence": 64,
             "impact_cents": null,
             "urgency": 92,
             "signals": [
                 {
-                    "label": "Eerste Belgisch loon",
-                    "detail": "Nexlane NV stortte €2.910 op 28 september voor je eerste weken. Een volle maand wordt zo'n €3.850."
+                    "label": "First Belgian salary",
+                    "detail": "Nexlane NV paid €2,910 on 28 September for your first weeks. A full month will be about €3,850."
                 },
                 {
-                    "label": "Ingeschreven in Sint-Gillis",
-                    "detail": "Je betaalde je verblijfskaart bij de gemeente, dus je woont nu officieel in België"
+                    "label": "Registered in Sint-Gillis",
+                    "detail": "You paid for your residence card at the town hall, so you now officially live in Belgium"
                 },
                 {
-                    "label": "Nieuw bij KBC",
-                    "detail": "Je opende je rekeningen 3 weken geleden online, zonder Belgische bankgeschiedenis"
+                    "label": "New at KBC",
+                    "detail": "You opened your accounts online 3 weeks ago, with no Belgian banking history"
                 }
             ],
             "actions": [
                 {
                     "kind": "no_sale",
-                    "title": "Je startlijst voor België",
-                    "body": "Inschrijving bij de gemeente, ziekenfonds, het nieuwkomersstelsel, je Spaanse rijbewijs, je eerste aangifte: wat en wanneer, in gewoon Engels.",
-                    "cta_label": "Open mijn startlijst",
+                    "title": "Your Belgium starter list",
+                    "body": "Town hall registration, health insurance fund, the newcomer regime, your Spanish driving licence, your first tax return: what and when, in plain English.",
+                    "cta_label": "Open my starter list",
                     "partner_name": null
                 },
                 {
                     "kind": "human",
-                    "title": "Praat met een Engelstalige adviseur",
-                    "body": "Een videogesprek van 20 minuten over alles wat nieuw is: belastingen, pensioen, huren en bankieren in België.",
-                    "cta_label": "Plan een videogesprek",
+                    "title": "Talk to an English-speaking adviser",
+                    "body": "A 20-minute video call about everything that's new: taxes, pension, renting and banking in Belgium.",
+                    "cta_label": "Book a video call",
                     "partner_name": null
                 }
             ]

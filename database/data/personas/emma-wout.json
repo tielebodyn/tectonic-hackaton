@@ -5,8 +5,8 @@
     "age": 31,
     "city": "Leuven",
     "life_stage": "moving",
-    "persona_summary": "Emma en Wout (31) wonen in Leuven en zijn drie weken geleden getrouwd. Ze zoeken nu samen een huis rond Leuven.",
-    "diary_opener": "Hey Emma en Wout, ik heb jullie komende maand al geleefd. Proficiat met jullie huwelijk! Het belangrijkste: met twee lonen en jullie spaargeld kwam ons eerste huis echt binnen bereik.",
+    "persona_summary": "Emma and Wout (31) live in Leuven and got married three weeks ago. They are now looking for a house together around Leuven.",
+    "diary_opener": "Hey Emma and Wout, I've already lived your next month. Congratulations on your wedding! The big one: with two salaries and your savings, our first home came truly within reach.",
     "mood": "neutral",
     "balance_cents": 1648000,
     "monthly": {
@@ -24,198 +24,198 @@
         {
             "days_ago": 2,
             "amount_cents": 50000,
-            "counterparty": "Tante Marleen, \"voor jullie huisje!\"",
+            "counterparty": "Aunt Marleen, \"for your little house!\"",
             "category": "other",
-            "description": "huwelijkscadeau"
+            "description": "wedding gift"
         },
         {
             "days_ago": 5,
             "amount_cents": 310000,
-            "counterparty": "Salaris Emma (KU Leuven)",
+            "counterparty": "Salary Emma (KU Leuven)",
             "category": "income",
             "description": null
         },
         {
             "days_ago": 5,
             "amount_cents": 330000,
-            "counterparty": "Salaris Wout (Colruyt Group)",
+            "counterparty": "Salary Wout (Colruyt Group)",
             "category": "income",
             "description": null
         },
         {
             "days_ago": 6,
             "amount_cents": -115000,
-            "counterparty": "Huur appartement Leuven",
+            "counterparty": "Apartment rent Leuven",
             "category": "rent",
             "description": null
         },
         {
             "days_ago": 9,
             "amount_cents": 185000,
-            "counterparty": "12 overschrijvingen, \"proficiat!\"",
+            "counterparty": "12 transfers, \"congratulations!\"",
             "category": "other",
-            "description": "huwelijkscadeaus"
+            "description": "wedding gifts"
         },
         {
             "days_ago": 12,
             "amount_cents": -640000,
             "counterparty": "Traiteur Hof ter Linden",
             "category": "other",
-            "description": "trouwfeest"
+            "description": "wedding party"
         },
         {
             "days_ago": 14,
             "amount_cents": 150000,
-            "counterparty": "Overschrijving Wout naar gezamenlijke rekening",
+            "counterparty": "Transfer Wout to joint account",
             "category": "other",
-            "description": "nieuwe gezamenlijke rekening"
+            "description": "new joint account"
         },
         {
             "days_ago": 16,
             "amount_cents": -142000,
-            "counterparty": "Brussels Airlines (huwelijksreis)",
+            "counterparty": "Brussels Airlines (honeymoon)",
             "category": "other",
             "description": null
         },
         {
             "days_ago": 18,
             "amount_cents": 680000,
-            "counterparty": "31 overschrijvingen, \"voor het bruidspaar\"",
+            "counterparty": "31 transfers, \"for the newlyweds\"",
             "category": "other",
-            "description": "huwelijkscadeaus"
+            "description": "wedding gifts"
         }
     ],
     "cards": [
         {
             "rule_key": "gifts",
-            "title": "Deze maand bleef €14.300 aan cadeaus stil op onze zichtrekening staan",
-            "body": "Onze huwelijkscadeaus brachten niets op, terwijl we ze straks nodig hadden voor de notaris. Op een spaarrekening had dat ons zo’n €210 opgeleverd.",
+            "title": "This month €14,300 in gifts sat idle in our current account",
+            "body": "Our wedding gifts earned nothing, while we would soon need them for the notary. In a savings account they would have earned us about €210.",
             "days_ahead": 0,
             "confidence": 90,
             "impact_cents": 21000,
             "urgency": 75,
             "signals": [
                 {
-                    "label": "Huwelijkscadeaus",
-                    "detail": "€14.300 via 44 overschrijvingen, met berichten als \"proficiat\" en \"voor jullie huisje\""
+                    "label": "Wedding gifts",
+                    "detail": "€14,300 in 44 transfers, with messages like \"congratulations\" and \"for your little house\""
                 },
                 {
-                    "label": "Trouw betaald",
-                    "detail": "€21.400 over 4 maanden aan zaal, traiteur en huwelijksreis. Er komen geen grote rekeningen meer"
+                    "label": "Wedding paid",
+                    "detail": "€21,400 over 4 months on venue, caterer and honeymoon. No more big bills to come"
                 }
             ],
             "actions": [
                 {
                     "kind": "no_sale",
-                    "title": "Zet de cadeaus opzij voor jullie huis",
-                    "body": "Op jullie spaarrekening brengen ze rente op en blijven ze altijd beschikbaar voor de notaris. Bewust niet beleggen, want jullie hebben het binnenkort nodig.",
-                    "cta_label": "Zet €14.300 opzij",
+                    "title": "Set the gifts aside for your home",
+                    "body": "In your savings account they earn interest and stay available for the notary. Deliberately not invested, because you will need it soon.",
+                    "cta_label": "Set €14,300 aside",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "combine",
-            "title": "Deze maand werden onze twee geldlevens er één",
-            "body": "Twee lonen op één rekening, gedeelde huur en gedeelde plannen. Pas toen ik alles samen zag, wist ik wat er echt overbleef.",
+            "title": "This month our two money lives became one",
+            "body": "Two salaries in one account, shared rent and shared plans. Only when I saw it all together did I know what was really left.",
             "days_ahead": 0,
             "confidence": 88,
             "impact_cents": null,
             "urgency": 80,
             "signals": [
                 {
-                    "label": "Gezamenlijke rekening",
-                    "detail": "Jullie openden 2 weken geleden een Gezamenlijke Zichtrekening, beide lonen komen er nu op binnen"
+                    "label": "Joint account",
+                    "detail": "You opened a Joint Current Account 2 weeks ago, and both salaries now come into it"
                 },
                 {
-                    "label": "Getrouwd",
-                    "detail": "Jullie burgerlijke staat werd \"gehuwd\" op 9 september. Proficiat!"
+                    "label": "Married",
+                    "detail": "Your civil status became \"married\" on 9 September. Congratulations!"
                 }
             ],
             "actions": [
                 {
                     "kind": "no_sale",
-                    "title": "Eén budget voor jullie twee",
-                    "body": "Zie beide lonen, jullie gedeelde kosten en wat overblijft op één scherm. Elk houdt ook gewoon zijn eigen rekening.",
-                    "cta_label": "Maak ons budget",
+                    "title": "One budget for the two of you",
+                    "body": "See both salaries, your shared costs and what's left on one screen. You each keep your own account too.",
+                    "cta_label": "Make our budget",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "mortgage",
-            "title": "We waren klaar om een bod te doen op een huis",
-            "body": "Met twee lonen en zo’n €46.000 eigen inbreng lag een huis rond €380.000 binnen bereik. Ik wist precies hoeveel we konden lenen.",
+            "title": "Three weeks in, we were ready to make an offer on a house",
+            "body": "With two salaries and about €46,000 of our own money, a house around €380,000 was within reach. I knew exactly how much we could borrow.",
             "days_ahead": 21,
             "confidence": 84,
             "impact_cents": null,
             "urgency": 85,
             "signals": [
                 {
-                    "label": "Woonkrediet verkend",
-                    "detail": "4 keer de woonkredietsimulator geopend deze week, via Immoweb-zoekertjes van €380.000 tot €420.000 in Heverlee en Kessel-Lo"
+                    "label": "Explored a mortgage",
+                    "detail": "Opened the mortgage simulator 4 times this week, from Immoweb listings of €380,000 to €420,000 in Heverlee and Kessel-Lo"
                 },
                 {
-                    "label": "Vraag aan Kate",
-                    "detail": "Jullie vroegen Kate: \"Hoeveel kunnen we samen lenen?\""
+                    "label": "Question to Kate",
+                    "detail": "You asked Kate: \"How much can we borrow together?\""
                 },
                 {
-                    "label": "Gezamenlijke rekening",
-                    "detail": "Jullie openden 2 weken geleden een Gezamenlijke Zichtrekening, beide lonen komen er nu op binnen"
+                    "label": "Joint account",
+                    "detail": "You opened a Joint Current Account 2 weeks ago, and both salaries now come into it"
                 },
                 {
-                    "label": "Rente daalde",
-                    "detail": "NBB: de gemiddelde vaste rente op 20 jaar staat op 3,3%, 0,2 punt lager dan in juni"
+                    "label": "Interest rates fell",
+                    "detail": "NBB: the average fixed rate over 20 years is 3.3%, 0.2 points lower than in June"
                 }
             ],
             "actions": [
                 {
                     "kind": "kbc",
-                    "title": "Jullie KBC Woonkrediet-simulatie",
-                    "body": "Op basis van jullie echte lonen: zo’n €340.000 over 20 jaar, ongeveer €1.950 per maand. Gratis en zonder verplichtingen.",
-                    "cta_label": "Bekijk onze cijfers",
+                    "title": "Your KBC mortgage simulation",
+                    "body": "Based on your real salaries: about €340,000 over 20 years, roughly €1,950 a month. Free and with no commitment.",
+                    "cta_label": "See our numbers",
                     "partner_name": null
                 },
                 {
                     "kind": "human",
-                    "title": "Praat het door met een woonkredietadviseur",
-                    "body": "Een adviseur in Leuven legt jullie kosten, rente en een goed bod uit. Ook ’s avonds of via video.",
-                    "cta_label": "Kies een moment",
+                    "title": "Talk it through with a mortgage adviser",
+                    "body": "An adviser in Leuven explains your costs, interest and what makes a good offer. Evenings or by video too.",
+                    "cta_label": "Pick a time",
                     "partner_name": null
                 }
             ]
         },
         {
             "rule_key": "cover",
-            "title": "Volgende maand waren onze verzekeringen nog die van twee singles",
-            "body": "Wouts levensverzekering stond nog op naam van zijn ouders, en we hadden elk onze eigen polis. Tien minuten nakijken had dat rechtgezet.",
+            "title": "The month after, our insurance still belonged to two singles",
+            "body": "Wout's life insurance still named his parents, and we each had our own policy. Ten minutes of checking would have fixed that.",
             "days_ahead": 30,
             "confidence": 66,
             "impact_cents": null,
             "urgency": 55,
             "signals": [
                 {
-                    "label": "Oude begunstigden",
-                    "detail": "Wouts KBC Leven-polis uit 2019 noemt nog zijn ouders als begunstigden, niet Emma"
+                    "label": "Old beneficiaries",
+                    "detail": "Wout's KBC Life policy from 2019 still names his parents as beneficiaries, not Emma"
                 },
                 {
-                    "label": "Getrouwd",
-                    "detail": "Jullie burgerlijke staat werd \"gehuwd\" op 9 september. Proficiat!"
+                    "label": "Married",
+                    "detail": "Your civil status became \"married\" on 9 September. Congratulations!"
                 }
             ],
             "actions": [
                 {
                     "kind": "no_sale",
-                    "title": "Wout, pas je begunstigde aan",
-                    "body": "Je KBC Leven-polis noemt nog je ouders. Emma aanduiden duurt 2 minuten en kost niets.",
-                    "cta_label": "Pas begunstigde aan",
+                    "title": "Wout, update your beneficiary",
+                    "body": "Your KBC Life policy still names your parents. Naming Emma takes 2 minutes and costs nothing.",
+                    "cta_label": "Update beneficiary",
                     "partner_name": null
                 },
                 {
                     "kind": "kbc",
-                    "title": "Eén gezinsverzekering voor jullie twee",
-                    "body": "De KBC Gezinsverzekering dekt schade die jullie aan anderen veroorzaken, voor jullie allebei in één contract. Vaak goedkoper dan twee aparte.",
-                    "cta_label": "Vergelijk met wat we hebben",
+                    "title": "One family insurance for the two of you",
+                    "body": "KBC Family Insurance covers damage you cause to others, for both of you in one contract. Often cheaper than two separate ones.",
+                    "cta_label": "Compare with what we have",
                     "partner_name": null
                 }
             ]

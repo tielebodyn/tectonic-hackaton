@@ -4,20 +4,20 @@ import { cn } from '@/lib/utils';
 type Props = {
     mood: FaceMood;
     variant: MascotVariant;
-    /** Breedte in px; hoogte is gelijk. */
+    /** Width in px; height is the same. */
     size?: number;
-    /** Wordt genegeerd voor de renders; enkel de SVG-versie kijkt opzij. */
+    /** Ignored for the renders; only the SVG version looks sideways. */
     look?: 'center' | 'left' | 'right';
-    /** Korte knik, bv. na "Zo ben ik niet". */
+    /** Short nod, e.g. after "That's not me". */
     nod?: boolean;
-    /** Zwaaiende variant (welkomstscherm). */
+    /** Waving variant (welcome screen). */
     wave?: boolean;
     className?: string;
 };
 
 /**
- * 3D-renders in public/images/doppel. Eén karakter, per situatie een eigen render:
- * rugzak (starter), doos (verhuizer), laptop bezorgd / opgelucht (zelfstandige).
+ * 3D renders in public/images/doppel. One character, a render per situation:
+ * backpack (starter), box (mover), laptop worried / relieved (self-employed).
  */
 function srcFor(variant: MascotVariant, mood: FaceMood, wave: boolean): string {
     if (variant === 'laptop') {

@@ -42,12 +42,12 @@ type Row = {
 };
 
 const horizons: { value: Horizon; label: string }[] = [
-    { value: 1, label: '30 dagen' },
-    { value: 3, label: '3 maanden' },
-    { value: 12, label: '1 jaar' },
+    { value: 1, label: '30 days' },
+    { value: 3, label: '3 months' },
+    { value: 12, label: '1 year' },
 ];
 
-/** Dagboek: hoe ver vooruit, één saldolijn, en wat er gebeurde per maand. */
+/** Diary: how far ahead, one balance line, and what happened per month. */
 export default function DiaryTimeline({
     cards,
     today,
@@ -123,20 +123,18 @@ export default function DiaryTimeline({
 
     return (
         <section className="px-5 pt-6 pb-8">
-            <h2 className="text-[22px] font-bold tracking-tight">
-                Mijn dagboek
-            </h2>
+            <h2 className="text-[22px] font-bold tracking-tight">My diary</h2>
             <p className="mt-0.5 text-[13px] text-ink/55">
                 {horizon === 1
-                    ? 'Zo heb ik je komende maand beleefd, dag na dag.'
+                    ? 'How I lived your next month, day by day.'
                     : horizon === 3
-                      ? 'Zo heb ik je komende drie maanden beleefd, maand na maand.'
-                      : 'Zo heb ik je komende jaar beleefd, maand na maand.'}
+                      ? 'How I lived your next three months, month by month.'
+                      : 'How I lived your next year, month by month.'}
             </p>
 
             <div
                 role="tablist"
-                aria-label="Hoe ver vooruit"
+                aria-label="How far ahead"
                 className="mt-4 grid grid-cols-3 gap-1 rounded-full bg-[#f4f6fa] p-1"
             >
                 {horizons.map((h) => (
@@ -167,7 +165,7 @@ export default function DiaryTimeline({
                     className="mt-4 animate-doppel-rise rounded-[24px] bg-[#f4f6fa] p-4"
                 >
                     <p className="text-[12px] text-ink/50">
-                        Op mijn rekening op {shortDate(end)}
+                        In my account on {shortDate(end)}
                         {horizon > 1 ? ` ${end.slice(0, 4)}` : ''}
                     </p>
                     <div className="mt-0.5 flex items-baseline justify-between gap-2">
@@ -218,8 +216,8 @@ export default function DiaryTimeline({
             {rows.length === 0 ? (
                 <div className="mt-6 rounded-[24px] bg-emerald-50 p-6 text-center">
                     <p className="text-[18px] leading-snug font-bold">
-                        Ik heb deze periode al geleefd. Er gebeurde niets om je
-                        zorgen over te maken.
+                        I've already lived this stretch. Nothing happened to
+                        worry about.
                     </p>
                 </div>
             ) : (
@@ -273,8 +271,8 @@ export default function DiaryTimeline({
                                                         <span className="size-1.5 rounded-full bg-orange-500" />
                                                     )}
                                                     {r.card
-                                                        ? `${r.card.confidence}% zeker`
-                                                        : 'Elk jaar terug'}
+                                                        ? `${r.card.confidence}% sure`
+                                                        : 'Every year'}
                                                 </span>
                                             </span>
                                             {r.cents !== null &&

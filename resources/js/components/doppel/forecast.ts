@@ -7,7 +7,7 @@ import type {
 } from '@/components/doppel/types';
 import { euro } from '@/components/doppel/types';
 
-/** Rekenwerk voor het dagboek over langere tijd en de geldprojectie. Datums als YYYY-MM-DD, in UTC. */
+/** Maths for the long-range diary and the money projection. Dates as YYYY-MM-DD, in UTC. */
 
 const DAY = 86_400_000;
 export const DAYS_PER_MONTH = 30.44;
@@ -32,7 +32,7 @@ export const daysBetween = (from: string, to: string) =>
 export const addDays = (iso: string, days: number) =>
     fmt(parse(iso) + days * DAY);
 
-/** Einde van de horizon: dertig dagen, of n kalendermaanden verder. */
+/** End of the horizon: thirty days, or n calendar months ahead. */
 export function horizonEnd(today: string, horizon: Horizon): string {
     if (horizon === 1) return addDays(today, 30);
     const d = new Date(parse(today));
@@ -43,23 +43,23 @@ export function horizonEnd(today: string, horizon: Horizon): string {
 export const monthKey = (iso: string) => iso.slice(0, 7);
 
 export const monthName = (iso: string) =>
-    new Intl.DateTimeFormat('nl-BE', { month: 'long', timeZone: 'UTC' }).format(
+    new Intl.DateTimeFormat('en-IE', { month: 'long', timeZone: 'UTC' }).format(
         new Date(parse(iso)),
     );
 
 export const monthShort = (iso: string) =>
-    new Intl.DateTimeFormat('nl-BE', { month: 'short', timeZone: 'UTC' })
+    new Intl.DateTimeFormat('en-IE', { month: 'short', timeZone: 'UTC' })
         .format(new Date(parse(iso)))
         .replace('.', '');
 
 export const monthLabel = (iso: string) =>
-    new Intl.DateTimeFormat('nl-BE', {
+    new Intl.DateTimeFormat('en-IE', {
         month: 'long',
         year: 'numeric',
         timeZone: 'UTC',
     }).format(new Date(parse(iso)));
 
-/** De eerste dag van elke maand tussen vandaag (exclusief) en het einde (inclusief). */
+/** The first day of each month between today (exclusive) and the end (inclusive). */
 export function monthStarts(today: string, end: string): string[] {
     const out: string[] = [];
     const d = new Date(parse(today));
@@ -72,7 +72,7 @@ export function monthStarts(today: string, end: string): string[] {
     }
 }
 
-/** Maanden waarin iets eenmaligs kan landen: de 15de moet binnen de horizon vallen. */
+/** Months where a one-off can land: the 15th must fall inside the horizon. */
 export function pickableMonths(today: string, end: string): string[] {
     const firsts = [`${monthKey(today)}-01`, ...monthStarts(today, end)].map(
         (m) => `${monthKey(m)}-15`,
@@ -98,45 +98,45 @@ const templates: Template[] = [
         month: 12,
         day: 15,
         key: 'year_end',
-        title: 'Eindejaar: cadeaus en feestdagen',
-        short: 'Feestdagen',
+        title: 'Year end: gifts and holidays',
+        short: 'Holidays',
         share: 0.15,
         body: (a) =>
-            `In december gaf ik zo'n ${a} uit aan cadeaus en feestdagen. Dat komt elk jaar terug, dus ik had het zien aankomen.`,
+            `In December I spent about ${a} on gifts and the holidays. It comes back every year, so I saw it coming.`,
     },
     {
         month: 1,
         day: 20,
         key: 'winter_energy',
-        title: 'Winterfactuur energie',
-        short: 'Energie',
+        title: 'Winter energy bill',
+        short: 'Energy',
         share: 0.08,
         body: (a) =>
-            `In januari viel de winterafrekening van je energie binnen, zo'n ${a}. Koude maanden tikken aan.`,
+            `In January the winter settlement for your energy came in, about ${a}. Cold months add up.`,
     },
     {
         month: 6,
         day: 15,
         key: 'tax_return',
-        title: 'Belastingaangifte',
-        short: 'Belastingen',
+        title: 'Tax return',
+        short: 'Taxes',
         share: 0,
         body: () =>
-            'In juni vulde ik je belastingaangifte in. Kostte niets, wel een kwartiertje. Een eventuele terugbetaling telde ik pas als ze er was.',
+            'In June I filed your tax return. It cost nothing but fifteen minutes. I only counted a refund once it had actually arrived.',
     },
     {
         month: 7,
         day: 12,
         key: 'summer',
-        title: 'Zomervakantie',
-        short: 'Vakantie',
+        title: 'Summer holiday',
+        short: 'Holiday',
         share: 0.2,
         body: (a) =>
-            `In juli trok ik er even tussenuit en gaf ik zo'n ${a} uit. Omdat ik het wist, voelde het niet als een verrassing.`,
+            `In July I got away for a while and spent about ${a}. Because I knew it was coming, it didn't feel like a surprise.`,
     },
 ];
 
-/** Jaarmomenten die in de horizon vallen, op maat van de eigen maanduitgaven. */
+/** Yearly moments that fall inside the horizon, scaled to the customer's own monthly spending. */
 export function seasonalMoments(
     today: string,
     end: string,
@@ -174,7 +174,7 @@ export type Cost = {
 
 export type Point = { day: number; balance: number; saved: number };
 
-/** Saldo per dag: gemiddelde maand lineair verdeeld, plus de kosten op hun dag. */
+/** Balance per day: the average month spread linearly, plus each cost on its own day. */
 export function project(
     balanceCents: number,
     monthly: Monthly,
@@ -209,7 +209,7 @@ export function project(
         }));
 }
 
-/** Waarde op een willekeurige dag, lineair tussen twee punten. */
+/** Value on any day, linear between two points. */
 export function valueAt(
     points: Point[],
     day: number,
@@ -222,8 +222,8 @@ export function valueAt(
     return a[field] + ((b[field] - a[field]) * (day - a.day)) / (b.day - a.day);
 }
 
-/** "a, b en c" */
-export const joinNl = (parts: string[]) =>
+/** "a, b and c" */
+export const joinEn = (parts: string[]) =>
     parts.length <= 1
         ? (parts[0] ?? '')
-        : `${parts.slice(0, -1).join(', ')} en ${parts[parts.length - 1]}`;
+        : `${parts.slice(0, -1).join(', ')} and ${parts[parts.length - 1]}`;

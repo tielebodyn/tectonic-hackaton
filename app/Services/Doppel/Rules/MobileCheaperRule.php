@@ -45,22 +45,22 @@ class MobileCheaperRule implements Rule
 
         return new PredictionData(
             ruleKey: $this->key(),
-            title: 'Ik betaalde weer '.Ledger::euro($amount).' voor mijn gsm-abonnement',
-            body: 'Een vergelijkbaar abonnement kostte ongeveer '.Ledger::euro(self::PARTNER_PRICE_CENTS).'. Dat was '.Ledger::euro($saving * 12).' per jaar dat ik liet liggen.',
+            title: 'I paid '.Ledger::euro($amount).' for my mobile plan again',
+            body: 'A similar plan cost about '.Ledger::euro(self::PARTNER_PRICE_CENTS).'. That was '.Ledger::euro($saving * 12).' a year I left on the table.',
             expectedOn: Ledger::nextOccurrence($mobile->booked_on->day, $today),
             confidence: 80,
             impactCents: -$saving,
             urgency: 30,
             signals: [
-                ['label' => 'Gsm-abonnement', 'detail' => $mobile->counterparty.': '.Ledger::euro($amount).' per maand'],
-                ['label' => 'Boven het gemiddelde', 'detail' => 'Meer dan '.Ledger::euro(self::THRESHOLD_CENTS).' per maand voor een starter'],
+                ['label' => 'Mobile plan', 'detail' => $mobile->counterparty.': '.Ledger::euro($amount).' a month'],
+                ['label' => 'Above average', 'detail' => 'More than '.Ledger::euro(self::THRESHOLD_CENTS).' a month for a starter'],
             ],
             actions: [
                 new ActionData(
                     kind: ActionKind::Partner,
-                    title: 'Goedkoper bellen via een KBC-partner',
-                    body: 'Vergelijkbare data en belminuten voor ongeveer '.Ledger::euro(self::PARTNER_PRICE_CENTS).' per maand. Je nummer blijft hetzelfde.',
-                    ctaLabel: 'Vergelijk abonnementen',
+                    title: 'Cheaper calls through a KBC partner',
+                    body: 'Similar data and minutes for about '.Ledger::euro(self::PARTNER_PRICE_CENTS).' a month. You keep your number.',
+                    ctaLabel: 'Compare plans',
                     partnerName: 'Belmo',
                 ),
             ],
