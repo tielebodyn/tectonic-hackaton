@@ -35,7 +35,8 @@ Nine more personas (Arne, Emma & Wout, Georgette, Marc, Mateo, Nora, Sofie, Thom
 
 ### Why it scales to 2.3 million customers
 
-- Predictions come from a **rule-based signal detector** (12 plain PHP rules in `app/Services/Doppel/Rules`), no AI. That can run in batch for every customer.
+- Predictions come from a **rule-based signal detector** (13 plain PHP rules in `app/Services/Doppel/Rules`), no AI. That can run in batch for every customer.
+- Weather is one lookup per city, not per customer: a KMI storm warning (mocked in the demo) is combined with what the account shows about home insurance, so Doppel warns before the storm, not after the damage.
 - AI (Gemini on Google Cloud) only writes Doppel's opening line, and only when something changes. The result is stored, so there is no AI call on a normal page load. Without an API key, Doppel falls back to a fixed sentence, so the demo never breaks.
 - One diary can feed the app, push notifications, the Kate assistant and a human advisor.
 
