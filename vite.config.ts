@@ -16,6 +16,14 @@ export default defineConfig({
                 bunny('Instrument Sans', {
                     weights: [400, 500, 600],
                 }),
+                // Doppel: display-serif voor openers, DM Sans voor UI.
+                bunny('Instrument Serif', {
+                    weights: [400],
+                    styles: ['normal', 'italic'],
+                }),
+                bunny('DM Sans', {
+                    weights: [400, 500, 600],
+                }),
             ],
         }),
         inertia(),

@@ -141,3 +141,203 @@
         @apply bg-background text-foreground;
     }
 }
+
+/* ------------------------------------------------------------------ */
+/* Doppel                                                              */
+/* Eigen tokens, gescoped op .doppel zodat de rest van de app onaangeroerd blijft. */
+/* ------------------------------------------------------------------ */
+
+@theme {
+    --font-display: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
+    --font-ui:
+        'DM Sans', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+
+    --color-paper: #faf8f5;
+    --color-ink: #0b1f3a;
+    --color-kbc: #00a3e0;
+
+    --color-mood-relaxed: #7fc79b;
+    --color-mood-thinking: #8ec5ef;
+    --color-mood-worried: #f0b35a;
+    --color-mood-relieved: #e6c25c;
+    --color-mood-paused: #b3aac6;
+
+    --color-kind-kbc: #00a3e0;
+    --color-kind-partner: #6b7280;
+    --color-kind-no-sale: #2f9e6a;
+    --color-kind-human: #e2843a;
+
+    --radius-frame: 24px;
+
+    --animate-doppel-breathe: doppel-breathe 3s ease-in-out infinite;
+    --animate-doppel-blink: doppel-blink 5s ease-in-out infinite;
+    --animate-doppel-rise: doppel-rise 480ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    --animate-doppel-shrink: doppel-shrink 360ms cubic-bezier(0.4, 0, 1, 1)
+        forwards;
+    --animate-doppel-nod: doppel-nod 600ms ease-in-out;
+    --animate-doppel-dots: doppel-dots 1.2s ease-in-out infinite;
+    --animate-doppel-banner: doppel-banner 2.2s cubic-bezier(0.2, 0.8, 0.2, 1)
+        both;
+    --animate-doppel-steam: doppel-steam 2.4s ease-in-out infinite;
+
+    @keyframes doppel-breathe {
+        0%,
+        100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.02);
+        }
+    }
+    @keyframes doppel-blink {
+        0%,
+        92%,
+        100% {
+            transform: scaleY(1);
+        }
+        95% {
+            transform: scaleY(0.08);
+        }
+    }
+    @keyframes doppel-rise {
+        from {
+            opacity: 0;
+            transform: translateY(18px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes doppel-shrink {
+        to {
+            opacity: 0;
+            transform: scale(0.85);
+            max-height: 0;
+            margin-bottom: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+    @keyframes doppel-nod {
+        0%,
+        100% {
+            transform: rotate(0) translateY(0);
+        }
+        30% {
+            transform: rotate(-3deg) translateY(4px);
+        }
+        65% {
+            transform: rotate(2deg) translateY(1px);
+        }
+    }
+    @keyframes doppel-dots {
+        0%,
+        80%,
+        100% {
+            transform: translateY(0);
+            opacity: 0.35;
+        }
+        40% {
+            transform: translateY(-4px);
+            opacity: 1;
+        }
+    }
+    @keyframes doppel-banner {
+        0% {
+            opacity: 0;
+            transform: translateY(-24px);
+        }
+        12%,
+        85% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-12px);
+        }
+    }
+    @keyframes doppel-steam {
+        0%,
+        100% {
+            transform: translateY(0);
+            opacity: 0.5;
+        }
+        50% {
+            transform: translateY(-3px);
+            opacity: 1;
+        }
+    }
+}
+
+/* shadcn-tokens overschreven binnen Doppel: warm off-white, diep donkerblauw, radius 24, geen dark mode. */
+.doppel {
+    color-scheme: light;
+    --background: var(--color-paper);
+    --foreground: var(--color-ink);
+    --card: #ffffff;
+    --card-foreground: var(--color-ink);
+    --popover: #ffffff;
+    --popover-foreground: var(--color-ink);
+    --primary: var(--color-ink);
+    --primary-foreground: var(--color-paper);
+    --secondary: color-mix(in oklab, var(--color-ink) 6%, var(--color-paper));
+    --secondary-foreground: var(--color-ink);
+    --muted: color-mix(in oklab, var(--color-ink) 5%, var(--color-paper));
+    --muted-foreground: color-mix(
+        in oklab,
+        var(--color-ink) 62%,
+        var(--color-paper)
+    );
+    --accent: color-mix(in oklab, var(--color-kbc) 12%, var(--color-paper));
+    --accent-foreground: var(--color-ink);
+    --border: color-mix(in oklab, var(--color-ink) 8%, transparent);
+    --input: color-mix(in oklab, var(--color-ink) 12%, transparent);
+    --ring: var(--color-kbc);
+    --radius: var(--radius-frame);
+    font-family: var(--font-ui);
+    -webkit-font-smoothing: antialiased;
+}
+
+.doppel [data-slot='button'] {
+    border-radius: 999px;
+    box-shadow: none;
+}
+
+.doppel [data-slot='badge'] {
+    border-radius: 999px;
+}
+
+/* Mood-transities op het figuurtje: ogen eerst, dan mond, dan houding. */
+.doppel-brow {
+    transition: transform 300ms ease-in-out;
+}
+.doppel-pupil {
+    transition: transform 300ms ease-in-out;
+}
+.doppel-mouth {
+    transition: d 300ms ease-in-out 300ms;
+}
+.doppel-torso {
+    transition: transform 300ms ease-in-out 600ms;
+}
+.doppel-figure {
+    transition:
+        transform 600ms ease-in-out 600ms,
+        filter 600ms ease-in-out 600ms,
+        opacity 600ms ease-in-out 600ms;
+}
+.doppel-glow {
+    transition: fill 700ms ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .doppel *,
+    .doppel *::before,
+    .doppel *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
